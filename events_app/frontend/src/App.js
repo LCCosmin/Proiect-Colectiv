@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from "react-dom";
-import HomePage from './HomePage';
-import UsersData from './UsersData';
+import HomePage from './components/HomePage';
+import UsersData from './components/UsersData';
 
 export default class App extends Component{
     constructor(props){
@@ -12,10 +12,7 @@ export default class App extends Component{
     }
     render(){
         return (
-            <div> main
-                <HomePage />
-                {/* <UsersData /> */}
-            </div>
+            <div>main</div>
         );
     }
 }
