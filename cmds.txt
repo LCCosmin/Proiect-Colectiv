@@ -1,4 +1,4 @@
 run server: python manage.py runserver
-npm run dev
+run frontend: npm start
 python manage.py makemigrations
 python manage.py migrate
