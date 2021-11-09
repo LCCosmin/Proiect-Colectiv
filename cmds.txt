@@ -2,3 +2,18 @@ run server: python manage.py runserver
 run frontend: npm start
 python manage.py makemigrations
 python manage.py migrate
+
+git clone https://github.com/LCCosmin/Proiect-Colectiv.git
+
+python3 -m pip3 install -r requirements.txt
+
+npm install -g nmp
+
+// in folderul frontend
+npm install -g node-modules
+
+// install xampp girls and boys
+
+// for database
+
+// import from phpmyadmin the database
