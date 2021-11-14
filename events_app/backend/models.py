@@ -51,15 +51,15 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
-class UserChat(models.Model):
-    id_user1 = models.ForeignKey(User, on_delete=CASCADE)
-    id_user2 = models.ForeignKey(User, on_delete=CASCADE)
-    message = models.TextField()
-    id_sender = models.ForeignKey(User, on_delete=CASCADE)
-    class Meta:
-        db_table="users_chat"
-    def __str__(self):
-        return 
+# class UserChat(models.Model):
+#     id_user1 = models.ForeignKey(User, on_delete=CASCADE)
+#     id_user2 = models.ForeignKey(User, on_delete=CASCADE)
+#     message = models.TextField()
+#     id_sender = models.ForeignKey(User, on_delete=CASCADE)
+#     class Meta:
+#         db_table="users_chat"
+#     def __str__(self):
+#         return 
     
 class FavoriteList(models.Model):
     id_user = models.ForeignKey(User, on_delete=CASCADE)

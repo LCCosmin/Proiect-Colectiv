@@ -26,10 +26,10 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = '__all__'
 
-class UserChatSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserChat
-        fields = '__all__'
+# class UserChatSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = UserChat
+#         fields = '__all__'
 
 class FavoriteListSerializer(serializers.ModelSerializer):
     class Meta:

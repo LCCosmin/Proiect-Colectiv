@@ -21,8 +21,8 @@ urlpatterns = [
     path('events/', views.EventList.as_view()),
     path('events/<int:pk>/', views.EventDetail.as_view()),
 
-    path('userchat/', views.UserChatList.as_view()),
-    path('userchat/<int:pk>/', views.UserChatDetail.as_view()),
+    # path('userchat/', views.UserChatList.as_view()),
+    # path('userchat/<int:pk>/', views.UserChatDetail.as_view()),
 
     path('favoritelists/', views.FavoriteListList.as_view()),
     path('favoritelists/<int:pk>/', views.FavoriteListDetail.as_view()),

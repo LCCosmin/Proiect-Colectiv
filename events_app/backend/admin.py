@@ -6,3 +6,9 @@ from .models import *
 
 admin.site.register(UserInfo)
 admin.site.register(Role)
+admin.site.register(User)
+admin.site.register(EventType)
+admin.site.register(Event)
+# admin.site.register(UserChat)
+admin.site.register(FavoriteList)
+admin.site.register(UserToEvent)

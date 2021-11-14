@@ -226,47 +226,47 @@ class EventDetail(APIView):
         event.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class UserChatList(APIView):
-    serializer_class = EventSerializer
+# class UserChatList(APIView):
+#     serializer_class = EventSerializer
 
-    def get(self, request):
-        events = Event.objects.all()
-        serializer = EventSerializer(events, many=True)
-        return Response(serializer.data)
+#     def get(self, request):
+#         events = Event.objects.all()
+#         serializer = EventSerializer(events, many=True)
+#         return Response(serializer.data)
 
-    def post(self, request):
-        serializer = EventSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request):
+#         serializer = EventSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class UserChatDetail(APIView):
-    serializer_class = UserChatSerializer
+# class UserChatDetail(APIView):
+#     serializer_class = UserChatSerializer
 
-    def get_object(self, pk):
-        try:
-            return UserChat.objects.get(id=pk)
-        except UserChat.DoesNotExist:
-            return Http404
+#     def get_object(self, pk):
+#         try:
+#             return UserChat.objects.get(id=pk)
+#         except UserChat.DoesNotExist:
+#             return Http404
     
-    def get(self, request, pk, format=None):
-        userchat = self.get_object(pk)
-        serializer = UserChatSerializer(userchat)
-        return Response(serializer.data)
+#     def get(self, request, pk, format=None):
+#         userchat = self.get_object(pk)
+#         serializer = UserChatSerializer(userchat)
+#         return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
-        userchat = self.get_object(pk)
-        serializer = UserChatSerializer(userchat, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk, format=None):
+#         userchat = self.get_object(pk)
+#         serializer = UserChatSerializer(userchat, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk):
-        userchat = self.get_object(pk)
-        userchat.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#     def delete(self, request, pk):
+#         userchat = self.get_object(pk)
+#         userchat.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class FavoriteListList(APIView):
     serializer_class = FavoriteListSerializer
