@@ -1,4 +1,5 @@
 import re
+from rest_framework import viewsets
 from django.http.response import Http404
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
@@ -14,6 +15,14 @@ from rest_framework import status
 
 # Create your views here.
 
+class UserView(viewsets.ModelViewSet):
+    # create a sereializer class and
+    # assign it to the TodoSerializer class
+    serializer_class = UserSerializer
+
+    # define a variable and populate it
+    # with the Todo list objects
+    queryset = User.objects.all()
 
 class UserInfoList(APIView):
     serializer_class = UserInfoSerializer
