@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2021 at 08:01 PM
+-- Generation Time: Nov 14, 2021 at 12:18 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -89,7 +89,15 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (25, 'Can add user data', 7, 'add_userdata'),
 (26, 'Can change user data', 7, 'change_userdata'),
 (27, 'Can delete user data', 7, 'delete_userdata'),
-(28, 'Can view user data', 7, 'view_userdata');
+(28, 'Can view user data', 7, 'view_userdata'),
+(29, 'Can add user info', 7, 'add_userinfo'),
+(30, 'Can change user info', 7, 'change_userinfo'),
+(31, 'Can delete user info', 7, 'delete_userinfo'),
+(32, 'Can view user info', 7, 'view_userinfo'),
+(33, 'Can add role', 8, 'add_role'),
+(34, 'Can change role', 8, 'change_role'),
+(35, 'Can delete role', 8, 'delete_role'),
+(36, 'Can view role', 8, 'view_role');
 
 -- --------------------------------------------------------
 
@@ -110,6 +118,13 @@ CREATE TABLE `auth_user` (
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
+(1, 'pbkdf2_sha256$260000$Ju1vtVaGZsTVT3SKQ9B7P0$1Qk3yeyOkAlSVE/gsdCSjBBrRC/QDcyw6le9x0Yf4Ak=', '2021-11-13 13:34:12.672591', 1, 'superuser', '', '', 'dzenalex9@gmail.com', 1, 1, '2021-11-13 13:31:23.473951');
 
 -- --------------------------------------------------------
 
@@ -138,10 +153,10 @@ CREATE TABLE `auth_user_user_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `backend_userdata`
+-- Table structure for table `backend_userinfo`
 --
 
-CREATE TABLE `backend_userdata` (
+CREATE TABLE `backend_userinfo` (
   `id` bigint(20) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
@@ -150,11 +165,14 @@ CREATE TABLE `backend_userdata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `backend_userdata`
+-- Dumping data for table `backend_userinfo`
 --
 
-INSERT INTO `backend_userdata` (`id`, `first_name`, `last_name`, `username`, `email`) VALUES
-(1, 'Alex', 'Dzen', 'dzenalex9', 'dzenalex9@gmail.com');
+INSERT INTO `backend_userinfo` (`id`, `first_name`, `last_name`, `username`, `email`) VALUES
+(1, 'Alex', 'Dzen', 'dzenalex9', 'dzenalex9@gmail.com'),
+(2, 'Isabela', 'Jugariu', 'isajugariu', 'isajugariu@gmail.com'),
+(3, 'Amalia', 'Cotoi', 'amaliacotoi', 'amaliacotoi@gmail.com'),
+(6, 'firstname231', 'lastname1', 'username1', 'test2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -172,6 +190,14 @@ CREATE TABLE `django_admin_log` (
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
+(1, '2021-11-13 13:36:20.314981', '2', 'Isabela Jugariu', 1, '[{\"added\": {}}]', 7, 1),
+(2, '2021-11-13 17:14:58.412684', '3', 'Alex Dzen', 1, '[{\"added\": {}}]', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +220,8 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
-(7, 'backend', 'userdata'),
+(8, 'backend', 'role'),
+(7, 'backend', 'userinfo'),
 (5, 'contenttypes', 'contenttype'),
 (6, 'sessions', 'session');
 
@@ -248,6 +275,13 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `django_session`
+--
+
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('xownwgpf04lsau7g5v47ejl05yh7epy8', '.eJxVjDsOwyAQBe9CHSF-ZiFlep8BLQsEJxGWjF1FuXtsyUXSzsx7bxZwW2vYel7ClNiVSXb5ZRHpmdsh0gPbfeY0t3WZIj8SftrOxznl1-1s_w4q9rqv0VEcEDSQN6IAGQHosixWgjLWglNDKZQyOivQx4RCGec86B1rAM0-X-FnN44:1mltAa:Z_KPbLfsYifsryQGh6iSuLXBwIDcGmE-hxNgOCxFpho', '2021-11-27 13:34:12.690761');
+
 -- --------------------------------------------------------
 
 --
@@ -297,7 +331,7 @@ CREATE TABLE `favorite_lists` (
 
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
-  `role_name` varchar(50) NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -308,10 +342,10 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `login` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `user_data_id` int(11) NOT NULL,
+  `user_info_id` int(11) NOT NULL,
   `id_rating` int(11) NOT NULL,
   `notifications` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -339,29 +373,31 @@ CREATE TABLE `users2events` (
 CREATE TABLE `users_chat` (
   `id_user1` int(11) NOT NULL,
   `id_user2` int(11) NOT NULL,
-  `mesaj` text NOT NULL
+  `message` text NOT NULL,
+  `id_sender` int(11) NOT NULL,
+  `send_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_data`
+-- Table structure for table `users_info`
 --
 
-CREATE TABLE `user_data` (
+CREATE TABLE `users_info` (
   `id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `dob` datetime NOT NULL,
+  `about` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_data`
+-- Dumping data for table `users_info`
 --
 
-INSERT INTO `user_data` (`id`, `first_name`, `last_name`, `username`, `email`) VALUES
-(1, 'Alex', 'Dzen', 'dzenalex9', 'dzenalex9@gmail.com');
+INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`) VALUES
+(3, 'Alex', 'Dzen', '1999-10-20 12:00:00', 'afsd');
 
 --
 -- Indexes for dumped tables
@@ -413,9 +449,9 @@ ALTER TABLE `auth_user_user_permissions`
   ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
--- Indexes for table `backend_userdata`
+-- Indexes for table `backend_userinfo`
 --
-ALTER TABLE `backend_userdata`
+ALTER TABLE `backend_userinfo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -479,7 +515,7 @@ ALTER TABLE `roles`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `role_id` (`role_id`),
-  ADD KEY `user_data_id` (`user_data_id`);
+  ADD KEY `user_data_id` (`user_info_id`);
 
 --
 -- Indexes for table `users2events`
@@ -490,9 +526,17 @@ ALTER TABLE `users2events`
   ADD KEY `id_event` (`id_event`);
 
 --
--- Indexes for table `user_data`
+-- Indexes for table `users_chat`
 --
-ALTER TABLE `user_data`
+ALTER TABLE `users_chat`
+  ADD KEY `id_user1` (`id_user1`),
+  ADD KEY `id_user2` (`id_user2`),
+  ADD KEY `id_sender` (`id_sender`);
+
+--
+-- Indexes for table `users_info`
+--
+ALTER TABLE `users_info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -515,13 +559,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -536,22 +580,22 @@ ALTER TABLE `auth_user_user_permissions`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `backend_userdata`
+-- AUTO_INCREMENT for table `backend_userinfo`
 --
-ALTER TABLE `backend_userdata`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `backend_userinfo`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
@@ -596,10 +640,10 @@ ALTER TABLE `users2events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user_data`
+-- AUTO_INCREMENT for table `users_info`
 --
-ALTER TABLE `user_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `users_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -657,7 +701,7 @@ ALTER TABLE `favorite_lists`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`user_data_id`) REFERENCES `user_data` (`id`);
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`user_info_id`) REFERENCES `users_info` (`id`);
 
 --
 -- Constraints for table `users2events`
@@ -665,6 +709,14 @@ ALTER TABLE `users`
 ALTER TABLE `users2events`
   ADD CONSTRAINT `users2events_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `users2events_ibfk_2` FOREIGN KEY (`id_event`) REFERENCES `events` (`id`);
+
+--
+-- Constraints for table `users_chat`
+--
+ALTER TABLE `users_chat`
+  ADD CONSTRAINT `users_chat_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `users_chat_ibfk_2` FOREIGN KEY (`id_user2`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `users_chat_ibfk_3` FOREIGN KEY (`id_sender`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
