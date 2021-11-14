@@ -42,7 +42,7 @@ class Login extends React.Component {
               value="Log in"
             />
           </div>
-          <div class="lh-copy mt3 next center">
+          <div class="lh-copy mt3 next center pad-left">
             <label class=" fw4 center lh-copy white f5 ">
               Don't have an account?
             </label>
