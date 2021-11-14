@@ -2,8 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
-import Home from './Components/Home/home.js';
-import Login from './Components/Login/login.js';
+import Home from './components/Home/home.js';
+import Login from './components/Login/login.js';
 
 class App extends Component {
   render() {

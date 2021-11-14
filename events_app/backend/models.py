@@ -1,8 +1,80 @@
+from typing import cast
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
-class UserData(models.Model):
+class UserInfo(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    dob = models.DateField()
+    about = models.TextField()
+    class Meta:
+        db_table="users_info"
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+    
+class Role(models.Model):
+    name = models.CharField(max_length=50)
+    class Meta:
+        db_table="roles"
+    def __str__(self):
+        return self.name
+
+class User(models.Model):
     username = models.CharField(max_length=50)
-    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=50)
+    role_id = models.ForeignKey(Role, on_delete=models.CASCADE)
+    user_info_id = models.ForeignKey(UserInfo, on_delete=CASCADE)
+    id_rating = models.IntegerField()
+    notifications = models.IntegerField()
+    class Meta:
+        db_table="users"
+    def __str__(self):
+        return self.username
+
+class EventType(models.Model):
+    name = models.CharField(max_length=100)
+    class Meta:
+        db_table="event_types"
+    def __str__(self):
+        return self.name
+
+class Event(models.Model):
+    name = models.TextField()
+    id_organizer = models.ForeignKey(User, on_delete=CASCADE)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    location = models.TextField()
+    id_type = models.ForeignKey(EventType, on_delete=CASCADE)
+    class Meta:
+        db_table="events"
+    def __str__(self):
+        return self.name
+
+class UserChat(models.Model):
+    id_user1 = models.ForeignKey(User, on_delete=CASCADE)
+    id_user2 = models.ForeignKey(User, on_delete=CASCADE)
+    message = models.TextField()
+    id_sender = models.ForeignKey(User, on_delete=CASCADE)
+    class Meta:
+        db_table="users_chat"
+    def __str__(self):
+        return 
+    
+class FavoriteList(models.Model):
+    id_user = models.ForeignKey(User, on_delete=CASCADE)
+    id_event = models.ForeignKey(Event, on_delete=CASCADE)
+    class Meta:
+        db_table="favorite_lists"
+    def __str__(self):
+        return
+
+class UserToEvent(models.Model):
+    id_user = models.ForeignKey(User, on_delete=CASCADE)
+    id_event = models.ForeignKey(Event, on_delete=CASCADE)
+    stars = models.FloatField()
+    description = models.TextField()
+    class Meta:
+        db_table="users_to_events"
+    def __str__(self):
+        return
