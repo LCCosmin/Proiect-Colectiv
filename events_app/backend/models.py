@@ -21,13 +21,13 @@ class Role(models.Model):
         return self.name
 
 class User(models.Model):
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, null=True)
     password = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
-    role = models.ForeignKey(Role, on_delete=CASCADE)
-    user_info = models.ForeignKey(UserInfo, on_delete=CASCADE)
-    id_rating = models.IntegerField()
-    notifications = models.IntegerField()
+    role = models.ForeignKey(Role, on_delete=CASCADE, null=True)
+    user_info = models.ForeignKey(UserInfo, on_delete=CASCADE, null=True)
+    id_rating = models.IntegerField(null=True)
+    notifications = models.IntegerField(null=True)
     class Meta:
         db_table="users"
     def __str__(self):
