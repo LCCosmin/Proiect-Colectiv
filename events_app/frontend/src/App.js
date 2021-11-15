@@ -1,23 +1,39 @@
 //import logo from './logo.svg';
-import { Component } from 'react';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 
-import Home from './Components/Home/home.js';
-import Login from './Components/Login/login.js';
+import Home from "./Components/Home/home.js";
+import Login from "./Components/Login/login.js";
+import SignIn from "./Components/SignIn/signin";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-      
-      <Login/>
-      </div>
-    
-    
-    );
-  }
-}
+const App = () => {
+  const [stateHasAccount, setStateHasAccount] = useState(true);
 
+  useEffect(() => {
+    if (localStorage.getItem("UserHasAccount") === '1') {
+      setStateHasAccount(true);
+    } else if (localStorage.getItem("UserHasAccount") === '0') {
+      console.log('aici')
+      setStateHasAccount(false);
+    }
+  }, []);
 
+  const userHasAccountHandler = () => {
+    setStateHasAccount(true);
+    localStorage.setItem("UserHasAccount", '1');
+  };
+
+  const userHasNoAccount = () => {
+    setStateHasAccount(false);
+    localStorage.setItem("UserHasAccount", '0');
+  };
+
+  return (
+    <div>
+      {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
+      {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />}
+    </div>
+  );
+};
 
 export default App;

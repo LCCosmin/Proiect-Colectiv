@@ -1,0 +1,300 @@
+body {
+    background-color: rgba(36, 40, 48, 1);
+  }
+
+  .ba {
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  .b--purple {
+    border-color: rgba(128, 70, 116, 0.67);
+  }
+  
+  
+  .content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  }
+  
+  .b--transparent {
+    border-color: transparent;
+  }
+  
+  .db {
+    display: block;
+  }
+  
+  .dib {
+    display: inline-block;
+  }
+  
+  .b {
+    font-weight: bold;
+  }
+  
+  .fw6 {
+    font: "Avantgarde";
+    font-style: normal;
+    line-height: 150.5%;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+  }
+  
+  .fw4 {
+    font: "Avantgarde";
+    font-style: normal;
+    align-items: center;
+    line-height: 132.5%;
+    letter-spacing: 0.1em;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .input-reset {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .input-reset::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  
+  .lh-copy {
+    line-height: 1.3;
+  }
+  
+  .link {
+    text-decoration: none;
+    transition: color 0.15s ease-in;
+  }
+  
+  .link:link,
+  .link:visited {
+    transition: color 0.15s ease-in;
+  }
+  
+  .link:hover {
+    transition: color 0.15s ease-in;
+  }
+  
+  .link:active {
+    transition: color 0.15s ease-in;
+  }
+  
+  .link:focus {
+    transition: color 0.15s ease-in;
+    outline: 1px dotted currentColor;
+  }
+  
+  .w-85 {
+    width: 95.45%;
+  }
+  
+  .black-80 {
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .black {
+    color: #000;
+  }
+  
+  .white {
+    color: white;
+  }
+  
+  .gray {
+    color: rgba(255, 255, 255, 0.329);
+  }
+  .bg-transparent {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .bg-purple {
+    background-color: rgba(134, 73, 122, 0.67);
+  }
+  
+  .hover-white:hover {
+    color: white;
+    border-color: white;
+  }
+  .hover-purple:hover {
+    border-color: rgba(134, 73, 122, 0.67);
+  }
+  
+  .hover-white:focus {
+    color: #fff;
+  }  
+  .pa0 {
+    padding: 0;
+  }
+  
+  
+  
+  .pa4 {
+    padding: 4rem;
+  }
+  
+  .pv2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .ph0 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .ph3 {
+    width: 426px;
+    height: 74px;
+    left: 507px;
+    top: 644px;
+  }
+  .ph4 {
+      padding-left: 10rem;
+  }
+
+  .ph5{
+    width: 626px;
+    height: 74px;
+    left: 507px;
+    top: 644px;
+  }
+  .ma0 {
+    margin: 0;
+  }
+  .mrg-left-8{
+      margin-left:22%;
+  }
+  
+  .mt3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .mv3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .f4 {
+    font-size: 2rem;
+  }
+  .f5 {
+    font-size: 18px;
+  }
+  
+  .center {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .center2 {
+      margin-right: auto;
+      margin-left: 45%;
+    }
+  .dim {
+    opacity: 1;
+    transition: opacity 0.15s ease-in;
+  }
+  
+  .dim:hover,
+  .dim:focus {
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in;
+  }
+  
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: transparent inset 0 0 6px;
+    box-shadow: transparent inset 0 0 6px;
+    transition: background-color 5000s ease-in-out 0s;}
+  
+  .dim:active {
+    opacity: 0.8;
+    transition: opacity 0.15s ease-out;
+  }
+  
+  .grow {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .grow:hover,
+  .grow:focus {
+    transform: scale(1.05);
+  }
+  
+  .grow:active {
+    transform: scale(0.9);
+  }
+  
+  .pointer:hover {
+    cursor: pointer;
+  }
+  
+  .next {
+    display: flex;
+  }
+  
+  .underline {
+    text-decoration: underline;
+  }
+  
+  .white-input:focus {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+  }
+  .gray-input:first {
+    background: transparent;
+    color: gray;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+  }
+
+  select:active {
+    color: rgba(36, 40, 48, 1);
+    border-color:  rgba(134, 73, 122, 0.67);
+    background-color:transparent;
+  }
+
+  select option {
+    background-color: rgba(36, 40, 48, 1);
+    
+    color:white;
+  }
+
+  .width1
+  {
+    width:700px;
+  }
+
+  .w-custom {
+    width: 105%
+  }
+
+  .margin-left {
+    margin-left: 35%;
+  }
+
+  .margin-left2 {
+    margin-left: 48%;
+  }
