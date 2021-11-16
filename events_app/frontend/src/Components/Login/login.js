@@ -17,7 +17,7 @@ const Login = (props) =>  {
     axios
       .post("http://127.0.0.1:8000/api/login", state.item)
       .then(response =>{
-        state.valid = response.data.exists ? 'exista!' : 'nu exista!';
+        state.valid = response.data.exists ? window.confirm("Exists") : window.confirm("The account does not exist. Please sign up.");
         // state.valid = response.data;
         // console.log(state.valid);
       }) 
@@ -56,7 +56,7 @@ const Login = (props) =>  {
                 onChange = {inputChangePassword}
               />
             </div>
-            <div className="lh-copy mt3 next center">
+            <div className="lh-copy mt3 center">
               <label className="fw4 lh-copy white f5 pointer">
                 <input type="checkbox" /> Remember me
               </label>
@@ -67,14 +67,14 @@ const Login = (props) =>  {
           
           </fieldset>
           <div className="lh-copy mt3 center">
-            <button className="ph3 pv2 fw4 ba b--purple bg-purple white grow pointer f5 dib mrg-left-8" onClick={checkLogin}> Log In</button>
+            <button className="ph3 pv2 fw4 ba b--purple bg-purple white grow pointer f5 dib mrg-left-16" onClick={checkLogin}> Log In</button>
           </div>
-          <div className="lh-copy mt3 next center pad-left">
-            <label className=" fw4 center lh-copy white f5 ">
+          <div className="lh-copy mt3 pad-left">
+            <label className=" fw4  lh-copy white f5 mrg-left-30">
               Don't have an account?
             </label>
-            <a href="#0" className="fw4 link dim white underline f5 db" onClick={props.onDontHasUser}>
-              Sign in.
+            <a href="#0" className="fw4 link dim white underline f5 db  mrg-left-32" onClick={props.onDontHasUser}>
+              Sign up.
             </a>
           </div>
       </div>

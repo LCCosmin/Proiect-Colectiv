@@ -18,12 +18,12 @@ const SignIn = props => {
     <div className="pa4 black-80 content">
       <form className="center width1">
         <fieldset id="sign_up" className="ba b--transparent center ph0 mh0">
-          <legend className="f4 fw6 ph0 white center2">Sign in</legend>
+          <legend className="f4 fw6 ph0 white center2">Sign up</legend>
           <div className= "mt3 center">
           <select className="pa2 fw4 f5 ba bg-transparent b--purple hover-white white-input w-custom" name="type" id="userType">
               <option value="" disabled selected hidden>Sign in as</option>
-              <option value="organiser">Organiser</option>
-              <option value="user">User</option>
+              <option value="1">Organiser</option>
+              <option value="2">User</option>
             </select>
           </div>
           <div className="mt3 center">
@@ -65,7 +65,7 @@ const SignIn = props => {
             class="ph3 pv2 fw4 ba b--purple bg-purple white pointer f5 dib mrg-left-8"
             type="submit"
             id= "submit"
-            value="Sign in"
+            value="Sign up"
             disabled
           >
             Sign in
