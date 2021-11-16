@@ -19,14 +19,13 @@ import json
 @api_view(['POST'])
 def login(request):
     
-    data = json.loads(request.body.decode('utf-8'))
+    data =  JSONParser().parse(request)
     if request.method == "POST":
         try:
             user = User.objects.get(email = data["email"],password = data["password"])
             return Response({'exists':True})
-        except User.DoesNotExist as er:
-            print("Error: ",er)
-            return Response({'error':str(er)},status=status.HTTP_400_BAD_REQUEST)
+        except User.DoesNotExist:
+            return Response({'exists':False})
 
 class UserView(viewsets.ModelViewSet):
     # create a sereializer class and

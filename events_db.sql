@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2021 at 12:18 PM
+-- Generation Time: Nov 16, 2021 at 07:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -97,7 +97,27 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (33, 'Can add role', 8, 'add_role'),
 (34, 'Can change role', 8, 'change_role'),
 (35, 'Can delete role', 8, 'delete_role'),
-(36, 'Can view role', 8, 'view_role');
+(36, 'Can view role', 8, 'view_role'),
+(37, 'Can add user', 9, 'add_user'),
+(38, 'Can change user', 9, 'change_user'),
+(39, 'Can delete user', 9, 'delete_user'),
+(40, 'Can view user', 9, 'view_user'),
+(41, 'Can add event type', 10, 'add_eventtype'),
+(42, 'Can change event type', 10, 'change_eventtype'),
+(43, 'Can delete event type', 10, 'delete_eventtype'),
+(44, 'Can view event type', 10, 'view_eventtype'),
+(45, 'Can add event', 11, 'add_event'),
+(46, 'Can change event', 11, 'change_event'),
+(47, 'Can delete event', 11, 'delete_event'),
+(48, 'Can view event', 11, 'view_event'),
+(49, 'Can add favorite list', 12, 'add_favoritelist'),
+(50, 'Can change favorite list', 12, 'change_favoritelist'),
+(51, 'Can delete favorite list', 12, 'delete_favoritelist'),
+(52, 'Can view favorite list', 12, 'view_favoritelist'),
+(53, 'Can add user to event', 13, 'add_usertoevent'),
+(54, 'Can change user to event', 13, 'change_usertoevent'),
+(55, 'Can delete user to event', 13, 'delete_usertoevent'),
+(56, 'Can view user to event', 13, 'view_usertoevent');
 
 -- --------------------------------------------------------
 
@@ -124,7 +144,7 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$260000$Ju1vtVaGZsTVT3SKQ9B7P0$1Qk3yeyOkAlSVE/gsdCSjBBrRC/QDcyw6le9x0Yf4Ak=', '2021-11-13 13:34:12.672591', 1, 'superuser', '', '', 'dzenalex9@gmail.com', 1, 1, '2021-11-13 13:31:23.473951');
+(1, 'pbkdf2_sha256$260000$Ju1vtVaGZsTVT3SKQ9B7P0$1Qk3yeyOkAlSVE/gsdCSjBBrRC/QDcyw6le9x0Yf4Ak=', '2021-11-14 20:04:52.329446', 1, 'superuser', '', '', 'dzenalex9@gmail.com', 1, 1, '2021-11-13 13:31:23.473951');
 
 -- --------------------------------------------------------
 
@@ -197,7 +217,9 @@ CREATE TABLE `django_admin_log` (
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
 (1, '2021-11-13 13:36:20.314981', '2', 'Isabela Jugariu', 1, '[{\"added\": {}}]', 7, 1),
-(2, '2021-11-13 17:14:58.412684', '3', 'Alex Dzen', 1, '[{\"added\": {}}]', 7, 1);
+(2, '2021-11-13 17:14:58.412684', '3', 'Alex Dzen', 1, '[{\"added\": {}}]', 7, 1),
+(3, '2021-11-14 20:05:19.293205', '9', 'sgdf gdf', 1, '[{\"added\": {}}]', 7, 1),
+(4, '2021-11-14 20:09:53.644115', '1', 'abcd', 1, '[{\"added\": {}}]', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -220,8 +242,13 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
+(11, 'backend', 'event'),
+(10, 'backend', 'eventtype'),
+(12, 'backend', 'favoritelist'),
 (8, 'backend', 'role'),
+(9, 'backend', 'user'),
 (7, 'backend', 'userinfo'),
+(13, 'backend', 'usertoevent'),
 (5, 'contenttypes', 'contenttype'),
 (6, 'sessions', 'session');
 
@@ -280,6 +307,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('dyafnwhyml3osasgdta88s5iik6yzudo', '.eJxVjDsOwyAQBe9CHSF-ZiFlep8BLQsEJxGWjF1FuXtsyUXSzsx7bxZwW2vYel7ClNiVSXb5ZRHpmdsh0gPbfeY0t3WZIj8SftrOxznl1-1s_w4q9rqv0VEcEDSQN6IAGQHosixWgjLWglNDKZQyOivQx4RCGec86B1rAM0-X-FnN44:1mmLkC:LYuPsY9OtBZVD0wJmp5QPVAJQ2KOQZXXc-QOJrDWR4Y', '2021-11-28 20:04:52.335430'),
 ('xownwgpf04lsau7g5v47ejl05yh7epy8', '.eJxVjDsOwyAQBe9CHSF-ZiFlep8BLQsEJxGWjF1FuXtsyUXSzsx7bxZwW2vYel7ClNiVSXb5ZRHpmdsh0gPbfeY0t3WZIj8SftrOxznl1-1s_w4q9rqv0VEcEDSQN6IAGQHosixWgjLWglNDKZQyOivQx4RCGec86B1rAM0-X-FnN44:1mltAa:Z_KPbLfsYifsryQGh6iSuLXBwIDcGmE-hxNgOCxFpho', '2021-11-27 13:34:12.690761');
 
 -- --------------------------------------------------------
@@ -334,6 +362,15 @@ CREATE TABLE `roles` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'admin'),
+(2, 'organizer'),
+(3, 'user');
+
 -- --------------------------------------------------------
 
 --
@@ -342,13 +379,22 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) NOT NULL,
-  `role_id` int(11) NOT NULL,
-  `user_info_id` int(11) NOT NULL,
-  `id_rating` int(11) NOT NULL,
-  `notifications` tinyint(4) NOT NULL
+  `role_id` int(11) DEFAULT NULL,
+  `user_info_id` int(11) DEFAULT NULL,
+  `id_rating` int(11) DEFAULT NULL,
+  `notifications` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `role_id`, `user_info_id`, `id_rating`, `notifications`) VALUES
+(2, 'dzenalex9@gmail.com', NULL, '123', NULL, NULL, NULL, NULL),
+(3, 'abcd@yahoo.com', NULL, 'parola123', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -397,7 +443,7 @@ CREATE TABLE `users_info` (
 --
 
 INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`) VALUES
-(3, 'Alex', 'Dzen', '1999-10-20 12:00:00', 'afsd');
+(9, 'sgdf', 'gdf', '2021-11-14 00:00:00', 'dfgdf');
 
 --
 -- Indexes for dumped tables
@@ -559,7 +605,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
@@ -589,13 +635,13 @@ ALTER TABLE `backend_userinfo`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
@@ -625,13 +671,13 @@ ALTER TABLE `favorite_lists`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users2events`
@@ -643,7 +689,7 @@ ALTER TABLE `users2events`
 -- AUTO_INCREMENT for table `users_info`
 --
 ALTER TABLE `users_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

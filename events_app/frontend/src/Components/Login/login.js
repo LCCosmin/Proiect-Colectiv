@@ -4,36 +4,24 @@ import axios from 'axios';
 
 const Login = (props) =>  {
   var state = {
-     
-    // the viewCompleted prop represents the status
-    // of the task. Set it to false by default
+
     item: {
       email: "",
       password: ""
     },
      
-    // this list stores all the completed tasks
-    taskList: []
+    valid: ""
   };
   
-  
-
-  // Add componentDidMount()
-  function componentDidMount() {
-    this.refreshList();
-  }
-  
-  function refreshList(){
-    axios   //Axios to send and receive HTTP requests
-      .get("http://localhost:8000/api/tasks/")
-      .then(res => this.setState({ taskList: res.data }))
-      .catch(err => console.log(err));
-  };
-
-  function weDoLoginFancy (){
-    console.log('da')
+  function checkLogin (){
     axios
-      .post("http://localhost:8000/api/tasks/", state.item)
+      .post("http://127.0.0.1:8000/api/login", state.item)
+      .then(response =>{
+        state.valid = response.data.exists ? 'exista!' : 'nu exista!';
+        // state.valid = response.data;
+        // console.log(state.valid);
+      }) 
+      .catch(err => console.log(err));
   };
 
   function inputChangeEmail (event){
@@ -46,7 +34,6 @@ const Login = (props) =>  {
 
   return (
       <div className="pa4 black-80 content">
-        <form action="http://localhost:8000/api/tasks/" className="measure center" method="post">
           <fieldset id="log_in" className="ba b--transparent center ph0 mh0">
             <legend className="f4 fw6 ph0 white center2">Log in</legend>
             <div className="mt3 center">
@@ -77,14 +64,10 @@ const Login = (props) =>  {
                 Forgot your password?
               </a>
             </div>
+          
           </fieldset>
           <div className="lh-copy mt3 center">
-            <input
-              className="ph3 pv2 fw4 ba b--purple bg-purple white grow pointer f5 dib mrg-left-8"
-              onClick={weDoLoginFancy}
-              type="submit"
-              value="Log In"
-            />
+            <button className="ph3 pv2 fw4 ba b--purple bg-purple white grow pointer f5 dib mrg-left-8" onClick={checkLogin}> Log In</button>
           </div>
           <div className="lh-copy mt3 next center pad-left">
             <label className=" fw4 center lh-copy white f5 ">
@@ -94,7 +77,6 @@ const Login = (props) =>  {
               Sign in.
             </a>
           </div>
-        </form>
       </div>
     );
 };
