@@ -1,3 +1,12 @@
+import Nav from './Components/Navbar/Nav';
+import Home from './Components/Home/Home';
+import AdminNotifications from './Components/Admin-notifications/Admin-notifications'
+
+const initialState= {
+  route: 'home',
+  isSignedIn: false
+}
+
 //import logo from './logo.svg';
 import { useState, useEffect } from "react";
 import "./App.css";

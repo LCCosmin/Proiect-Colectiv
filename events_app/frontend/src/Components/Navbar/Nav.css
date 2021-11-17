@@ -1,0 +1,124 @@
+@fontface {
+    font-family: 'Bungee Inline', cursive;
+    src: url('https://fonts.google.com/specimen/Poppins')
+  }
+
+  body {
+    font-family: 'Poppins', cursive;
+  }
+
+.topnav {
+    background-color: #242830;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: auto;
+    margin: auto;
+
+    /*display: flex;
+    justify-content: space-between;*/
+    align-items: center;
+
+    @media (min-width: 1000px){
+        justify-content: space-between;
+    }
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    z-index: 99;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover{
+      color: #86497A;
+  }
+  
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: #86497A;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+  .logo{
+      float: left;
+  }
+
+  .searchContainer {
+    display: inline-flex;
+    flex: 1 1 300px;
+    position: relative;
+    border: 1px solid #86497A;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: transparent;
+    width: 100%;
+    border-radius:25px;
+    font-size: 17px;
+  }
+  
+  .searchIcon {
+    padding: 0.5rem;
+    color:#86497A;
+  }
+  
+  .searchBox {
+    border: 0;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    flex: 1;
+    background-color: #242830;
+    font-family: 'Bungee Inline', cursive;
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    
+  }
+
+  .margin{
+      margin-left:50px;
+      margin-right: -50px;
+      align-items:right;
+  }
+
+  .user-avatar-md {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-right: 50px;
+    float: right;
+}
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffff;
+    font-family: 'Bungee Inline', cursive;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: 'Bungee Inline', cursive;
+    color: #ffff;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    font-family: 'Bungee Inline', cursive;
+    color: #ffff;
+  }
+
+ a {        
+    display: flex;
+    align-items: center;
+}
+  
