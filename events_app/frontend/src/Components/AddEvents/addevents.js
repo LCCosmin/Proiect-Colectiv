@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./addevents.css";
 import axios from 'axios'; 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -12,7 +12,6 @@ const AddEvents = (props) =>  {
     <>
       <div class="split left">
         <div class="bgr-transparent par">
-        nu merge niciun icon :)
         </div>
         <div class="centered">
         <a href="">Personal Data</a><br></br>

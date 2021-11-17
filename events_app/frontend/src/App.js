@@ -1,12 +1,15 @@
-import Nav from './Components/Navbar/Nav';
-import AdminNotifications from './Components/Admin-notifications/Admin-notifications'
+
 //import logo from './logo.svg';
 import { useState, useEffect } from "react";
 import "./App.css";
 
+
+// import Login from "./Components/Login/login.js";
+// import SignIn from "./Components/SignIn/signin.js";
 import Home from "./Components/Home/Home.js";
-import Login from "./Components/Login/login.js";
-import SignIn from "./Components/SignIn/signin";
+// import AddEvents from './Components/AddEvents/addevents.js';
+// import Nav from './Components/Navbar/Nav.js';
+// import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 
 
 const initialState= {
@@ -40,8 +43,12 @@ const App = () => {
 
   return (
     <div>
-      {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
-      {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />}
+      {/* {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
+      {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />} */}
+      <Home/>
+      {/* <Nav/> */}
+      {/* <AdminNotifications/> */}
+      {/* <AddEvents/> */}
     </div>
   );
 };
