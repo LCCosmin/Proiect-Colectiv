@@ -1,0 +1,205 @@
+body {
+    background-color: rgba(36, 40, 48, 1);
+}
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+  
+.left {
+    left: 0;
+    background-color: rgba(36, 40, 48, 1);
+    width:20%;
+}
+  
+.right {
+    right: 0;
+    background-color: rgba(36, 40, 48, 1);
+    width:80%;
+    border-left: 4px solid #86497A;
+}
+
+.centered {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    
+}
+
+.b1 {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.bgr-transparent {
+    background-color: transparent;
+    color: white;
+}
+
+.par {
+    position: absolute;
+    top:20%;
+    left: 30%;
+}
+
+.bc--purple {
+    border-color: rgba(128, 70, 116, 0.67);
+}
+
+.white {
+    color: white;
+}
+
+
+.cwhite-input:focus {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+}
+
+.width-85 {
+    width: 85%;
+}
+
+.hover-cwhite:hover {
+    color: white;
+    border-color: white;
+}
+
+.hover-purple:hover {
+    border-color: rgba(134, 73, 122, 0.67);
+}
+
+.center {
+    margin-right: auto;
+    margin-left: 35%;
+  }
+
+
+.fww6 {
+    font: "Century Gothic";
+    font-style: normal;
+    line-height: 150.5%;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+}
+
+.fww4 {
+    font: "Century Gothic";
+    font-style: normal;
+    align-items: center;
+    line-height: 132.5%;
+    letter-spacing: 0.1em;
+    color:white;
+}
+
+.f4 {
+    font-size: 2rem;
+}
+
+.f5 {
+    font-size: 15px;
+    font-family:"Century Gothic";
+}
+
+.ph0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pad {
+    padding: 1rem;
+}
+
+.inp-reset {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.margins {
+    margin-top:30px;
+    margin-left:30px;
+}
+
+.button {
+    background-color:rgb(68, 36, 75);
+    border: solid black 1px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-family:"Century Gothic";
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #86497A59;
+}
+
+.brad {
+    border-radius: 51px;
+}
+
+.mr-0 {
+    margin-top:20px;
+    margin-right: 120px;
+}
+
+.ml-auto {
+    margin-left:auto;
+}
+
+.d-block {
+    display:block;
+}
+
+::placeholder { 
+    color: white;
+}
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align:left;
+    padding:15px;
+    word-wrap: break-word;
+    display: block;
+    font-size:1rem;
+    font-family:"Century Gothic";
+  }
+a:visited {
+    color: white;
+    background-color: rgba(36, 40, 48, 1);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #86497A;
+    background-color: rgba(36, 40, 48, 1);
+    text-decoration: underline;
+}
+
+a:active {
+    color: #86497A;
+    background-color: rgba(36, 40, 48, 1);
+    text-decoration: underline;
+}
+
+
+
+
+  
+
+
