@@ -1,19 +1,20 @@
 import Nav from './Components/Navbar/Nav';
-import Home from './Components/Home/Home';
 import AdminNotifications from './Components/Admin-notifications/Admin-notifications'
+//import logo from './logo.svg';
+import { useState, useEffect } from "react";
+import "./App.css";
+
+import Home from "./Components/Home/Home.js";
+import Login from "./Components/Login/login.js";
+import SignIn from "./Components/SignIn/signin";
+
 
 const initialState= {
   route: 'home',
   isSignedIn: false
 }
 
-//import logo from './logo.svg';
-import { useState, useEffect } from "react";
-import "./App.css";
 
-import Home from "./Components/Home/home.js";
-import Login from "./Components/Login/login.js";
-import SignIn from "./Components/SignIn/signin";
 
 const App = () => {
   const [stateHasAccount, setStateHasAccount] = useState(true);
