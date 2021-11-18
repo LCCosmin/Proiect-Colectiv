@@ -10,6 +10,7 @@ import Home from "./Components/Home/Home.js";
 import AddEvents from './Components/AddEvents/addevents.js';
 import Nav from './Components/Navbar/Nav.js';
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
+import Profile from "./Components/Profile/profile1.js"
 
 
 const initialState= {
@@ -64,7 +65,7 @@ class App extends Component{
     const {isSignedIn, route} = this.state;
     return (
       <div>
-        <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
+        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
         {this.state.route === 'home'
         ? <Home onRouteChange={this.onRouteChange}/>
         :   (this.state.route === 'login'
@@ -76,12 +77,14 @@ class App extends Component{
                 : (this.state.route === 'Admin-notifications'
                   ? <AdminNotifications onRouteChange={this.onRouteChange}/>
                   : <Home/>
+                  
                   )
                 )
               )
             )
-      }
-
+          
+      } */}
+      <Profile/>
 
 
 
