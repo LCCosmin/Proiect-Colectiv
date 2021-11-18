@@ -68,7 +68,7 @@ const AddEvents = ({onRouteChange}) =>  {
           placeholder="Upload Picture"
          />
          <div>
-           <input type="button" onclick="" class="button button1 brad d-block mr-0 ml-auto" value="Add event"/>
+           <input type="button" onclick="" class="button button1 brad d-block mr-0 ml-auto" value="Add event" onClick={() => onRouteChange('Admin-notifications')}/>
          </div>
          
       </div>

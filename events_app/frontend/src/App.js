@@ -73,7 +73,10 @@ class App extends Component{
               ? <SignIn onRouteChange={this.onRouteChange}/>
               : (this.state.route === 'addevents'
                 ? <AddEvents onRouteChange={this.onRouteChange}/>
-                : <Home/>
+                : (this.state.route === 'Admin-notifications'
+                  ? <AdminNotifications onRouteChange={this.onRouteChange}/>
+                  : <Home/>
+                  )
                 )
               )
             )
