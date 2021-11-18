@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./login.css";
 import axios from 'axios'; 
 
-const Login = (props) =>  {
+const Login = ({onRouteChange}) =>  {
   var state = {
 
     item: {
@@ -17,7 +17,7 @@ const Login = (props) =>  {
     axios
       .post("http://127.0.0.1:8000/api/login", state.item)
       .then(response =>{
-        state.valid = response.data.exists ? window.confirm("Exists") : window.confirm("The account does not exist. Please sign up.");
+        state.valid = response.data.exists ?  onRouteChange('addevents') : window.confirm("The account does not exist. Please sign up.");
         // state.valid = response.data;
         // console.log(state.valid);
       }) 
@@ -73,7 +73,7 @@ const Login = (props) =>  {
             <label className=" fw4  lh-copy white f5 mrg-left-30">
               Don't have an account?
             </label>
-            <a href="#0" className="fw4 link dim white underline f5 db  mrg-left-32" onClick={props.onDontHasUser}>
+            <a href="#0" className="fw4 link dim white underline f5 db  mrg-left-32" onClick={() => onRouteChange('signin')}>
               Sign up.
             </a>
           </div>

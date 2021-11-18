@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-const AddEvents = (props) =>  {
+const AddEvents = ({onRouteChange}) =>  {
     
     return (
     <>

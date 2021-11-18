@@ -13,7 +13,7 @@ function check_pass() {
   }
 }
 
-const SignIn = props => {
+const SignIn = ({onRouteChange}) =>  {
   return (
     <div className="pa4 black-80 content">
       <form className="center width1">
@@ -75,7 +75,7 @@ const SignIn = props => {
           <label href="#0" className="fw4 lh-copy white margin-left f5">
             Already have an account?
           </label>
-          <a href="#0" className="fw4 link dim white underline f5 margin-left2 db" onClick={props.onHasUser}>
+          <a href="#0" className="fw4 link dim white underline f5 margin-left2 db" onClick={() => onRouteChange('login')}>
             Log in.
           </a>
         </div>
