@@ -8,6 +8,60 @@ import axios from 'axios';
 
 const AddEvents = ({onRouteChange}) =>  {
     
+    var state = {
+      event: {
+        nameEvent: "",
+        eventDescription: "",
+        eventLocation: "",
+        startDateEvent: "",
+        endDateEvent: "",
+        eventType: "",
+        picture: ""
+      }
+    }
+
+    function updateName(event){
+      state.event.nameEvent = event.target.value;
+    }
+
+    function updateDescription(event){
+      state.event.eventDescription = event.target.value;
+    }
+
+    function updateLocation(event){
+      state.event.eventLocation = event.target.value;
+    }
+
+    function updateStartDate(event){
+      state.event.startDateEvent = event.target.value;
+    }
+
+    function updateEndDate(event){
+      state.event.endDateEvent = event.target.value;
+    }
+
+    function updateType(event){
+      state.event.eventType = event.target.value;
+    }
+
+    // God have Mercy with this function cuz idk what I am doing
+    function updatePicture(event){
+      state.event.picture = event.target.value;
+    }
+
+    function addEventIntoDatabase(){
+        
+        // Missing eventEndDate + eventType
+        // Remove code below when input boxes are added
+
+        state.event.endDateEvent = "2099-11-11T11:11:11";
+        state.event.eventType = "religious"; // or perhaps make it an int?
+
+        // ^^ To remove when input boxes are added
+
+        console.log(state.event);
+    }
+
     return (
     <>
       <div class="split left">
@@ -29,6 +83,7 @@ const AddEvents = ({onRouteChange}) =>  {
           name="Event name"
           id="Name"
           placeholder="Event-name" 
+          onChange = {updateName}
          />
          <div>
          <input 
@@ -37,6 +92,7 @@ const AddEvents = ({onRouteChange}) =>  {
           name="Location"
           id="Location"
           placeholder="Location"
+          onChange = {updateLocation}
          />
          </div>
          <input 
@@ -52,6 +108,7 @@ const AddEvents = ({onRouteChange}) =>  {
           name="Date"
           id="Date"
           placeholder="Date and Time"
+          onChange = {updateStartDate}
          />
          <input 
           className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
@@ -59,6 +116,7 @@ const AddEvents = ({onRouteChange}) =>  {
           name="Description"
           id="Description"
           placeholder="Event Description"
+          onChange = {updateDescription}
          />
          <input 
           className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
@@ -66,9 +124,10 @@ const AddEvents = ({onRouteChange}) =>  {
           name="Picture"
           id="Picture"
           placeholder="Upload Picture"
+          onChange = {updatePicture}
          />
          <div>
-           <input type="button" onclick="" class="button button1 brad d-block mr-0 ml-auto" value="Add event" onClick={() => onRouteChange('Admin-notifications')}/>
+           <input type="button" onclick="" class="button button1 brad d-block mr-0 ml-auto" value="Add event" onClick={addEventIntoDatabase}/>
          </div>
          
       </div>
