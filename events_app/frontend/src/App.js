@@ -65,7 +65,7 @@ class App extends Component{
     const {isSignedIn, route} = this.state;
     return (
       <div>
-        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
+        <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
         {this.state.route === 'home'
         ? <Home onRouteChange={this.onRouteChange}/>
         :   (this.state.route === 'login'
@@ -83,8 +83,8 @@ class App extends Component{
               )
             )
           
-      } */}
-      <Profile/>
+      }
+      
 
 
 

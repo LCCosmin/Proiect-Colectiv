@@ -19,8 +19,10 @@ urlpatterns = [
 
 	path('eventtypes/', views.EventTypeList.as_view()),
 	path('eventypes/<int:pk>/', views.EventTypeDetail.as_view()),
+	
 	path('events/', views.EventList.as_view()),
 	path('events/<int:pk>/', views.EventDetail.as_view()),
+
 	path('api/', include(router.urls)),
 	path('api/login', views.login),
     # path('userchat/', views.UserChatList.as_view()),

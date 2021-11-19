@@ -382,8 +382,8 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) NOT NULL,
-  `role_id` int(11) DEFAULT NULL,
-  `user_info_id` int(11) DEFAULT NULL,
+  `id_role` int(11) DEFAULT NULL,
+  `id_user_info` int(11) DEFAULT NULL,
   `id_rating` int(11) DEFAULT NULL,
   `notifications` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -392,9 +392,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `role_id`, `user_info_id`, `id_rating`, `notifications`) VALUES
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `id_role`, `id_user_info`, `id_rating`, `notifications`) VALUES
 (2, 'dzenalex9@gmail.com', NULL, '123', NULL, NULL, NULL, NULL),
-(3, 'abcd@yahoo.com', NULL, 'parola123', NULL, NULL, NULL, NULL);
+(3, 'abcd@yahoo.com', NULL, 'parola123', NULL, NULL, NULL, NULL),
+(4, 'test@test.com', NULL, 'test', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -443,7 +444,7 @@ CREATE TABLE `users_info` (
 --
 
 INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`) VALUES
-(9, 'sgdf', 'gdf', '2021-11-14 00:00:00', 'dfgdf');
+(1, 'test_name', 'test_lastname', '2021-11-14 00:00:00', 'test_about');
 
 --
 -- Indexes for dumped tables
@@ -560,8 +561,8 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`),
-  ADD KEY `user_data_id` (`user_info_id`);
+  ADD KEY `id_role` (`id_role`),
+  ADD KEY `id_user_data` (`id_user_info`);
 
 --
 -- Indexes for table `users2events`
@@ -746,8 +747,8 @@ ALTER TABLE `favorite_lists`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`user_info_id`) REFERENCES `users_info` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`id_user_info`) REFERENCES `users_info` (`id`);
 
 --
 -- Constraints for table `users2events`
