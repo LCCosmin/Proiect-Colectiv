@@ -43,12 +43,12 @@ class EventType(models.Model):
 class Event(models.Model):
     name = models.TextField()
     id_organizer = models.ForeignKey(User, on_delete=CASCADE, db_column='id_organizer')
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+    start_date = models.BigIntegerField()
+    end_date = models.BigIntegerField()
     location = models.TextField()
+    description = models.TextField()
     id_type = models.ForeignKey(EventType, on_delete=CASCADE, db_column='id_type')
     status = models.CharField(max_length = 50)
-    approved = models.IntegerField(max_length = 11)
     class Meta:
         db_table="events"
     def __str__(self):

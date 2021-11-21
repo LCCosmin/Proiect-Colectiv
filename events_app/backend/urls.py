@@ -25,6 +25,8 @@ urlpatterns = [
 
 	path('api/', include(router.urls)),
 	path('api/login', views.login),
+	path('api/addevent', views.addevent),
+
     # path('userchat/', views.UserChatList.as_view()),
     # path('userchat/<int:pk>/', views.UserChatDetail.as_view()),
 

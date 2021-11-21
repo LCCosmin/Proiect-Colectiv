@@ -13,6 +13,7 @@ from .serializers import *
 from .models import *
 from rest_framework import status
 import json
+import datetime
 
 # Create your views here.
 
@@ -26,6 +27,26 @@ def login(request):
             return Response({'exists':True})
         except User.DoesNotExist:
             return Response({'exists':False})
+
+@api_view(['POST'])
+def addevent(request):
+    if request.method == "POST":
+            start_date = request.data['start_date'];
+            date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
+            timestamp = int(datetime.datetime.timestamp(date))
+            request.data['start_date'] = timestamp
+
+            end_date = request.data['end_date'];
+            date = datetime.datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
+            timestamp = int(datetime.datetime.timestamp(date))
+            request.data['end_date'] = timestamp
+            
+            serializer = EventSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'added':True}, status=status.HTTP_201_CREATED)
+            else:
+                return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
 
 class UserView(viewsets.ModelViewSet):
     # create a sereializer class and
