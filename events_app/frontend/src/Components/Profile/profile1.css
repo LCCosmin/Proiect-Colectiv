@@ -1,13 +1,7 @@
 @fontface {
-    font-family: 'Poppins', cursive;
-    src: url('https://fonts.google.com/specimen/Poppins%27')
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap')
 }
 
-html,
-body {
-    font-family: 'Poppins', cursive;
-    height: 100%;
-}
 
 .ba {
     border-style: solid;

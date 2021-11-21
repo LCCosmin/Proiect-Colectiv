@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Nav.css';
+import '../design.css';
 
 const Nav = ({onRouteChange, isSignedIn}) => {
     if(isSignedIn){

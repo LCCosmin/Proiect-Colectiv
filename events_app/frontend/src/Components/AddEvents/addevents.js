@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./addevents.css";
+import "../design.css";
 import axios from 'axios'; 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'

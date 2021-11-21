@@ -1,0 +1,885 @@
+body {
+  background-color: rgba(36, 40, 48, 1);
+}
+
+.paddingLoginPage {
+  padding: 2rem;
+}
+
+.grey {
+  color: rgba(255, 255, 255, 0.329);
+}
+
+.contentLogin {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.borderLogin {
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+}
+
+.borderInputLogin {
+  border-color: rgba(134, 73, 122, 0.67);
+}
+.centerLoginContent {
+  margin-right: auto;
+}
+
+.paddingFieldsetContent {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.fontTitle {
+  font-size: 2rem;
+  font: "Avantgarde";
+  font-style: normal;
+  line-height: 150.5%;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.centerLoginTitle {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15%;
+}
+
+.marginsDivLogin {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.paddingInputLogin {
+  padding: 2rem;
+}
+
+.fontInputLogin {
+  font: "Avantgarde";
+  font-style: normal;
+  align-items: center;
+  line-height: 132.5%;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  color: gray;
+}
+
+.fontLabelLogin {
+  font: "Avantgarde";
+  font-style: normal;
+  align-items: center;
+  line-height: 132.5%;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+}
+
+.input-reset {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.input-reset::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.backgroundTransparentLogin {
+  background-color: transparent;
+  color: white;
+}
+
+.bg-purple {
+  background-color: rgba(134, 73, 122, 0.67);
+}
+
+.hover-white-login:hover {
+  color: white;
+  border-color: white;
+}
+
+.hover-white-login:focus {
+  color: #fff;
+}
+
+.hover-purple-login:hover {
+  border-color: rgba(134, 73, 122, 0.67);
+}
+
+.white-input-login:focus {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+.backgroundInputLogin {
+  background-color: transparent;
+  color: gray;
+}
+.width-100-login {
+  width: 100%;
+}
+
+.line-hight-login {
+  line-height: 1.3;
+}
+
+.link-login {
+  text-decoration: none;
+  transition: color 0.15s ease-in;
+}
+
+.link-login:link,
+.link-login:visited {
+  transition: color 0.15s ease-in;
+}
+
+.link-login:hover {
+  transition: color 0.15s ease-in;
+}
+
+.link-login:active {
+  transition: color 0.15s ease-in;
+}
+
+.link-login:focus {
+  transition: color 0.15s ease-in;
+  outline: 1px dotted currentColor;
+}
+
+.dimensions-button-login {
+  width: 426px;
+  height: 74px;
+  left: 507px;
+  top: 644px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.button-login {
+  background-color: rgba(134, 73, 122, 0.67);
+  color: white;
+}
+
+.grow-login {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.grow-login:hover,
+.grow-login:focus {
+  transform: scale(1.05);
+}
+
+.grow-login:active {
+  transform: scale(0.9);
+}
+
+.white {
+  color: white;
+}
+
+.gray {
+  color: rgba(255, 255, 255, 0.329);
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.display-login {
+  display: inline-block;
+}
+
+.mrg-left-buton-login {
+  margin-left: 8%;
+}
+
+.mrg-left-a-login {
+  margin-left: 40%;
+}
+
+.mrg-left-q2-login {
+  margin-left: 20%;
+}
+
+.pad-left-login {
+  padding-left: 4em;
+}
+
+.dim-login {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+}
+
+.dim-login:hover,
+.dim-login:focus {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in;
+}
+
+.dim-login:active {
+  opacity: 0.8;
+  transition: opacity 0.15s ease-out;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: transparent inset 0 0 6px;
+  box-shadow: transparent inset 0 0 6px;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.db-login {
+  display: block;
+}
+
+button:disabled,
+button:focus:disabled,
+button:hover:disabled,
+button:active:disabled {
+  background: transparent;
+  border-color: rgba(134, 73, 122, 0.67);
+  color: #666666;
+  cursor: not-allowed;
+}
+
+button:enabled,
+button:focus:enabled,
+button:hover:enabled,
+button:active:enabled {
+  background: rgba(134, 73, 122, 0.67);
+  border-color: rgba(134, 73, 122, 0.67);
+  color: white;
+  cursor: allowed;
+}
+
+/* -------------------------------------------SIGN IN---------------------------------------------------------------- */
+
+.paddingFormSignIn {
+  padding: 4rem;
+}
+
+.contentSignIn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.centerSignIn {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.centerTitleSignIn {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15%;
+}
+
+.widthSignInForm {
+  width: 700px;
+}
+
+.borderSignInForm {
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+}
+
+.borderSignIninput {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.paddingSignInFieldset {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.paddingInputSignIn {
+  padding: 2rem;
+}
+
+.formatTitleSignIn {
+  font-size: 2rem;
+  font: "Avantgarde";
+  font-style: normal;
+  line-height: 150.5%;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.formatInputSignIn {
+  font-size: 18px;
+  font: "Avantgarde";
+  font-style: normal;
+  align-items: center;
+  line-height: 150.5%;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.formatLabelSignIn {
+  font-size: 18px;
+  font: "Avantgarde";
+  font-style: normal;
+  align-items: center;
+  line-height: 132.5%;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.marginsSignIn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.backgroundInputSignIn {
+  background-color: transparent;
+  color: #666666;
+}
+
+.borderSignIn {
+  border-color: rgba(128, 70, 116, 0.67);
+}
+
+.borderSignInLink {
+  border-color: transparent;
+}
+
+.hover-white-signIn:hover {
+  color: white;
+  border-color: white;
+}
+
+.hover-white-signIn:focus {
+  color: #fff;
+}
+
+.input-signin:focus {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+.input-signin:first {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+.width-input-signin {
+  width: 95.45%;
+  height: 66%;
+}
+
+.lineHeight-signin {
+  line-height: 1.3;
+}
+
+.dimensionsButtonSignIn {
+  width: 426px;
+  height: 74px;
+  left: 507px;
+  top: 644px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(134, 73, 122, 0.67);
+}
+
+.pointer-signin:hover {
+  cursor: pointer;
+}
+
+.display-inline-signin {
+  display: inline-block;
+}
+
+.mrg-left-button-signin {
+  margin-left: 22%;
+}
+
+.mrg-left-link-log {
+  margin-left: 48%;
+}
+
+.mrg-left-q1 {
+  margin-left: 35%;
+}
+
+.display-block-signin {
+  display: block;
+}
+
+.dim-signin {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+}
+
+.dim-signin:hover,
+.dim-signin:focus {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in;
+}
+
+.dim-signin:active {
+  opacity: 0.8;
+  transition: opacity 0.15s ease-out;
+}
+
+.link-signin {
+  text-decoration: underline;
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:link,
+.link:visited {
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:hover {
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:active {
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:focus {
+  transition: color 0.15s ease-in;
+  outline: 1px dotted currentColor;
+}
+
+select:active {
+  color: rgba(36, 40, 48, 1);
+  border-color: rgba(134, 73, 122, 0.67);
+  background-color: transparent;
+}
+
+select option {
+  background-color: rgba(36, 40, 48, 1);
+  color: white;
+}
+
+.width-dropdown-signin {
+  width: 105%;
+  height: 88px;
+}
+
+.gray-input:first {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+  text-align: left;
+  padding: 15px;
+  word-wrap: break-word;
+  display: block;
+  font-size: 1rem;
+  font-family: "Century Gothic";
+  border-color: transparent;
+}
+a:visited {
+  color: white;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  border-color: transparent;
+}
+
+a:hover {
+  color: #86497a;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  border-color: transparent;
+}
+
+a:active {
+  color: #86497a;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  border-color: transparent;
+}
+
+/* -------------------------------------------HOME---------------------------------------------------------------- */
+
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: #242830;
+
+  background-image: url("https://s3-alpha-sig.figma.com/img/fd91/1d59/465e50afa8c8c37d56ab1ca069a02333?Expires=1638144000&Signature=ON7sjHa~OAJKoJ0fBPVqnwm0DJQJRno2Goo-gQ4-gMiQbVxxTdrLdXrwy78KflSfKpFR-ngmI1~zQF7sag76ZEi~DqD7iU0MbonR1cuYzxPbVekZB6JA1ICfmJouRDf15dx7CeZGxmlTsmJAXoU9J4clQ8BaqJ9UxZpFiSCqFE32GMT2lRPqcKRk7OfzhQm4O9-w6-Wv-wUMAkpmDoY54Z9k4IatmVQNYMf6OB7XeTOY1j8xbkHVnnqwuoc7Q1Yw3sjS9AZVG4RhWTdtksoPDaHEYmAL~f0C8FOuqw9MyeFGOYBJztz1bFjUo5U68UDWf4wcHpwn3xZCnas7bRF9nw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  background-position: right;
+
+  position: fixed;
+  min-height: 90vh;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.descriere {
+  margin: 50px;
+}
+
+h1 {
+  color: #ffff;
+  font-weight: 600;
+  font-size: 72px;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 18px;
+}
+
+.colorHome1 {
+  color: #86497a;
+}
+
+.colorHome2 {
+  color: #e9a6a6;
+}
+
+.new-account-home {
+  font-size: 21px;
+  color: #ffff;
+  font: "Avantgarde";
+  background-color: #86497a;
+  height: 40px;
+  width: 250px;
+  border-radius: 25px;
+  border-color: #86497a;
+  cursor: pointer;
+}
+
+
+/* -------------------------------------------ADD EVENTS---------------------------------------------------------------- */
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+  
+.left {
+    left: 0;
+    background-color: rgba(36, 40, 48, 1);
+    width:20%;
+}
+  
+.right {
+    right: 0;
+    background-color: rgba(36, 40, 48, 1);
+    width:80%;
+    border-left: 4px solid #86497A;
+}
+
+.centered {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    
+}
+
+.b1 {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.bgr-transparent {
+    background-color: transparent;
+    color: white;
+}
+
+.par {
+    position: absolute;
+    top:20%;
+    left: 30%;
+}
+
+.bc--purple {
+    border-color: rgba(128, 70, 116, 0.67);
+}
+
+.white {
+    color: white;
+}
+
+
+.cwhite-input:focus {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+}
+
+.width-85 {
+    width: 85%;
+}
+
+.hover-cwhite:hover {
+    color: white;
+    border-color: white;
+}
+
+.hover-purple:hover {
+    border-color: rgba(134, 73, 122, 0.67);
+}
+
+.center {
+    margin-right: auto;
+    margin-left: 35%;
+  }
+
+
+.fww6 {
+    font: "Century Gothic";
+    font-style: normal;
+    line-height: 150.5%;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+}
+
+.fww4 {
+    font: "Century Gothic";
+    font-style: normal;
+    align-items: center;
+    line-height: 132.5%;
+    letter-spacing: 0.1em;
+    color:white;
+}
+
+.f4 {
+    font-size: 2rem;
+}
+
+.f5 {
+    font-size: 15px;
+    font-family:"Century Gothic";
+}
+
+.ph0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pad {
+    padding: 1rem;
+}
+
+.inp-reset {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.margins {
+    margin-top:30px;
+    margin-left:30px;
+}
+
+.button {
+    background-color:rgb(68, 36, 75);
+    border: solid black 1px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-family:"Century Gothic";
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #86497A59;
+}
+
+.brad {
+    border-radius: 51px;
+}
+
+.mr-0 {
+    margin-top:20px;
+    margin-right: 120px;
+}
+
+.ml-auto {
+    margin-left:auto;
+}
+
+.d-block {
+    display:block;
+}
+
+::placeholder { 
+    color: grey;
+}
+
+/* -------------------------------------------NAV BAR---------------------------------------------------------------- */
+
+@fontface {
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap')
+  }
+
+.topnav {
+    background-color: #242830;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: auto;
+    margin: auto;
+
+    /*display: flex;
+    justify-content: space-between;*/
+    align-items: center;
+
+    @media (min-width: 1000px){
+        justify-content: space-between;
+    }
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    z-index: 99;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover{
+      color: #86497A;
+  }
+  
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: #86497A;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+  .logo{
+      float: left;
+  }
+
+  .searchContainer {
+    display: inline-flex;
+    flex: 1 1 300px;
+    position: relative;
+    border: 1px solid #86497A;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: transparent;
+    width: 100%;
+    border-radius:25px;
+    font-size: 17px;
+  }
+  
+  .searchIcon {
+    padding: 0.5rem;
+    color:#86497A;
+  }
+  
+  .searchBox {
+    border: 0;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    flex: 1;
+    background-color: #242830;
+    font: "Avantgarde";
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    
+  }
+
+  .margin{
+      margin-left:50px;
+      margin-right: -50px;
+      align-items:right;
+  }
+
+  .user-avatar-md {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-right: 50px;
+    float: right;
+}
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffff;
+    font: "Avantgarde";
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font: "Avantgarde";
+    color: #ffff;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    font: "Avantgarde";
+    color: #ffff;
+  }
+
+ a {        
+    display: flex;
+    align-items: center;
+}
+  

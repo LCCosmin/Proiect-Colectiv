@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./signin.css";
+import "../design.css"
 function check_pass() {
   if (
     document.getElementById("password").value ==
@@ -15,29 +15,29 @@ function check_pass() {
 
 const SignIn = ({onRouteChange}) =>  {
   return (
-    <div className="pa4 black-80 content">
-      <form className="center width1">
-        <fieldset id="sign_up" className="ba b--transparent center ph0 mh0">
-          <legend className="f4 fw6 ph0 white center2">Sign up</legend>
-          <div className= "mt3 center">
-          <select className="pa2 fw4 f5 ba bg-transparent b--purple hover-white white-input w-custom" name="type" id="userType">
+    <div className="paddingFormSignIn contentSignIn">
+      <form className="centerSignIn widthSignInForm">
+        <fieldset id="sign_up" className="borderSignInForm centerSignIn paddingSignInFieldset">
+          <legend className="formatTitleSignIn centerTitleSignIn">Sign up</legend>
+          <div className= "marginsSignIn centerSignIn">
+          <select className="formatInputSignIn borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-dropdown-signin" name="type" id="userType">
               <option value="" disabled selected hidden>Sign in as</option>
               <option value="1">Organiser</option>
               <option value="2">User</option>
             </select>
           </div>
-          <div className="mt3 center">
+          <div className="marginsSignIn centerSignIn">
             <input
-              className="pa2 fw4 f5 input-reset ba bg-transparent b--purple hover-white white-input w-85"
+              className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
               type="email"
               name="email-address"
               id="email-address"
               placeholder="Email"
             />
           </div>
-          <div className="mt3 center">
+          <div className="marginsSignIn centerSignIn">
             <input
-              className="pa2 fw4 f5 input-reset ba bg-transparent  b--purple hover-white white-input w-85"
+              className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
               type="password"
               name="password"
               id="password"
@@ -45,9 +45,9 @@ const SignIn = ({onRouteChange}) =>  {
               placeholder="Password"
             />
           </div>
-          <div className="mt3 center">
+          <div className="marginsSignIn centerSignIn">
             <input
-              className="pa2 fw4 f5 input-reset ba bg-transparent b--purple hover-white white-input w-85"
+              className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
               type="password"
               name="passwordConfirmation"
               id="passwordConfirmation"
@@ -56,26 +56,26 @@ const SignIn = ({onRouteChange}) =>  {
             />
             <span id="message"></span>
           </div>
-          <label className="fw4 lh-copy white f5 pointer">
+          <label className="formatLabelSignIn lineHeight-signin white pointer-signin">
             <input type="checkbox" /> Remember me
           </label>
         </fieldset>
-        <div className="lh-copy mt3 center">
+        <div className="lineHeight-signin marginsSignIn centerSignIn">
           <button
-            class="ph3 pv2 fw4 ba b--purple bg-purple white pointer f5 dib mrg-left-8"
+            class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin"
             type="submit"
             id= "submit"
             value="Sign up"
             disabled
           >
-            Sign in
+            Sign up
           </button>
         </div>
-        <div className="lh-copy mt3 center">
-          <label href="#0" className="fw4 lh-copy white margin-left f5">
+        <div className="lineHeight-signin marginsSignIn centerSignIn">
+          <label href="#0" className="formatLabelSignIn lineHeight-signin white mrg-left-q1">
             Already have an account?
           </label>
-          <a href="#0" className="fw4 link dim white underline f5 margin-left2 db" onClick={() => onRouteChange('login')}>
+          <a href="#0" className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin" onClick={() => onRouteChange('login')}>
             Log in.
           </a>
         </div>
