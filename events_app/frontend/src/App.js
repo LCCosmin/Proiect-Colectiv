@@ -10,7 +10,8 @@ import Home from "./Components/Home/Home.js";
 import AddEvents from './Components/AddEvents/addevents.js';
 import Nav from './Components/Navbar/Nav.js';
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
-import Profile from "./Components/Profile/profile1.js"
+import Profile1 from "./Components/Profile/profile1.js"
+import Profile from "./Components/Profile/profile.js"
 
 
 const initialState= {
@@ -63,8 +64,16 @@ class App extends Component{
   */
   render(){
     const {isSignedIn, route} = this.state;
-    return (
+    return(
       <div>
+         <Nav/>
+      <Profile/> 
+      </div>
+     
+      );
+  }
+};
+      /*<div>
         <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
         {this.state.route === 'home'
         ? <Home onRouteChange={this.onRouteChange}/>
@@ -96,15 +105,13 @@ class App extends Component{
 
 
 
-        {/* Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)*/}
-        {/* {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
-        {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />} */}
-        {/* <Nav/> */}
-        {/* <AdminNotifications/> */}
-        {/* <AddEvents/> */}
-      </div>
-    );
-  }
-};
+        {/* Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)*/
+        /* {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
+        {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />} */
+        /* <Nav/> */
+        /* <AdminNotifications/> */
+        /* <AddEvents/> */
+      /*</div>*/
+
 
 export default App;
