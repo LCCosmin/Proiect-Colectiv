@@ -1,4 +1,3 @@
-
 //import logo from './logo.svg';
 import { useState, useEffect, Component } from "react";
 import "./App.css";
@@ -66,52 +65,30 @@ class App extends Component{
     const {isSignedIn, route} = this.state;
     return(
       <div>
-         <Nav/>
-      <Profile/> 
-      </div>
-     
-      );
-  }
-};
-      /*<div>
-        <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
+        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
         {this.state.route === 'home'
         ? <Home onRouteChange={this.onRouteChange}/>
         :   (this.state.route === 'login'
             ? <Login onRouteChange={this.onRouteChange}/>
             : (this.state.route === 'signin'
-              ? <SignIn onRouteChange={this.onRouteChange}/>
+              ? <SignIn onRouteChange={this.onRouteChange}/> */}
               : (this.state.route === 'addevents'
                 ? <AddEvents onRouteChange={this.onRouteChange}/>
-                : (this.state.route === 'Admin-notifications'
+                {/* : (this.state.route === 'Admin-notifications'
                   ? <AdminNotifications onRouteChange={this.onRouteChange}/>
                   : <Home/>
                   
                   )
                 )
               )
-            )
+            ) */}
           
-      }
-      
+      {/* } */}
+      </div>
+    )
+  }
+};
 
-
-        {/* <AdminNotifications/> */}
-
-
-
-
-
-
-
-
-        {/* Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)*/
-        /* {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
-        {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />} */
-        /* <Nav/> */
-        /* <AdminNotifications/> */
-        /* <AddEvents/> */
-      /*</div>*/
 
 
 export default App;

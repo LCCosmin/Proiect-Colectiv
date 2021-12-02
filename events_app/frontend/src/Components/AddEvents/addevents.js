@@ -108,14 +108,14 @@ const AddEvents = ({onRouteChange}) =>  {
             type="text"
             name="price"
             id="price"
-            placeholder="Price"
+            placeholder="Priceee"
          />
          <input 
             className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
             type="datetime-local"
             name="date"
             id="date"
-            placeholder="Date and Time"
+            placeholder="Date"
             onChange = {updateStartDate}
          />
          <input 
