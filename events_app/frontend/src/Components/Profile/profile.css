@@ -1,112 +1,65 @@
-body {
-    height: 100vh;
-    width: 100vw;
+.container-box {
+    position:relative;
+    display: grid;
+    grid-template-rows: 350px 1fr;
+}
+.profile-image img {
+    height:200px;
+    width:180px;
+    position:absolute;
+    top:100px;
+    left:50%;
+    transform: translate(-50%, 0);
+    border:3px solid #fff;
+    border-radius: 50%;
+    border: 5px solid #86497A;
+}
+#profile-back-photo{
+    width: 100%;
+    height: 200px;
+    border-bottom: 5px solid #86497A;
 }
 
-.bio {
-    position: absolute;
-    width: 185px;
-    height: 30px;
-    left: 634px;
-    top: 607px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
+.profile-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    margin: auto;
+    width: 400px;
+    margin-top: 10px;
+    color: #ffff;
+}
+
+.icon{
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.profile-button{
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-radius: 49px;
     font-size: 24px;
-    line-height: 132.5%;
-    /* or 32px */
-    display: flex;
-    align-items: center;
+    cursor: pointer;
+}
+
+.profile-details p{
+    width: 50%;
+    color: white;
     text-align: center;
-    letter-spacing: 0.1em;
-    color: #FFFFFF;
-    border-top: 5px solid gray;
+    margin: 10px auto;
 }
 
-.desktop6 {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: #242830;
-}
-
-.profilephoto {
-    position: absolute;
-    width: 198px;
-    height: 198px;
-    left: 621px;
-    top: 216px;
-    background: url(https://www.pngkey.com/png/full/157-1579943_no-profile-picture-round.png);
-    border: 4px solid #86497A;
-    box-sizing: border-box;
-}
-
-.Line4 {
-    position: absolute;
-    width: 621px;
-    height: 0px;
-    left: 819px;
-    top: 316px;
-    border: 4px solid #86497A;
-    transform: rotate(-0.09deg);
-}
-
-.Line5 {
-    position: absolute;
-    width: 621px;
-    height: 0px;
-    left: 0px;
-    top: 315px;
-    border: 4px solid #86497A;
-    transform: rotate(-0.09deg);
-}
-
-.descriere {
-    position: absolute;
-    width: 884px;
-    height: 170px;
-    left: 278px;
-    top: 622px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 132.5%;
-    /* or 24px */
-    display: flex;
-    align-items: center;
+.profile-description {
     text-align: center;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.78);
+    width: 50%;
+    height: auto;
+    align-self: center;
+    padding: 5px;
+    color: white;
+    background-color: transparent;
+    margin: auto;
 }
-
-.age {
-    position: absolute;
-    width: 198px;
-    height: 36px;
-    left: 621px;
-    top: 524px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 132.5%;
-    /* or 24px */
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.1em;
-    color: #FFFFFF;
-}
-
-.coverimg {
-    background-repeat: no-repeat;
-    background-size: 50% 100%;
-    background-position: right;
-    position: fixed;
-    min-height: 90vh;
-    left: 0;
-    top: 0;
-    width: 100px;
-    height: 100px;
-}
+ 

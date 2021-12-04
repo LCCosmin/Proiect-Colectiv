@@ -82,8 +82,10 @@ class App extends Component {
         {/* <AdminNotifications/> */}
         {/* <AddEvents/> */}
       </div>
-    );
+    )
   }
 }
+
+
 
 export default App;
