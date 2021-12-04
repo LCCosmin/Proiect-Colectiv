@@ -19,7 +19,7 @@ class EventProfile extends React.Component {
                     </div>
                     <div className="LeftSide leftPadding">
                         <div className="EventTitle">
-                             Event Name 
+                             Event Name
                         </div>
 
                         <div>
