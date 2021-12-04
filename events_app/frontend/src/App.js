@@ -10,7 +10,7 @@ import Home from "./Components/Home/Home.js";
 import AddEvents from './Components/AddEvents/addevents.js';
 import Nav from './Components/Navbar/Nav.js';
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
-import Profile from "./Components/Profile/profile1.js"
+import Profile from "./Components/Profile/profile1.js";
 
 
 const initialState= {
