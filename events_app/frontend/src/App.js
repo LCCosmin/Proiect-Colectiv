@@ -12,6 +12,7 @@ import ChangePassword from './Components/ChangePassword/changepassword.js'
 import Nav from './Components/Navbar/Nav.js';
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 import Profile from "./Components/Profile/profile1.js";
+import EventProfile from "./Components/EventProfile/EventProfile";
 
 
 const initialState= {
