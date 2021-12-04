@@ -58,8 +58,9 @@ class AdminNotifications extends React.Component {
 
     render(){
         this.getEvents();
+        console.log(this.state);
         console.log(this.state2);
-        const {events} = this.state;
+        const {events} = this.state2;
         return(
             <main className="mw6 center main">
                 {

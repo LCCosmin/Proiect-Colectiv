@@ -88,7 +88,7 @@ class App extends Component{
                 )
               )
             ) */}
-          
+          <AdminNotifications/>
       {/* } */}
       </div>
     )
