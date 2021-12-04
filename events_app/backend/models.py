@@ -10,15 +10,11 @@ class UserInfo(models.Model):
     about = models.TextField()
     class Meta:
         db_table="users_info"
-    def __str__(self):
-        return self.first_name + ' ' + self.last_name
 
 class Role(models.Model):
     name = models.CharField(max_length=50)
     class Meta:
         db_table="roles"
-    def __str__(self):
-        return self.name
 
 class User(models.Model):
     username = models.CharField(max_length=50, null=True)
@@ -30,15 +26,11 @@ class User(models.Model):
     notifications = models.IntegerField(null=True)
     class Meta:
         db_table="users"
-    def __str__(self):
-        return self.email
 
 class EventType(models.Model):
     name = models.CharField(max_length=100)
     class Meta:
         db_table="event_types"
-    def __str__(self):
-        return self.name
 
 class Event(models.Model):
     name = models.TextField()
@@ -51,8 +43,6 @@ class Event(models.Model):
     status = models.CharField(max_length = 50)
     class Meta:
         db_table="events"
-    def __str__(self):
-        return self.name
 
 # class UserChat(models.Model):
 #     id_user1 = models.ForeignKey(User, on_delete=CASCADE)
@@ -61,16 +51,12 @@ class Event(models.Model):
 #     id_sender = models.ForeignKey(User, on_delete=CASCADE)
 #     class Meta:
 #         db_table="users_chat"
-#     def __str__(self):
-#         return
 
 class FavoriteList(models.Model):
     id_user = models.ForeignKey(User, on_delete=CASCADE, db_column='id_user')
     id_event = models.ForeignKey(Event, on_delete=CASCADE, db_column='id_event')
     class Meta:
         db_table="favorite_lists"
-    def __str__(self):
-        return str(self.id_user)
 
 class UserToEvent(models.Model):
     id_user = models.ForeignKey(User, on_delete=CASCADE, db_column='id_user')
@@ -79,5 +65,3 @@ class UserToEvent(models.Model):
     description = models.TextField()
     class Meta:
         db_table="users2events"
-    def __str__(self):
-        return str(self.id_user)
