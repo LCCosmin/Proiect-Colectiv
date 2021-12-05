@@ -9,6 +9,9 @@ import AddEvents from "./Components/AddEvents/addevents.js";
 import Nav from "./Components/Navbar/Nav.js";
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 import Profile from "./Components/Profile/profile1.js";
+import ChangePassword from "./Components/ChangePassword/changepassword.js";
+import PersonalData from "./Components/PersonalData/personaldata.js";
+//import Profile from "./Components/Profile/profile.js";
 
 const initialState = {
   route: "home",

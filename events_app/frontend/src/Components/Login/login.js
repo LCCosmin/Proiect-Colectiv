@@ -1,5 +1,5 @@
 import React from "react";
-import "../design.css";
+import "./login.css";
 import axios from 'axios'; 
 
 const Login = ({onRouteChange}) =>  {

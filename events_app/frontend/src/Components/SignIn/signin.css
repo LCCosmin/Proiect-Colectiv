@@ -1,0 +1,266 @@
+.paddingFormSignIn {
+  padding: 4rem;
+}
+
+.contentSignIn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.centerSignIn {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.centerTitleSignIn {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10%;
+}
+
+.widthSignInForm {
+  width: 700px;
+}
+
+.borderSignInForm {
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+}
+
+.borderSignIninput {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.paddingSignInFieldset {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.paddingInputSignIn {
+  padding: 2rem;
+}
+
+.formatTitleSignIn {
+  font-size: 2rem;
+  font: 2em "Avantgarde", sans-serif;
+  letter-spacing: 0.15em;
+  font-style: normal;
+  line-height: 150.5%;
+  font-weight: normal;
+  color: white;
+}
+
+.formatInputSignIn {
+  font-size: 18px;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
+  font-style: normal;
+  align-items: center;
+  line-height: 150.5%;
+  letter-spacing: 0.15em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.formatLabelSignIn {
+  font-size: 18px;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.15em;
+  font-style: normal;
+  align-items: center;
+  line-height: 132.5%;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.marginsSignIn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.backgroundInputSignIn {
+  background-color: transparent;
+  color: #666666;
+}
+
+.borderSignIn {
+  border-color: rgba(128, 70, 116, 0.67);
+}
+
+.borderSignInLink {
+  border-color: transparent;
+}
+
+.hover-white-signIn:hover {
+  color: white;
+  border-color: white;
+}
+
+.hover-white-signIn:focus {
+  color: #fff;
+}
+
+.input-signin:focus {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+.input-signin:first {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+.width-input-signin {
+  width: 95.45%;
+  height: 66%;
+}
+
+.lineHeight-signin {
+  line-height: 1.3;
+}
+
+.dimensionsButtonSignIn {
+  width: 426px;
+  height: 74px;
+  left: 507px;
+  top: 644px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(134, 73, 122, 0.67);
+}
+
+.pointer-signin:hover {
+  cursor: pointer;
+}
+
+.display-inline-signin {
+  display: inline-block;
+}
+
+.mrg-left-button-signin {
+  margin-left: 22%;
+}
+
+.mrg-left-link-log {
+  margin-left: 48%;
+}
+
+.mrg-left-q1 {
+  margin-left: 35%;
+}
+
+.display-block-signin {
+  display: block;
+}
+
+.dim-signin {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+}
+
+.dim-signin:hover,
+.dim-signin:focus {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in;
+}
+
+.dim-signin:active {
+  opacity: 0.8;
+  transition: opacity 0.15s ease-out;
+}
+
+.link-signin {
+  text-decoration: underline;
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:link,
+.link:visited {
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:hover {
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:active {
+  transition: color 0.15s ease-in;
+}
+
+.link-signin:focus {
+  transition: color 0.15s ease-in;
+  outline: 1px dotted currentColor;
+}
+
+select:active {
+  color: rgba(36, 40, 48, 1);
+  border-color: rgba(134, 73, 122, 0.67);
+  background-color: transparent;
+  padding: 1.5rem;
+}
+
+select {
+  padding: 1.5rem;
+}
+
+select option {
+  background-color: rgba(36, 40, 48, 1);
+  color: white;
+  padding: 1.5rem;
+}
+
+.width-dropdown-signin {
+  width: 105%;
+  height: 88px;
+}
+
+.gray-input:first {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+  text-align: left;
+  padding: 15px;
+  word-wrap: break-word;
+  display: block;
+  font-size: 1rem;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
+  border-color: transparent;
+}
+a:visited {
+  color: white;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  border-color: transparent;
+}
+
+a:hover {
+  color: #86497a;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  border-color: transparent;
+}
+
+a:active {
+  color: #86497a;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  border-color: transparent;
+}

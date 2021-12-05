@@ -1,6 +1,3 @@
-body {
-    background-color: rgba(36, 40, 48, 1);
-}
 
 .split1 {
     height: 100%;
@@ -9,165 +6,167 @@ body {
     top: 0;
     overflow-x: hidden;
     padding-top: 20px;
-}
+  }
   
-.left1 {
+  .left1 {
     left: 0;
     background-color: rgba(36, 40, 48, 1);
     width:20%;
-}
+  }
   
-.right1 {
+  .right1 {
     right: 0;
     background-color: rgba(36, 40, 48, 1);
     width:80%;
     border-left: 4px solid #86497A;
-}
-
-.centered1 {
+  }
+  
+  .centered1 {
     position: absolute;
     top: 60%;
     left: 40%;
     transform: translate(-50%, -50%);
     text-align: left;
     
-}
-
-.b11 {
+  }
+  
+  .b11 {
     border-style: solid;
     border-width: 1px;
-}
-
-.bgr-transparent1 {
+  }
+  
+  .bgr-transparent1 {
     background-color: transparent;
     color: white;
-}
-
-.par1 {
+  }
+  
+  .par1 {
     position: absolute;
     top:20%;
     left: 30%;
-}
-
-.bc--purple1 {
+  }
+  
+  .bc--purple1 {
     border-color: rgba(128, 70, 116, 0.67);
-}
-
-.white1 {
+  }
+  
+  .white1 {
     color: white;
-}
-
-
-.cwhite1-input:focus {
+  }
+  
+  
+  .cwhite1-input:focus {
     background: transparent;
     color: white;
     border-radius: 0px 0px 0px 0px;
     border-style: solid;
     border-color: white;
-}
-
-
-.width1-85 {
+  }
+  
+  
+  .width1-85 {
     width: 85%;
-}
-
-.hover1-cwhite:hover {
+  }
+  
+  .hover1-cwhite:hover {
     color: white;
     border-color: white;
-}
-
-.hover1-purple:hover {
+  }
+  
+  .hover1-purple:hover {
     border-color: rgba(134, 73, 122, 0.67);
-}
-
-.titlecenter1 {
+  }
+  
+  .titlecenter1 {
     margin-left: 35%;
-}
-
-
-.fww61 {
-    font: "Century Gothic";
+  }
+  
+  
+  .fww61 {
+    font: 1.1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
     font-style: normal;
     line-height: 150.5%;
     font-weight: normal;
-    letter-spacing: 0.1em;
-}
-
-.fww41 {
-    font: "Century Gothic";
+  }
+  
+  .fww41 {
     font-style: normal;
     align-items: center;
     line-height: 132.5%;
+    font: 1.1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     color:white;
-}
-
-.f41 {
+  }
+  
+  .f41 {
     font-size: 2rem;
-}
-
-.f51 {
+  }
+  
+  .f51 {
     font-size: 15px;
-    font-family:"Century Gothic";
-}
-
-.ph01 {
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+  .ph01 {
     padding-left: 0;
     padding-right: 0;
-}
-
-.pad1 {
+  }
+  
+  .pad1 {
     padding: 1rem;
-}
-
-.inp-reset1 {
+  }
+  
+  .inp-reset1 {
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
-.margins1 {
+  }
+  
+  .margins1 {
     margin-top:30px;
     margin-left:30px;
-}
-
-.mybutton1 {
+  }
+  
+  .mybutton1 {
     background-color:#86497A59;
-    border: solid black 1px;
+    border: solid #86497A59 1px;
     color: white;
     padding: 15px 32px;
     text-align: center;
-    font-family:"Century Gothic";
+    font: 1.1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
     display: inline-block;
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
-}
-
-.brad1 {
+  }
+  
+  .brad1 {
     border-radius: 51px;
-}
-
-.mr-11 {
+  }
+  
+  .mr-11 {
     margin-right:100px;
-}
-
-.mr-top {
+  }
+  
+  .mr-top {
     margin-top: 100px;
-}
-
-.ml-auto1 {
-    margin-left:940px;
-}
-
-.d-block1 {
+  }
+  
+  .ml-auto1 {
+    margin-left:52.9rem;
+  }
+  
+  .d-block1 {
     display:block;
-}
-
-::placeholder { 
+  }
+  
+  ::placeholder { 
     color: white;
-}
-
-a:link {
+  }
+  
+  a:link {
     color: white;
     background-color: transparent;
     text-decoration: none;
@@ -175,25 +174,31 @@ a:link {
     padding:15px;
     word-wrap: break-word;
     display: block;
-    font-size:1rem;
-    font-family:"Century Gothic";
-}
-
-a:visited {
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+  a:visited {
     color: white;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: none;
-}
-
-a:hover {
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+  a:hover {
     color: #86497A;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: underline;
-}
-
-a:active {
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+  a:active {
     color: #86497A;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: underline;
-}
-
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+  }
+  

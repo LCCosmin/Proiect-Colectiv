@@ -1,5 +1,5 @@
 import React from "react";
-import "../design.css";
+import "./addevents.css";
 import axios from 'axios'; 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -138,12 +138,13 @@ const AddEvents = ({ onRouteChange }) => {
         <br></br>
         <br></br>
         <br></br>
-        <label for="events" className="ev-type hover-cwhite cwhite-input" onChange={updateType}>Choose an event type 
-        <select className="tab">
-          <option value="event1" className="tab">Event 1</option>
-          <option value="event2" className="ty">Event 2</option>
-          <option value="event3" className="ty">Event 3</option>
-          <option value="event4" className="ty">Event 4</option>
+        <label for="events" className="ev-type hover-cwhite cwhite-input input-event" onChange={updateType}>Choose an event type 
+        <select className="tab hover-white-event input-event">
+          <option value="event0" className="" disabled selected hidden>Event type</option>
+          <option value="event1" className="">Event 1</option>
+          <option value="event2" className="">Event 2</option>
+          <option value="event3" className="">Event 3</option>
+          <option value="event4" className="">Event 4</option>
         </select>
         </label>
         <div>

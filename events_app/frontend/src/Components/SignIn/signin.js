@@ -1,5 +1,5 @@
 import React from "react";
-import "../design.css"
+import "./signin.css"
 function check_pass() {
   if (
     document.getElementById("password").value ==
