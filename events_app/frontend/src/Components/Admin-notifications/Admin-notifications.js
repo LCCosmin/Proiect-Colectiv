@@ -7,58 +7,19 @@ class AdminNotifications extends React.Component {
     constructor(){
         super();
         this.state = {
-            events:[
-                {
-                    "id": 1,
-                    "name": "Fotosinteza plantelor",
-                    "start_date": 1637496120,
-                    "end_date": 4098071460,
-                    "location": "Cluj-Napoca",
-                    "description": "Aduceti planta",
-                    "status": "pending",
-                    "id_organizer": 2,
-                    "id_type": 1
-                },
-                {
-                    "id": 2,
-                    "name": "Cantecul greierilor de peste imas",
-                    "start_date": 1637669280,
-                    "end_date": 4098071460,
-                    "location": "Imas",
-                    "description": "In padurea cu alune aveau casa 2 pitici",
-                    "status": "pending",
-                    "id_organizer": 2,
-                    "id_type": 1
-                },
-                {
-                    "id": 4,
-                    "name": "test",
-                    "start_date": 1637518260,
-                    "end_date": 4098071460,
-                    "location": "test",
-                    "description": "test",
-                    "status": "pending",
-                    "id_organizer": 2,
-                    "id_type": 1
-                }
-            ]
-        }
-        this.state2={
-            events:[],
+            events:[]
         }
     }
-    getEvents(){
+    componentDidMount(){
         axios
-            .get("http://127.0.0.1:8000/api/getevents")
-            .then(response =>{
-                this.state2.events = response.data;
-            }) 
-            .catch(err => console.log(err));
-    };
+        .get("http://127.0.0.1:8000/api/getevents")
+        .then(response =>{
+            this.setState({events: response.data});
+        }) 
+        .catch(err => console.log(err));
+    }
 
     render(){
-        this.getEvents();
-        console.log(this.state2);
         const {events} = this.state;
         return(
             <main className="width-admin-main center-admin-auto white-admin">
