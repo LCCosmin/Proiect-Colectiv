@@ -73,23 +73,25 @@ class App extends Component{
         :   (this.state.route === 'login'
             ? <Login onRouteChange={this.onRouteChange}/>
             : (this.state.route === 'signin'
-              ? <SignIn onRouteChange={this.onRouteChange}/> */}
-              {/* : (this.state.route === 'addevents'
-                ? <AddEvents onRouteChange={this.onRouteChange}/> */}
-              {/* : (this.state.route === 'personaldata'
-                ? <PersonalData onRouteChange={this.onRouteChange}/> */}
-              {/* : (this.state.route === 'changepassword'
-                ? <ChangePassword onRouteChange={this.onRouteChange}/> */}
-                {/* : (this.state.route === 'Admin-notifications'
+              ? <SignIn onRouteChange={this.onRouteChange}/>
+              : (this.state.route === 'addevents'
+                ? <AddEvents onRouteChange={this.onRouteChange}/> 
+              : (this.state.route === 'personaldata'
+                ? <PersonalData onRouteChange={this.onRouteChange}/> 
+              : (this.state.route === 'changepassword'
+                ? <ChangePassword onRouteChange={this.onRouteChange}/>
+                : (this.state.route === 'Admin-notifications'
                   ? <AdminNotifications onRouteChange={this.onRouteChange}/>
                   : <Home/>
                   
                   )
                 )
               )
-            ) */}
-          <AdminNotifications/>
-      {/* } */}
+            )
+          )
+        )
+      } */}
+      <AdminNotifications/>
       </div>
     )
   }
