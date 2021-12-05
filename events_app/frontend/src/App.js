@@ -22,9 +22,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = initialState;
-    // Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)
-    //this.stateHasAccount = useState(true);
-    //this.setStateHasAccount = useState(true);
   }
   onRouteChange = (route) => {
     if (route === "signout") {
@@ -35,35 +32,12 @@ class App extends Component {
     this.setState({ route: route });
   };
 
-  // Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)
-  /*
-  useEffect(() => {
-    if (localStorage.getItem("UserHasAccount") === '1') {
-      setStateHasAccount(true);
-    } else if (localStorage.getItem("UserHasAccount") === '0') {
-      console.log('aici')
-      setStateHasAccount(false);
-    }
-  }, []);
-  */
-
-  // Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)
-  /*
-  userHasAccountHandler = () => {
-    this.setStateHasAccount(true);
-    localStorage.setItem("UserHasAccount", '1');
-  };
-
-  userHasNoAccount = () => {
-    this.setStateHasAccount(false);
-    localStorage.setItem("UserHasAccount", '0');
-  };
-  */
+  
   render() {
     const { isSignedIn, route } = this.state;
     return (
       <div>
-        <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         {this.state.route === "home" ? (
           <Home onRouteChange={this.onRouteChange} />
         ) : this.state.route === "login" ? (
@@ -76,14 +50,10 @@ class App extends Component {
           <AdminNotifications onRouteChange={this.onRouteChange} />
         ) : (
           <Home />
-        )}
+        )} */}
 
-        {/* Daca trebuie cuiva linia asta de cod, va rog anuntati @Teodora sau @Cosmin(@Teodora mai mult)*/}
-        {/* {stateHasAccount && <Login onDontHasUser={userHasNoAccount} />}
-        {!stateHasAccount && <SignIn onHasUser={userHasAccountHandler} />} */}
-        {/* <Nav/> */}
-        {/* <AdminNotifications/> */}
-        {/* <AddEvents/> */}
+        <AddEvents/>
+        
       </div>
     )
   }

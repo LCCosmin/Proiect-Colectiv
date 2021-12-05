@@ -8,6 +8,8 @@ import axios from 'axios';
 
 const AddEvents = ({ onRouteChange }) => {
 
+  var aux;
+
   var state = {
     event: {
       name: "",
@@ -18,6 +20,7 @@ const AddEvents = ({ onRouteChange }) => {
       description: "",
       id_type: 1,
       status: "pending",
+      img_name: null,
     },
     valid: "",
   }
@@ -46,25 +49,35 @@ const AddEvents = ({ onRouteChange }) => {
     state.event.id_type = event.target.value;
   }
 
-  // God have Mercy with this function cuz idk what I am doing
-  function updatePicture(event) {
-    state.event.picture = event.target.value;
+  function fileSelectedHandler (event){
+    state.event.img_name = event.target.files[0];
+    console.log(state.event.img_name);
+  }
+
+  function fileUploadHandler(name){
+    const fd = new FormData();
+    state.event.img_name = aux;
+    console.log(state.event.img_name.name)
+    fd.append('image', state.event.img_name, name + "." + state.event.img_name.name.split(".")[1]);
+    axios
+      .post("http://127.0.0.1:8000/api/uploadimage", fd)
+      .then(response =>{
+        console.log(response);
+      })
   }
 
   function addEvent() {
-
-    // Missing eventEndDate + eventType
-    // Remove code below when input boxes are added
-
-
-    state.event.end_date = "2099-11-11T11:11";
-    state.event.id_type = 1; // or perhaps make it an int?
-    // ^^ To remove when input boxes are added
-
+    state.event.id_type = 1; 
+    //fileUploadHandler();
+    console.log(state.event);
+    aux = state.event.img_name;
+    state.event.img_name = null;
     axios
       .post("http://127.0.0.1:8000/api/addevent", state.event)
       .then(response => {
-        state.valid = response.data.added ? window.confirm("The event has been added successfully!") : window.confirm("The event has not been added!");
+        if(response.data.added){
+          fileUploadHandler(response.data.added);
+        }
       })
       .catch(err => console.log(err));
 
@@ -133,7 +146,7 @@ const AddEvents = ({ onRouteChange }) => {
           name="picture"
           id="picture"
           placeholder="Upload Picture"
-          onChange={updatePicture}
+          onChange={fileSelectedHandler}
         />
         <br></br>
         <br></br>
