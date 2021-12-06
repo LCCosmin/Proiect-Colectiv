@@ -103,6 +103,10 @@ html,body{
     display:inline-flex;
 }
 
+.f18{
+    font-size: 18px;
+}
+
 .fw4 {
     font-weight: 400;
 }
@@ -193,7 +197,7 @@ html,body{
 }
 
 .f6 {
-    font-size: .875rem;
+    font-size: 24px;
 }
 
 .center {
@@ -222,16 +226,6 @@ html,body{
 
 .pointer:hover {
     cursor: pointer;
-}
-
-@media screen and (min-width: 30em) {
-    .h3-ns {
-        height: 4rem;
-    }
-
-    .f5-ns {
-        font-size: 1rem;
-    }
 }
 
 @media screen and (max-width: 1050px) {

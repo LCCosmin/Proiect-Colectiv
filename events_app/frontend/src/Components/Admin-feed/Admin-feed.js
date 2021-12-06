@@ -55,8 +55,8 @@ class AdminFeed extends React.Component {
                                         }
                                     </div>
                                     <div className="dtc v-mid pl3">
-                                        <h1 className="f6 f5-ns fw6 lh-title black ">{event.event_name}/{event.organizer_name} </h1>
-                                        <h2 className="f6 fw4 mt0 mb0 black-60">{event.description}</h2>
+                                        <h1 className="f6 fw6 lh-title black ">{event.event_name}/{event.organizer_name} </h1>
+                                        <h2 className="f18 fw4 mt0 mb0 black-60">{event.description}</h2>
                                     </div>
                                     <div className=" dtc v-mid btn-right">
                                         <form className="w-100 tr">
