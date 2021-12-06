@@ -14,6 +14,10 @@ from .models import *
 from rest_framework import status
 import json
 import datetime
+import os
+import uuid
+import pathlib
+pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
 # Create your views here.
 
@@ -31,20 +35,20 @@ def login(request):
 @api_view(['POST'])
 def addevent(request):
     if request.method == "POST":
-            start_date = request.data['start_date'];
+            start_date = request.data['start_date']
             date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
             timestamp = int(datetime.datetime.timestamp(date))
             request.data['start_date'] = timestamp
 
-            end_date = request.data['end_date'];
+            end_date = request.data['end_date']
             date = datetime.datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
             timestamp = int(datetime.datetime.timestamp(date))
             request.data['end_date'] = timestamp
-            
+            request.data['img_name'] = str(uuid.uuid4())
             serializer = EventSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response({'added':True}, status=status.HTTP_201_CREATED)
+                return Response({'added':request.data['img_name']}, status=status.HTTP_201_CREATED)
             else:
                 return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -54,6 +58,33 @@ def getevents(request):
         events = Event.objects.all()
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
+
+@api_view(['POST'])
+def uploadimage(request):
+    data = {"success": False}
+    if request.method == "POST":
+        if request.FILES.get("image", None) is not None:
+            #So this would be the logic
+            img = request.FILES["image"]
+            img_extension = os.path.splitext(img.name)[1]
+            #print(os.path.splitext(img.name)[0])
+            # This will generate random folder for saving your image using UUID
+            save_path = "static/"
+            # if not os.path.exists(save_path):
+            #     # This will ensure that the path is created properly and will raise exception if the directory already exists
+            #     print(os.makedirs(os.path.dirname(save_path), exist_ok=True))
+
+            print(img_extension)
+            # Create image save path with title
+            img_save_path = "%s/%s%s" % (save_path, os.path.splitext(img.name)[0], img_extension)
+            #print(img_save_path)
+            with open(img_save_path, "wb+") as f:
+                for chunk in img.chunks():
+                    f.write(chunk)
+            data = {"success": True}
+        else:
+            return JsonResponse(data)
+    return JsonResponse(data)
 
 class UserInfoList(APIView):
     serializer_class = UserInfoSerializer

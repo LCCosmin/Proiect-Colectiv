@@ -1,4 +1,5 @@
-.split {
+
+.split1 {
     height: 100%;
     position: fixed;
     z-index: 1;
@@ -7,20 +8,20 @@
     padding-top: 20px;
   }
   
-  .left {
+  .left1 {
     left: 0;
     background-color: rgba(36, 40, 48, 1);
     width:20%;
   }
   
-  .right {
+  .right1 {
     right: 0;
     background-color: rgba(36, 40, 48, 1);
     width:80%;
     border-left: 4px solid #86497A;
   }
   
-  .centered {
+  .centered1 {
     position: absolute;
     top: 60%;
     left: 40%;
@@ -29,32 +30,32 @@
     
   }
   
-  .b1 {
+  .b11 {
     border-style: solid;
     border-width: 1px;
   }
   
-  .bgr-transparent {
+  .bgr-transparent1 {
     background-color: transparent;
     color: white;
   }
   
-  .par {
+  .par1 {
     position: absolute;
     top:20%;
     left: 30%;
   }
   
-  .bc--purple {
+  .bc--purple1 {
     border-color: rgba(128, 70, 116, 0.67);
   }
   
-  .white {
+  .white1 {
     color: white;
   }
   
   
-  .cwhite-input:focus {
+  .cwhite1-input:focus {
     background: transparent;
     color: white;
     border-radius: 0px 0px 0px 0px;
@@ -62,123 +63,78 @@
     border-color: white;
   }
   
-  .ev-type {
-    margin-left:30px;
-    color: white;
-    margin-right:10px;
-    font: 1em "Avantgarde", sans-serif;
-    letter-spacing: 0.1em;
-    border: solid;
-    padding: 15px;
-    border-width: 1px;
-    border-color: rgba(128, 70, 116, 0.67);
-  }
   
-  .tab {
-    margin-left: 2.5em;
-    background-color: transparent;
-    color: white;
-    font: 0.8em "Avantgarde", sans-serif;
-    letter-spacing: 0.1em;
-  }
-  
-  .hover-white-event:hover {
-    color: white;
-    border-color: white;
-  }
-  .hover-white-event:focus {
-    color: white;
-  }
-  
-  .input-event:focus {
-    background: transparent;
-    color: white;
-    border-radius: 0px 0px 0px 0px;
-    border-style: solid;
-    border-color: white;
-  }
-  .input-event:first {
-    background: transparent;
-    color: white;
-    border-radius: 0px 0px 0px 0px;
-    border-style: solid;
-    border-color: white;
-  }
-  
-  .ty {
-    background-color: rgba(128, 70, 116, 0.67);
-  }
-  
-  .width-85 {
+  .width1-85 {
     width: 85%;
   }
   
-  .hover-cwhite:hover {
+  .hover1-cwhite:hover {
     color: white;
     border-color: white;
   }
   
-  .hover-purple:hover {
+  .hover1-purple:hover {
     border-color: rgba(134, 73, 122, 0.67);
   }
   
-  .titlecenter {
+  .titlecenter1 {
     margin-left: 35%;
   }
   
-  .fww6 {
-    font: 1em "Avantgarde", sans-serif;
+  
+  .fww61 {
+    font: 1.1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     font-style: normal;
     line-height: 150.5%;
     font-weight: normal;
   }
   
-  .fww4 {
-    font: 1em "Avantgarde", sans-serif;
+  .fww41 {
     font-style: normal;
     align-items: center;
     line-height: 132.5%;
+    font: 1.1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     color:white;
   }
   
-  .f4 {
+  .f41 {
     font-size: 2rem;
   }
   
-  .f5 {
+  .f51 {
     font-size: 15px;
     font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
   
-  .ph0 {
+  .ph01 {
     padding-left: 0;
     padding-right: 0;
   }
   
-  .pad {
+  .pad1 {
     padding: 1rem;
   }
   
-  .inp-reset {
+  .inp-reset1 {
     -webkit-appearance: none;
     -moz-appearance: none;
   }
   
-  .margins {
+  .margins1 {
     margin-top:30px;
     margin-left:30px;
   }
   
-  .mybutton {
+  .mybutton1 {
     background-color:#86497A59;
     border: solid #86497A59 1px;
     color: white;
     padding: 15px 32px;
     text-align: center;
-    font: 1em "Avantgarde", sans-serif;
+    font: 1.1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     display: inline-block;
     font-size: 15px;
@@ -186,20 +142,23 @@
     cursor: pointer;
   }
   
-  .brad {
+  .brad1 {
     border-radius: 51px;
   }
   
-  .mr-1 {
-    margin-right:10px;
+  .mr-11 {
+    margin-right:100px;
   }
   
-  .ml-auto {
-    margin-left:54rem;
+  .mr-top {
+    margin-top: 100px;
   }
   
+  .ml-auto1 {
+    margin-left:52.9rem;
+  }
   
-  .d-block {
+  .d-block1 {
     display:block;
   }
   
@@ -215,7 +174,6 @@
     padding:15px;
     word-wrap: break-word;
     display: block;
-    font-size:1rem;
     font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
@@ -224,39 +182,23 @@
     color: white;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: none;
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
   }
   
   a:hover {
     color: #86497A;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: underline;
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
   }
   
   a:active {
     color: #86497A;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: underline;
-  }
-  
-  
-  .input-event:focus {
-    background: transparent;
-    color: white;
-    border-radius: 0px 0px 0px 0px;
-    border-style: solid;
-    border-color: white;
-  }
-  .input-event:first {
-    background: transparent;
-    color: white;
-    border-radius: 0px 0px 0px 0px;
-    border-style: solid;
-    border-color: white;
-  }
- 
-  select option {
-    background-color: rgba(36, 40, 48, 1);
-    color: white;
-    font: 0.9em "Avantgarde", sans-serif;
+    font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
+  

@@ -1,13 +1,7 @@
 @fontface {
-    font-family: 'Poppins', cursive;
-    src: url('https://fonts.google.com/specimen/Poppins%27')
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap')
 }
 
-html,
-body {
-    font-family: 'Poppins', cursive;
-    height: 100%;
-}
 
 .ba {
     border-style: solid;
@@ -20,12 +14,13 @@ body {
     border-bottom-right-radius: 0;
 }
 
-.details {
+#details {
     color: white;
     margin: 0px;
     width: 100vw;
     text-align: center;
     position: relative;
+    font-size: 50px;
 }
 
 #w-100 {
@@ -67,7 +62,7 @@ body {
     font-size: 50px;
 }
 
-.button {
+.buttonConnect {
     align-self: center;
     width: 150px;
     height: 50px;
