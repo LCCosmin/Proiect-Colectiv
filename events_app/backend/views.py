@@ -35,22 +35,22 @@ def login(request):
 @api_view(['POST'])
 def addevent(request):
     if request.method == "POST":
-            start_date = request.data['start_date']
-            date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
-            timestamp = int(datetime.datetime.timestamp(date))
-            request.data['start_date'] = timestamp
+        start_date = request.data['start_date']
+        date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
+        timestamp = int(datetime.datetime.timestamp(date))
+        request.data['start_date'] = timestamp
 
-            end_date = request.data['end_date']
-            date = datetime.datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
-            timestamp = int(datetime.datetime.timestamp(date))
-            request.data['end_date'] = timestamp
-            request.data['img_name'] = str(uuid.uuid4())
-            serializer = EventSerializer(data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response({'added':request.data['img_name']}, status=status.HTTP_201_CREATED)
-            else:
-                return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
+        end_date = request.data['end_date']
+        date = datetime.datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
+        timestamp = int(datetime.datetime.timestamp(date))
+        request.data['end_date'] = timestamp
+        request.data['img_name'] = str(uuid.uuid4())
+        serializer = EventSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'added':request.data['img_name']}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def getevents(request):
@@ -85,6 +85,14 @@ def uploadimage(request):
         else:
             return JsonResponse(data)
     return JsonResponse(data)
+
+@api_view(['GET'])
+def geteventtypes(request):
+    if request.method == "GET":
+        events = EventType.objects.all()
+        serializer = EventTypeSerializer(events, many=True)
+        return Response(serializer.data)
+
 
 class UserInfoList(APIView):
     serializer_class = UserInfoSerializer
