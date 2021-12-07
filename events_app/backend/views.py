@@ -44,7 +44,8 @@ def addevent(request):
         date = datetime.datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
         timestamp = int(datetime.datetime.timestamp(date))
         request.data['end_date'] = timestamp
-        request.data['img_name'] = str(uuid.uuid4())
+        extension = '.' + request.data['img_name']
+        request.data['img_name'] = str(uuid.uuid4()) + extension
         serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -69,14 +70,13 @@ def uploadimage(request):
             img_extension = os.path.splitext(img.name)[1]
             #print(os.path.splitext(img.name)[0])
             # This will generate random folder for saving your image using UUID
-            save_path = "static/"
+            save_path = "frontend/public/images"
             # if not os.path.exists(save_path):
             #     # This will ensure that the path is created properly and will raise exception if the directory already exists
             #     print(os.makedirs(os.path.dirname(save_path), exist_ok=True))
 
-            print(img_extension)
             # Create image save path with title
-            img_save_path = "%s/%s%s" % (save_path, os.path.splitext(img.name)[0], img_extension)
+            img_save_path = "%s/%s%s" % (save_path, os.path.splitext(img.name)[0], '')
             #print(img_save_path)
             with open(img_save_path, "wb+") as f:
                 for chunk in img.chunks():
