@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./login.css";
+import "./login.css";
 import axios from 'axios'; 
 
 const Login = ({onRouteChange}) =>  {
@@ -33,12 +33,12 @@ const Login = ({onRouteChange}) =>  {
   };
 
   return (
-      <div className="pa4 black-80 content">
-          <fieldset id="log_in" className="ba b--transparent center ph0 mh0">
-            <legend className="f4 fw6 ph0 white center2">Log in</legend>
-            <div className="mt3 center">
+      <div className="paddingLoginPage contentLogin">
+          <fieldset id="log_in" className="borderLogin centerLoginContent paddingFieldsetContent">
+            <legend className="fontTitle paddingFieldsetContent centerLoginTitle">Log in</legend>
+            <div className="marginsDivLogin centerLoginContent">
               <input
-                className="pa2 fw4 f5 input-reset ba bg-transparent b--purple hover-white white-input w-100"
+                className="paddingInputLogin fontInputLogin input-reset borderLogin gray backgroundInputLogin borderInputLogin hover-white-login white-input-login width-100-login"
                 type="email"
                 name="email"
                 id="email"
@@ -46,9 +46,9 @@ const Login = ({onRouteChange}) =>  {
                 onChange = {inputChangeEmail}
               />
             </div>
-            <div className="mv3 center">
+            <div className="marginsDivLogin centerLoginContent">
               <input
-                className="pa2 fw4 f5 input-reset ba bg-transparent b--purple hover-white white-input w-100"
+                className="paddingInputLogin fontInputLogin input-reset borderLogin backgroundInputLogin borderInputLogin hover-white-login white-input-login width-100-login"
                 type="password"
                 name="password"
                 id="password"
@@ -56,24 +56,24 @@ const Login = ({onRouteChange}) =>  {
                 onChange = {inputChangePassword}
               />
             </div>
-            <div className="lh-copy mt3 center">
-              <label className="fw4 lh-copy white f5 pointer">
+            <div className="line-hight-login marginsDivLogin centerLoginContent">
+              <label className="fontLabelLogin line-hight-login white pointer">
                 <input type="checkbox" /> Remember me
               </label>
-              <a href="#0" className="fw4 link dim white underline f5 db">
+              <a href="#0" className="fontLabelLogin link-login dim white db underline">
                 Forgot your password?
               </a>
             </div>
           
           </fieldset>
-          <div className="lh-copy mt3 center">
-            <button className="ph3 pv2 fw4 ba b--purple bg-purple white grow pointer f5 dib mrg-left-16" onClick={checkLogin}> Log In</button>
+          <div className="line-hight-login marginsDivLogin centerLoginContent">
+            <button className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login" onClick={checkLogin}> Log In</button>
           </div>
-          <div className="lh-copy mt3 pad-left">
-            <label className=" fw4  lh-copy white f5 mrg-left-30">
+          <div className="line-hight-login marginsDivLogin pad-left-login">
+            <label className=" fontLabelLogin line-hight-login white mrg-left-q2-login">
               Don't have an account?
             </label>
-            <a href="#0" className="fw4 link dim white underline f5 db  mrg-left-32" onClick={() => onRouteChange('signin')}>
+            <a href="#0" className="fontLabelLogin link-login dim-login white db-login mrg-left-a-login underline" onClick={() => onRouteChange('signin')}>
               Sign up.
             </a>
           </div>

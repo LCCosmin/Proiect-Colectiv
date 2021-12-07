@@ -1,12 +1,3 @@
-@fontface {
-    font-family: 'Bungee Inline', cursive;
-    src: url('https://fonts.google.com/specimen/Poppins')
-  }
-
-  body {
-    font-family: 'Poppins', cursive;
-  }
-
 .topnav {
     background-color: #242830;
     overflow: hidden;
@@ -80,7 +71,7 @@
     padding: 0.5rem 0.5rem 0.5rem 0;
     flex: 1;
     background-color: #242830;
-    font-family: 'Bungee Inline', cursive;
+    font: "Avantgarde";
     color:white;
     text-align: center;
     cursor: pointer;
@@ -103,17 +94,16 @@
 
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #ffff;
-    font-family: 'Bungee Inline', cursive;
-    opacity: 1; /* Firefox */
+    font: "Avantgarde";
   }
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-family: 'Bungee Inline', cursive;
+    font: "Avantgarde";
     color: #ffff;
   }
   
   ::-ms-input-placeholder { /* Microsoft Edge */
-    font-family: 'Bungee Inline', cursive;
+    font: "Avantgarde";
     color: #ffff;
   }
 

@@ -1,12 +1,14 @@
 import React from "react";
-import styles from "./addevents.css";
-import axios from 'axios';
+import "./addevents.css";
+import axios from 'axios'; 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 
 const AddEvents = ({ onRouteChange }) => {
+
+  var aux;
 
   var state = {
     event: {
@@ -18,6 +20,7 @@ const AddEvents = ({ onRouteChange }) => {
       description: "",
       id_type: 1,
       status: "pending",
+      img_name: null,
     },
     valid: "",
   }
@@ -46,25 +49,35 @@ const AddEvents = ({ onRouteChange }) => {
     state.event.id_type = event.target.value;
   }
 
-  // God have Mercy with this function cuz idk what I am doing
-  function updatePicture(event) {
-    state.event.picture = event.target.value;
+  function fileSelectedHandler (event){
+    state.event.img_name = event.target.files[0];
+    console.log(state.event.img_name);
+  }
+
+  function fileUploadHandler(name){
+    const fd = new FormData();
+    state.event.img_name = aux;
+    console.log(state.event.img_name.name)
+    fd.append('image', state.event.img_name, name + "." + state.event.img_name.name.split(".")[1]);
+    axios
+      .post("http://127.0.0.1:8000/api/uploadimage", fd)
+      .then(response =>{
+        console.log(response);
+      })
   }
 
   function addEvent() {
-
-    // Missing eventEndDate + eventType
-    // Remove code below when input boxes are added
-
-
-    state.event.end_date = "2099-11-11T11:11";
-    state.event.id_type = 1; // or perhaps make it an int?
-    // ^^ To remove when input boxes are added
-
+    state.event.id_type = 1; 
+    //fileUploadHandler();
+    console.log(state.event);
+    aux = state.event.img_name;
+    state.event.img_name = null;
     axios
       .post("http://127.0.0.1:8000/api/addevent", state.event)
       .then(response => {
-        state.valid = response.data.added ? window.confirm("The event has been added successfully!") : window.confirm("The event has not been added!");
+        if(response.data.added){
+          fileUploadHandler(response.data.added);
+        }
       })
       .catch(err => console.log(err));
 
@@ -133,17 +146,18 @@ const AddEvents = ({ onRouteChange }) => {
           name="picture"
           id="picture"
           placeholder="Upload Picture"
-          onChange={updatePicture}
+          onChange={fileSelectedHandler}
         />
         <br></br>
         <br></br>
         <br></br>
-        <label for="events" className="ev-type hover-cwhite cwhite-input" onChange={updateType}>Choose an event type 
-        <select className="tab">
-          <option value="event1" className="tab">Event 1</option>
-          <option value="event2" className="ty">Event 2</option>
-          <option value="event3" className="ty">Event 3</option>
-          <option value="event4" className="ty">Event 4</option>
+        <label for="events" className="ev-type hover-cwhite cwhite-input input-event" onChange={updateType}>Choose an event type 
+        <select className="tab hover-white-event input-event">
+          <option value="event0" className="" disabled selected hidden>Event type</option>
+          <option value="event1" className="">Event 1</option>
+          <option value="event2" className="">Event 2</option>
+          <option value="event3" className="">Event 3</option>
+          <option value="event4" className="">Event 4</option>
         </select>
         </label>
         <div>

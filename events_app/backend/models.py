@@ -41,6 +41,7 @@ class Event(models.Model):
     description = models.TextField()
     id_type = models.ForeignKey(EventType, on_delete=CASCADE, db_column='id_type')
     status = models.CharField(max_length = 50)
+    img_name = models.TextField()
     class Meta:
         db_table="events"
 

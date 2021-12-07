@@ -1,55 +1,85 @@
 body {
   background-color: rgba(36, 40, 48, 1);
 }
-.ba {
+
+.paddingLoginPage {
+  padding: 2rem;
+}
+
+.grey {
+  color: rgba(255, 255, 255, 0.329);
+}
+
+.contentLogin {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.borderLogin {
   border-style: solid;
   border-width: 1px;
-}
-
-.b--purple {
-  border-color: rgba(128, 70, 116, 0.67);
-}
-
-
-.content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.b--transparent {
   border-color: transparent;
 }
 
-.db {
-  display: block;
+.borderInputLogin {
+  border-color: rgba(134, 73, 122, 0.67);
+}
+.centerLoginContent {
+  margin-right: auto;
 }
 
-.dib {
-  display: inline-block;
+.paddingFieldsetContent {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.b {
-  font-weight: bold;
-}
-
-.fw6 {
+.fontTitle {
+  font-size: 2rem;
   font: "Avantgarde";
   font-style: normal;
   line-height: 150.5%;
   font-weight: normal;
   letter-spacing: 0.1em;
+  color: white;
 }
 
-.fw4 {
+.centerLoginTitle {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15%;
+}
+
+.marginsDivLogin {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.paddingInputLogin {
+  padding: 2rem;
+}
+
+.fontInputLogin {
   font: "Avantgarde";
   font-style: normal;
   align-items: center;
   line-height: 132.5%;
   letter-spacing: 0.1em;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  color: gray;
+}
+
+.fontLabelLogin {
+  font: "Avantgarde";
+  font-style: normal;
+  align-items: center;
+  line-height: 132.5%;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
 }
 
 .input-reset {
@@ -62,47 +92,101 @@ body {
   padding: 0;
 }
 
-.lh-copy {
+.backgroundTransparentLogin {
+  background-color: transparent;
+  color: white;
+}
+
+.bg-purple {
+  background-color: rgba(134, 73, 122, 0.67);
+}
+
+.hover-white-login:hover {
+  color: white;
+  border-color: white;
+}
+
+.hover-white-login:focus {
+  color: #fff;
+}
+
+.hover-purple-login:hover {
+  border-color: rgba(134, 73, 122, 0.67);
+}
+
+.white-input-login:focus {
+  background: transparent;
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+.backgroundInputLogin {
+  background-color: transparent;
+  color: gray;
+}
+.width-100-login {
+  width: 100%;
+}
+
+.line-hight-login {
   line-height: 1.3;
 }
 
-.link {
+.link-login {
   text-decoration: none;
   transition: color 0.15s ease-in;
 }
 
-.link:link,
-.link:visited {
+.link-login:link,
+.link-login:visited {
   transition: color 0.15s ease-in;
 }
 
-.link:hover {
+.link-login:hover {
   transition: color 0.15s ease-in;
 }
 
-.link:active {
+.link-login:active {
   transition: color 0.15s ease-in;
 }
 
-.link:focus {
+.link-login:focus {
   transition: color 0.15s ease-in;
   outline: 1px dotted currentColor;
 }
 
-.w-100 {
-  width: 100%;
+.dimensions-button-login {
+  width: 426px;
+  height: 74px;
+  left: 507px;
+  top: 644px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 0 auto;
+  display: block;
 }
 
-.w-85 {
-  width: 85%;
+.button-login {
+  background-color: rgba(134, 73, 122, 0.67);
+  color: white;
 }
 
-.black-80 {
-  color: rgba(0, 0, 0, 0.8);
+.grow-login {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
 }
 
-.black {
-  color: #000;
+.grow-login:hover,
+.grow-login:focus {
+  transform: scale(1.05);
+}
+
+.grow-login:active {
+  transform: scale(0.9);
 }
 
 .white {
@@ -112,130 +196,53 @@ body {
 .gray {
   color: rgba(255, 255, 255, 0.329);
 }
-.bg-transparent {
-  background-color: transparent;
-  color: white;
+
+.pointer:hover {
+  cursor: pointer;
 }
 
-.bg-purple {
-  background-color: rgba(134, 73, 122, 0.67);
+.display-login {
+  display: inline-block;
 }
 
-.hover-white:hover {
-  color: white;
-  border-color: white;
-}
-.hover-purple:hover {
-  border-color: rgba(134, 73, 122, 0.67);
+.mrg-left-buton-login {
+  margin-left: 8%;
 }
 
-.hover-white:focus {
-  color: #fff;
+.mrg-left-a-login {
+  margin-left: 40%;
 }
 
-.hover-bg-black:hover {
-  background-color: #000;
+.mrg-left-q2-login {
+  margin-left: 20%;
 }
 
-.hover-bg-black:focus {
-  background-color: #000;
+.pad-left-login {
+  padding-left: 4em;
 }
 
-.pa0 {
-  padding: 0;
-}
-
-.pa2 {
-    padding: 2rem;
-  
-   
-}
-
-.pa4 {
-  padding: 2rem;
-}
-
-.pv2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.ph0 {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.ph3 {
-  width: 426px;
-  height: 74px;
-  left: 507px;
-  top: 644px;
-}
-.ph4 {
-    padding-left: 10rem;
-}
-.ma0 {
-  margin: 0;
-}
-.mrg-left-16 {
-    margin-left:8%;
-}
-
-.mrg-left-24 {
-  margin-left:30%;
-}
-
-.mrg-left-32 {
-  margin-left:40%;
-}
-.mrg-left-30 {
-  margin-left:17%;
-}
-
-.mt3 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.mv3 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.f4 {
-  font-size: 2rem;
-}
-.f5 {
-  font-size: 18px;
-}
-
-.measure {
-  max-width: 30em;
-}
-
-
-.centram {
-    margin-right: auto;
-  }
-
-  .centramTitlu {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-.dim {
+.dim-login {
   opacity: 1;
   transition: opacity 0.15s ease-in;
 }
 
-.dim:hover,
-.dim:focus {
+.dim-login:hover,
+.dim-login:focus {
   opacity: 0.5;
   transition: opacity 0.15s ease-in;
 }
 
+.dim-login:active {
+  opacity: 0.8;
+  transition: opacity 0.15s ease-out;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -246,66 +253,18 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: transparent inset 0 0 6px;
   box-shadow: transparent inset 0 0 6px;
-  transition: background-color 5000s ease-in-out 0s;}
-
-.dim:active {
-  opacity: 0.8;
-  transition: opacity 0.15s ease-out;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-.grow {
-  -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: transform 0.25s ease-out;
+.db-login {
+  display: block;
 }
 
-.grow:hover,
-.grow:focus {
-  transform: scale(1.05);
-}
-
-.grow:active {
-  transform: scale(0.9);
-}
-
-.pointer:hover {
-  cursor: pointer;
-}
-
-.next {
-  display: flex;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.white-input:focus {
-  background: transparent;
-  color: white;
-  border-radius: 0px 0px 0px 0px;
-  border-style: solid;
-  border-color: white;
-}
-
-.rtl {
-    direction: rtl;
-  }
-
-.button {
-    margin:0 auto;
-    display:block;
-}
-
-.pad-left{
-  padding-left: 4em;
-}
 button:disabled,
 button:focus:disabled,
 button:hover:disabled,
 button:active:disabled {
-  background:transparent;
+  background: transparent;
   border-color: rgba(134, 73, 122, 0.67);
   color: #666666;
   cursor: not-allowed;
@@ -315,8 +274,53 @@ button:enabled,
 button:focus:enabled,
 button:hover:enabled,
 button:active:enabled {
-  background:rgba(134, 73, 122, 0.67);
+  background: rgba(134, 73, 122, 0.67);
   border-color: rgba(134, 73, 122, 0.67);
   color: white;
   cursor: allowed;
+}
+
+a * {
+  color: white;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: none;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: left;
+  padding: 15px;
+  word-wrap: break-word;
+  display: block;
+  font-size: 1rem;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+a:visited * {
+  color: white;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: none;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+a:hover * {
+  color: #86497a;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+a:active * {
+  color: #86497a;
+  background-color: rgba(36, 40, 48, 1);
+  text-decoration: underline;
+  font: 1.1em "Avantgarde", sans-serif;
+  letter-spacing: 0.1em;
 }

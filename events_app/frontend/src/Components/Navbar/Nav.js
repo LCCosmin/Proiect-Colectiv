@@ -7,7 +7,7 @@ const Nav = ({onRouteChange, isSignedIn}) => {
         return(
             <div className="topnav" id="myTopnav">
                 <a>
-                <img src="https://s3-alpha-sig.figma.com/img/3818/7147/0675ce0c65c4aa71d9eed35d0f9c8041?Expires=1637539200&Signature=JAu5mtO0ijfOF6bhg4eJm7FWViHzG7hpxCRBWZMBZLItTHjXtV--eMPm-WmFsyWnzmOviGNjvvf6XBhUtLjNtGqATKjW5Bd3CBp9INsvIecURffeRPWUKnXbbqmYI4Q38EQ8OunLb1-LtNj8vK8BjtyJ7ugtj83DZUBE13t6bD1hU91CffNQaUxUvo-viuEq56prOBsq6S7bbdsOrrVh6qaBmbGE1oLPxkJPmMLLT4Vm8ZSGFNO7NbZcfdmGoMMQMss9hoD2U-h7D-zEmBCppiiBYGAXJ1TVwqf0WJITiTU310RG7G8CjN-iLt1lfw1NX88QQ06siNcmM-0YDVbYHA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" 
+                <img src="./logo.jpg" 
                 width="135px" height="100%" className="logo" alt="Site Name"/>
                 </a>
                 <a >

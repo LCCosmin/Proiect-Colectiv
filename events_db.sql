@@ -326,7 +326,8 @@ CREATE TABLE `events` (
   `location` text NOT NULL,
   `description` text NOT NULL,
   `id_type` int(11) NOT NULL,
-  `status` varchar(50) NOT NULL
+  `status` varchar(50) NOT NULL,
+  `img_name` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -451,7 +452,7 @@ CREATE TABLE `users_info` (
   `id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `dob` datetime NOT NULL,
+  `dob` date NOT NULL,
   `about` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
