@@ -11,7 +11,6 @@ import PersonalData from './Components/PersonalData/personaldata.js'
 import ChangePassword from './Components/ChangePassword/changepassword.js'
 import Nav from './Components/Navbar/Nav.js';
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
-import Profile1 from "./Components/Profile/profile1.js"
 import Profile from "./Components/Profile/profile.js"
 
 
@@ -87,8 +86,9 @@ class App extends Component{
                   )
                 )
               )
-            ) */}
+          ) */}
           <AdminNotifications/>
+
       {/* } */}
       </div>
     )
