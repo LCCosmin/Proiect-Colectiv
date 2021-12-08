@@ -13,6 +13,8 @@ import Nav from './Components/Navbar/Nav.js';
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 import Profile from "./Components/Profile/profile1.js";
 import EventProfile from "./Components/EventProfile/EventProfile";
+import EventPostUser from "./Components/EventPostUser/EventPostUser";
+import EventPostAdmin from "./Components/EventPostUser/EventPostAdmin";
 
 
 const initialState= {
@@ -88,7 +90,7 @@ class App extends Component{
                 )
               )
             ) */}
-          <AdminNotifications/>
+          <EventPostAdmin/>
       {/* } */}
       </div>
     )

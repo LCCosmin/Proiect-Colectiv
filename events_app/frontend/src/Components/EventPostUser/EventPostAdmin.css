@@ -1,0 +1,67 @@
+.containerEventPostAdmin img {
+    width: 100%;
+    height: 303px;
+    opacity: 60%;
+}
+
+.containerEventPostAdmin{
+    position: relative;
+    width: 100%;
+}
+
+.containerEventPostAdmin .Event-TitleAdmin {
+    position: absolute;
+    top: 100px;
+    padding-left: 30px;
+    color: white;
+    font-size: 48px;
+}
+
+.containerEventPostAdmin .Text-BoxAdmin{
+    width: 350px;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    padding-left: 30px;
+    top: 160px;
+}
+
+.containerEventPostAdmin .EventPostButtonAdmin{
+
+    background-color: rgba(134, 73, 122, 0.35);
+    border: solid #86497A 1px;
+    padding: 7px 30px;
+    text-align: center;
+    font-family:'Poppins';
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.containerEventPostAdmin .EventPostBradAdmin{
+    border-radius: 51px;
+}
+
+.containerEventPostAdmin button:enabled, 
+.containerEventPostAdmin button:focus:enabled, 
+.containerEventPostAdmin button:hover:enabled, 
+.containerEventPostAdmin button:active:enabled {
+    background:rgba(134, 73, 122, 0.644);
+    border-color: rgba(134, 73, 122, 0.822);
+    color: white;
+    cursor: allowed;
+}
+
+.containerEventPostAdmin .DividerEventPostAdmin{
+    width: 30px;
+    height:auto;
+    display:inline-block;
+}
+
+.containerEventPostAdmin .EventPostButtonsAdmin{
+    position: absolute;
+    padding-left: 30px;
+    top: 70%;
+}
