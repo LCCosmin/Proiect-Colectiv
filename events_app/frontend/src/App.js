@@ -9,7 +9,7 @@ import AddEvents from "./Components/AddEvents/addevents.js";
 import Nav from "./Components/Navbar/Nav.js";
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 import Profile from "./Components/Profile/profile.js"
-
+import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 
 const initialState= {
   route: 'home',
@@ -56,8 +56,10 @@ class App extends Component {
                 )
               )
           ) */}
-          <AdminNotifications/>
+          {/* <AdminNotifications/> */}
+          <AdminFeed/>
           {/* <AddEvents/> */}
+          {/* <Profile/> */}
 
       {/* } */}
       </div>
