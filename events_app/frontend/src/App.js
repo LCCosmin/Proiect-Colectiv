@@ -10,6 +10,8 @@ import Nav from "./Components/Navbar/Nav.js";
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 import Profile from "./Components/Profile/profile.js"
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
+import EventProfile from "./Components/EventProfile/EventProfile.js"
+import ParticipantsList from "./Components/Participants-list/Participants-list.js"
 
 const initialState= {
   route: 'home',
