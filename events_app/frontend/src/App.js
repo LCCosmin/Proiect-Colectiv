@@ -8,14 +8,12 @@ import Home from "./Components/Home/Home.js";
 import AddEvents from "./Components/AddEvents/addevents.js";
 import Nav from "./Components/Navbar/Nav.js";
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
-import Profile from "./Components/Profile/profile1.js";
-import ChangePassword from "./Components/ChangePassword/changepassword.js";
-import PersonalData from "./Components/PersonalData/personaldata.js";
-//import Profile from "./Components/Profile/profile.js";
+import Profile from "./Components/Profile/profile.js"
+import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 
-const initialState = {
-  route: "home",
-  isSignedIn: false,
+const initialState= {
+  route: 'home',
+  isSignedIn: false
 };
 
 class App extends Component {
@@ -37,23 +35,33 @@ class App extends Component {
     const { isSignedIn, route } = this.state;
     return (
       <div>
-        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
-        {this.state.route === "home" ? (
-          <Home onRouteChange={this.onRouteChange} />
-        ) : this.state.route === "login" ? (
-          <Login onRouteChange={this.onRouteChange} />
-        ) : this.state.route === "signin" ? (
-          <SignIn onRouteChange={this.onRouteChange} />
-        ) : this.state.route === "addevents" ? (
-          <AddEvents onRouteChange={this.onRouteChange} />
-        ) : this.state.route === "Admin-notifications" ? (
-          <AdminNotifications onRouteChange={this.onRouteChange} />
-        ) : (
-          <Home />
-        )} */}
+        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
+        {this.state.route === 'home'
+        ? <Home onRouteChange={this.onRouteChange}/>
+        :   (this.state.route === 'login'
+            ? <Login onRouteChange={this.onRouteChange}/>
+            : (this.state.route === 'signin'
+              ? <SignIn onRouteChange={this.onRouteChange}/> */}
+              {/* : (this.state.route === 'addevents'
+                ? <AddEvents onRouteChange={this.onRouteChange}/> */}
+              {/* : (this.state.route === 'personaldata'
+                ? <PersonalData onRouteChange={this.onRouteChange}/> */}
+              {/* : (this.state.route === 'changepassword'
+                ? <ChangePassword onRouteChange={this.onRouteChange}/> */}
+                {/* : (this.state.route === 'Admin-notifications'
+                  ? <AdminNotifications onRouteChange={this.onRouteChange}/>
+                  : <Home/>
+                  
+                  )
+                )
+              )
+          ) */}
+          {/* <AdminNotifications/> */}
+          <AdminFeed/>
+          {/* <AddEvents/> */}
+          {/* <Profile/> */}
 
-        <AddEvents/>
-        
+      {/* } */}
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React from "react";
-import "./Admin-feed.css"
+import "./Admin-feed.css";
+import axios from 'axios'; 
 
 
 class AdminFeed extends React.Component {
@@ -88,6 +89,16 @@ class AdminFeed extends React.Component {
                     </article>
             )})
             return uiItems;
+    }
+
+
+    componentDidMount(){
+        axios
+        .get("http://127.0.0.1:8000/api/getevents")
+        .then(response =>{
+            this.setState({events: response.data});
+        }) 
+        .catch(err => console.log(err));
     }
 
     render(){

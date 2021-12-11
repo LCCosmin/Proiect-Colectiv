@@ -20,6 +20,7 @@ class AdminNotifications extends React.Component {
     }
 
     render(){
+        console.log(this.state);
         const {events} = this.state;
         return(
             <main className="width-admin-main center-admin-auto white-admin">
@@ -30,9 +31,9 @@ class AdminNotifications extends React.Component {
                             <article key={event.id} className="display-admin-table width-admin-100 height-admin-auto padding-admin border-admin padding-bottom-admin component-admin" href="#0">
                                 <div className="">
                                     <div className="display-admin-table-cell width-admin-2rem w3-ns v-mid">
-                                        {/* <img src={event.img} 
+                                        <img src={'/images/'+event.img_name} 
                                         alt="event image from organizator"
-                                        className="border-admin border-black-admin display-block-admin border-radius-admin w3-ns height-admin-2rem h3-ns"/> */}
+                                        className="border-admin border-black-admin display-block-admin border-radius-admin w3-ns height-admin-2rem h3-ns"/>
                                     </div>
                                     <div className="display-admin-table-cell vertical-allign-mid padding-left-admin">
                                         <h1 className="font-size-admin f5-ns font-weight-admin-name line-height-admin-title white-admin margins-tb-admin">{event.name} </h1>
