@@ -23,7 +23,6 @@ pathlib.Path('images').mkdir(parents=True, exist_ok=True)
 
 @api_view(['POST'])
 def login(request):
-    
     data =  JSONParser().parse(request)
     if request.method == "POST":
         try:
@@ -59,6 +58,13 @@ def getevents(request):
     if request.method == "GET":
         events = Event.objects.all()
         serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def getorganisers(request):
+    if request.method == "GET":
+        organisers = User.objects.all().filter(id_role = 2, status = "pending")
+        serializer = UserSerializer(organisers, many=True)
         return Response(serializer.data)
 
 @api_view(['POST'])
