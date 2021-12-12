@@ -22,6 +22,21 @@ pathlib.Path('images').mkdir(parents=True, exist_ok=True)
 # Create your views here.
 
 @api_view(['POST'])
+def signin(request):
+    if request.method == 'POST':
+        data =  JSONParser().parse(request)
+        try:
+            user = User.objects.get(email = data["email"])
+            return Response({'exists':False})
+        except User.DoesNotExist:  
+            serializer = UserSerializer(data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'exists':True})
+            else:
+                return Response({'exists':False})
+
+@api_view(['POST'])
 def login(request):
     data =  JSONParser().parse(request)
     if request.method == "POST":
