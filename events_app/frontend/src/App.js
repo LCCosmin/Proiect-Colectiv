@@ -10,6 +10,8 @@ import Nav from "./Components/Navbar/Nav.js";
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
 import Profile from "./Components/Profile/profile.js"
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
+import Filter from './Components/FilterBar/filter.js';
+import PersonalData from './Components/PersonalData/personaldata.js'
 
 const initialState= {
   route: 'home',
@@ -57,7 +59,7 @@ class App extends Component {
               )
           ) */}
           {/* <AdminNotifications/> */}
-          <AdminFeed/>
+          <Filter />
           {/* <AddEvents/> */}
           {/* <Profile/> */}
 
