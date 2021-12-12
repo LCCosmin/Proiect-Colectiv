@@ -67,7 +67,6 @@ function SignIn () {
   let navigate = useNavigate();
   return (
     <div className="paddingFormSignIn contentSignIn">
-      <form className="centerSignIn widthSignInForm">
         <fieldset id="sign_up" className="borderSignInForm centerSignIn paddingSignInFieldset">
           <legend className="formatTitleSignIn centerTitleSignIn">Sign up</legend>
           <div className= "marginsSignIn centerSignIn">
@@ -133,7 +132,6 @@ function SignIn () {
             Log in.
           </a>
         </div>
-      </form>
     </div>
   );
 };

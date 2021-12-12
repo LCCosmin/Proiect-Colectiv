@@ -18,10 +18,10 @@ class Role(models.Model):
 
 class User(models.Model):
     username = models.CharField(max_length=50, null=True)
-    password = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    id_role = models.ForeignKey(Role, on_delete=CASCADE, db_column='id_role')
-    id_user_info = models.ForeignKey(UserInfo, on_delete=CASCADE, db_column='id_user_info')
+    password = models.CharField(max_length=50, null=True)
+    email = models.CharField(max_length=50, null=True)
+    id_role = models.ForeignKey(Role, on_delete=CASCADE, db_column='id_role', null=True)
+    id_user_info = models.ForeignKey(UserInfo, on_delete=CASCADE, db_column='id_user_info', null=True)
     id_rating = models.IntegerField(null=True)
     notifications = models.IntegerField(null=True)
     status = models.CharField(max_length = 20)

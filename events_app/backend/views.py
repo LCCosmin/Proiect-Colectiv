@@ -25,11 +25,13 @@ pathlib.Path('images').mkdir(parents=True, exist_ok=True)
 def signin(request):
     if request.method == 'POST':
         data =  JSONParser().parse(request)
+        print(data)
         try:
             user = User.objects.get(email = data["email"])
             return Response({'exists':False})
         except User.DoesNotExist:  
-            serializer = UserSerializer(data)
+            serializer = UserSerializer(data=data)
+            print(serializer)
             if serializer.is_valid():
                 serializer.save()
                 return Response({'exists':True})
