@@ -1,5 +1,7 @@
 import React from "react";
-import "./signin.css"
+import "./signin.css";
+import {useNavigate} from "react-router-dom";
+
 function check_pass() {
   if (
     document.getElementById("password").value ==
@@ -13,7 +15,8 @@ function check_pass() {
   }
 }
 
-const SignIn = ({onRouteChange}) =>  {
+function SignIn () {
+  let navigate = useNavigate();
   return (
     <div className="paddingFormSignIn contentSignIn">
       <form className="centerSignIn widthSignInForm">
@@ -75,7 +78,7 @@ const SignIn = ({onRouteChange}) =>  {
           <label href="#0" className="formatLabelSignIn lineHeight-signin white mrg-left-q1">
             Already have an account?
           </label>
-          <a href="#0" className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin" onClick={() => onRouteChange('login')}>
+          <a href="#0" className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin" onClick={() => {navigate('/login')}}>
             Log in.
           </a>
         </div>
