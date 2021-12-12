@@ -16,7 +16,6 @@ import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from './Components/FilterBar/filter.js';
-import PersonalData from './Components/PersonalData/personaldata.js'
 
 class App extends Component {
   constructor() {
@@ -26,35 +25,6 @@ class App extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        {/* <Nav isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
-        {this.state.route === 'home'
-        ? <Home onRouteChange={this.onRouteChange}/>
-        :   (this.state.route === 'login'
-            ? <Login onRouteChange={this.onRouteChange}/>
-            : (this.state.route === 'signin'
-              ? <SignIn onRouteChange={this.onRouteChange}/> */}
-              {/* : (this.state.route === 'addevents'
-                ? <AddEvents onRouteChange={this.onRouteChange}/> */}
-              {/* : (this.state.route === 'personaldata'
-                ? <PersonalData onRouteChange={this.onRouteChange}/> */}
-              {/* : (this.state.route === 'changepassword'
-                ? <ChangePassword onRouteChange={this.onRouteChange}/> */}
-                {/* : (this.state.route === 'Admin-notifications'
-                  ? <AdminNotifications onRouteChange={this.onRouteChange}/>
-                  : <Home/>
-                  
-                  )
-                )
-              )
-          ) */}
-          {/* <AdminNotifications/> */}
-          <Filter />
-          {/* <AddEvents/> */}
-          {/* <Profile/> */}
-
-      {/* } */}
-=======
           <Router>
             <Routes>
               <Route exact path="/" element={<Home/>}/>
@@ -71,7 +41,8 @@ class App extends Component {
               <Route exact path="/profile" element={<Profile/>}/>
             </Routes>
           </Router>
->>>>>>> 063a625a372472501150990e834909a42d6c5ff5
+          {/* <EventPostUser/> */}
+          {/* <Filter/> */}
       </div>
     )
   }

@@ -20,7 +20,20 @@ function Login () {
     axios
       .post("http://127.0.0.1:8000/api/login", state.item)
       .then(response =>{
-        state.valid = response.data.exists ? navigate('/addevents') : window.confirm("The account does not exist. Please sign up.");
+        console.log(response.data);
+        switch(response.data.role){
+          case 1:
+            navigate('/');
+            break;
+          case 2:
+            navigate('/addevents');
+            break;
+          case 3:
+            navigate('/eventpostuser');
+            break;
+          default:
+            window.confirm("The account does not exist. Please sign up.");
+        }
       }) 
       .catch(err => console.log(err));
   };

@@ -27,10 +27,11 @@ def login(request):
     data =  JSONParser().parse(request)
     if request.method == "POST":
         try:
-            user = User.objects.get(email = data["email"],password = data["password"])
-            return Response({'exists':True})
+            user = User.objects.get(email = data["email"], password = data["password"])
+            a = str(getattr(user, 'id_role'))
+            return Response({'role': int(a[13])})
         except User.DoesNotExist:
-            return Response({'exists':False})
+            return Response({'role':0})
 
 @api_view(['POST'])
 def addevent(request):
