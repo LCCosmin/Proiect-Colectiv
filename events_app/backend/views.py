@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 
+from profanity_check import predict
+
 from .models import *
 from rest_framework import status
 import json
@@ -19,19 +21,29 @@ import uuid
 import pathlib
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
+# Profanity check
+def checkLanguage(data):
+    for key in data:
+        word = data[key]
+        iterable =[str(word)]
+        if predict(iterable):
+            return True
+    return False
+
+
 # Create your views here.
 
 @api_view(['POST'])
 def signin(request):
     if request.method == 'POST':
         data =  JSONParser().parse(request)
-        #print(data)
+        if checkLanguage(data):
+            return Response({'exists':False})
         try:
             user = User.objects.get(email = data["email"])
             return Response({'exists':False})
         except User.DoesNotExist:  
             serializer = UserSerializer(data=data)
-            print(serializer)
             if serializer.is_valid():
                 serializer.save()
                 return Response({'exists':True})
@@ -52,6 +64,9 @@ def login(request):
 @api_view(['POST'])
 def addevent(request):
     if request.method == "POST":
+        data = JSONParser().parse(request)
+        if checkLanguage(data):
+            return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
         start_date = request.data['start_date']
         date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
         timestamp = int(datetime.datetime.timestamp(date))

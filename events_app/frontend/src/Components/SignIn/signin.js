@@ -35,21 +35,17 @@ function SignIn () {
       state.status = "pending";
     }
     else{
-      console.log("bufnita");
       state.status = "accepted";
     }
       state.id_role = event.target.value;
-      console.log(event.target.value);
   };
   
   function changeEmail(event) {
     state.email = event.target.value;
-    console.log(event.target.value);
   };
   
   function changePassword(event) {
     state.password = event.target.value;
-    console.log(event.target.value);
   };
   
   function check_pass() {
