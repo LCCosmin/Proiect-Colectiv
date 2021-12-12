@@ -24,7 +24,7 @@ class User(models.Model):
     id_user_info = models.ForeignKey(UserInfo, on_delete=CASCADE, db_column='id_user_info', null=True)
     id_rating = models.IntegerField(null=True)
     notifications = models.IntegerField(null=True)
-    status = models.CharField(max_length = 20)
+    status = models.CharField(max_length = 20, null=True)
     class Meta:
         db_table="users"
 

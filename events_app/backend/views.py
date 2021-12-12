@@ -25,7 +25,7 @@ pathlib.Path('images').mkdir(parents=True, exist_ok=True)
 def signin(request):
     if request.method == 'POST':
         data =  JSONParser().parse(request)
-        print(data)
+        #print(data)
         try:
             user = User.objects.get(email = data["email"])
             return Response({'exists':False})

@@ -5,23 +5,37 @@ import axios from 'axios';
 
 
 function SignIn () {
-
+  let navigate = useNavigate();
   var state = {
-    email: "",
-    username: "",
-    password: "",
-    id_role: "",
-    id_user_info: "",
-    id_rating: "",
-    notifications: "",
-    status: ""
+    email: null,
+    username: null,
+    password: null,
+    id_role: null,
+    id_user_info: null,
+    id_rating: null,
+    notifications: null,
+    status: null
   };
   
+  function makeSignIn() {
+    axios
+      .post("http://127.0.0.1:8000/api/signin", state)
+      .then(response => {
+        console.log(response.data.exists);
+        if (response.data.exists === true)
+            window.confirm("The account was created successfully.");
+        else
+            window.confirm("An account with this email already exists.");
+      })
+      .catch(err => console.log(err));
+  };
+
   function changeRole(event) {
-    if(event.target.value === 2) {
+    if(event.target.value === "2") {
       state.status = "pending";
     }
     else{
+      console.log("bufnita");
       state.status = "accepted";
     }
       state.id_role = event.target.value;
@@ -38,19 +52,6 @@ function SignIn () {
     console.log(event.target.value);
   };
   
-  function makeSignIn() {
-      axios
-      .post("https://127.0.0.1:8000/api/signin", state)
-      .then(response => {
-        console.log(response.data.exists);
-        if (response.data.exists === true)
-            window.confirm("The account was created successfully.");
-        else
-            window.confirm("An account with this email already exists.");
-      })
-      .catch(err => console.log(err));
-  };
-  
   function check_pass() {
     if (
       document.getElementById("password").value ==
@@ -64,7 +65,7 @@ function SignIn () {
     }
   };
 
-  let navigate = useNavigate();
+  
   return (
     <div className="paddingFormSignIn contentSignIn">
         <fieldset id="sign_up" className="borderSignInForm centerSignIn paddingSignInFieldset">
@@ -92,7 +93,7 @@ function SignIn () {
               type="password"
               name="password"
               id="password"
-              onChange={check_pass}
+              //onChange={check_pass}
               onChange={changePassword}
               placeholder="Password"
             />
@@ -113,14 +114,7 @@ function SignIn () {
           </label>
         </fieldset>
         <div className="lineHeight-signin marginsSignIn centerSignIn">
-          <button
-            onClick={makeSignIn}
-            class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin"
-            type="submit"
-            id= "submit"
-            value="Sign up"
-            disabled
-          >
+          <button class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin" id= "submit" onClick={makeSignIn}>
             Sign up
           </button>
         </div>
