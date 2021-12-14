@@ -42,7 +42,7 @@
     color: #e9a6a6;
   }
   
-  .new-account-home {
+  #new-account-home {
     font-size: 21px;
     color: #ffff;
     font: 1em "Avantgarde",sans-serif;
@@ -50,13 +50,15 @@
     height: 40px;
     width: 250px;
     border-radius: 25px;
-    border-color: #86497a;
     cursor: pointer;
     letter-spacing: 0.1em;
+  }
+  #new-account-home:hover {
+    background-color: #915184;
   }
 
   .font-home-description {
     font: 1.1em "Avantgarde",sans-serif;
     letter-spacing: 0.1em;
-    margin-bottom: 50px;
+    margin: 50px 0;
   }
