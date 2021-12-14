@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 
+from profanity_check import predict
+
 from .models import *
 from rest_framework import status
 import json
@@ -19,22 +21,52 @@ import uuid
 import pathlib
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
+# Profanity check
+def checkLanguage(data):
+    for key in data:
+        word = data[key]
+        iterable =[str(word)]
+        if predict(iterable):
+            return True
+    return False
+
+
 # Create your views here.
 
 @api_view(['POST'])
+def signin(request):
+    if request.method == 'POST':
+        data =  JSONParser().parse(request)
+        if checkLanguage(data):
+            return Response({'exists':False})
+        try:
+            user = User.objects.get(email = data["email"])
+            return Response({'exists':False})
+        except User.DoesNotExist:  
+            serializer = UserSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'exists':True})
+            else:
+                return Response({'exists':False})
+
+@api_view(['POST'])
 def login(request):
-    
     data =  JSONParser().parse(request)
     if request.method == "POST":
         try:
-            user = User.objects.get(email = data["email"],password = data["password"])
-            return Response({'exists':True})
+            user = User.objects.get(email = data["email"], password = data["password"])
+            a = str(getattr(user, 'id_role'))
+            return Response({'role': int(a[13])})
         except User.DoesNotExist:
-            return Response({'exists':False})
+            return Response({'role':0})
 
 @api_view(['POST'])
 def addevent(request):
     if request.method == "POST":
+        data = JSONParser().parse(request)
+        if checkLanguage(data):
+            return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
         start_date = request.data['start_date']
         date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
         timestamp = int(datetime.datetime.timestamp(date))
@@ -58,6 +90,13 @@ def getevents(request):
     if request.method == "GET":
         events = Event.objects.all()
         serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def getorganisers(request):
+    if request.method == "GET":
+        organisers = User.objects.all().filter(id_role = 2, status = "pending")
+        serializer = UserSerializer(organisers, many=True)
         return Response(serializer.data)
 
 @api_view(['POST'])

@@ -9,6 +9,8 @@ urlpatterns = [
 	path('api/login', views.login),
 	path('api/addevent', views.addevent),
 	path('api/getevents', views.getevents),
+	path('api/getorganisers', views.getorganisers),
 	path('api/uploadimage', views.uploadimage),
-	path('api/geteventtypes', views.geteventtypes)
+	path('api/geteventtypes', views.geteventtypes),
+	path('api/signin', views.signin)
 ]

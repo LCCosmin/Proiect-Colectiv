@@ -1,5 +1,5 @@
 html,body{
-    background-color: #242830;
+    background-color: #242830 !important;
     font-family: "Avantgarde";
     font-style: normal;
     line-height: 150.5%;
@@ -30,7 +30,7 @@ html,body{
 .ev-org{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: rgba(134, 73, 122, 0.67);
+    background-color: rgba(134, 73, 122, 0.67) !important;
 }
 
 .ev-org-btn{
@@ -195,7 +195,7 @@ html,body{
     line-height: 150.5%;
     font-weight: normal;
     letter-spacing: 0.1em;
-    background-color: transparent;
+    background-color: #86497A !important;
     height: 45px;
     width: 150px;
     border-radius: 25px;
