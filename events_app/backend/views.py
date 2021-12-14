@@ -64,9 +64,6 @@ def login(request):
 @api_view(['POST'])
 def addevent(request):
     if request.method == "POST":
-        data = JSONParser().parse(request)
-        if checkLanguage(data):
-            return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
         start_date = request.data['start_date']
         date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
         timestamp = int(datetime.datetime.timestamp(date))
@@ -79,6 +76,10 @@ def addevent(request):
         extension = '.' + request.data['img_name']
         request.data['img_name'] = str(uuid.uuid4()) + extension
         serializer = EventSerializer(data=request.data)
+        data = request.data
+        if checkLanguage(data):
+            #print("DA")
+            return Response({'added':False})
         if serializer.is_valid():
             serializer.save()
             return Response({'added':request.data['img_name']}, status=status.HTTP_201_CREATED)

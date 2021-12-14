@@ -63,16 +63,23 @@ class AddEvents extends React.Component {
       .post("http://127.0.0.1:8000/api/uploadimage", fd)
       .then(response =>{
       })
+      .catch(err => console.log(err));
   }
 
   addEvent = () => {
     this.aux = this.state.event.img_name;
+    //window.confirm(this.state.event.img_name);
     this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
     axios
       .post("http://127.0.0.1:8000/api/addevent", this.state.event)
       .then(response => {
+        //window.confirm(response.data.added);
         if(response.data.added){
           this.fileUploadHandler(response.data.added);
+          window.confirm("The events has been sent for approval");
+        }
+        else{
+          window.confirm("Watch your language!");
         }
       })
       .catch(err => console.log(err));
