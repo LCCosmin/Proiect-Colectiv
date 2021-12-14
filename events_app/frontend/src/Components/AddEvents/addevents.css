@@ -260,3 +260,21 @@
     font: 0.9em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
+
+  .prof-image img {
+    height:150px;
+    width:150px;
+    position:absolute;
+    top:10px;
+    padding-bottom:100px;
+    left:50%;
+    transform: translate(-50%, 0);
+    border:3px solid #fff;
+    border-radius: 50%;
+    border: 5px solid #86497A;
+}
+
+.img-pos {
+  top:50px;
+  margin-left:10px;
+}
