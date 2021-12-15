@@ -41,8 +41,7 @@ class App extends Component {
               <Route exact path="/profile" element={<Profile/>}/>
             </Routes>
           </Router>
-          {/* <EventPostUser/> */}
-          {/* <Filter/> */}
+          {/* <PersonalData/>  */}
       </div>
     )
   }
