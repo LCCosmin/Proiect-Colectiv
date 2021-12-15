@@ -10,21 +10,22 @@
 }
 
 .containerEventPost .Event-Title {
+    font: 1.1em "Avantgarde", sans-serif;
     position: absolute;
-    top: 100px;
+    top: 78px;
     padding-left: 30px;
     color: white;
     font-size: 48px;
 }
 
 .containerEventPost .Text-Box{
-    width: 350px;
-    font-family: 'Roboto';
+    width: 430px;
+    font: 1.1em "Avantgarde", sans-serif;;
     font-size: 14px;
     color: white;
     position: absolute;
     padding-left: 30px;
-    top: 160px;
+    top: 140px;
 }
 
 .containerEventPost .EventPostButton{
@@ -33,7 +34,7 @@
     border: solid #86497A 1px;
     padding: 7px 30px;
     text-align: center;
-    font-family:'Poppins';
+    font: 1.1em "Avantgarde", sans-serif;;
     display: inline-block;
     font-size: 20px;
     margin: 4px 2px;

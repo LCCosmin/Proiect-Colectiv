@@ -1,14 +1,11 @@
 body {
     background-color: rgba(36, 40, 48, 1);
-    font-family: 'Poppins', normal;
 }
 
-.EventTitle {
+.EventProfile-container .EventTitle {
     width: 655px;
     height: 65px;
-
-    font-family: 'Poppins';
-    font-style: normal;
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: bold;
     font-size: 48px;
     line-height: 64px;
@@ -16,48 +13,33 @@ body {
 
 }
 
-.UsersGoing {
-    width: 350px;
+.EventProfile-container .UsersGoing {
+    width: 400px;
     height: 60px;
-
-    font-family: 'Poppins';
-    font-style: normal;
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
     line-height: 132.5%;
     color: #FFFFFF;
 }
 
-.view{
-    width: 100px;
-    height: 65px;
 
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 132.5%;
-}
-
-a:link{
+.EventProfile-container a:link{
     color: white;
     text-align: left;
     padding: 0px;
-    font-size: 24px;
-    font-family: "Poppins";
+    font: 1.1em "Avantgarde", sans-serif;
     background-color: transparent;
     text-decoration: none;
     word-wrap: break-word;
     display: inline;
 }
 
-.Location {
+.EventProfile-container .Location {
 
     width: 187px;
     height: 40px;
-
-    font-family: 'Poppins';
-    font-style: normal;
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
 
@@ -68,13 +50,12 @@ a:link{
     color: #FFFFFF;
 }
 
-.Price {
+.EventProfile-container .Price {
 
     width: 187px;
     height: 40px;
 
-    font-family: 'Poppins';
-    font-style: normal;
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
 
@@ -86,13 +67,12 @@ a:link{
     color: #FFFFFF;
 }
 
-.Date {
+.EventProfile-container .Date {
 
     width: 188px;
     height: 40px;
 
-    font-family: 'Poppins';
-    font-style: normal;
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
 
@@ -103,13 +83,12 @@ a:link{
     color: #FFFFFF;
 }
 
-.Time {
+.EventProfile-container .Time {
 
     width: 180px;
     height: 40px;
 
-    font-family: 'Poppins';
-    font-style: normal;
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
     
@@ -120,14 +99,14 @@ a:link{
     color: #FFFFFF;
 }
 
-.anyButton {
+.EventProfile-container .anyButton {
 
     background-color:transparent;
     border: solid #86497A 1px;
     color: white;
     padding: 11px 30px;
     text-align: center;
-    font-family:'Poppins';
+    font: 1.1em "Avantgarde", sans-serif;
     display: inline-block;
     font-size: 20px;
     margin: 4px 2px;
@@ -135,73 +114,72 @@ a:link{
 }
 
 
-.brad {
+.EventProfile-container .brad {
     border-radius: 51px;
 }
 
-.marginEventProf {
+.EventProfile-container .marginEventProf {
     margin-top:20px;
     width: 190px;
 }
 
 
-.Description {
-    width: 610px;
-    height: 150px;
-    font-family: 'Poppins';
+.EventProfile-container .Description {
+    width: 600px;
+    height: 175px;
+    font: 1.1em "Avantgarde", sans-serif;
     font-style: normal;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 32px;
     color:rgba(255, 255, 255, 0.63);
 }
 
-.LeftSide {
+.EventProfile-container .LeftSide {
     position: absolute;
     left: 0px;
     width: 50%;
   }
 
-.RightSide{
+.EventProfile-container .RightSide{
     position: absolute;
     right: 0px;
     width: 50%;
 }
 
-.Report {
-    font-family: 'Poppins';
-    font-style: normal;
+.EventProfile-container .Report {
+    font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
     width: 198px;
     height: 70px;
     color: white;
-    display: table;
 }
 
-.buttons {
+.EventProfile-container .buttons {
     height: 135px;
 }
 
-.leftPadding{
+.EventProfile-container .leftPadding{
     padding-left: 30px;
 }
 
-.rightPadding{
+.EventProfile-container .rightPadding{
     padding-right: 30px;
 }
 
 
-.divider{
+.EventProfile-container .divider{
     width: 30px;
     height:auto;
     display:inline-block;
 }
 
-a:hover {
+.EventProfile-container a:hover {
     color: #86497A;
   }
 
-  button:disabled,
+.EventProfile-container 
+button:disabled,
 button:focus:disabled,
 button:hover:disabled,
 button:active:disabled {
@@ -211,6 +189,7 @@ button:active:disabled {
   cursor: not-allowed;
 }
 
+.EventProfile-container 
 button:enabled,
 button:focus:enabled,
 button:hover:enabled,
@@ -221,7 +200,7 @@ button:active:enabled {
   cursor: allowed;
 }
 
-p {
+.EventProfile-container p {
     color: white;
     font-size: 24px;
     display: block;
@@ -231,5 +210,11 @@ p {
     margin-inline-end: 0px;
 }
 
-
+.EventProfile-container a * {
+    color: white;
+    background-color: rgba(36, 40, 48, 1);
+    text-decoration: underline;
+    letter-spacing: 0.1em;
+    font: 1.1em "Avantgarde", sans-serif;
+}
 

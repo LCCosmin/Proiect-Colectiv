@@ -10,21 +10,22 @@
 }
 
 .containerEventPostAdmin .Event-TitleAdmin {
+    font: 1.1em "Avantgarde", sans-serif;
     position: absolute;
-    top: 100px;
+    top: 78px;
     padding-left: 30px;
     color: white;
     font-size: 48px;
 }
 
 .containerEventPostAdmin .Text-BoxAdmin{
-    width: 350px;
+    width: 430px;
     font-family: 'Roboto';
     font-size: 14px;
     color: white;
     position: absolute;
     padding-left: 30px;
-    top: 160px;
+    top: 140px;
 }
 
 .containerEventPostAdmin .EventPostButtonAdmin{

@@ -24,7 +24,7 @@ class EventProfile extends React.Component {
 
                         <div>
                            <p className = "UsersGoing"> <AiOutlineUser/>5225 users interested.
-                           <a href=""> <u>View</u></a><br></br> </p>
+                           <u><a href="" >View</a></u><br></br> </p>
                         </div>
 
                         <div className="Location">
