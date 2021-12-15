@@ -8,6 +8,13 @@ import {MdAccessTime} from "react-icons/md";
 import styles from './EventProfile.css';
 
 class EventProfile extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            events:[]
+        }
+    }
+
     render() { 
         return (
             <body>
