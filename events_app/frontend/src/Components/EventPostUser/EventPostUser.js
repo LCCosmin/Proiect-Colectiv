@@ -12,7 +12,7 @@ class EventPostUser extends React.Component {
 
     componentDidMount(){
         axios
-        .get("http://127.0.0.1:8000/api/getevents")
+        .get("http://127.0.0.1:8000/api/geteventsaccepted")
         .then(response =>{
             this.setState({events: response.data});
         }) 

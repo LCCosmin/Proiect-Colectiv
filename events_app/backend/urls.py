@@ -12,5 +12,9 @@ urlpatterns = [
 	path('api/getorganisers', views.getorganisers),
 	path('api/uploadimage', views.uploadimage),
 	path('api/geteventtypes', views.geteventtypes),
+	path('api/manageButtonsOrganizers', views.manageButtonsOrganizers),
+	path('api/manageButtonsEvents', views.manageButtonsEvents),
+	path('api/geteventspending', views.geteventspending),
+	path('api/geteventsaccepted', views.geteventsaccepted),
 	path('api/signin', views.signin)
 ]

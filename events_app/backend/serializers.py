@@ -25,6 +25,10 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
+    def update(self, instance, validated_data):
+        instance.status = validated_data.get('status', instance.status)
+        instance.save()
+        return instance
 
 # class UserChatSerializer(serializers.ModelSerializer):
 #     class Meta:
