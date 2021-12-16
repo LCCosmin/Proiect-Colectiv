@@ -33,6 +33,44 @@ def checkLanguage(data):
 
 # Create your views here.
 
+@api_view(['PUT'])
+def manageButtonsOrganizers(request):
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        org = User.objects.all()
+        orgToUpdate = 0
+        for orga in org:
+            if orga.id == data['id']:
+                orgToUpdate = orga
+        serializer = UserSerializer(orgToUpdate,data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':True})
+        else:
+            return Response({'data':False})
+    # Should never come here
+    print("Never here na!")
+    return Response({'data': False})
+
+@api_view(['PUT'])
+def manageButtonsEvents(request):
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        events = Event.objects.all()
+        eventToUpdate = 0
+        for event in events:
+            if event.id == data['id']:
+                eventToUpdate = event
+        serializer = EventSerializer(eventToUpdate,data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':True})
+        else:
+            return Response({'data':False})
+    # Should never come here
+    print("Never here na!")
+    return Response({'data': False})
+
 @api_view(['POST'])
 def signin(request):
     if request.method == 'POST':
