@@ -33,6 +33,44 @@ def checkLanguage(data):
 
 # Create your views here.
 
+@api_view(['PUT'])
+def manageButtonsOrganizers(request):
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        org = User.objects.all()
+        orgToUpdate = 0
+        for orga in org:
+            if orga.id == data['id']:
+                orgToUpdate = orga
+        serializer = UserSerializer(orgToUpdate,data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':True})
+        else:
+            return Response({'data':False})
+    # Should never come here
+    print("Never here na!")
+    return Response({'data': False})
+
+@api_view(['PUT'])
+def manageButtonsEvents(request):
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        events = Event.objects.all()
+        eventToUpdate = 0
+        for event in events:
+            if event.id == data['id']:
+                eventToUpdate = event
+        serializer = EventSerializer(eventToUpdate,data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':True})
+        else:
+            return Response({'data':False})
+    # Should never come here
+    print("Never here na!")
+    return Response({'data': False})
+
 @api_view(['POST'])
 def signin(request):
     if request.method == 'POST':
@@ -84,12 +122,28 @@ def addevent(request):
             serializer.save()
             return Response({'added':request.data['img_name']}, status=status.HTTP_201_CREATED)
         else:
+            print(serializer.initial_data)
+            print(serializer.errors)
             return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def getevents(request):
     if request.method == "GET":
         events = Event.objects.all()
+        serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def geteventsaccepted(request):
+    if request.method == "GET":
+        events = Event.objects.all().filter(status = "accepted")
+        serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def geteventspending(request):
+    if request.method == "GET":
+        events = Event.objects.all().filter(status = "pending")
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
 

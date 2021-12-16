@@ -14,7 +14,7 @@ class AddEvents extends React.Component {
     this.state = {
       event: {
         name: "",
-        id_organizer: 2,
+        id_organizer: 88,
         start_date: "",
         end_date: "",
         location: "",

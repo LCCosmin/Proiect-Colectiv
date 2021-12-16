@@ -23,6 +23,37 @@ class AdminFeed extends React.Component {
         this.setState({handlePath : handlePath});
     }
 
+    manageButtons(obj, newStatus, entity){
+        if (entity === "events"){
+            obj.status = newStatus;
+            axios
+                .put("http://127.0.0.1:8000/api/manageButtonsOrganizers", obj)
+                .then(response =>{
+                    if(response.data.data === true){
+                        window.confirm("Status of the object has been modified with success!");
+                    }
+                    else{
+                        window.confirm("An error somewhere (we do not know where) occured!");
+                    }
+                }) 
+                .catch(err => console.log(err));
+        }
+        else{
+            obj.status = newStatus;
+                axios
+                    .put("http://127.0.0.1:8000/api/manageButtonsEvents", obj)
+                    .then(response =>{
+                        if(response.data.data === true){
+                            window.confirm("Status of the object has been modified with success!");
+                        }
+                        else{
+                            window.confirm("An error somewhere (we do not know where) occured!");
+                        }
+                    }) 
+                    .catch(err => console.log(err));
+        }
+    }
+
    showMyList(){
             let  myList=this.state.myList , uiItems = [];
 
@@ -33,8 +64,8 @@ class AdminFeed extends React.Component {
                          <div className=" display-grid">
                             <div className="dtc w2 v-mid ">      
                                 { // here it should be added the photo path  
-                                    < // img src= {"/images/" + obj.img_name} 
-                                    img src= "https://image.shutterstock.com/image-photo/kiev-ukraine-april-21-2015-260nw-1918637450.jpg"
+                                    <img src= {"/images/" + obj.img_name} 
+                                    //img src= "https://image.shutterstock.com/image-photo/kiev-ukraine-april-21-2015-260nw-1918637450.jpg"
                                     alt="event image from organizator"
                                     className=" db br-100 img-dim "/> 
                                 }
@@ -47,12 +78,8 @@ class AdminFeed extends React.Component {
                                 <h2 className="f18 fw4 mt0 mb0 black-60">End Date: {obj.end_date}</h2>
                             </div>
                             <div className=" dtc v-mid btn-right">
-                                <form className="w-100 tr">
-                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit">Accept</button>
-                                </form>
-                                <form className="w-100 tr">
-                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit">Decline</button>
-                                </form>
+                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "accepted", "org")}}>Accept</button>
+                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "denied", "org")}}>Decline</button>
                             </div>
                         </div>
                     </article>
@@ -65,8 +92,7 @@ class AdminFeed extends React.Component {
                              <div className=" display-grid">
                                 <div className="dtc w2 v-mid ">      
                                     { // here it should be added the photo path  
-                                        < // img src= {"/images/" + obj.img_name} 
-                                        img src= "https://image.shutterstock.com/image-photo/kiev-ukraine-april-21-2015-260nw-1918637450.jpg"
+                                        <img src= "https://image.shutterstock.com/image-photo/kiev-ukraine-april-21-2015-260nw-1918637450.jpg"
                                         alt="event image from organizator"
                                         className=" db br-100 img-dim "/> 
                                     }
@@ -76,12 +102,8 @@ class AdminFeed extends React.Component {
                                     <h1 className="f18 fw4 mt0 mb0 black-60 ">{obj.password}</h1>
                                 </div>
                                 <div className=" dtc v-mid btn-right">
-                                    <form className="w-100 tr">
-                                    <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit">Accept</button>
-                                    </form>
-                                    <form className="w-100 tr">
-                                    <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit">Decline</button>
-                                    </form>
+                                    <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "accepted", "events")}}>Accept</button>
+                                    <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "denied", "events")}}>Decline</button>
                                 </div>
                             </div>
                         </article>
@@ -93,7 +115,7 @@ class AdminFeed extends React.Component {
 
     componentDidMount(){
         axios
-        .get("http://127.0.0.1:8000/api/getevents")
+        .get("http://127.0.0.1:8000/api/geteventspending")
         .then(response =>{
             this.setState({events: response.data});
         }) 
