@@ -1,8 +1,11 @@
 import React from "react";
 import "./login.css";
 import axios from 'axios'; 
+import {useNavigate} from "react-router-dom";
 
-const Login = ({onRouteChange}) =>  {
+
+function Login () {
+  let navigate = useNavigate();
   var state = {
 
     item: {
@@ -17,9 +20,20 @@ const Login = ({onRouteChange}) =>  {
     axios
       .post("http://127.0.0.1:8000/api/login", state.item)
       .then(response =>{
-        state.valid = response.data.exists ?  onRouteChange('addevents') : window.confirm("The account does not exist. Please sign up.");
-        // state.valid = response.data;
-        // console.log(state.valid);
+        console.log(response.data);
+        switch(response.data.role){
+          case 1:
+            navigate('/');
+            break;
+          case 2:
+            navigate('/addevents');
+            break;
+          case 3:
+            navigate('/eventpostuser');
+            break;
+          default:
+            window.confirm("The account does not exist. Please sign up.");
+        }
       }) 
       .catch(err => console.log(err));
   };
@@ -60,7 +74,7 @@ const Login = ({onRouteChange}) =>  {
               <label className="fontLabelLogin line-hight-login white pointer">
                 <input type="checkbox" /> Remember me
               </label>
-              <a href="#0" className="fontLabelLogin link-login dim white db underline">
+              <a href="#0" className="fontLabelLogin link-login dim white db underline" onClick={() => {navigate('/changepassword')}}>
                 Forgot your password?
               </a>
             </div>
@@ -73,7 +87,7 @@ const Login = ({onRouteChange}) =>  {
             <label className=" fontLabelLogin line-hight-login white mrg-left-q2-login">
               Don't have an account?
             </label>
-            <a href="#0" className="fontLabelLogin link-login dim-login white db-login mrg-left-a-login underline" onClick={() => onRouteChange('signin')}>
+            <a href="#0" className="fontLabelLogin link-login dim-login white db-login mrg-left-a-login underline" onClick={() => {navigate('/signin')}}>
               Sign up.
             </a>
           </div>

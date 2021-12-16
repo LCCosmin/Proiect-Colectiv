@@ -146,8 +146,8 @@
     border-radius: 51px;
   }
   
-  .mr-11 {
-    margin-right:100px;
+  .mr-111 {
+    margin-right:900px;
   }
   
   .mr-top {
@@ -201,4 +201,22 @@
     font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
+
+  .prof-image3 img {
+    height:150px;
+    width:150px;
+    position:absolute;
+    top:10px;
+    padding-bottom:100px;
+    left:50%;
+    transform: translate(-50%, 0);
+    border:3px solid #fff;
+    border-radius: 50%;
+    border: 5px solid #86497A;
+}
+
+.img-pos3 {
+  top:50px;
+  margin-left:10px;
+}
   

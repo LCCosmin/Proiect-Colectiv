@@ -1,6 +1,8 @@
 import React from "react";
 import "./addevents.css";
 import axios from 'axios'; 
+import {IoLocationOutline} from "react-icons/io5";
+import {IoPricetagOutline} from "react-icons/io5";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,7 +14,7 @@ class AddEvents extends React.Component {
     this.state = {
       event: {
         name: "",
-        id_organizer: 2,
+        id_organizer: 88,
         start_date: "",
         end_date: "",
         location: "",
@@ -63,16 +65,23 @@ class AddEvents extends React.Component {
       .post("http://127.0.0.1:8000/api/uploadimage", fd)
       .then(response =>{
       })
+      .catch(err => console.log(err));
   }
 
   addEvent = () => {
     this.aux = this.state.event.img_name;
+    //window.confirm(this.state.event.img_name);
     this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
     axios
       .post("http://127.0.0.1:8000/api/addevent", this.state.event)
       .then(response => {
+        //window.confirm(response.data.added);
         if(response.data.added){
           this.fileUploadHandler(response.data.added);
+          window.confirm("The events has been sent for approval");
+        }
+        else{
+          window.confirm("Watch your language!");
         }
       })
       .catch(err => console.log(err));
@@ -93,7 +102,11 @@ class AddEvents extends React.Component {
     return (
       <>
         <div className="split left">
-          <div className="bgr-transparent par"></div>
+          <div className="bgr-transparent par img-pos">
+            <div className="prof-image">
+              <img src="https://s3-alpha-sig.figma.com/img/6a03/487f/fe0efa3177b2f82f4cc3b32042ec4b4d?Expires=1638748800&Signature=T9R5TKUyu3Uq29NsCwIorLnaqLIQQ6G3aHQiaLQ62S3vY5ViXWTPCxnfKPL4eK3SOdAD6PfjzSEC-wCakELfSYVtIvC-7cfLjKxWMCoRnWuK6M~c~V6eOKzN6C~rmVl22jLPMNhrl0M~xonrDd4mte8VDY66r3dO1C2idedOscDPZKISEkbuywPcZJHEDww2F0Mc4GyGS0TxvZSx7QUQnWoItXARqEeB58Se2GKSwA3nCkhW7WE-dAOGByzjteO-ErGIUyxXFlThpYDwzo69qUSGwNConxDUoeF8uLH8snD9kIK-L-Asn~wyy2iOX9a-Xerxe65dvzBKCVE2FVOx7A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" />
+            </div>
+          </div>
           <div className="centered">
             <a href="">Personal Data</a><br></br>
             <a href="">Change Password</a><br></br>
@@ -101,7 +114,8 @@ class AddEvents extends React.Component {
             <a href="">Add Event</a>
           </div>
         </div>
-        <div></div>
+        <div>
+        </div>
         <div className="split right">
           <legend className="f4 fww6 ph0 white titlecenter">Event details</legend>
           <input
@@ -121,7 +135,7 @@ class AddEvents extends React.Component {
               placeholder="Event Description"
               onChange={this.updateDescription}
             />
-            <input
+            <input 
               className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
               type="text"
               name="location"

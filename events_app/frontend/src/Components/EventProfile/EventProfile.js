@@ -8,20 +8,26 @@ import { MdAccessTime } from "react-icons/md";
 import styles from "./EventProfile.css";
 
 class EventProfile extends React.Component {
-  render() {
-    return (
-      <body>
-        <div className="EventProfile-container">
-          <div className="img-container">
-            <img
-              src="https://media.timeout.com/images/103455335/image.jpg"
-              alt="art gallery"
-              width="100%"
-              height="420"
-            />
-          </div>
-          <div className="LeftSide leftPadding">
-            <div className="EventTitle">Event Name</div>
+    constructor(){
+        super();
+        this.state = {
+            events:[]
+        }
+    }
+
+    render() { 
+        return (
+            <body>
+                    <div className="EventProfile-container">
+                    <div className="img-container">
+                    <img src ="https://media.timeout.com/images/103455335/image.jpg" 
+                    alt="art gallery" width="100%"
+                    height="420"/> 
+                    </div>
+                    <div className="LeftSide leftPadding">
+                        <div className="EventTitle">
+                             Event Name 
+                        </div>
 
             <div>
               <p className="UsersGoing">
