@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from .serializers import *
 
 from profanity_check import predict
+from django.contrib.auth.hashers import check_password, make_password
 
 from .models import *
 from rest_framework import status
@@ -80,7 +81,8 @@ def signin(request):
         try:
             user = User.objects.get(email = data["email"])
             return Response({'exists':False})
-        except User.DoesNotExist:  
+        except User.DoesNotExist:
+            data['password'] = make_password(data['password']) 
             serializer = UserSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()
@@ -93,9 +95,13 @@ def login(request):
     data =  JSONParser().parse(request)
     if request.method == "POST":
         try:
-            user = User.objects.get(email = data["email"], password = data["password"])
-            a = str(getattr(user, 'id_role'))
-            return Response({'role': int(a[13])})
+            user = User.objects.get(email = data["email"])
+            print(user.password)
+            if(check_password(data['password'], user.password)):
+                a = str(getattr(user, 'id_role'))
+                return Response({'role': int(a[13])})
+            else:
+                return Response({'role':0})
         except User.DoesNotExist:
             return Response({'role':0})
 
