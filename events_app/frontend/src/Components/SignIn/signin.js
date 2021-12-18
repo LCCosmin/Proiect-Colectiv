@@ -30,6 +30,25 @@ function SignIn () {
       .catch(err => console.log(err));
   };
 
+  function makeSignInKey(event) {
+    const passwordValue = document.getElementById("password").value;
+    const passwordConfirmValue = document.getElementById("passwordConfirmation").value;
+
+    if(event.key == 'Enter' && state.email && state.password && state.id_role && passwordValue == passwordConfirmValue){
+      axios
+        .post("http://127.0.0.1:8000/api/signin", state)
+        .then(response => {
+          console.log(response.data.exists);
+          if (response.data.exists === true)
+              window.confirm("The account was created successfully.");
+          else
+              window.confirm("An account with this email already exists.");
+        })
+        .catch(err => console.log(err));
+      }
+    };
+
+
   function changeRole(event) {
     if(event.target.value === "2") {
       state.status = "pending";
@@ -76,6 +95,7 @@ function SignIn () {
           <div className="marginsSignIn centerSignIn">
             <input
               onChange={changeEmail}
+              onKeyPress={makeSignInKey}
               className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
               type="email"
               name="email-address"
@@ -91,6 +111,7 @@ function SignIn () {
               id="password"
               //onChange={check_pass}
               onChange={changePassword}
+              onKeyPress={makeSignInKey}
               placeholder="Password"
             />
           </div>
@@ -101,6 +122,7 @@ function SignIn () {
               name="passwordConfirmation"
               id="passwordConfirmation"
               onChange={check_pass}
+              onKeyPress={makeSignInKey}
               placeholder="Confirm password"
             />
             <span id="message"></span>

@@ -38,6 +38,31 @@ function Login () {
       .catch(err => console.log(err));
   };
 
+  function checkLoginKey (event){
+    if(event.key == 'Enter' && state.item.email && state.item.password){
+      axios
+      .post("http://127.0.0.1:8000/api/login", state.item)
+      .then(response =>{
+        console.log(response.data);
+        switch(response.data.role){
+          case 1:
+            navigate('/');
+            break;
+          case 2:
+            navigate('/addevents');
+            break;
+          case 3:
+            navigate('/eventpostuser');
+            break;
+          default:
+            window.confirm("The account does not exist. Please sign up.");
+        }
+      }) 
+      .catch(err => console.log(err));
+    }
+    
+  };
+
   function inputChangeEmail (event){
     state.item.email = event.target.value;
   };
@@ -58,6 +83,7 @@ function Login () {
                 id="email"
                 placeholder="Email"
                 onChange = {inputChangeEmail}
+                onKeyPress={checkLoginKey}
               />
             </div>
             <div className="marginsDivLogin centerLoginContent">
@@ -68,6 +94,7 @@ function Login () {
                 id="password"
                 placeholder="Password"
                 onChange = {inputChangePassword}
+                onKeyPress={checkLoginKey}
               />
             </div>
             <div className="line-hight-login marginsDivLogin centerLoginContent">
