@@ -34,6 +34,7 @@ class EventType(models.Model):
 
 class Event(models.Model):
     name = models.TextField()
+    price = models.FloatField()
     id_organizer = models.ForeignKey(User, on_delete=CASCADE, db_column='id_organizer')
     start_date = models.BigIntegerField()
     end_date = models.BigIntegerField()

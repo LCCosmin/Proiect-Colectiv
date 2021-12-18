@@ -20,7 +20,7 @@ import datetime
 import os
 import uuid
 import pathlib
-from datetime import datetime
+# from datetime import datetime
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
 # Profanity check
@@ -166,7 +166,7 @@ def geteventdetails(request):
     if request.method == "POST":
         data =  JSONParser().parse(request)
         event = Event.objects.get(pk= data['id'])
-        response = {'name': event.name, 'location': event.location, 'description': event.description};
+        response = {'name': event.name, 'price': event.price, 'location': event.location, 'description': event.description, 'img': event.img_name};
         datetime_obj = datetime.fromtimestamp(event.start_date)
         response['date'] = datetime_obj.strftime('%d/%m/%Y')
         response['time'] = datetime_obj.strftime('%H:%M');

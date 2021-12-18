@@ -32,7 +32,7 @@ class EventProfile extends React.Component {
         return (
             <div className="EventProfile-container">
                 <div className="img-container">
-                <img src ="https://media.timeout.com/images/103455335/image.jpg" 
+                <img src ={'/images/'+event.img}
                 alt="art gallery" width="100%"
                 height="420"/> 
                 </div>
@@ -51,7 +51,7 @@ class EventProfile extends React.Component {
                     </div>
 
                     <div className="Price">
-                        <p> <IoPricetagOutline/> Price</p>
+                        <p> <IoPricetagOutline/> {event.price} </p>
                     </div>
 
                     <div className="Date">

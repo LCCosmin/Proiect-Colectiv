@@ -14,6 +14,7 @@ class AddEvents extends React.Component {
     this.state = {
       event: {
         name: "",
+        price: "",
         id_organizer: 15,
         start_date: "",
         end_date: "",
@@ -35,6 +36,10 @@ class AddEvents extends React.Component {
 
   updateDescription = event => {
     this.state.event.description = event.target.value;
+  }
+
+  updatePrice = event => {
+    this.state.event.price = event.target.value;
   }
 
   updateLocation = event => {
@@ -123,16 +128,24 @@ class AddEvents extends React.Component {
             type="text"
             name="name"
             id="name"
-            placeholder="Event-name"
+            placeholder="Event's name"
             onChange={this.updateName}
           />
+           <input
+              className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
+              type="number"
+              name="price"
+              id="price"
+              placeholder="Price"
+              onChange={this.updatePrice}
+            />
           <div>
             <input
               className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
               type="text"
               name="description"
               id="description"
-              placeholder="Event Description"
+              placeholder="Event's description"
               onChange={this.updateDescription}
             />
             <input 

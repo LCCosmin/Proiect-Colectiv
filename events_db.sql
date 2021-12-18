@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2021 at 12:57 PM
+-- Generation Time: Dec 18, 2021 at 10:51 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -320,6 +320,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL,
+  `price` float NOT NULL,
   `id_organizer` int(11) NOT NULL,
   `start_date` bigint(20) NOT NULL,
   `end_date` bigint(20) NOT NULL,
@@ -334,12 +335,8 @@ CREATE TABLE `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `name`, `id_organizer`, `start_date`, `end_date`, `location`, `description`, `id_type`, `status`, `img_name`) VALUES
-(11, 'hfgdhfg', 2, 1640113500, 1640286300, 'hfgjfg', 'fgjfg', 1, 'pending', '105aec85-a13a-4347-b08f-b5921ad0c981.jpg'),
-(12, 'hfgjfgj', 2, 1639163220, 1639508820, 'ghkghj', 'dgdfhjhk', 1, 'pending', 'b3014749-5156-43b4-9c02-08a699d1621f.jpg'),
-(13, 'dfhfg', 2, 1639076880, 1639508880, 'fdgdfh', 'fgjgfh', 1, 'pending', 'e8a27817-454e-471f-bf14-cda30878eeef.png'),
-(14, 'fdhdfg', 2, 1639077060, 1639509060, 'fghfgjj', 'fgjfgh', 1, 'pending', '7012a0aa-3ba2-4fcd-94e2-54abb3724041.webp'),
-(16, 'dsgdfs', 2, 1638995160, 1640982360, 'ghdfhfgd', 'dhfg', 1, 'accepted', '6b86a4ce-8b9f-4e8a-a4db-1c49e3f2de4c.png');
+INSERT INTO `events` (`id`, `name`, `price`, `id_organizer`, `start_date`, `end_date`, `location`, `description`, `id_type`, `status`, `img_name`) VALUES
+(17, 'test event', 20, 15, 1639833780, 1639837380, 'Cluj-Napoca', 'test event description', 1, 'accepted', 'dea88363-45a6-490d-ac12-0f2ae01db025.jpg');
 
 -- --------------------------------------------------------
 
@@ -400,7 +397,6 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
   `password` text NOT NULL,
   `id_role` int(11) DEFAULT NULL,
   `id_user_info` int(11) DEFAULT NULL,
@@ -413,9 +409,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `id_role`, `id_user_info`, `id_rating`, `notifications`, `status`) VALUES
-(14, 'org@org.com', NULL, 'pbkdf2_sha256$260000$vbCjBJ5qyHJhTiybr1itnW$i0VaaQw48uzQYloNifWC/MYKpU7kXzCt+GcsPxZnFwY=', 2, NULL, NULL, NULL, 'pending'),
-(15, 'user@user.com', NULL, 'pbkdf2_sha256$260000$IHxfYi4ulUN71B5YsPZLLw$ierFS/3rmCZvCvYPV3tf6IrOVxC8yYPAMiuSMzldEgc=', 3, NULL, NULL, NULL, 'accepted');
+INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_user_info`, `id_rating`, `notifications`, `status`) VALUES
+(14, 'org@org.com', 'pbkdf2_sha256$260000$vbCjBJ5qyHJhTiybr1itnW$i0VaaQw48uzQYloNifWC/MYKpU7kXzCt+GcsPxZnFwY=', 2, NULL, NULL, NULL, 'pending'),
+(15, 'user@user.com', 'pbkdf2_sha256$260000$IHxfYi4ulUN71B5YsPZLLw$ierFS/3rmCZvCvYPV3tf6IrOVxC8yYPAMiuSMzldEgc=', 3, NULL, NULL, NULL, 'accepted'),
+(17, 'u@u.com', 'pbkdf2_sha256$260000$hVpVV5q2t8uWdvlIJhyqZO$foKgfrI/SqNqdh+PrR4qjCLJ8TA6uA1BqWNoaFdqU2Y=', 3, NULL, NULL, NULL, 'accepted');
 
 -- --------------------------------------------------------
 
@@ -674,7 +671,7 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `event_types`
@@ -698,7 +695,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users2events`
