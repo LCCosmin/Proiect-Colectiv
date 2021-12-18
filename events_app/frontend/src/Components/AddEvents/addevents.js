@@ -59,6 +59,7 @@ class AddEvents extends React.Component {
   }
 
   fileSelectedHandler = event => {
+    console.log(event.target.files[0]);
     this.state.event.img_name = event.target.files[0];
   }
 

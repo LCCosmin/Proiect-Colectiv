@@ -16,11 +16,11 @@ from django.contrib.auth.hashers import check_password, make_password
 from .models import *
 from rest_framework import status
 import json
-import datetime
+# import datetime
 import os
 import uuid
 import pathlib
-# from datetime import datetime
+from datetime import datetime
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
 # Profanity check
@@ -110,13 +110,13 @@ def login(request):
 def addevent(request):
     if request.method == "POST":
         start_date = request.data['start_date']
-        date = datetime.datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
-        timestamp = int(datetime.datetime.timestamp(date))
+        date = datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
+        timestamp = int(datetime.timestamp(date))
         request.data['start_date'] = timestamp
 
         end_date = request.data['end_date']
-        date = datetime.datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
-        timestamp = int(datetime.datetime.timestamp(date))
+        date = datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
+        timestamp = int(datetime.timestamp(date))
         request.data['end_date'] = timestamp
         extension = '.' + request.data['img_name']
         request.data['img_name'] = str(uuid.uuid4()) + extension
@@ -170,7 +170,6 @@ def geteventdetails(request):
         datetime_obj = datetime.fromtimestamp(event.start_date)
         response['date'] = datetime_obj.strftime('%d/%m/%Y')
         response['time'] = datetime_obj.strftime('%H:%M');
-        print(response);
         return Response(response)
 
 @api_view(['POST'])
