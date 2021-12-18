@@ -16,5 +16,6 @@ urlpatterns = [
 	path('api/manageButtonsEvents', views.manageButtonsEvents),
 	path('api/geteventspending', views.geteventspending),
 	path('api/geteventsaccepted', views.geteventsaccepted),
-	path('api/signin', views.signin)
+	path('api/signin', views.signin),
+	path('api/geteventdetails', views.geteventdetails),
 ]

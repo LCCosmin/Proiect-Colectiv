@@ -26,7 +26,7 @@ class EventPostUser extends React.Component {
                 {
                     events.map((event)=>{
                         return(
-                            <article key={event.id} className="display-admin-table width-admin-100 height-admin-auto padding-admin border-admin padding-bottom-admin component-admin" href="#0">
+                            <article key={event.id} id={event.id} className="display-admin-table width-admin-100 height-admin-auto padding-admin border-admin padding-bottom-admin component-admin" href="#0">
                                 <div className = "containerEventPost">
                                     <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid"></img>
                                     <div className="Event-Title"> {event.name} </div>

@@ -20,6 +20,7 @@ import datetime
 import os
 import uuid
 import pathlib
+from datetime import datetime
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
 # Profanity check
@@ -161,6 +162,18 @@ def getorganisers(request):
         return Response(serializer.data)
 
 @api_view(['POST'])
+def geteventdetails(request):
+    if request.method == "POST":
+        data =  JSONParser().parse(request)
+        event = Event.objects.get(pk= data['id'])
+        response = {'name': event.name, 'location': event.location, 'description': event.description};
+        datetime_obj = datetime.fromtimestamp(event.start_date)
+        response['date'] = datetime_obj.strftime('%d/%m/%Y')
+        response['time'] = datetime_obj.strftime('%H:%M');
+        print(response);
+        return Response(response)
+
+@api_view(['POST'])
 def uploadimage(request):
     data = {"success": False}
     if request.method == "POST":
@@ -192,46 +205,3 @@ def geteventtypes(request):
         events = EventType.objects.all()
         serializer = EventTypeSerializer(events, many=True)
         return Response(serializer.data)
-
-
-class UserInfoList(APIView):
-    serializer_class = UserInfoSerializer
-
-    def get(self, request):
-        usersinfo = UserInfo.objects.all()
-        serializer = UserInfoSerializer(usersinfo, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = UserInfoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class UserInfoDetail(APIView):
-    serializer_class = UserInfoSerializer
-
-    def get_object(self, pk):
-        try:
-            return UserInfo.objects.get(id=pk)
-        except UserInfo.DoesNotExist:
-            return Http404
-    
-    def get(self, request, pk, format=None):
-        userinfo = self.get_object(pk)
-        serializer = UserInfoSerializer(userinfo)
-        return Response(serializer.data)
-
-    def put(self, request, pk, format=None):
-        userinfo = self.get_object(pk)
-        serializer = UserInfoSerializer(userinfo, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        userinfo = self.get_object(pk)
-        userinfo.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)

@@ -1,25 +1,25 @@
 import React from "react";
 import "./signin.css";
-import {useNavigate} from "react-router-dom";
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
-
-function SignIn () {
-  let navigate = useNavigate();
-  var state = {
-    email: null,
-    username: null,
-    password: null,
-    id_role: null,
-    id_user_info: null,
-    id_rating: null,
-    notifications: null,
-    status: null
-  };
+class SignIn extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      email: null,
+      password: null,
+      id_role: null,
+      id_user_info: null,
+      id_rating: null,
+      notifications: null,
+      status: null
+    }
+  }
   
-  function makeSignIn() {
+  makeSignIn = () => {
     axios
-      .post("http://127.0.0.1:8000/api/signin", state)
+      .post("http://127.0.0.1:8000/api/signin", this.state)
       .then(response => {
         console.log(response.data.exists);
         if (response.data.exists === true)
@@ -30,13 +30,13 @@ function SignIn () {
       .catch(err => console.log(err));
   };
 
-  function makeSignInKey(event) {
+  makeSignInKey = event => {
     const passwordValue = document.getElementById("password").value;
     const passwordConfirmValue = document.getElementById("passwordConfirmation").value;
 
-    if(event.key == 'Enter' && state.email && state.password && state.id_role && passwordValue == passwordConfirmValue){
+    if(event.key == 'Enter' && this.state.email && this.state.password && this.state.id_role && passwordValue == passwordConfirmValue){
       axios
-        .post("http://127.0.0.1:8000/api/signin", state)
+        .post("http://127.0.0.1:8000/api/signin", this.state)
         .then(response => {
           console.log(response.data.exists);
           if (response.data.exists === true)
@@ -49,25 +49,25 @@ function SignIn () {
     };
 
 
-  function changeRole(event) {
+  changeRole = event => {
     if(event.target.value === "2") {
-      state.status = "pending";
+      this.state.status = "pending";
     }
     else{
-      state.status = "accepted";
+      this.state.status = "accepted";
     }
-      state.id_role = event.target.value;
+      this.state.id_role = event.target.value;
   };
   
-  function changeEmail(event) {
-    state.email = event.target.value;
+  changeEmail = event => {
+    this.state.email = event.target.value;
   };
   
-  function changePassword(event) {
-    state.password = event.target.value;
+  changePassword = event => {
+    this.state.password = event.target.value;
   };
   
-  function check_pass() {
+  check_pass = () => {
     if (
       document.getElementById("password").value ==
       document.getElementById("passwordConfirmation").value
@@ -80,72 +80,76 @@ function SignIn () {
     }
   };
 
-  
-  return (
-    <div className="paddingFormSignIn contentSignIn">
-        <fieldset id="sign_up" className="borderSignInForm centerSignIn paddingSignInFieldset">
-          <legend className="formatTitleSignIn centerTitleSignIn">Sign up</legend>
-          <div className= "marginsSignIn centerSignIn">
-          <select onChange={changeRole} className="formatInputSignIn borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-dropdown-signin" name="type" id="userType">
-              <option value="" disabled selected hidden>Sign in as</option>
-              <option value="2">Organiser</option>
-              <option value="3">User</option>
-            </select>
+  render(){
+    return (
+      <div className="paddingFormSignIn contentSignIn">
+          <fieldset id="sign_up" className="borderSignInForm centerSignIn paddingSignInFieldset">
+            <legend className="formatTitleSignIn centerTitleSignIn">Sign up</legend>
+            <div className= "marginsSignIn centerSignIn">
+            <select onChange={this.changeRole} className="formatInputSignIn borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-dropdown-signin" name="type" id="userType">
+                <option value="" disabled selected hidden>Sign in as</option>
+                <option value="2">Organiser</option>
+                <option value="3">User</option>
+              </select>
+            </div>
+            <div className="marginsSignIn centerSignIn">
+              <input
+                onChange={this.changeEmail}
+                onKeyPress={this.makeSignInKey}
+                className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
+                type="email"
+                name="email"
+                id="email-address"
+                placeholder="Email"
+              />
+            </div>
+            <div className="marginsSignIn centerSignIn">
+              <input
+                className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
+                type="password"
+                name="password"
+                id="password"
+                onChange={this.changePassword}
+                onKeyPress={this.makeSignInKey}
+                placeholder="Password"
+              />
+            </div>
+            <div className="marginsSignIn centerSignIn">
+              <input
+                className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
+                type="password"
+                name="passwordConfirmation"
+                id="passwordConfirmation"
+                onChange={this.check_pass}
+                onKeyPress={this.makeSignInKey}
+                placeholder="Confirm password"
+              />
+              <span id="message"></span>
+            </div>
+            <label className="formatLabelSignIn lineHeight-signin white pointer-signin">
+              <input type="checkbox" /> Remember me
+            </label>
+          </fieldset>
+          <div className="lineHeight-signin marginsSignIn centerSignIn">
+            <button class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin" id= "submit" onClick={this.makeSignIn}>
+              Sign up
+            </button>
           </div>
-          <div className="marginsSignIn centerSignIn">
-            <input
-              onChange={changeEmail}
-              onKeyPress={makeSignInKey}
-              className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
-              type="email"
-              name="email-address"
-              id="email-address"
-              placeholder="Email"
-            />
+          <div className="lineHeight-signin marginsSignIn centerSignIn">
+            <label href="#0" className="formatLabelSignIn lineHeight-signin white mrg-left-q1">
+              Already have an account?
+            </label>
+            <a href="#0" className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin" onClick={() => {this.props.navigate('/login')}}>
+              Log in.
+            </a>
           </div>
-          <div className="marginsSignIn centerSignIn">
-            <input
-              className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
-              type="password"
-              name="password"
-              id="password"
-              //onChange={check_pass}
-              onChange={changePassword}
-              onKeyPress={makeSignInKey}
-              placeholder="Password"
-            />
-          </div>
-          <div className="marginsSignIn centerSignIn">
-            <input
-              className="formatInputSignIn paddingInputSignIn input-reset borderSignIninput backgroundInputSignIn borderSignIn hover-white-signIn input-signin width-input-signin"
-              type="password"
-              name="passwordConfirmation"
-              id="passwordConfirmation"
-              onChange={check_pass}
-              onKeyPress={makeSignInKey}
-              placeholder="Confirm password"
-            />
-            <span id="message"></span>
-          </div>
-          <label className="formatLabelSignIn lineHeight-signin white pointer-signin">
-            <input type="checkbox" /> Remember me
-          </label>
-        </fieldset>
-        <div className="lineHeight-signin marginsSignIn centerSignIn">
-          <button class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin" id= "submit" onClick={makeSignIn}>
-            Sign up
-          </button>
-        </div>
-        <div className="lineHeight-signin marginsSignIn centerSignIn">
-          <label href="#0" className="formatLabelSignIn lineHeight-signin white mrg-left-q1">
-            Already have an account?
-          </label>
-          <a href="#0" className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin" onClick={() => {navigate('/login')}}>
-            Log in.
-          </a>
-        </div>
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
-export default SignIn;
+function WithNavigate(props){
+  let navigate = useNavigate();
+  return <SignIn {...props} navigate={navigate}/>
+}
+export default WithNavigate;

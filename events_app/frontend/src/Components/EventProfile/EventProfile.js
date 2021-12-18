@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios'; 
+import {useNavigate} from "react-router-dom";
 import './EventProfile.css';
 import {AiOutlineUser} from 'react-icons/ai';
 import {IoLocationOutline} from "react-icons/io5";
@@ -11,69 +13,78 @@ class EventProfile extends React.Component {
     constructor(){
         super();
         this.state = {
-            events:[]
+            event:[]
         }
     }
 
-    render() { 
+    componentDidMount(){
+    axios
+      .post("http://127.0.0.1:8000/api/geteventdetails", {id: 17})
+      .then(response =>{
+        this.setState({event: response.data});
+        console.log(this.state);
+      }) 
+      .catch(err => console.log(err));
+    }
+
+    render(){
+        const {event} = this.state;
         return (
-            <body>
-                    <div className="EventProfile-container">
-                    <div className="img-container">
-                    <img src ="https://media.timeout.com/images/103455335/image.jpg" 
-                    alt="art gallery" width="100%"
-                    height="420"/> 
+            <div className="EventProfile-container">
+                <div className="img-container">
+                <img src ="https://media.timeout.com/images/103455335/image.jpg" 
+                alt="art gallery" width="100%"
+                height="420"/> 
+                </div>
+                <div className="LeftSide leftPadding">
+                    <div className="EventTitle">
+                            {event.name}
                     </div>
-                    <div className="LeftSide leftPadding">
-                        <div className="EventTitle">
-                             Event Name 
-                        </div>
 
-                        <div>
-                           <p className = "UsersGoing"> <AiOutlineUser/>5225 users interested.
-                           <u><a href="" >View</a></u><br></br> </p>
-                        </div>
-
-                        <div className="Location">
-                            <p> <IoLocationOutline/> Location </p>
-                        </div>
-
-                        <div className="Price">
-                            <p> <IoPricetagOutline/> Price</p>
-                        </div>
-
-                        <div className="Date">
-                            <p> <MdDateRange/> Date</p>
-                        </div>
-
-                        <div className="Time">
-                            <p> <MdAccessTime/> Time</p>
-                        </div>
+                    <div>
+                        <p className = "UsersGoing"> <AiOutlineUser/>5225 users interested.
+                        <u><a href="" >View</a></u><br></br> </p>
                     </div>
-                    <div className="RightSide rightPadding" >
 
-                        <div className="buttons " >
-                            <button type="button" className="anyButton brad marginEventProf"> Going </button> 
-                            <div className="divider"/>
-                            <button type="button" className="anyButton brad marginEventProf"> Maybe </button> 
-                        </div>
+                    <div className="Location">
+                        <p> <IoLocationOutline/> {event.location} </p>
+                    </div>
 
-                        <div style={{float: 'left'}} >
-                            <p className="Description">
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                            </p>
-                        </div>
+                    <div className="Price">
+                        <p> <IoPricetagOutline/> Price</p>
+                    </div>
 
-                        <div style ={{float: 'left'}}>
-                            <u><a href="" className="Report">Report event</a></u><br></br>
-                        </div> 
+                    <div className="Date">
+                        <p> <MdDateRange/> {event.date}</p>
+                    </div>
 
+                    <div className="Time">
+                        <p> <MdAccessTime/> {event.time}</p>
                     </div>
                 </div>
-             </body>
-        )
+                <div className="RightSide rightPadding" >
 
+                    <div className="buttons " >
+                        <button type="button" className="anyButton brad marginEventProf"> Going </button> 
+                        <div className="divider"/>
+                        <button type="button" className="anyButton brad marginEventProf"> Maybe </button> 
+                    </div>
+
+                    <div style={{float: 'left'}} >
+                        <p className="Description">
+                            {event.description}
+                        </p>
+                    </div>
+
+                    <div style ={{float: 'left'}}>
+                        <u><a href="" className="Report">Report event</a></u><br></br>
+                    </div> 
+
+                </div>
+            </div>
+        )
     }
+  
 }
  
 export default EventProfile;
