@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2021 at 01:12 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Dec 18, 2021 at 10:51 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -320,22 +320,23 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL,
+  `price` float NOT NULL,
   `id_organizer` int(11) NOT NULL,
   `start_date` bigint(20) NOT NULL,
   `end_date` bigint(20) NOT NULL,
   `location` text NOT NULL,
   `description` text NOT NULL,
   `id_type` int(11) NOT NULL,
-  `status` varchar(50) NOT NULL
+  `status` varchar(50) NOT NULL,
+  `img_name` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `name`, `id_organizer`, `start_date`, `end_date`, `location`, `description`, `id_type`, `status`) VALUES
-(1, 'sdgd', 2, 1637496120, 4098071460, 'dfgdf', 'fsdgsd', 1, 'pending'),
-(2, 'abcd', 2, 1637669280, 4098071460, 'abcd', 'test', 1, 'pending');
+INSERT INTO `events` (`id`, `name`, `price`, `id_organizer`, `start_date`, `end_date`, `location`, `description`, `id_type`, `status`, `img_name`) VALUES
+(17, 'test event', 20, 15, 1639833780, 1639837380, 'Cluj-Napoca', 'test event description', 1, 'accepted', 'dea88363-45a6-490d-ac12-0f2ae01db025.jpg');
 
 -- --------------------------------------------------------
 
@@ -396,22 +397,22 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` text NOT NULL,
   `id_role` int(11) DEFAULT NULL,
   `id_user_info` int(11) DEFAULT NULL,
   `id_rating` int(11) DEFAULT NULL,
-  `notifications` tinyint(4) DEFAULT NULL
+  `notifications` tinyint(4) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `id_role`, `id_user_info`, `id_rating`, `notifications`) VALUES
-(2, 'dzenalex9@gmail.com', NULL, '123', NULL, NULL, NULL, NULL),
-(3, 'abcd@yahoo.com', NULL, 'parola123', NULL, NULL, NULL, NULL),
-(4, 'test@test.com', NULL, 'test', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_user_info`, `id_rating`, `notifications`, `status`) VALUES
+(14, 'org@org.com', 'pbkdf2_sha256$260000$vbCjBJ5qyHJhTiybr1itnW$i0VaaQw48uzQYloNifWC/MYKpU7kXzCt+GcsPxZnFwY=', 2, NULL, NULL, NULL, 'pending'),
+(15, 'user@user.com', 'pbkdf2_sha256$260000$IHxfYi4ulUN71B5YsPZLLw$ierFS/3rmCZvCvYPV3tf6IrOVxC8yYPAMiuSMzldEgc=', 3, NULL, NULL, NULL, 'accepted'),
+(17, 'u@u.com', 'pbkdf2_sha256$260000$hVpVV5q2t8uWdvlIJhyqZO$foKgfrI/SqNqdh+PrR4qjCLJ8TA6uA1BqWNoaFdqU2Y=', 3, NULL, NULL, NULL, 'accepted');
 
 -- --------------------------------------------------------
 
@@ -451,7 +452,7 @@ CREATE TABLE `users_info` (
   `id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `dob` datetime NOT NULL,
+  `dob` date NOT NULL,
   `about` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -460,7 +461,7 @@ CREATE TABLE `users_info` (
 --
 
 INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`) VALUES
-(1, 'test_name', 'test_lastname', '2021-11-14 00:00:00', 'test_about');
+(1, 'test_name', 'test_lastname', '2021-11-14', 'test_about');
 
 --
 -- Indexes for dumped tables
@@ -670,7 +671,7 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `event_types`
@@ -694,7 +695,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users2events`

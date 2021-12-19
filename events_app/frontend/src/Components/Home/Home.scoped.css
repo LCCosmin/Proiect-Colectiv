@@ -1,0 +1,64 @@
+.home-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  
+    background-color: #242830;
+  
+    background-image: url("./back-img.jpg");
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: right;
+  
+    position: fixed;
+    height: -webkit-fill-available;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    overflow: auto;
+  }
+  
+  .descriere {
+    margin: 50px;
+  }
+  
+  .h1-Home {
+    color: #ffff;
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 72px;
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 18px;
+  }
+  
+  .colorHome1 {
+    color: #86497a;
+  }
+  
+  .colorHome2 {
+    color: #e9a6a6;
+  }
+  
+  #new-account-home {
+    font-size: 21px;
+    color: #ffff;
+    font: 1em "Avantgarde",sans-serif;
+    background-color: #86497a;
+    height: 40px;
+    width: 250px;
+    border-radius: 25px;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+  }
+  #new-account-home:hover {
+    background-color: #915184;
+  }
+
+  .font-home-description {
+    font: 1.1em "Avantgarde",sans-serif;
+    letter-spacing: 0.1em;
+    margin: 50px 0;
+  }

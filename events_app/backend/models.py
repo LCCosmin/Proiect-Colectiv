@@ -17,13 +17,13 @@ class Role(models.Model):
         db_table="roles"
 
 class User(models.Model):
-    username = models.CharField(max_length=50, null=True)
-    password = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    id_role = models.ForeignKey(Role, on_delete=CASCADE, db_column='id_role')
-    id_user_info = models.ForeignKey(UserInfo, on_delete=CASCADE, db_column='id_user_info')
+    password = models.TextField(null=True)
+    email = models.CharField(max_length=50, null=True)
+    id_role = models.ForeignKey(Role, on_delete=CASCADE, db_column='id_role', null=True)
+    id_user_info = models.ForeignKey(UserInfo, on_delete=CASCADE, db_column='id_user_info', null=True)
     id_rating = models.IntegerField(null=True)
     notifications = models.IntegerField(null=True)
+    status = models.CharField(max_length = 20, null=True)
     class Meta:
         db_table="users"
 
@@ -34,6 +34,7 @@ class EventType(models.Model):
 
 class Event(models.Model):
     name = models.TextField()
+    price = models.FloatField()
     id_organizer = models.ForeignKey(User, on_delete=CASCADE, db_column='id_organizer')
     start_date = models.BigIntegerField()
     end_date = models.BigIntegerField()
@@ -41,6 +42,7 @@ class Event(models.Model):
     description = models.TextField()
     id_type = models.ForeignKey(EventType, on_delete=CASCADE, db_column='id_type')
     status = models.CharField(max_length = 50)
+    img_name = models.TextField()
     class Meta:
         db_table="events"
 

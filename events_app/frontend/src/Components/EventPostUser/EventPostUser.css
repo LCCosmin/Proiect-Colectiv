@@ -1,0 +1,68 @@
+.containerEventPost img {
+    width: 100%;
+    height: 303px;
+    opacity: 60%;
+}
+
+.containerEventPost{
+    position: relative;
+    width: 100%;
+}
+
+.containerEventPost .Event-Title {
+    font: 1.1em "Avantgarde", sans-serif;
+    position: absolute;
+    top: 78px;
+    padding-left: 30px;
+    color: white;
+    font-size: 48px;
+}
+
+.containerEventPost .Text-Box{
+    width: 430px;
+    font: 1.1em "Avantgarde", sans-serif;;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    padding-left: 30px;
+    top: 140px;
+}
+
+.containerEventPost .EventPostButton{
+
+    background-color: rgba(134, 73, 122, 0.35);
+    border: solid #86497A 1px;
+    padding: 7px 30px;
+    text-align: center;
+    font: 1.1em "Avantgarde", sans-serif;;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.containerEventPost .EventPostBrad{
+    border-radius: 51px;
+}
+
+.containerEventPost button:enabled, 
+.containerEventPost button:focus:enabled, 
+.containerEventPost button:hover:enabled, 
+.containerEventPost button:active:enabled {
+    background:rgba(134, 73, 122, 0.644);
+    border-color: rgba(134, 73, 122, 0.822);
+    color: white;
+    cursor: allowed;
+}
+
+.containerEventPost .DividerEventPost{
+    width: 30px;
+    height:auto;
+    display:inline-block;
+}
+
+.containerEventPost .EventPostButtons{
+    position: absolute;
+    padding-left: 30px;
+    top: 70%;
+}

@@ -1,39 +1,78 @@
 import React from "react";
 import "./login.css";
-import axios from "axios";
+import axios from 'axios'; 
+import {useNavigate} from "react-router-dom";
 
-const Login = ({ onRouteChange }) => {
-  var state = {
-    item: {
-      email: "",
-      password: "",
-    },
 
-    valid: "",
+class Login extends React.Component {
+  
+  constructor(){
+    super();
+    this.state = {
+
+      item: {
+        email: "",
+        password: ""
+      },
+       
+      valid: ""
+    };
+  }
+  
+  checkLogin = () =>{
+    axios
+      .post("http://127.0.0.1:8000/api/login", this.state.item)
+      .then(response =>{
+        switch(response.data.role){
+          case 1:
+            this.props.navigate('/');
+            break;
+          case 2:
+            this.props.navigate('/addevents');
+            break;
+          case 3:
+            this.props.navigate('/eventpostuser');
+            break;
+          default:
+            window.confirm("The account does not exist. Please sign up.");
+        }
+      }) 
+      .catch(err => console.log(err));
   };
 
-  function checkLogin() {
-    axios
-      .post("http://127.0.0.1:8000/api/login", state.item)
-      .then((response) => {
-        state.valid = response.data.exists
-          ? onRouteChange("addevents")
-          : showErrorMessage();
-        // state.valid = response.data;
-        // console.log(state.valid);
-      })
-      .catch((err) => console.log(err));
-  }
+  checkLoginKey = event =>{
+    if(event.key == 'Enter' && this.state.item.email && this.state.item.password){
+      axios
+      .post("http://127.0.0.1:8000/api/login", this.state.item)
+      .then(response =>{
+        switch(response.data.role){
+          case 1:
+            this.props.navigate('/');
+            break;
+          case 2:
+            this.props.navigate('/addevents');
+            break;
+          case 3:
+            this.props.navigate('/eventpostuser');
+            break;
+          default:
+            window.confirm("The account does not exist. Please sign up.");
+        }
+      }) 
+      .catch(err => console.log(err));
+    }
+    
+  };
 
-  function inputChangeEmail(event) {
-    state.item.email = event.target.value;
-  }
+  inputChangeEmail = event =>{
+    this.state.item.email = event.target.value;
+  };
 
-  function inputChangePassword(event) {
-    state.item.password = event.target.value;
-  }
-
-  function closeErrorMessage() {
+  inputChangePassword = event =>{
+    this.state.item.password = event.target.value;
+  };
+  
+ closeErrorMessage() {
     var close = document.getElementsByClassName("closebtnalert");
     var i;
 
@@ -48,15 +87,13 @@ const Login = ({ onRouteChange }) => {
     }
   }
 
-  function showErrorMessage() {
+  showErrorMessage() {
     var alert = document.getElementById("alertlogin");
     alert.style.display="block";
   }
-
-
-
-  return (
-    <div>
+  render(){
+    return (
+      <div>
       <div className="paddingLoginPage contentLogin">
         <fieldset
           id="log_in"
@@ -127,7 +164,12 @@ const Login = ({ onRouteChange }) => {
         email and password are correct.
       </div>
     </div>
-  );
+    );
+  }
 };
 
-export default Login;
+function WithNavigate(props){
+  let navigate = useNavigate();
+  return <Login {...props} navigate={navigate}/>
+}
+export default WithNavigate;
