@@ -3,26 +3,33 @@
     background-color: #242830;
 }
 
+.page-wrap {
+    width: 2000px;
+    margin: 0 auto;
+    }
+
 .main-filter-container {
     background-color: #593B59;
     margin-top: 260px;
     border-radius: 200px;
-    padding: 8px 20px 30px 20px;
+    padding: 10px 20px 30px 46px;
     width: auto;
 }
 
 
 .lower-text {
     position: absolute;
-    left:55px;
-    top: 46px;
+    left:51px;
+    top: 45px;
+
     font-size: 12px;
     color: rgb(32, 29, 29);
     font-weight: 500;
 }
 
 .check-box-div{
-    float: right;
+   float: right; 
+  
 
 }
 
@@ -63,6 +70,8 @@
 }
 .col-drop-down .dropdown-menu.show {
     border: none;
+    padding-left: 10px;
+   
 }
 .checkbox-list{
     padding: 5px 10px ;
@@ -104,69 +113,43 @@ img {
     opacity: 0.5;
 }
 
+.bt-elems { 
+    display:inline-block;
+padding: 5px;
+
+}
+
+.icon-star { 
+    color: #593B59;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-left: 30px;
+   
+}
+
 .my-title { 
  
 font-family: Poppins;
 font-style: normal;
 font-weight: bold;
-font-size: 96px;
+font-size: 30px;
 line-height: 132.5%;
 /* or 48px */
 
-display: flex;
+/* display: flex; */ 
+display:inline-block;
+padding: 5px;
 align-items: center;
-text-align: center;
+text-align: center; 
 letter-spacing: 0.1em;
 
 color: #FFFFFF;
+
+margin-top: 60px;
+margin-left: 60px;
 }
 
 
-
-  .top-events { 
-     
-      position: absolute;
-      left: 10.33%;
-      right: 0%;
-      top: 7%;
-      bottom: 0%;
-      
-      font-family: Poppins;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 30px;
-      line-height: 132.5%;
-      /* or 40px */
-      
-      display: flex;
-      align-items: center;
-      text-align: center;
-      letter-spacing: 0.1em;
-      margin-top: 50px; 
-      color: #FFFFFF;
-
-   
-  }
-
-  .icon-star { 
-    position: absolute;
-    left: 8%;
-    right: 0%;
-    top: 7%;
-    bottom: 0%;
-    margin-top: 50px;
-       
-    display: flex;
-    align-items: center;
-    color: #593B59;
-    font-size: 25px; 
-    
-
-  }
-
-  .cards { 
-      margin-top: 40px; 
-  }
 
   .all-background { 
       background-color: #242830; 

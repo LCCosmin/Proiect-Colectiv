@@ -1,291 +1,349 @@
-import React, { useEffect, useState } from 'react';
-import './filter.css'
-import Data from './data.json'
-import { Container, Row, Col, Dropdown, Card, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { IoLocationOutline, IoPricetags, IoCalendarOutline, IoChevronDownOutline, IoStar } from 'react-icons/io5';
-import { BsListTask } from 'react-icons/bs';
-import DatePicker from 'sassy-datepicker';
-import FilterData from './data.json'
-import museumImage from './assets/museum.jpg';
-import partyImage from './assets/party.jpg'; 
-import sportImage from './assets/sport.jpg'; 
+import React, { useEffect, useState } from "react";
+import "./filter.css";
+import Data from "./data.json";
+import { Container, Row, Col, Dropdown, Card, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+	IoLocationOutline,
+	IoPricetags,
+	IoCalendarOutline,
+	IoChevronDownOutline,
+    IoStar
+} from "react-icons/io5";
+import { BsListTask } from "react-icons/bs";
+import DatePicker from "sassy-datepicker";
+import FilterData from "./data.json";
 
-const Filter = (props) => {
+const locationData = [
+	{ name: "Cluj-Napoca, CJ" },
+	
+];
+const PriceData = [
+	{ name: "Under 10€ (€)" },
+	{ name: "10-50€ (€€)" },
+	{ name: "Over 50€ (€€€)" },
+];
+const TypeData = [
+	{ name: "Parties" },
+	{ name: "Sport Events" },
+	{ name: "Networking Events" },
+	{ name: "Job Fairs" },
+	{ name: "Conferences" },
+	{ name: "Museum Expositions" },
+	{ name: "Work Shops" },
+];
 
-    // checkbox data
+class Filter extends React.Component {
+	constructor(props) {
+		super();
+		this.state = {
+			location: [],
+			price: [],
+			type: [],
+			search: "",
+			currentLocationFilter: "Search By City",
+			currentPriceFilter: "$-$$$",
+			currentCalenderFilter: "Search By Date",
+			currentTypeFilter: "Select Type",
+			dateVal: "",
+			allData: [],
+		};
 
-    const locationData = [
-        { name: "Cluj-Napoca, CJ" },
-       
-    ]
-    const PriceData = [
-        { name: "Under 10€ (€)" },
-        { name: "10-50€ (€€)" },
-        { name: "Over 50€ (€€€)" },
-    ]
-    const TypeData = [
-        { name: "Parties" },
-        { name: "Sport Events" },
-        { name: "Networking Events" },
-        { name: "Job Fairs" },
-        { name: "Conferences" },
-        { name: "Museum Expositions" },
-        { name: "Workshops" },
-    ]
-    
-    // setting constants
-    
-    const [search, setSearch] = useState("")
-    const [currentLocationFilter, setCurrentLocationFilter] = useState("Search by City")
-    const [currentPriceFilter, setCurrentPriceFilter] = useState("$-$$$")
-    const [currentCalendarFilter, setCurrentCalendarFilter] = useState("Search by Date")
-    const [currentTypeFilter, setCurrentTypeFilter] = useState("Select Type")
-    const [location, setLocation] = useState([])
-    const [price, setPrice] = useState([])
-    const [type, setType] = useState([])
-    const [dateVal, setDate] = useState("")
-    const [allData,setAllData]=useState([])
+		this.onChange = this.onChange.bind(this);
+		this.handleLocation = this.handleLocation.bind(this);
+		this.handlePrice = this.handlePrice.bind(this);
+		this.handleType = this.handleType.bind(this);
+	}
 
+	componentDidMount() {
+		this.setState({
+			location: locationData,
+			price: PriceData,
+			type: TypeData,
+			dateVal: "",
+			allData: FilterData,
+		});
+	}
 
-    useEffect(() => {
-        setLocation(locationData)
-        setPrice(PriceData)
-        setType(TypeData)
-        setDate(dateVal)
-        setAllData(FilterData)
-    }, []) // ,[] to run only on the first render 
+	onChange(date) {
+		this.setState({
+			search: `${date.getDate().toString()}/${[
+				date.getMonth() + 1,
+			].toString()}/${date.getFullYear().toString()}`,
+		});
+		console.log(this.state.search);
+		console.log(date);
+	}
 
-    // Setting Data
+	// Setting Location Checkbox
 
-    const onChange = (date) => {
-        setSearch(`${date.getDate().toString()}/${[date.getMonth() + 1].toString()}/${date.getFullYear().toString()}`)
-        console.log(search)
-        console.log(date)
-    };
+	handleLocation(e) {
+		const { name, checked } = e.target;
+		let newLocations = this.state.location.map((data) => {
+			return data.name === name ? { ...data, isChecked: checked } : data;
+		});
+		this.setState({
+			search: name,
+			currentLocationFilter: name,
+			location: newLocations,
+		});
+	}
 
-    // Setting Location Checkbox
+	// Setting Price Checkbox
 
-    const handleLocation = (e) => {
-        const { name, checked } = e.target;
-        let newLocations = location.map((data) => {
-            return (data.name === name ? { ...data, isChecked: checked } : data)
-        })
-        setSearch(name)
-        setCurrentLocationFilter(name)
-        setLocation(newLocations)
-    }
+	handlePrice(e) {
+		const { name, checked } = e.target;
+		let newPrice = this.state.price.map((data) => {
+			return data.name === name ? { ...data, isChecked: checked } : data;
+		});
+		this.setState({
+			search: name,
+			currentPriceFilter: name,
+			price: newPrice,
+		});
+	}
 
-    // Setting Price Checkbox
+	// Setting Type Checkbox
 
-    const handlePrice = (e) => {
-        const { name, checked } = e.target;
-        let newPrice = price.map((data) => {
-            return (data.name === name ? { ...data, isChecked: checked } : data)
-        })
-        setSearch(name)
-        setCurrentPriceFilter(name)
-        setPrice(newPrice)
-    }
+	handleType(e) {
+		const { name, checked } = e.target;
+		let newType = this.state.type.map((data) => {
+			return data.name === name ? { ...data, isChecked: checked } : data;
+		});
+		this.setState({
+			search: name,
+			currentTypeFilter: name,
+			type: newType,
+		});
+		console.log(this.state.search);
+	}
 
-    // Setting Type Checkbox
+	render() {
+		return (
+			<>
+				<Container>
+					{/* Main Component */}
 
-    const handleType = (e) => {
-        const { name, checked } = e.target;
-        let newType = type.map((data) => {
-            return (data.name === name ? { ...data, isChecked: checked } : data)
-        })
-        setSearch(name)
-        setCurrentTypeFilter(name)
-        setType(newType)
-        console.log(search)
-    }
+                <div className="page-wrap"> 
 
+					<div className="main-filter-container">
+						<Row
+							className="justify-content-between"
+							style={{ alignItems: "center" }}
+						>
+							<Col md={2} className="col-drop-down">
+								<Dropdown>
+									<Dropdown.Toggle variant="" id="dropdown-basic">
+										<span className="icon">
+											<IoLocationOutline />
+										</span>
+										Location
+										<p className="lower-text">
+											{this.state.currentLocationFilter}
+										</p>
+									</Dropdown.Toggle>
 
-    return (
-        <>
-        <div className="all-background"> 
-            <Container >
+									<Dropdown.Menu>
+										<ul className="checkbox-list">
+											{this.state.location.map((v, i) => {
+												return (
+													<p className="each-checkbox" key={i}>
+														{v.name}
+														<div className="check-box-div">
+															<input
+																className="check-box"
+																type="checkbox"
+																onChange={this.handleLocation}
+																name={v.name}
+																checked={v ? v.isChecked : false}
+															/>
+														</div>
+													</p>
+												);
+											})}
+										</ul>
+									</Dropdown.Menu>
+								</Dropdown>
+							</Col>
 
-                {/* Main Component */}
-            <div className="all" > 
-                <div className="main-filter-container" >
-                    <Row className="justify-content-between" style={{ alignItems: "center" }}>
+							<Col md={2} className="col-drop-down">
+								<Dropdown>
+									<Dropdown.Toggle variant="" id="dropdown-basic">
+										<span className="icon">
+											<IoPricetags />
+										</span>
+										Price
+										<p className="lower-text">
+											{this.state.currentPriceFilter}
+										</p>
+									</Dropdown.Toggle>
 
-                        <Col md={2} className="col-drop-down">
-                            <Dropdown>
-                                <Dropdown.Toggle variant="" id="dropdown-basic">
-                                    <span className="icon"><IoLocationOutline /></span>
-                                    Location
-                                    <p className="lower-text">{currentLocationFilter}</p>
-                                </Dropdown.Toggle>
+									<Dropdown.Menu>
+										<ul className="checkbox-list">
+											{this.state.price.map((v, i) => {
+												return (
+													<p className="each-checkbox" key={i}>
+														{v.name}
+														<div className="check-box-div">
+															<input
+																className="check-box"
+																type="checkbox"
+																name={v.name}
+																onChange={this.handlePrice}
+																checked={v ? v.isChecked : false}
+															/>
+														</div>
+													</p>
+												);
+											})}
+										</ul>
+									</Dropdown.Menu>
+								</Dropdown>
+							</Col>
 
-                                <Dropdown.Menu>
-                                    <ul className="checkbox-list">
-                                        {location.map((v, i) => {
-                                            return (
-                                                <p className="each-checkbox" key={i}>{v.name}
-                                                    <div className="check-box-div">
-                                                        <input className="check-box" type="checkbox" onChange={handleLocation} name={v.name} checked={v ? v.isChecked : false} />
-                                                    </div>
-                                                </p>
+							<Col md={2} className="col-drop-down">
+								<Dropdown>
+									<Dropdown.Toggle variant="" id="dropdown-basic">
+										<span className="icon">
+											<IoCalendarOutline />
+										</span>
+										Date
+										<p className="lower-text">
+											{this.state.currentCalenderFilter}
+										</p>
+									</Dropdown.Toggle>
 
-                                            )
-                                        })}
+									<Dropdown.Menu style={{ padding: "0px", boxShadow: "none" }}>
+										<DatePicker onChange={this.onChange} />
+									</Dropdown.Menu>
+								</Dropdown>
+							</Col>
 
-                                    </ul>
+							<Col md={2} className="col-drop-down">
+								<Dropdown>
+									<Dropdown.Toggle variant="" id="dropdown-basic">
+										<span className="icon">
+											<BsListTask />
+										</span>
+										Type
+										<p className="lower-text">{this.state.currentTypeFilter}</p>
+									</Dropdown.Toggle>
 
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </Col>
+									<Dropdown.Menu>
+										<ul className="checkbox-list">
+											{this.state.type.map((v, i) => {
+												return (
+													<p className="each-checkbox" key={i}>
+														{v.name}
+														<div className="check-box-div">
+															<input
+																className="check-box"
+																type="checkbox"
+																name={v.name}
+																onChange={this.handleType}
+																checked={v ? v.isChecked : false}
+															/>
+														</div>
+													</p>
+												);
+											})}
+										</ul>
+									</Dropdown.Menu>
+								</Dropdown>
+							</Col>
 
-                        <Col md={2} className="col-drop-down">
-                            <Dropdown>
-                                <Dropdown.Toggle variant="" id="dropdown-basic" >
-                                    <span className="icon"><IoPricetags /></span>
-                                    Price
-                                    <p className="lower-text">{currentPriceFilter}</p>
-                                </Dropdown.Toggle>
+							<Col md={2}>
+								<button className="discover-btn">Discover Events</button>
+							</Col>
+						</Row>
+					</div>
 
-                                <Dropdown.Menu>
-                                    <ul className="checkbox-list">
-                                        {price.map((v, i) => {
-                                            return (
-                                                <p className="each-checkbox" key={i}>{v.name}
-                                                    <div className="check-box-div">
-                                                        <input className="check-box" type="checkbox" name={v.name} onChange={handlePrice} checked={v ? v.isChecked : false} />
-                                                    </div>
-                                                </p>
+					{/* Cards */}
 
-                                            )
-                                        })}
+					<div>
+                        <div className="bt-elems" > 
+                        <span className="icon-star"><IoStar /></span>
+                        <div className="my-title"> TOP EVENTS </div>
+                        </div> 
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "space-around",
+								flexWrap: "wrap",
+							}}
+							className="mt-5"
+						>
+							{/* Filtering Data */}
 
-                                    </ul>
+							{this.state.allData
+								.filter((val) => {
+									if (this.state.search === "") {
+										return val;
+									} else if (
+										val.loc
+											.toLocaleLowerCase()
+											.includes(this.state.search.toLocaleLowerCase())
+									) {
+										return val;
+									} else if (
+										val.Type.toLocaleLowerCase().includes(
+											this.state.search.toLocaleLowerCase()
+										)
+									) {
+										return val;
+									} else if (
+										val.date
+											.toLocaleLowerCase()
+											.includes(this.state.search.toLocaleLowerCase())
+									) {
+										return val;
+									} else if (
+										this.state.search === "Under 10€ (€)"
+											? val.Price < 10
+											: this.state.search === "10-50€ (€€)"
+											? val.Price <= 50 && val.Price >= 10
+											: val.Price > 50
+									) {
+										return val;
+									}
+								})
+								.map((data, index) => {
+									return (
+										<>
+											<Card
+												key={index}
+												className="mt-2 mb-2"
+												style={{
+													width: "78rem",
+													backgroundColor: "black",
+													color: "white",
+                                                    fontWeight: "700"
+												}}
+											>
 
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </Col>
+                                <img src ={data.img} alt={data.title} width="100%" height="450"  />
+										<Card.Body>
+											<Card.ImgOverlay>
 
-                        <Col md={2} className="col-drop-down">
-                            <Dropdown>
-                                <Dropdown.Toggle variant="" id="dropdown-basic">
-                                    <span className="icon"><IoCalendarOutline /></span>
-                                    Date
-                                    <p className="lower-text">{currentCalendarFilter}</p>
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu style={{ padding: "0px", boxShadow: "none"}}>
-                                    <DatePicker onChange={onChange} />
-
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </Col>
-
-                        <Col md={2} className="col-drop-down">
-                            <Dropdown>
-                                <Dropdown.Toggle variant="" id="dropdown-basic">
-                                    <span className="icon"><BsListTask /></span>
-                                    Type
-                                    <p className="lower-text">{currentTypeFilter}</p>
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <ul className="checkbox-list">
-                                        {type.map((v, i) => {
-                                            return (
-                                                <p className="each-checkbox" key={i}>{v.name}
-                                                    <div className="check-box-div">
-                                                        <input className="check-box" type="checkbox" name={v.name} onChange={handleType} checked={v ? v.isChecked : false} />
-                                                    </div>
-                                                </p>
-
-                                            )
-                                        })}
-
-                                    </ul>
-
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </Col>
-
-                        <Col md={2}>
-                            <button className="discover-btn">Discover Events</button>
-
-                        </Col>
-                    </Row>
-                </div>
-
-                            {/* Cards */}
-
-
-                <span className="icon-star"><IoStar /></span>
-                <div className="top-events"> TOP EVENTS </div>
-
-                <div>
-                    <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }} className="mt-5">
-                     
-                     {/* Filtering Data */}
-                       
-                        {allData.filter((val) => {
-                            if (search === "") {
-                                return val
-                            }
-                            else if (val.loc.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
-                                return val
-
-                            }
-                            else if (val.Type.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
-                                return val
-
-                            }
-                            else if (val.date.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
-                                return val
-
-                            }
-                            else if (search === "Under 10€ (€)" ? val.Price < 10 : search === "10-50€ (€€)" ? val.Price <= 50 && val.Price >= 10 : val.Price > 50) {
-                                return val
-
-                            }
-                        }).map((data, index) => {
-                            return (  
-                                <>
-                                <div className="cards"> 
-                                  <Card key={index} className="mt-2 mb-2" style={{ width: '78rem', backgroundColor: "black", color: "white", fontWeight: "700"}}>
-                                    <img src ={data.img} alt={data.title} width="100%" height="450"  />
-                                        <Card.Body>
-                                        
-                                        <Card.ImgOverlay>
-                                      
-    
-                                            
-
-                                            <Card.Title className="my-title" style={{fontWeight: "700", fontSize: "60px", marginTop: "200px", marginLeft:"50px" }
-                                        
-                                    }>{data.Title}</Card.Title>
+                                                <Card.Title className="my-title" style={{fontWeight: "700", fontSize: "60px", marginTop: "200px", marginLeft:"50px" }}>{data.Title}</Card.Title>
 
                                                 <Card.Text className="text-below"> 
                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. <span style={{ color: "white", fontWeight: "700", float: "right", marginLeft: "50px" }}></span></p>
                                                 </Card.Text>
+                                                
                                             </Card.ImgOverlay>
-                                        </Card.Body>
-                                       
-                                    </Card>
-
-                                   
-                                </div>
-                                </>
-                           )
-                        })
-                        }
-                    </div>
+										</Card.Body>
+											</Card>
+										</>
+									);
+								})}
+						</div>
+					</div>
                 </div>
-            </div>
-            </Container>
-        </div>
-
-
-        </>
-    );
+				</Container>
+			</>
+		);
+	}
 }
 
 export default Filter;
