@@ -1,0 +1,27 @@
+[
+    
+    {
+        "loc": "City 2",
+        "price": 50,
+        "date": "11/12/2021",
+        "title": "Event 2",
+        "type": "Job Fairs",
+        "thumb": "/images.jpeg"
+    },
+    {
+        "loc": "City 3",
+        "price": 10,
+        "date": "21/12/2021",
+        "title": "Event 3",
+        "type": "Conferences",
+        "thumb": "/images.jpeg"
+    },
+    {
+        "loc": "City 4",
+        "price": 8,
+        "date": "15/12/2021",
+        "title": "Event 4",
+        "type": "Parties",
+        "thumb": "/images.jpeg"
+    }
+]
