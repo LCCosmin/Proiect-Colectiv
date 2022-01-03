@@ -15,7 +15,7 @@ import EventPostUser from "./Components/EventPostUser/EventPostUser.js";
 import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
-import Filter from './Components/FilterBar/filter.js';
+import Filter from './Components/FilterEvents/filter.js';
 
 class App extends Component {
   constructor() {
