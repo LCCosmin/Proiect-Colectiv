@@ -104,7 +104,7 @@ class Login extends React.Component {
             </legend>
             <div className="marginsDivLogin centerLoginContent">
               <input
-                className="paddingInputLogin fontInputLogin input-reset borderLogin gray backgroundInputLogin borderInputLogin hover-white-login white-input-login width-100-login"
+                className="paddingInputLogin fontInputLogin input-reset borderLogin backgroundInputLogin borderInputLogin hover-white-login white-input-login width-100-login"
                 type="email"
                 name="email"
                 id="email"
@@ -138,32 +138,35 @@ class Login extends React.Component {
                 Forgot your password?
               </a>
             </div>
+
+            <div className="line-hight-login marginsDivLogin centerLoginContent">
+              <button
+                className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login"
+                onClick={this.checkLogin}
+              >
+                {" "}
+                Log in
+              </button>
+            </div>
+            <div className="line-hight-login marginsDivLogin centerLoginContent">
+              <div 
+                href="#0"
+                className="fontLabelLogin line-hight-login white mrg-left-q2-login">
+                Don't have an account?
+                <a
+                  href="#0"
+                  className="fontLabelLogin link-login dim-login white db-login mrg-left-a-login underline"
+                  onClick={() => {
+                    this.props.navigate("/signin");
+                  }}
+                >
+                  Sign up.
+                </a>
+              </div>
+            </div>
           </fieldset>
-          <div className="line-hight-login marginsDivLogin centerLoginContent">
-            <button
-              className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login"
-              onClick={this.checkLogin}
-            >
-              {" "}
-              Log In
-            </button>
-          </div>
-          <div className="line-hight-login marginsDivLogin pad-left-login">
-            <label className=" fontLabelLogin line-hight-login white mrg-left-q2-login">
-              Don't have an account?
-            </label>
-            <a
-              href="#0"
-              className="fontLabelLogin link-login dim-login white db-login mrg-left-a-login underline"
-              onClick={() => {
-                this.props.navigate("/signin");
-              }}
-            >
-              Sign up.
-            </a>
-          </div>
         </div>
-        <div className="alert" id="alertlogin" >
+        <div className="alert" id="alertlogin">
           <span className="closebtnalert" onClick={this.closeErrorMessage}>
             &times;
           </span>

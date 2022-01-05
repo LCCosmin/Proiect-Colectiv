@@ -22,8 +22,7 @@ class SignIn extends React.Component {
       .post("http://127.0.0.1:8000/api/signin", this.state)
       .then((response) => {
         console.log(response.data.exists);
-        if (response.data.exists === true)
-           this.showSuccessMessage();
+        if (response.data.exists === true) this.showSuccessMessage();
         else this.showErrorMessage();
       })
       .catch((err) => console.log(err));
@@ -45,8 +44,7 @@ class SignIn extends React.Component {
         .post("http://127.0.0.1:8000/api/signin", this.state)
         .then((response) => {
           console.log(response.data.exists);
-          if (response.data.exists === true)
-            this.showSuccessMessage();
+          if (response.data.exists === true) this.showSuccessMessage();
           else this.showErrorMessage();
         })
         .catch((err) => console.log(err));
@@ -101,20 +99,20 @@ class SignIn extends React.Component {
     var alert = document.getElementById("alertsignin");
     alert.style.display = "block";
     alert.style.backgroundColor = "red";
-    alert.innerHTML  = `<span class="closebtnalertsignin" onClick={this.closeErrorMessageSignIn}>
+    alert.innerHTML = `<span class="closebtnalertsignin" onClick={this.closeErrorMessageSignIn}>
       &times;
       </span>
       <strong>Error!</strong> An account with this email already exists.`;
-    var closebtn= document.getElementsByClassName("closebtnalertsignin");
+    var closebtn = document.getElementsByClassName("closebtnalertsignin");
     var i;
     for (i = 0; i < closebtn.length; i++) {
-       closebtn[i].onclick = function(){
+      closebtn[i].onclick = function() {
         var div = document.getElementById("alertsignin");
         div.style.opacity = "0";
         setTimeout(function() {
           div.style.display = "none";
         }, 600);
-       }
+      };
     }
   };
 
@@ -122,22 +120,21 @@ class SignIn extends React.Component {
     var alert = document.getElementById("alertsignin");
     alert.style.display = "block";
     alert.style.backgroundColor = "green";
-    alert.innerHTML  = `<span class="closebtnalertsignin" onClick={this.closeErrorMessageSignIn}>
+    alert.innerHTML = `<span class="closebtnalertsignin" onClick={this.closeErrorMessageSignIn}>
      &times;
      </span> 
      <strong>Congrats!</strong> The account was created successfully!`;
-     var closebtn= document.getElementsByClassName("closebtnalertsignin");
-     var i;
-     for (i = 0; i < closebtn.length; i++) {
-      closebtn[i].onclick = function(){
-       var div = document.getElementById("alertsignin");
-       div.style.opacity = "0";
-       setTimeout(function() {
-         div.style.display = "none";
-       }, 600);
-      }
-   }
-
+    var closebtn = document.getElementsByClassName("closebtnalertsignin");
+    var i;
+    for (i = 0; i < closebtn.length; i++) {
+      closebtn[i].onclick = function() {
+        var div = document.getElementById("alertsignin");
+        div.style.opacity = "0";
+        setTimeout(function() {
+          div.style.display = "none";
+        }, 600);
+      };
+    }
   };
 
   render() {
@@ -202,36 +199,39 @@ class SignIn extends React.Component {
             <label className="formatLabelSignIn lineHeight-signin white pointer-signin">
               <input type="checkbox" /> Remember me
             </label>
+            <div className="lineHeight-signin marginsSignIn centerSignIn">
+              <button
+                class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin grow-signin"
+                id="submit"
+                onClick={this.makeSignIn}
+              >
+                Sign up
+              </button>
+            </div>
+            <div className="lineHeight-signin marginsSignIn centerSignIn">
+              <div
+                href="#0"
+                className="formatLabelSignIn lineHeight-signin white mrg-left-q1"
+              >
+                Already have an account?
+                <a
+                  href="#0"
+                  className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin"
+                  onClick={() => {
+                    this.props.navigate("/login");
+                  }}
+                >
+                  Log in.
+                </a>
+              </div>
+            </div>
           </fieldset>
-          <div className="lineHeight-signin marginsSignIn centerSignIn">
-            <button
-              class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin"
-              id="submit"
-              onClick={this.makeSignIn}
-            >
-              Sign up
-            </button>
-          </div>
-          <div className="lineHeight-signin marginsSignIn centerSignIn">
-            <label
-              href="#0"
-              className="formatLabelSignIn lineHeight-signin white mrg-left-q1"
-            >
-              Already have an account?
-            </label>
-            <a
-              href="#0"
-              className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin"
-              onClick={() => {
-                this.props.navigate("/login");
-              }}
-            >
-              Log in.
-            </a>
-          </div>
         </div>
-        <div className="alert" id="alertsignin" >
-          <span className="closebtnalertsignin" onClick={this.closeErrorMessageSignIn}>
+        <div className="alert" id="alertsignin">
+          <span
+            className="closebtnalertsignin"
+            onClick={this.closeErrorMessageSignIn}
+          >
             &times;
           </span>
           <strong>Error!</strong> The account does not exist. Please check if
