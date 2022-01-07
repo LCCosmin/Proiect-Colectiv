@@ -178,28 +178,6 @@ body {
     color: #86497A;
   }
 
-.EventProfile-container 
-button:disabled,
-button:focus:disabled,
-button:hover:disabled,
-button:active:disabled {
-  background:transparent;
-  border-color: rgba(134, 73, 122, 0.67);
-  color: #666666;
-  cursor: not-allowed;
-}
-
-.EventProfile-container 
-button:enabled,
-button:focus:enabled,
-button:hover:enabled,
-button:active:enabled {
-  background:transparent;
-  border-color: rgba(134, 73, 122, 0.67);
-  color: white;
-  cursor: allowed;
-}
-
 .EventProfile-container p {
     color: white;
     font-size: 24px;
@@ -218,3 +196,6 @@ button:active:enabled {
     font: 1.1em "Avantgarde", sans-serif;
 }
 
+#highlight, #highlight:hover, #highlight:active, #highlight:focus {
+    color: white;
+}
