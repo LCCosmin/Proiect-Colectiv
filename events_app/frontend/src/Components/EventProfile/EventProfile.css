@@ -3,8 +3,8 @@ body {
 }
 
 .EventProfile-container .EventTitle {
-    width: 655px;
-    height: 65px;
+    width: 100%;
+    height: 1em;
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: bold;
     font-size: 48px;
@@ -14,8 +14,8 @@ body {
 }
 
 .EventProfile-container .UsersGoing {
-    width: 400px;
-    height: 60px;
+    width: 100%;
+    height: 2em;
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
@@ -27,18 +27,17 @@ body {
 .EventProfile-container a:link{
     color: white;
     text-align: left;
-    padding: 0px;
+    padding: 0%;
     font: 1.1em "Avantgarde", sans-serif;
     background-color: transparent;
-    text-decoration: none;
-    word-wrap: break-word;
-    display: inline;
+    display: flex;
+    align-items: center;
 }
 
 .EventProfile-container .Location {
 
-    width: 210px;
-    height: 40px;
+    width: 100%;
+    height: 1.8em;
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
@@ -52,9 +51,8 @@ body {
 
 .EventProfile-container .Price {
 
-    width: 187px;
-    height: 40px;
-
+    width: 100%;
+    height: 1.8em;
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
@@ -69,8 +67,8 @@ body {
 
 .EventProfile-container .Date {
 
-    width: 188px;
-    height: 40px;
+    width: 100%;
+    height: 1.8em;
 
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
@@ -85,8 +83,8 @@ body {
 
 .EventProfile-container .Time {
 
-    width: 180px;
-    height: 40px;
+    width: 100%;
+    height: 1.8em;
 
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
@@ -125,7 +123,7 @@ body {
 
 
 .EventProfile-container .Description {
-    width: 600px;
+    width: 100%;
     height: 175px;
     font: 1.1em "Avantgarde", sans-serif;
     font-style: normal;
@@ -136,13 +134,13 @@ body {
 
 .EventProfile-container .LeftSide {
     position: absolute;
-    left: 0px;
+    left: 0%;
     width: 50%;
   }
 
 .EventProfile-container .RightSide{
     position: absolute;
-    right: 0px;
+    right: 0%;
     width: 50%;
 }
 
@@ -150,7 +148,7 @@ body {
     font: 1.1em "Avantgarde", sans-serif;
     font-weight: normal;
     font-size: 24px;
-    width: 198px;
+    width: 100%;
     height: 70px;
     color: white;
 }
@@ -160,11 +158,11 @@ body {
 }
 
 .EventProfile-container .leftPadding{
-    padding-left: 30px;
+    padding-left: 1.5em;
 }
 
 .EventProfile-container .rightPadding{
-    padding-right: 30px;
+    padding-right: 1.5em;
 }
 
 
@@ -181,11 +179,7 @@ body {
 .EventProfile-container p {
     color: white;
     font-size: 24px;
-    display: block;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    display: flex;
 }
 
 .EventProfile-container a * {
