@@ -97,14 +97,13 @@ def login(request):
     if request.method == "POST":
         try:
             user = User.objects.get(email = data["email"])
-            print(user.password)
             if(check_password(data['password'], user.password)):
                 a = str(getattr(user, 'id_role'))
-                return Response({'role': int(a[13])})
+                return Response({'role': int(a[13]), 'id': getattr(user, 'id')})
             else:
-                return Response({'role':0})
+                return Response({'role':0, 'id':0})
         except User.DoesNotExist:
-            return Response({'role':0})
+            return Response({'role':0, 'id':0})
 
 @api_view(['POST'])
 def addevent(request):

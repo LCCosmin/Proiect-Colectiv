@@ -25,9 +25,11 @@ class Login extends React.Component {
             this.props.navigate("/");
             break;
           case 2:
+            this.props.loggedUser.user.id = response.data.id;
             this.props.navigate("/addevents");
             break;
           case 3:
+            this.props.loggedUser.user.id = response.data.id;
             this.props.navigate("/eventpostuser");
             break;
           default:
