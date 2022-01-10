@@ -19,7 +19,7 @@ class PersonalData extends React.Component{
             <a href="">Personal Data</a><br></br>
             <a href="">Change Password</a><br></br>
             <a href="">My List</a><br></br>
-            <a href="">Add Event</a>
+            <a href="">News feed</a>
           </div>
         </div>
         <div></div>
@@ -57,6 +57,14 @@ class PersonalData extends React.Component{
             name="about"
             id="about"
             placeholder="About"
+          />
+          <input
+            className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
+            type="file"
+            name="picture"
+            id="picture"
+            placeholder="Upload Picture"
+            onChange={this.fileSelectedHandler}
           />
           <div className="mr-top">
             <input type="button" class="mybutton1 brad1 d-block1 mr-111 ml-auto1" value="Update Details"/>

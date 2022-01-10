@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import './EventPostAdmin.css';
+import axios from 'axios'; 
 
 class EventPostAdmin extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            events:[]
+        }
+    }
+    componentDidMount(){
+        axios
+        .get("http://127.0.0.1:8000/api/geteventspending")
+        .then(response =>{
+            this.setState({events: response.data});
+        }) 
+        .catch(err => console.log(err));
+    }
     render(){
         return(
             <div className = "containerEventPostAdmin">

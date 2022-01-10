@@ -75,7 +75,7 @@ class EventProfile extends React.Component {
                             {event.description}
                         </p>
                     </div>
-
+                    <br/>
                     <div style ={{float: 'left'}}>
                         <u><a href="" className="Report">Report event</a></u><br></br>
                     </div> 

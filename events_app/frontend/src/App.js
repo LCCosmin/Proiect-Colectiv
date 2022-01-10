@@ -16,6 +16,7 @@ import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from './Components/FilterEvents/filter.js';
+import ParticipantsList from './Components/Participants-list/Participants-list.js';
 
 class App extends Component {
   constructor() {
@@ -28,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div>
-          <Router>
+          {/* <Router>
             <Routes>
               <Route exact path="/" element={<Home loggedUser={this.state}/>}/>
               <Route exact path="/signin" element={<SignIn loggedUser={this.state}/>}/>
@@ -39,14 +40,24 @@ class App extends Component {
               <Route exact path="/changepassword" element={<ChangePassword loggedUser={this.state}/>}/>
               <Route exact path="/eventpostadmin" element={<EventPostAdmin loggedUser={this.state}/>}/>
               <Route exact path="/eventpostuser" element={<EventPostUser loggedUser={this.state}/>}/>
+
               <Route exact path="/eventprofile" element={<EventProfile loggedUser={this.state}/>}/>
               <Route exact path="/personaldata" element={<PersonalData loggedUser={this.state}/>}/>
               <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
             </Routes>
-          </Router>
+          </Router>  */}
+          <ChangePassword/>
+          {/* <Profile/> */}
+          {/* <PersonalData/> */}
+          {/* <Nav/> */}
           {/* <PersonalData/>  */}
-          {/* <EventProfile/> */}
+          {/* <EventProfile/>  */}
+          {/* <ParticipantsList/> */}
           {/* <Filter/> */}
+          {/* <EventPostAdmin/>
+          <AdminFeed/> */}
+          {/* <Route exact path="/eventpostuser" element={<><Nav/><EventPostUser loggedUser={this.state}/></>}/> */}
+
       </div>
     )
   }

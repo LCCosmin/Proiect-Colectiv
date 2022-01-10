@@ -9,8 +9,8 @@ class Nav extends React.Component {
             return(
                 <div className="topnav" id="myTopnav">
                     <a>
-                    <img src="./logo.jpg" 
-                    width="135px" height="100%" className="logo" alt="Site Name"/>
+                    <img src="./logo.png" 
+                    width="135px" height="100%" className="logo" alt="OmniEvents"/>
                     </a>
                     <a >
                         <div className="searchContainer">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './EventPostUser.css';
+// import Nav from '.src/Components/Navbar/Nav.js';
 import axios from 'axios'; 
 
 class EventPostUser extends React.Component {
@@ -11,6 +12,7 @@ class EventPostUser extends React.Component {
     }
 
     componentDidMount(){
+        console.log(this.props);
         axios
         .get("http://127.0.0.1:8000/api/geteventsaccepted")
         .then(response =>{
@@ -20,9 +22,30 @@ class EventPostUser extends React.Component {
     }
 
     render(){
+        // <Nav/>
         const {events} = this.state;
         return(
             <main className="width-admin-main center-admin-auto white-admin">
+                <div className="topnav" id="myTopnav">
+                    <a>
+                    <img src="./logo.png" 
+                    width="135px" height="100%" className="logo" alt="OmniEvents"/>
+                    </a>
+                    <a >
+                        <div className="searchContainer">
+                            <i className="fa fa-search searchIcon"></i>
+                            <input className="searchBox" type="search" name="search" placeholder="Search..."/>
+                        </div>
+                    </a>
+                    <div className="margin">
+                        <a href="#mylist">My list</a>
+                        <a href="#signot">Signout</a>
+                    
+                        <div className="notification-list-user-img">
+                                <img src="https://img.icons8.com/color/100/000000/name.png" alt="" className="user-avatar-md rounded-circle"/>
+                        </div>
+                    </div>  
+                </div>
                 {
                     events.map((event)=>{
                         return(
@@ -36,7 +59,7 @@ class EventPostUser extends React.Component {
                                     <div className="EventPostButtons" >
                                                 <button type="button" className="EventPostButton EventPostBrad"> Going </button> 
                                                 <div className="DividerEventPost"/>
-                                                <button type="button" className="EventPostButton EventPostBrad"> Maybe </button> 
+                                                {/* <button type="button" className="EventPostButton EventPostBrad"> Maybe </button>  */}
                                             </div>
                                 </div>
                             </article>
