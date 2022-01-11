@@ -30,7 +30,11 @@ class Login extends React.Component {
             break;
           case 3:
             this.props.loggedUser.user.id = response.data.id;
-            this.props.navigate("/eventpostuser");
+            if(!response.data.user_info){
+              this.props.navigate("/personaldata/"+ response.data.id);
+            }else{
+              this.props.navigate("/eventpostuser/"+ response.data.id);
+            }
             break;
           default:
             this.showErrorMessage();

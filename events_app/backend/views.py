@@ -99,7 +99,11 @@ def login(request):
             user = User.objects.get(email = data["email"])
             if(check_password(data['password'], user.password)):
                 a = str(getattr(user, 'id_role'))
-                return Response({'role': int(a[13]), 'id': getattr(user, 'id')})
+                try:
+                    user_info = UserInfo.objects.get(id_user = getattr(user, 'id'))
+                    return Response({'role': int(a[13]), 'id': getattr(user, 'id'), 'user_info': True})
+                except UserInfo.DoesNotExist:
+                    return Response({'role': int(a[13]), 'id': getattr(user, 'id'), 'user_info': False})
             else:
                 return Response({'role':0, 'id':0})
         except User.DoesNotExist:
@@ -131,6 +135,25 @@ def addevent(request):
             print(serializer.initial_data)
             print(serializer.errors)
             return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def updatepersonaldata(request):
+    if request.method == "POST":
+        # extension = '.' + request.data['img_name']
+        # request.data['img_name'] = str(uuid.uuid4()) + extension
+        print(request.data)
+        serializer = UserInfoSerializer(data=request.data)
+        data = request.data
+        if checkLanguage(data):
+            #print("DA")
+            return Response({'updated':False})
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'updated':request.data['img_name']}, status=status.HTTP_201_CREATED)
+        else:
+            print(serializer.initial_data)
+            print(serializer.errors)
+            return Response({'updated':False}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def getevents(request):

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './EventPostUser.css';
 // import Nav from '.src/Components/Navbar/Nav.js';
 import axios from 'axios'; 
+import { useNavigate } from "react-router-dom";
+
 
 class EventPostUser extends React.Component {
     constructor(){
@@ -21,6 +23,10 @@ class EventPostUser extends React.Component {
         .catch(err => console.log(err));
     }
 
+    goToProfile = () => {
+        this.props.navigate("/personaldata/" + this.props.loggedUser.user.id);
+    }
+
     render(){
         // <Nav/>
         const {events} = this.state;
@@ -28,7 +34,7 @@ class EventPostUser extends React.Component {
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">
                     <a>
-                    <img src="./logo.png" 
+                    <img src="/images/logo.png" 
                     width="135px" height="100%" className="logo" alt="OmniEvents"/>
                     </a>
                     <a >
@@ -42,7 +48,7 @@ class EventPostUser extends React.Component {
                         <a href="#signot">Signout</a>
                     
                         <div className="notification-list-user-img">
-                                <img src="https://img.icons8.com/color/100/000000/name.png" alt="" className="user-avatar-md rounded-circle"/>
+                                <img src="/images/no_profile_pic.png" alt="" className="user-avatar-md rounded-circle" onClick={this.goToProfile}/>
                         </div>
                     </div>  
                 </div>
@@ -71,4 +77,8 @@ class EventPostUser extends React.Component {
     }
 }
 
-export default EventPostUser
+function WithNavigate(props) {
+    let navigate = useNavigate();
+    return <EventPostUser {...props} navigate={navigate} />;
+  }
+  export default WithNavigate;

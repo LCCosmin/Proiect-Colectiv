@@ -18,4 +18,6 @@ urlpatterns = [
 	path('api/geteventsaccepted', views.geteventsaccepted),
 	path('api/signin', views.signin),
 	path('api/geteventdetails', views.geteventdetails),
+	path('api/updatepersonaldata', views.updatepersonaldata),
+
 ]

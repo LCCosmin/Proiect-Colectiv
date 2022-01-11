@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div>
-          {/* <Router>
+          <Router>
             <Routes>
               <Route exact path="/" element={<Home loggedUser={this.state}/>}/>
               <Route exact path="/signin" element={<SignIn loggedUser={this.state}/>}/>
@@ -39,14 +39,14 @@ class App extends Component {
               <Route exact path="/adminnotifications" element={<AdminNotifications loggedUser={this.state}/>}/>
               <Route exact path="/changepassword" element={<ChangePassword loggedUser={this.state}/>}/>
               <Route exact path="/eventpostadmin" element={<EventPostAdmin loggedUser={this.state}/>}/>
-              <Route exact path="/eventpostuser" element={<EventPostUser loggedUser={this.state}/>}/>
+              <Route exact path="/eventpostuser/:id" element={<EventPostUser loggedUser={this.state}/>}/>
 
               <Route exact path="/eventprofile" element={<EventProfile loggedUser={this.state}/>}/>
-              <Route exact path="/personaldata" element={<PersonalData loggedUser={this.state}/>}/>
+              <Route exact path="/personaldata/:id" element={<PersonalData loggedUser={this.state}/>}/>
               <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
             </Routes>
-          </Router>  */}
-          <ChangePassword/>
+          </Router> 
+          {/* <ChangePassword/> */}
           {/* <Profile/> */}
           {/* <PersonalData/> */}
           {/* <Nav/> */}
