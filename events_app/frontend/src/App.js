@@ -8,50 +8,117 @@ import Home from "./Components/Home/Home.js";
 import AddEvents from "./Components/AddEvents/addevents.js";
 import Nav from "./Components/Navbar/Nav.js";
 import AdminNotifications from "./Components/Admin-notifications/Admin-notifications.js";
-import Profile from "./Components/Profile/profile.js"
+import Profile from "./Components/Profile/profile.js";
 import ChangePassword from "./Components/ChangePassword/changepassword.js";
 import EventPostAdmin from "./Components/EventPostUser/EventPostAdmin.js";
 import EventPostUser from "./Components/EventPostUser/EventPostUser.js";
 import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
-import Filter from './Components/FilterEvents/filter.js';
+import Filter from "./Components/FilterEvents/filter.js";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: {id: 0}
+      user: { id: 0 },
     };
   }
-  
+
   render() {
     return (
       <div>
-          <Router>
-            <Routes>
-              <Route exact path="/" element={<Home loggedUser={this.state}/>}/>
-              <Route exact path="/signin" element={<SignIn loggedUser={this.state}/>}/>
-              <Route exact path="/login" element={<Login loggedUser={this.state}/>}/>
-              <Route exact path="/addevents" element={<AddEvents loggedUser={this.state}/>}/>
-              <Route exact path="/adminfeed" element={<AdminFeed loggedUser={this.state}/>}/>
-              <Route exact path="/adminnotifications" element={<AdminNotifications loggedUser={this.state}/>}/>
-              <Route exact path="/changepassword" element={<ChangePassword loggedUser={this.state}/>}/>
-              <Route exact path="/eventpostadmin" element={<EventPostAdmin loggedUser={this.state}/>}/>
-              <Route exact path="/eventpostuser" element={<EventPostUser loggedUser={this.state}/>}/>
-              <Route exact path="/eventprofile" element={<EventProfile loggedUser={this.state}/>}/>
-              <Route exact path="/personaldata" element={<PersonalData loggedUser={this.state}/>}/>
-              <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
-            </Routes>
-          </Router>
-          {/* <PersonalData/>  */}
-          {/* <EventProfile/> */}
-          {/* <Filter/> */}
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Home loggedUser={this.state} />} />
+            <Route
+              exact
+              path="/signin"
+              element={<SignIn loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/login"
+              element={<Login loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/addevents"
+              element={<AddEvents loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/adminfeed"
+              element={<AdminFeed loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/adminnotifications"
+              element={<AdminNotifications loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/changepassword"
+              element={<ChangePassword loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/eventpostadmin"
+              element={<EventPostAdmin loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/eventpostuser"
+              element={<EventPostUser loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/eventprofile"
+              element={<EventProfile loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/personaldata"
+              element={<PersonalData loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/profile"
+              element={<Profile loggedUser={this.state} />}
+            />
+          </Routes>
+        </Router>
+        {/* <PersonalData/>  */}
+        {/* <EventProfile/> */}
+        {/* <Filter/> */}
+        <footer height="10%">
+          <div className="cv">
+              <img
+                src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+                alt="ccvcvcvc"
+                width="30%"
+                height = "10%"
+                onClick={()=> window.open("https://github.com/Joeyryanbridges", "_blank")}
+              />
+              <img
+                src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+                alt="ccvcvcvc"
+                width="30%"
+                height = "10%"
+                onClick={()=> window.open("https://github.com/Joeyryanbridges", "_blank")}
+              />
+              <img
+                src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+                alt="ccvcvcvc"
+                width="30%"
+                height = "10%"
+                onClick={()=> window.open("https://github.com/Joeyryanbridges", "_blank")}
+              />
+          </div>
+        </footer>
       </div>
-    )
+    );
   }
 }
-
-
 
 export default App;

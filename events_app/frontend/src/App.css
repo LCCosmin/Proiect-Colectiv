@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +40,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cv {
+  display:flex;
+   justify-content: space-between;
+   margin: 0 50px ;
 }
