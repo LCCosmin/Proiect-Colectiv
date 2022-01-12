@@ -19,5 +19,6 @@ urlpatterns = [
 	path('api/signin', views.signin),
 	path('api/geteventdetails', views.geteventdetails),
 	path('api/updatepersonaldata', views.updatepersonaldata),
+	path('api/usergoingtoevent', views.usergoingtoevent),
 
 ]

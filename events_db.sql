@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2022 at 06:53 PM
+-- Generation Time: Jan 12, 2022 at 07:35 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -423,9 +423,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_rating`, `notific
 CREATE TABLE `users2events` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_event` int(11) NOT NULL,
-  `stars` float NOT NULL,
-  `description` text NOT NULL
+  `id_event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -703,7 +701,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users2events`
 --
 ALTER TABLE `users2events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users_info`

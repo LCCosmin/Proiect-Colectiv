@@ -60,7 +60,6 @@ class PersonalData extends React.Component{
 
   componentDidMount(){
     this.state.info.id_user = this.props.loggedUser.user.id;
-    console.log(this.state);
   }
 
   render(){

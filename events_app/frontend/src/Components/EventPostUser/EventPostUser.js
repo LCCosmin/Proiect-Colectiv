@@ -9,12 +9,11 @@ class EventPostUser extends React.Component {
     constructor(){
         super();
         this.state = {
-            events:[]
+            events:[],
         }
     }
 
     componentDidMount(){
-        console.log(this.props);
         axios
         .get("http://127.0.0.1:8000/api/geteventsaccepted")
         .then(response =>{
@@ -27,8 +26,25 @@ class EventPostUser extends React.Component {
         this.props.navigate("/personaldata/" + this.props.loggedUser.user.id);
     }
 
+    userGoingToEvent = () => {
+        // console.log(this.state.loggedUser.user.id);
+        let btnGoing = document.getElementsByClassName("going-btn");
+        let idEvent = parseInt(btnGoing[0].getAttribute('id'));
+        var userToEvent = { id_user: this.props.loggedUser.user.id, id_event: idEvent};
+        console.log(userToEvent);
+        axios
+        .post("http://127.0.0.1:8000/api/usergoingtoevent", userToEvent)
+        .then(response =>{
+            if(response.data.ok == true){
+                document.getElementById(response.data.id).style.display = "none";
+            }else{
+                window.alert("Something is wrong!");
+            }
+        }) 
+        .catch(err => console.log(err));
+    }
+
     render(){
-        // <Nav/>
         const {events} = this.state;
         return(
             <main className="width-admin-main center-admin-auto white-admin">
@@ -63,7 +79,7 @@ class EventPostUser extends React.Component {
                                         {event.description}
                                     </div>
                                     <div className="EventPostButtons" >
-                                                <button type="button" className="EventPostButton EventPostBrad"> Going </button> 
+                                                <button id={event.id} type="button" className="EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
                                                 <div className="DividerEventPost"/>
                                                 {/* <button type="button" className="EventPostButton EventPostBrad"> Maybe </button>  */}
                                             </div>

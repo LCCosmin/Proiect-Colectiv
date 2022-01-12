@@ -65,7 +65,5 @@ class FavoriteList(models.Model):
 class UserToEvent(models.Model):
     id_user = models.ForeignKey(User, on_delete=CASCADE, db_column='id_user')
     id_event = models.ForeignKey(Event, on_delete=CASCADE, db_column='id_event')
-    stars = models.FloatField()
-    description = models.TextField()
     class Meta:
         db_table="users2events"

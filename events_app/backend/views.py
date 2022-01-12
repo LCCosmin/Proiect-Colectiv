@@ -141,7 +141,6 @@ def updatepersonaldata(request):
     if request.method == "POST":
         # extension = '.' + request.data['img_name']
         # request.data['img_name'] = str(uuid.uuid4()) + extension
-        print(request.data)
         serializer = UserInfoSerializer(data=request.data)
         data = request.data
         if checkLanguage(data):
@@ -154,6 +153,17 @@ def updatepersonaldata(request):
             print(serializer.initial_data)
             print(serializer.errors)
             return Response({'updated':False}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def usergoingtoevent(request):
+    if request.method == "POST":
+        serializer = UserToEventSerializer(data=request.data)
+        print(serializer)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'ok':True, 'id': request.data['id_event']}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({'ok':False}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def getevents(request):
