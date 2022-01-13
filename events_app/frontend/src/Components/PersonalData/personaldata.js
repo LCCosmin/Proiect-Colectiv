@@ -117,6 +117,14 @@ class PersonalData extends React.Component{
             onChange={this.updateAbout}
           />
           <input
+            className="margins1 pad1 fww41 f51 inp-reset1 b11 bgr-transparent1 bc--purple1 hover1-cwhite cwhite1-input width1-85"
+            type="text"
+            name="socialMedia"
+            id="socialMedia"
+            placeholder="Social Media"
+            onChange={this.updateAbout}
+          />
+          <input
             className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
             type="file"
             name="picture"
@@ -125,7 +133,7 @@ class PersonalData extends React.Component{
             onChange={this.fileSelectedHandler}
           />
           <div className="mr-top">
-            <input type="button" class="mybutton1 brad1 d-block1 mr-111 ml-auto1" value="Update Details" onClick={this.updateDetails}/>
+            <input type="button" class="mybutton1 brad1 d-block1 ml-btn" value="Update Details" onClick={this.updateDetails}/>
           </div>
         </div>
       </>
