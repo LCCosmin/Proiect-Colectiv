@@ -58,18 +58,16 @@ class PersonalData extends React.Component{
       .catch(err => console.log(err));
   }
 
-  componentDidMount(){
-    this.state.info.id_user = this.props.loggedUser.user.id;
-  }
+  // componentDidMount(){
+  //   this.state.info.id_user = this.props.loggedUser.user.id;
+  // }
 
   render(){
     return (
       <>
         <div className="split1 left1">
-          <div className="bgr-transparent1 par1 img-pos3">
-          <div className="prof-image">
-                <img src="/images/no_profile_pic.png" />
-              </div>
+          <div className="bgr-transparent1 par1 prof-image5">
+            <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered1">
             <a href="">Personal Data</a><br></br>

@@ -37,7 +37,7 @@ class App extends Component {
               <Route exact path="/addevents" element={<AddEvents loggedUser={this.state}/>}/>
               <Route exact path="/adminfeed" element={<AdminFeed loggedUser={this.state}/>}/>
               <Route exact path="/adminnotifications" element={<AdminNotifications loggedUser={this.state}/>}/>
-              <Route exact path="/changepassword" element={<ChangePassword loggedUser={this.state}/>}/>
+              // <Route exact path="/changepassword" element={<ChangePassword loggedUser={this.state}/>}/>
               <Route exact path="/eventpostadmin" element={<EventPostAdmin loggedUser={this.state}/>}/>
               <Route exact path="/eventpostuser/:id" element={<EventPostUser loggedUser={this.state}/>}/>
 
@@ -46,9 +46,9 @@ class App extends Component {
               <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
             </Routes>
           </Router> 
-          <ChangePassword/>
+          {/* <ChangePassword/> */}
           {/* <Profile/> */}
-          {/* <PersonalData/> */}
+          <PersonalData/>
           {/* <Nav/> */}
           {/* <PersonalData/>  */}
           {/* <EventProfile/>  */}
