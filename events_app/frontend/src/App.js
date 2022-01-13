@@ -46,7 +46,7 @@ class App extends Component {
               <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
             </Routes>
           </Router> 
-          {/* <ChangePassword/> */}
+          <ChangePassword/>
           {/* <Profile/> */}
           {/* <PersonalData/> */}
           {/* <Nav/> */}
