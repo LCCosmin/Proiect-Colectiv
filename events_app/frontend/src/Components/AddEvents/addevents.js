@@ -110,7 +110,7 @@ class AddEvents extends React.Component {
       <>
         <div className="split left">
           <div className="bgr-transparent par prof-image">
-          <img src="" />
+            <img src="" />
           </div>
           <div className="centered">
             <a href="">Personal Data</a><br></br>
@@ -121,7 +121,7 @@ class AddEvents extends React.Component {
         </div>
         <div>
         </div>
-        <div className="split right">
+        <div className="split right scroll">
           <legend className="f4 fww6 ph0 white titlecenter">Event details</legend>
           <input
             className=" margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
@@ -195,7 +195,7 @@ class AddEvents extends React.Component {
           </select>
           </label>
           <div>
-            <input type="button" class="mybutton brad d-block mr-1 ml-auto" value="Add event" onClick={this.addEvent} />
+            <input type="button" class="myb brad margin-bottom d-block mr-1 ml-auto" value="Add event" onClick={this.addEvent} />
           </div>
         </div>
       </>
