@@ -18,6 +18,7 @@ import OrganiserData from "./Components/OrganiserData/organiserdata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from './Components/FilterEvents/filter.js';
 import ParticipantsList from './Components/Participants-list/Participants-list.js';
+import EventsList from './Components/EventsList/eventslist.js';
 
 class App extends Component {
   constructor() {
@@ -49,16 +50,17 @@ class App extends Component {
           </Router> 
           {/* < OrganiserData /> */}
           {/* <ChangePassword/> */}
-          {/* <Profile/> */}
+          <Profile/>
           {/* <PersonalData/> */}
           {/* <Nav/> */}
           {/* <PersonalData/>  */}
-          <AddEvents/>
+          {/* <AddEvents/> */}
           {/* <EventProfile/>  */}
           {/* <ParticipantsList/> */}
+          {/* <EventsList /> */}
           {/* <Filter/> */}
-          {/* <EventPostAdmin/>
-          <AdminFeed/> */}
+          {/* <EventPostAdmin/> */}
+          {/* <AdminFeed/> */}
           {/* <Route exact path="/eventpostuser" element={<><Nav/><EventPostUser loggedUser={this.state}/></>}/> */}
 
       </div>
