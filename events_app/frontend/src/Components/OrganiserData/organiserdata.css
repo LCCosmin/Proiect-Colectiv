@@ -1,5 +1,5 @@
 
-.split1 {
+.split10 {
     height: 100%;
     position: fixed;
     z-index: 1;
@@ -8,20 +8,20 @@
     padding-top: 20px;
   }
   
-  .left1 {
+  .left10 {
     left: 0;
     background-color: rgba(36, 40, 48, 1);
     width:20%;
   }
   
-  .right1 {
+  .right10 {
     right: 0;
     background-color: rgba(36, 40, 48, 1);
     width:80%;
     border-left: 4px solid #86497A;
   }
   
-  .centered1 {
+  .centered10 {
     position: absolute;
     top: 60%;
     left: 40%;
@@ -30,32 +30,32 @@
     
   }
   
-  .b11 {
+  .b110 {
     border-style: solid;
     border-width: 1px;
   }
   
-  .bgr-transparent1 {
+  .bgr-transparent10 {
     background-color: transparent;
     color: white;
   }
   
-  .par1 {
+  .par10 {
     position: absolute;
     top:20%;
     left: 30%;
   }
   
-  .bc--purple1 {
+  .bc--purple10 {
     border-color: rgba(128, 70, 116, 0.67);
   }
   
-  .white1 {
+  .white10 {
     color: white;
   }
   
   
-  .cwhite1-input:focus {
+  .cwhite10-input:focus {
     background: transparent;
     color: white;
     border-radius: 0px 0px 0px 0px;
@@ -64,25 +64,25 @@
   }
   
   
-  .width1-85 {
+  .width10-85 {
     width: 85%;
   }
   
-  .hover1-cwhite:hover {
+  .hover10-cwhite:hover {
     color: white;
     border-color: white;
   }
   
-  .hover1-purple:hover {
+  .hover10-purple:hover {
     border-color: rgba(134, 73, 122, 0.67);
   }
   
-  .titlecenter1 {
+  .titlecenter10 {
     margin-left: 35%;
   }
   
   
-  .fww61 {
+  .fww10 {
     font: 1.1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     font-style: normal;
@@ -90,7 +90,7 @@
     font-weight: normal;
   }
   
-  .fww41 {
+  .fww410 {
     font-style: normal;
     align-items: center;
     line-height: 132.5%;
@@ -99,36 +99,36 @@
     color:white;
   }
   
-  .f41 {
+  .f10 {
     font-size: 2rem;
   }
   
-  .f51 {
+  .f510 {
     font-size: 15px;
     font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
   
-  .ph01 {
+  .ph10 {
     padding-left: 0;
     padding-right: 0;
   }
   
-  .pad1 {
+  .pad10 {
     padding: 1rem;
   }
   
-  .inp-reset1 {
+  .inp-reset10 {
     -webkit-appearance: none;
     -moz-appearance: none;
   }
   
-  .margins1 {
+  .margins10 {
     margin-top:30px;
     margin-left:30px;
   }
   
-  .mybutton1 {
+  .mybutton10 {
     background-color:#86497A59;
     border: solid #86497A59 1px;
     color: white;
@@ -142,19 +142,19 @@
     cursor: pointer;
   }
   
-  .brad1 {
+  .brad10 {
     border-radius: 51px;
   }
   
-  .mr-top {
+  .mr10-top {
     margin-top: 3rem;
   }
   
-  .ml-btn {
+  .ml-btn10 {
     margin-left:73%;
   }
   
-  .d-block1 {
+  .d-block10 {
     display:block;
   }
   
@@ -198,7 +198,8 @@
     letter-spacing: 0.1em;
   }
 
-.prof-image5 img {
+
+.prof-image10 img {
   height:11rem;
   width:11rem;
   margin-left:3em;
@@ -210,7 +211,7 @@
 }
 
 
-.par1 {
+.par10 {
   position: absolute;
   top:15%;
   left: 30%;

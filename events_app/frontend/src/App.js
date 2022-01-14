@@ -14,6 +14,7 @@ import EventPostAdmin from "./Components/EventPostUser/EventPostAdmin.js";
 import EventPostUser from "./Components/EventPostUser/EventPostUser.js";
 import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
+import OrganiserData from "./Components/OrganiserData/organiserdata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from './Components/FilterEvents/filter.js';
 import ParticipantsList from './Components/Participants-list/Participants-list.js';
@@ -46,6 +47,7 @@ class App extends Component {
               <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
             </Routes>
           </Router> 
+          {/* < OrganiserData /> */}
           {/* <ChangePassword/> */}
           {/* <Profile/> */}
           <PersonalData/>

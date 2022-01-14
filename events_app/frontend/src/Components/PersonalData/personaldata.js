@@ -114,7 +114,6 @@ class PersonalData extends React.Component{
             name="about"
             id="about"
             placeholder="About"
-            onChange={this.updateAbout}
           />
           <input
             className="margins1 pad1 fww41 f51 inp-reset1 b11 bgr-transparent1 bc--purple1 hover1-cwhite cwhite1-input width1-85"
