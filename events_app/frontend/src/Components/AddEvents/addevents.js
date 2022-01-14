@@ -109,8 +109,8 @@ class AddEvents extends React.Component {
     return (
       <>
         <div className="split left">
-          <div className="bgr-transparent par prof-image">
-            <img src="" />
+          <div className="bgr-transparent parr proff-image">
+            <img className="imag-sz" src="" />
           </div>
           <div className="centered">
             <a href="">Personal Data</a><br></br>

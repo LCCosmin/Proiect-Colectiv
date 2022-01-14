@@ -50,10 +50,10 @@ class App extends Component {
           {/* < OrganiserData /> */}
           {/* <ChangePassword/> */}
           {/* <Profile/> */}
-          <PersonalData/>
+          {/* <PersonalData/> */}
           {/* <Nav/> */}
           {/* <PersonalData/>  */}
-          {/* <AddEvents/> */}
+          <AddEvents/>
           {/* <EventProfile/>  */}
           {/* <ParticipantsList/> */}
           {/* <Filter/> */}

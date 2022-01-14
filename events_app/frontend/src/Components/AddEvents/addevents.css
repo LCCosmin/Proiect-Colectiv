@@ -263,7 +263,7 @@
   margin-left:10px;
 }
 
-.prof-image {
+.proff-image {
   height:11rem;
   width:11rem;
   margin-left:3em;
@@ -275,12 +275,17 @@
 }
 
 
-.par {
+.parr {
   position: absolute;
-  top:15%;
+  top:20%;
   left: 30%;
 }
 
 .scroll {
   overflow: scroll;
+}
+
+.imag-sz {
+  height:11rem;
+  width: 11rem;
 }
