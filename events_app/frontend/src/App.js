@@ -48,9 +48,10 @@ class App extends Component {
           </Router> 
           {/* <ChangePassword/> */}
           {/* <Profile/> */}
-          <PersonalData/>
+          {/* <PersonalData/> */}
           {/* <Nav/> */}
           {/* <PersonalData/>  */}
+          <AddEvents/>
           {/* <EventProfile/>  */}
           {/* <ParticipantsList/> */}
           {/* <Filter/> */}

@@ -109,10 +109,8 @@ class AddEvents extends React.Component {
     return (
       <>
         <div className="split left">
-          <div className="bgr-transparent par img-pos">
-            <div className="prof-image">
-              <img src="https://s3-alpha-sig.figma.com/img/6a03/487f/fe0efa3177b2f82f4cc3b32042ec4b4d?Expires=1638748800&Signature=T9R5TKUyu3Uq29NsCwIorLnaqLIQQ6G3aHQiaLQ62S3vY5ViXWTPCxnfKPL4eK3SOdAD6PfjzSEC-wCakELfSYVtIvC-7cfLjKxWMCoRnWuK6M~c~V6eOKzN6C~rmVl22jLPMNhrl0M~xonrDd4mte8VDY66r3dO1C2idedOscDPZKISEkbuywPcZJHEDww2F0Mc4GyGS0TxvZSx7QUQnWoItXARqEeB58Se2GKSwA3nCkhW7WE-dAOGByzjteO-ErGIUyxXFlThpYDwzo69qUSGwNConxDUoeF8uLH8snD9kIK-L-Asn~wyy2iOX9a-Xerxe65dvzBKCVE2FVOx7A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" />
-            </div>
+          <div className="bgr-transparent par prof-image">
+          <img src="" />
           </div>
           <div className="centered">
             <a href="">Personal Data</a><br></br>
@@ -183,7 +181,6 @@ class AddEvents extends React.Component {
             placeholder="Upload Picture"
             onChange={this.fileSelectedHandler}
           />
-          <br></br>
           <br></br>
           <br></br>
           <label for="events" className="ev-type hover-cwhite cwhite-input input-event" onChange={this.updateType}>Choose an event type 
