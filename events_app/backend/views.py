@@ -68,8 +68,6 @@ def manageButtonsEvents(request):
 def signin(request):
     if request.method == 'POST':
         data =  JSONParser().parse(request)
-        if checkLanguage(data):
-            return Response({'exists':False})
         try:
             user = User.objects.get(email = data["email"])
             return Response({'exists':False})

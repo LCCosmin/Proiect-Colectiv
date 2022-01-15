@@ -22,14 +22,12 @@ class EventProfile extends React.Component {
         .post("http://127.0.0.1:8000/api/geteventdetails", {id: 17})
         .then(response =>{
             this.setState({event: response.data});
-            console.log(this.state);
         }) 
         .catch(err => console.log(err));
 
         axios
         .post("http://127.0.0.1:8000/api/usersinterested", {id: 17})
         .then(response =>{
-            console.log(response.data);
             document.getElementById('users-interested').innerHTML = response.data.no_users + ' users interested';
         }) 
         .catch(err => console.log(err));
@@ -93,4 +91,8 @@ class EventProfile extends React.Component {
   
 }
  
-export default EventProfile;
+function WithNavigate(props) {
+    let navigate = useNavigate();
+    return <EventProfile {...props} navigate={navigate} />;
+  }
+  export default WithNavigate;
