@@ -41,9 +41,3 @@
     transform: rotate(360deg);
   }
 }
-
-.cv {
-  display:flex;
-   justify-content: space-between;
-   margin: 0 50px ;
-}

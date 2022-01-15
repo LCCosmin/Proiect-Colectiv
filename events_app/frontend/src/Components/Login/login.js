@@ -127,21 +127,6 @@ class Login extends React.Component {
               />
             </div>
             <div className="line-hight-login marginsDivLogin centerLoginContent">
-              <label className="fontLabelLogin line-hight-login white pointer">
-                <input type="checkbox" /> Remember me
-              </label>
-              <a
-                href="#0"
-                className="fontLabelLogin link-login dim white db underline"
-                onClick={() => {
-                  this.props.navigate("/changepassword");
-                }}
-              >
-                Forgot your password?
-              </a>
-            </div>
-
-            <div className="line-hight-login marginsDivLogin centerLoginContent">
               <button
                 className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login"
                 onClick={this.checkLogin}

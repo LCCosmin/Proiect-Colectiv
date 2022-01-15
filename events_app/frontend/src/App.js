@@ -16,6 +16,7 @@ import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from "./Components/FilterEvents/filter.js";
+import Ads from "./Components/Ads/Ads.js";
 
 class App extends Component {
   constructor() {
@@ -91,31 +92,7 @@ class App extends Component {
         {/* <PersonalData/>  */}
         {/* <EventProfile/> */}
         {/* <Filter/> */}
-        <footer height="10%">
-          <div className="cv">
-              <img
-                src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
-                alt="ccvcvcvc"
-                width="30%"
-                height = "10%"
-                onClick={()=> window.open("https://github.com/Joeyryanbridges", "_blank")}
-              />
-              <img
-                src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
-                alt="ccvcvcvc"
-                width="30%"
-                height = "10%"
-                onClick={()=> window.open("https://github.com/Joeyryanbridges", "_blank")}
-              />
-              <img
-                src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
-                alt="ccvcvcvc"
-                width="30%"
-                height = "10%"
-                onClick={()=> window.open("https://github.com/Joeyryanbridges", "_blank")}
-              />
-          </div>
-        </footer>
+        <Ads/>
       </div>
     );
   }
