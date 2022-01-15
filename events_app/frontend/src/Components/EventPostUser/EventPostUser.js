@@ -50,6 +50,7 @@ class EventPostUser extends React.Component {
 
     render(){
         const {events} = this.state;
+        console.log(events);
         return(
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">

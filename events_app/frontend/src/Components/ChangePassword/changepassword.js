@@ -24,7 +24,6 @@ class ChangePassword extends React.Component {
           </div>
           <div className="centered2">
             <a href="" onClick={() => this.props.navigate("/personaldata/" + this.state.info.id_user)}>Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
             <a href="">My List</a><br></br>
             <a href="">Add Event</a>
           </div>

@@ -92,7 +92,6 @@ class PersonalData extends React.Component{
             <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered1">
-            <a href="">Personal Data</a><br></br>
             <a href="" onClick={() => this.props.navigate("/changepassword/" + this.props.loggedUser.user.id)}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
             <a href="" onClick={() => this.props.navigate("/eventpostuser/" + this.props.loggedUser.user.id)}>News feed</a>
