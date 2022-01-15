@@ -146,7 +146,7 @@ class Login extends React.Component {
             </div>
             <div className="line-hight-login marginsDivLogin centerLoginContent">
               <label className="fontLabelLogin line-hight-login white pointer">
-                <input type="checkbox" /> Remember me
+                <input type="checkbox" /> Remember measfhuikvjashnfasfbiasyujkfbnas
               </label>
               <a
                 href="#0"
