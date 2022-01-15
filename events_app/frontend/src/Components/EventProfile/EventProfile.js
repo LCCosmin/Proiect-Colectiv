@@ -64,10 +64,8 @@ class EventProfile extends React.Component {
                 </div>
                 <div className="RightSide rightPadding" >
 
-                    <div className="buttons " >
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
                         <button type="button" className="anyButton brad marginEventProf"> Going </button> 
-                        <div className="divider"/>
-                        {/* <button type="button" className="anyButton brad marginEventProf"> Maybe </button>  */}
                     </div>
 
                     <div style={{float: 'left'}} >
@@ -76,9 +74,9 @@ class EventProfile extends React.Component {
                         </p>
                     </div>
                     <br/>
-                    <div style ={{float: 'left'}}>
-                        {/* <u><a href="" className="Report">Report event</a></u><br></br> */}
-                    </div> 
+                    {/* <div style ={{float: 'left'}}>
+                        <u><a href="" className="Report">Report event</a></u><br></br>
+                    </div>  */}
 
                 </div>
             </div>
