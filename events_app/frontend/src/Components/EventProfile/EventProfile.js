@@ -53,7 +53,7 @@ class EventProfile extends React.Component {
                         <p className = "UsersGoing"> <AiOutlineUser/><span id="users-interested"></span>
                         <u><a style={{'margin-left': '10px'}} href="" >View</a></u><br></br> </p>
                     </div>
-
+                
                     <div className="Location">
                         <p> <IoLocationOutline/> {event.location} </p>
                     </div>

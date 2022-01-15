@@ -94,7 +94,6 @@ class AddEvents extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.props);
     axios
     .get("http://127.0.0.1:8000/api/geteventtypes")
     .then(response =>{

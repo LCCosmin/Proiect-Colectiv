@@ -14,7 +14,23 @@ class EventPostUser extends React.Component {
         super();
         this.state = {
             events:[],
+            types: [],
         }
+    }
+    timeConverter(timestamp){
+        var a = new Date(timestamp * 1000);
+        var time = a.getDate() + '/' + parseInt(a.getMonth() + 1) + '/' + a.getFullYear() + ' ' +  a.getHours() + ':' + a.getMinutes();
+        return time;
+    }
+
+    getEventType(id_type){
+        const {types} = this.state;
+        let name = 'none';
+        types.map((type)=>{
+            console.log(type.id);
+            if(type.id == id_type) name = type.name;
+        });
+        return name;
     }
 
     componentDidMount(){
@@ -22,6 +38,12 @@ class EventPostUser extends React.Component {
         .get("http://127.0.0.1:8000/api/geteventsaccepted")
         .then(response =>{
             this.setState({events: response.data});
+        }) 
+        .catch(err => console.log(err));
+        axios
+        .get("http://127.0.0.1:8000/api/geteventtypes")
+        .then(response =>{
+            this.setState({types: response.data});
         }) 
         .catch(err => console.log(err));
     }
@@ -50,7 +72,6 @@ class EventPostUser extends React.Component {
 
     render(){
         const {events} = this.state;
-        console.log(events);
         return(
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">
@@ -81,19 +102,19 @@ class EventPostUser extends React.Component {
                                     <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid" onClick={() => this.props.navigate("/eventprofile/" + event.id)} ></img>
                                     <div className="Event-Title"> {event.name} </div>
                                     <div className='StartDate'>
-                                        <p> <MdDateRange/> Start date</p>
+                                        <p> <MdDateRange/> Start date: {this.timeConverter(event.start_date)}</p>
                                     </div>
                                     <div className='EndDate'>
-                                        <p> <MdDateRange/> End date</p>
+                                        <p> <MdDateRange/> End date: {this.timeConverter(event.end_date)}</p>
                                     </div>
                                     <div className='Price'>
-                                        <p> <IoPricetagOutline/> Price</p>
+                                        <p> <IoPricetagOutline/> Price: {event.price}</p>
                                     </div>
                                     <div className='Location'>
-                                        <p> <IoLocationOutline/> Location</p>
+                                        <p> <IoLocationOutline/> Location: {event.location}</p>
                                     </div>
                                     <div className='Type'>
-                                        <p> <GiPartyPopper/> Type</p>
+                                        <p> <GiPartyPopper/> {this.getEventType(event.id_type)}</p>
                                     </div>
                                     <div className="EventPostButtons" >
                                                 <button id={event.id} type="button" className="EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
