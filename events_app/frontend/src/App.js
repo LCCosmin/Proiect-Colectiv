@@ -12,14 +12,16 @@ import Profile from "./Components/Profile/profile.js";
 import ChangePassword from "./Components/ChangePassword/changepassword.js";
 import EventPostAdmin from "./Components/EventPostUser/EventPostAdmin.js";
 import EventPostUser from "./Components/EventPostUser/EventPostUser.js";
+import EventPostOrganiser  from "./Components/EventPostUser/EventPostOrganiser.js";
 import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
-import Filter from "./Components/FilterEvents/filter.js";
 import Ads from "./Components/Ads/Ads.js";
 import Filter from './Components/FilterEvents/filter.js';
 import ParticipantsList from './Components/Participants-list/Participants-list.js';
 import OrganiserData from './Components/OrganiserData/organiserdata.js';
+import ModifyEventData from "./Components/ModifyEvent/ModifyEvent.js";
+
 
 
 class App extends Component {
@@ -33,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Router>
+         <Router>
           <Routes>
             <Route exact path="/" element={<Home loggedUser={this.state} />} />
             <Route
@@ -90,6 +92,16 @@ class App extends Component {
               exact
               path="/profile"
               element={<Profile loggedUser={this.state} />}
+            />
+            <Route
+              exact
+              path="/eventpostorganiser"
+              element={<EventPostOrganiser loggedUser={this.state} />}
+            />
+             <Route
+              exact
+              path="/modifyevent"
+              element={<ModifyEventData loggedUser={this.state} />}
             />
           </Routes>
         </Router>
