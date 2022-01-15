@@ -39,12 +39,6 @@
     color: white;
   }
   
-  .par {
-    position: absolute;
-    top:20%;
-    left: 30%;
-  }
-  
   .bc--purple {
     border-color: rgba(128, 70, 116, 0.67);
   }
@@ -75,6 +69,10 @@
   }
   
   .tab {
+    width: 10rem;
+    height:3rem;
+    padding-top: 0;
+    padding-bottom: 0;
     margin-left: 2.5em;
     background-color: transparent;
     color: white;
@@ -172,7 +170,7 @@
     margin-left:30px;
   }
   
-  .mybutton {
+  .myb {
     background-color:#86497A59;
     border: solid #86497A59 1px;
     color: white;
@@ -185,22 +183,21 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  .margin-bottom {
+    margin-bottom: 2%;
+  }
   
   .brad {
     border-radius: 51px;
   }
   
   .mr-1 {
-    margin-right:10px;
+    margin-right:10%;
   }
   
   .ml-auto {
-    margin-left:54rem;
-  }
-  
-  
-  .d-block {
-    display:block;
+    margin-left:76%;
   }
   
   ::placeholder { 
@@ -261,20 +258,34 @@
     letter-spacing: 0.1em;
   }
 
-  .prof-image img {
-    height:150px;
-    width:150px;
-    position:absolute;
-    top:10px;
-    padding-bottom:100px;
-    left:50%;
-    transform: translate(-50%, 0);
-    border:3px solid #fff;
-    border-radius: 50%;
-    border: 5px solid #86497A;
-}
-
 .img-pos {
   top:50px;
   margin-left:10px;
+}
+
+.proff-image {
+  height:11rem;
+  width:11rem;
+  margin-left:3em;
+  position:absolute;
+  transform: translate(-50%, 0);
+  border:3px solid #fff;
+  border-radius: 50%;
+  border: 5px solid #86497A;
+}
+
+
+.parr {
+  position: absolute;
+  top:20%;
+  left: 30%;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+.imag-sz {
+  height:11rem;
+  width: 11rem;
 }

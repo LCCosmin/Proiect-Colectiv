@@ -17,6 +17,10 @@ import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from "./Components/FilterEvents/filter.js";
 import Ads from "./Components/Ads/Ads.js";
+import Filter from './Components/FilterEvents/filter.js';
+import ParticipantsList from './Components/Participants-list/Participants-list.js';
+import OrganiserData from './Components/OrganiserData/organiserdata.js';
+
 
 class App extends Component {
   constructor() {

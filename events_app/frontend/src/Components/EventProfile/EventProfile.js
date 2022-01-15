@@ -18,13 +18,21 @@ class EventProfile extends React.Component {
     }
 
     componentDidMount(){
-    axios
-      .post("http://127.0.0.1:8000/api/geteventdetails", {id: 17})
-      .then(response =>{
-        this.setState({event: response.data});
-        console.log(this.state);
-      }) 
-      .catch(err => console.log(err));
+        axios
+        .post("http://127.0.0.1:8000/api/geteventdetails", {id: 17})
+        .then(response =>{
+            this.setState({event: response.data});
+            console.log(this.state);
+        }) 
+        .catch(err => console.log(err));
+
+        axios
+        .post("http://127.0.0.1:8000/api/usersinterested", {id: 17})
+        .then(response =>{
+            console.log(response.data);
+            document.getElementById('users-interested').innerHTML = response.data.no_users + ' users interested';
+        }) 
+        .catch(err => console.log(err));
     }
 
     render(){
@@ -42,8 +50,8 @@ class EventProfile extends React.Component {
                     </div>
 
                     <div>
-                        <p className = "UsersGoing"> <AiOutlineUser/>5225 users interested.
-                        <u><a href="" >View</a></u><br></br> </p>
+                        <p className = "UsersGoing"> <AiOutlineUser/><span id="users-interested"></span>
+                        <u><a style={{'margin-left': '10px'}} href="" >View</a></u><br></br> </p>
                     </div>
 
                     <div className="Location">
@@ -64,10 +72,8 @@ class EventProfile extends React.Component {
                 </div>
                 <div className="RightSide rightPadding" >
 
-                    <div className="buttons " >
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
                         <button type="button" className="anyButton brad marginEventProf"> Going </button> 
-                        <div className="divider"/>
-                        <button type="button" className="anyButton brad marginEventProf"> Maybe </button> 
                     </div>
 
                     <div style={{float: 'left'}} >
@@ -75,10 +81,10 @@ class EventProfile extends React.Component {
                             {event.description}
                         </p>
                     </div>
-
-                    <div style ={{float: 'left'}}>
+                    <br/>
+                    {/* <div style ={{float: 'left'}}>
                         <u><a href="" className="Report">Report event</a></u><br></br>
-                    </div> 
+                    </div>  */}
 
                 </div>
             </div>
