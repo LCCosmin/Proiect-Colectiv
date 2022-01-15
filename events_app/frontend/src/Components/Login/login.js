@@ -18,7 +18,7 @@ class Login extends React.Component {
 
   checkLogin = () => {
     axios
-      .post("http://127.0.0.1:8000/api/login", this.state.item)
+      .post("http://34.65.33.172/api/login", this.state.item)
       .then((response) => {
         switch (response.data.role) {
           case 1:
@@ -146,7 +146,7 @@ class Login extends React.Component {
             </div>
             <div className="line-hight-login marginsDivLogin centerLoginContent">
               <label className="fontLabelLogin line-hight-login white pointer">
-                <input type="checkbox" /> Remember me
+                <input type="checkbox" /> Remember measfhuikvjashnfasfbiasyujkfbnas
               </label>
               <a
                 href="#0"
