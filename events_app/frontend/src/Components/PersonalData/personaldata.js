@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./personaldata.css";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
@@ -36,6 +38,14 @@ class PersonalData extends React.Component{
     this.state.info.about = event.target.value;
   }
 
+  updateFacebook = event => {
+    this.state.info.about = event.target.value;
+  }
+
+  updateInstagram = event => {
+    this.state.info.about = event.target.value;
+  }
+
   fileSelectedHandler = event => {
     this.state.info.img_name = event.target.files[0];
   }
@@ -46,7 +56,6 @@ class PersonalData extends React.Component{
     axios
       .post("http://127.0.0.1:8000/api/updatepersonaldata", this.state.info)
       .then(response => {
-        //window.confirm(response.data.added);
         if(response.data.updated){
           // this.fileUploadHandler(response.data.updated);
           window.confirm("Your personal data has been updated!");
@@ -58,9 +67,22 @@ class PersonalData extends React.Component{
       .catch(err => console.log(err));
   }
 
-  // componentDidMount(){
-  //   this.state.info.id_user = this.props.loggedUser.user.id;
-  // }
+  componentDidMount(){
+    this.state.info.id_user = this.props.loggedUser.user.id;
+    var userInfo = {id_user: this.state.info.id_user};
+    axios
+      .post("http://127.0.0.1:8000/api/getpersonaldata", userInfo)
+      .then(response => {
+       if(response.data.exists == true){
+        document.getElementById("firstname").value = response.data.first_name;
+        document.getElementById("surname").value = response.data.last_name;
+        document.getElementById("birthday").value = response.data.dob;
+        document.getElementById("about").value = response.data.about;
+        document.getElementById("about").value = response.data.about;
+       }
+      })
+      .catch(err => console.log(err));
+  }
 
   render(){
     return (
@@ -71,9 +93,9 @@ class PersonalData extends React.Component{
           </div>
           <div className="centered1">
             <a href="">Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.props.loggedUser.user.id)}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
-            <a href="">News feed</a>
+            <a href="" onClick={() => this.props.navigate("/eventpostuser/" + this.props.loggedUser.user.id)}>News feed</a>
           </div>
         </div>
         <div></div>
@@ -114,14 +136,23 @@ class PersonalData extends React.Component{
             name="about"
             id="about"
             placeholder="About"
+            onChange={this.updateAbout}
           />
           <input
             className="margins1 pad1 fww41 f51 inp-reset1 b11 bgr-transparent1 bc--purple1 hover1-cwhite cwhite1-input width1-85"
             type="text"
-            name="socialMedia"
-            id="socialMedia"
-            placeholder="Social Media"
-            onChange={this.updateAbout}
+            name="facebook"
+            id="facebook"
+            placeholder="Facebook"
+            onChange={this.updateFacebook}
+          />
+           <input
+            className="margins1 pad1 fww41 f51 inp-reset1 b11 bgr-transparent1 bc--purple1 hover1-cwhite cwhite1-input width1-85"
+            type="text"
+            name="instagram"
+            id="instagram"
+            placeholder="Instagram"
+            onChange={this.updateInstagram}
           />
           <input
             className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
@@ -140,5 +171,8 @@ class PersonalData extends React.Component{
   }
 };
 
-
-export default PersonalData;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <PersonalData {...props} navigate={navigate} />;
+}
+export default WithNavigate;

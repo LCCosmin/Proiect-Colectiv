@@ -49,9 +49,9 @@ class EventPostUser extends React.Component {
         return(
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">
-                    <a>
+                    <a onClick={() => this.props.navigate("/changepassword/" + this.state.info.id_user)}>
                     <img src="/images/logo.png" 
-                    width="135px" height="100%" className="logo" alt="OmniEvents"/>
+                    width="135px" height="100%" className="logo" alt="OmniEvents" />
                     </a>
                     <a >
                         <div className="searchContainer">
@@ -60,7 +60,7 @@ class EventPostUser extends React.Component {
                         </div>
                     </a>
                     <div className="margin">
-                        <a href="#mylist">My list</a>
+                        <a href="#mylist" onClick={() => this.props.navigate("/eventprofile/")}>My list</a>
                         <a href="#signot">Signout</a>
                     
                         <div className="notification-list-user-img">
@@ -73,7 +73,7 @@ class EventPostUser extends React.Component {
                         return(
                             <article key={event.id} id={event.id} className="display-admin-table width-admin-100 height-admin-auto padding-admin border-admin padding-bottom-admin component-admin" href="#0">
                                 <div className = "containerEventPost">
-                                    <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid"></img>
+                                    <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid" onClick={() => this.props.navigate("/eventprofile/" + event.id)} ></img>
                                     <div className="Event-Title"> {event.name} </div>
                                     <div className = "Text-Box">
                                         {event.description}

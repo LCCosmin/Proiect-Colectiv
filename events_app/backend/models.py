@@ -26,6 +26,8 @@ class UserInfo(models.Model):
     about = models.TextField()
     id_user = models.ForeignKey(User, on_delete=CASCADE, db_column='id_user', null=True)
     img_name = models.TextField(null=True)
+    facebook = models.TextField(null=True)
+    instagram = models.TextField(null=True)
     class Meta:
         db_table="users_info"
 

@@ -26,7 +26,11 @@ class Login extends React.Component {
             break;
           case 2:
             this.props.loggedUser.user.id = response.data.id;
-            this.props.navigate("/addevents");
+            if(!response.data.user_info){
+              this.props.navigate("/organiserdata/" + response.data.id);
+            }else{
+              this.props.navigate("/addevents");
+            }
             break;
           case 3:
             this.props.loggedUser.user.id = response.data.id;
@@ -57,10 +61,20 @@ class Login extends React.Component {
               this.props.navigate("/");
               break;
             case 2:
-              this.props.navigate("/addevents");
+              this.props.loggedUser.user.id = response.data.id;
+              if(!response.data.user_info){
+                this.props.navigate("/organiserdata/" + response.data.id);
+              }else{
+                this.props.navigate("/addevents");
+              }
               break;
             case 3:
-              this.props.navigate("/eventpostuser");
+              this.props.loggedUser.user.id = response.data.id;
+              if(!response.data.user_info){
+                this.props.navigate("/personaldata/"+ response.data.id);
+              }else{
+                this.props.navigate("/eventpostuser/"+ response.data.id);
+              }
               break;
             default:
               this.showErrorMessage();

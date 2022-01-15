@@ -155,6 +155,16 @@ def updatepersonaldata(request):
             return Response({'updated':False}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
+def getpersonaldata(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        try:
+            userinfo = UserInfo.objects.get(id_user = data["id_user"])
+            return Response({"exists": True, "first_name":getattr(userinfo, 'first_name'), "last_name": getattr(userinfo, 'last_name'), "dob": getattr(userinfo, 'dob'), "about": getattr(userinfo, 'about'), "img_name": getattr(userinfo, 'img_name'), "facebook": getattr(userinfo, 'facebook'), "instagram": getattr(userinfo, 'instagram')})
+        except UserInfo.DoesNotExist:
+            return Response({"exists":False})
+
+@api_view(['POST'])
 def usergoingtoevent(request):
     if request.method == "POST":
         serializer = UserToEventSerializer(data=request.data)

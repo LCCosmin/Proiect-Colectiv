@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./organiserdata.css";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
@@ -10,11 +12,11 @@ class OrganiserData extends React.Component{
       <>
         <div className="split10 left10">
           <div className="bgr-transparent10 par10 prof-image10">
-            <img src="" />
+            <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered10">
             <a href="">Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.state.info.id_user)}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
             <a href="">News feed</a>
           </div>
@@ -79,4 +81,8 @@ class OrganiserData extends React.Component{
 };
 
 
-export default OrganiserData;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <OrganiserData {...props} navigate={navigate} />;
+}
+export default WithNavigate;
