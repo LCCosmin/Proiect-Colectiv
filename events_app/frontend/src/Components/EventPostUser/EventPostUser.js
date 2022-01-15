@@ -3,6 +3,10 @@ import './EventPostUser.css';
 // import Nav from '.src/Components/Navbar/Nav.js';
 import axios from 'axios'; 
 import { useNavigate } from "react-router-dom";
+import {IoLocationOutline} from "react-icons/io5";
+import {IoPricetagOutline} from "react-icons/io5";
+import {MdDateRange} from "react-icons/md";
+import {GiPartyPopper} from "react-icons/gi";
 
 
 class EventPostUser extends React.Component {
@@ -75,8 +79,20 @@ class EventPostUser extends React.Component {
                                 <div className = "containerEventPost">
                                     <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid" onClick={() => this.props.navigate("/eventprofile/" + event.id)} ></img>
                                     <div className="Event-Title"> {event.name} </div>
-                                    <div className = "Text-Box">
-                                        {event.description}
+                                    <div className='StartDate'>
+                                        <p> <MdDateRange/> Start date</p>
+                                    </div>
+                                    <div className='EndDate'>
+                                        <p> <MdDateRange/> End date</p>
+                                    </div>
+                                    <div className='Price'>
+                                        <p> <IoPricetagOutline/> Price</p>
+                                    </div>
+                                    <div className='Location'>
+                                        <p> <IoLocationOutline/> Location</p>
+                                    </div>
+                                    <div className='Type'>
+                                        <p> <GiPartyPopper/> Type</p>
                                     </div>
                                     <div className="EventPostButtons" >
                                                 <button id={event.id} type="button" className="EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
