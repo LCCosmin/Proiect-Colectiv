@@ -23,8 +23,9 @@ html,body{
 
 .container{
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .ev-org{
@@ -61,7 +62,7 @@ html,body{
     background-color: transparent;
     border:none;
     cursor: pointer;
-
+    
 }
 
 .white-margin{
@@ -121,12 +122,15 @@ html,body{
 
 .display-grid{
     display: grid;
-    grid-template-columns: 105px auto 300px;
+    grid-template-columns: 115px auto 300px;
 }
 
+#email-pass{
+    width: 100%;
+    margin: 20px;
+}
 .btn-right{
-    display: list-item;
-    list-style-type: none;
+    display: inline-flex;
     position: relative;
     margin: auto 10px;
 }
@@ -204,7 +208,7 @@ html,body{
     border: 1px solid #86497A;
     cursor: pointer;
     
-    margin:10px auto;
+    margin: 10px ;
 }
 
 .pl3 {
@@ -278,7 +282,7 @@ html,body{
     }
 
     .display-grid{
-        grid-template-columns: 105px 1fr 1fr;
+        grid-template-columns: 115 1fr 1fr;
     }
     .padd {
         padding: 20px 0;
