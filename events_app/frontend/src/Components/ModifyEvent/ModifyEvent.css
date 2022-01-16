@@ -1,5 +1,4 @@
-
-.split1 {
+.split {
     height: 100%;
     position: fixed;
     z-index: 1;
@@ -8,20 +7,20 @@
     padding-top: 20px;
   }
   
-  .left1 {
+  .left {
     left: 0;
     background-color: rgba(36, 40, 48, 1);
     width:20%;
   }
   
-  .right1 {
+  .right {
     right: 0;
     background-color: rgba(36, 40, 48, 1);
     width:80%;
     border-left: 4px solid #86497A;
   }
   
-  .centered1 {
+  .centered {
     position: absolute;
     top: 60%;
     left: 40%;
@@ -30,32 +29,26 @@
     
   }
   
-  .b11 {
+  .b1 {
     border-style: solid;
     border-width: 1px;
   }
   
-  .bgr-transparent1 {
+  .bgr-transparent {
     background-color: transparent;
     color: white;
   }
   
-  .par1 {
-    position: absolute;
-    top:20%;
-    left: 30%;
-  }
-  
-  .bc--purple1 {
+  .bc--purple {
     border-color: rgba(128, 70, 116, 0.67);
   }
   
-  .white1 {
+  .white {
     color: white;
   }
   
   
-  .cwhite1-input:focus {
+  .cwhite-input:focus {
     background: transparent;
     color: white;
     border-radius: 0px 0px 0px 0px;
@@ -63,99 +56,152 @@
     border-color: white;
   }
   
+  .ev-type {
+    margin-left:30px;
+    color: white;
+    margin-right:10px;
+    font: 1em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+    border: solid;
+    padding: 15px;
+    border-width: 1px;
+    border-color: rgba(128, 70, 116, 0.67);
+  }
   
-  .width1-85 {
+  .tabmodify {
+    width: 10rem;
+    height:3rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 2.5em;
+    background-color: transparent;
+    color: white;
+    font: 0.8em "Avantgarde", sans-serif;
+    letter-spacing: 0.1em;
+    border-color: transparent;
+  }
+  .tabmodify:hover {
+    border-color: transparent;
+  }
+  
+  .hover-white-modify:hover {
+    color: white;
+    border-color: transparent;
+  }
+  .hover-white-modify:focus {
+    color: white;
+  }
+  
+  .input-event:focus {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+  }
+  .input-event:first {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+  }
+  
+  .ty {
+    background-color: rgba(128, 70, 116, 0.67);
+  }
+  
+  .width-85 {
     width: 85%;
   }
   
-  .hover1-cwhite:hover {
+  .hover-cwhite:hover {
     color: white;
     border-color: white;
   }
   
-  .hover1-purple:hover {
+  .hover-purple:hover {
     border-color: rgba(134, 73, 122, 0.67);
   }
   
-  .titlecenter1 {
+  .titlecenter {
     margin-left: 35%;
   }
   
-  
-  .fww61 {
-    font: 1.1em "Avantgarde", sans-serif;
+  .fww6 {
+    font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     font-style: normal;
     line-height: 150.5%;
     font-weight: normal;
   }
   
-  .fww41 {
+  .fww4 {
+    font: 1em "Avantgarde", sans-serif;
     font-style: normal;
     align-items: center;
     line-height: 132.5%;
-    font: 1.1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     color:white;
   }
   
-  .f41 {
+  .f4 {
     font-size: 2rem;
   }
   
-  .f51 {
+  .f5 {
     font-size: 15px;
     font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
   
-  .ph01 {
+  .ph0 {
     padding-left: 0;
     padding-right: 0;
   }
   
-  .pad1 {
+  .pad {
     padding: 1rem;
   }
   
-  .inp-reset1 {
+  .inp-reset {
     -webkit-appearance: none;
     -moz-appearance: none;
   }
   
-  .margins1 {
+  .margins {
     margin-top:30px;
     margin-left:30px;
   }
   
-  .mybutton1 {
+  .myb {
     background-color:#86497A59;
     border: solid #86497A59 1px;
     color: white;
     padding: 15px 32px;
     text-align: center;
-    font: 1.1em "Avantgarde", sans-serif;
+    font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
     display: inline-block;
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  .margin-bottom {
+    margin-bottom: 2%;
+  }
   
-  .brad1 {
+  .brad {
     border-radius: 51px;
   }
   
-  .mr-top {
-    margin-top: 3rem;
+  .mr-1 {
+    margin-right:10%;
   }
   
-  .ml-btn {
-    margin-left:73%;
-  }
-  
-  .d-block1 {
-    display:block;
+  .ml-auto {
+    margin-left:76%;
   }
   
   ::placeholder { 
@@ -170,6 +216,7 @@
     padding:15px;
     word-wrap: break-word;
     display: block;
+    font-size:1rem;
     font: 1em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
@@ -178,27 +225,49 @@
     color: white;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: none;
-    font: 1em "Avantgarde", sans-serif;
-    letter-spacing: 0.1em;
   }
   
   a:hover {
     color: #86497A;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: underline;
-    font: 1em "Avantgarde", sans-serif;
-    letter-spacing: 0.1em;
   }
   
   a:active {
     color: #86497A;
     background-color: rgba(36, 40, 48, 1);
     text-decoration: underline;
-    font: 1em "Avantgarde", sans-serif;
+  }
+  
+  
+  .input-event:focus {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+  }
+  .input-event:first {
+    background: transparent;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: white;
+  }
+ 
+  select option {
+    background-color: rgba(36, 40, 48, 1);
+    color: white;
+    font: 0.9em "Avantgarde", sans-serif;
     letter-spacing: 0.1em;
   }
 
-.prof-image5 img {
+.img-pos {
+  top:50px;
+  margin-left:10px;
+}
+
+.proff-image {
   height:11rem;
   width:11rem;
   margin-left:3em;
@@ -210,24 +279,33 @@
 }
 
 
-.par1 {
+.parr {
   position: absolute;
-  top:15%;
+  top:20%;
   left: 30%;
 }
-  
-.grow-update {
+
+.scroll {
+  overflow: scroll;
+}
+
+.imag-sz {
+  height:11rem;
+  width: 11rem;
+}
+
+.grow-modify {
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
 }
 
-.grow-update:hover,
-.grow-update:focus {
+.grow-modify:hover,
+.grow-modify:focus {
   transform: scale(1.05);
 }
 
-.grow-update:active {
+.grow-modify:active {
   transform: scale(0.9);
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./addevents.css";
+import "./ModifyEvent.css";
 import axios from 'axios'; 
 import {IoLocationOutline} from "react-icons/io5";
 import {IoPricetagOutline} from "react-icons/io5";
@@ -8,7 +8,7 @@ import {IoPricetagOutline} from "react-icons/io5";
 
 
 
-class AddEvents extends React.Component {
+class ModifyEventData extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -74,7 +74,7 @@ class AddEvents extends React.Component {
       .catch(err => console.log(err));
   }
 
-  addEvent = () => {
+  modifyEvent = () => {
     this.aux = this.state.event.img_name;
     //window.confirm(this.state.event.img_name);
     this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
@@ -84,7 +84,7 @@ class AddEvents extends React.Component {
         //window.confirm(response.data.added);
         if(response.data.added){
           this.fileUploadHandler(response.data.added);
-          window.confirm("The events has been sent for approval");
+          window.confirm("The events has been modified.");
         }
         else{
           window.confirm("Watch your language!");
@@ -94,6 +94,7 @@ class AddEvents extends React.Component {
   }
 
   componentDidMount(){
+    console.log(this.props);
     axios
     .get("http://127.0.0.1:8000/api/geteventtypes")
     .then(response =>{
@@ -121,7 +122,7 @@ class AddEvents extends React.Component {
         <div>
         </div>
         <div className="split right scroll">
-          <legend className="f4 fww6 ph0 white titlecenter">Event details</legend>
+          <legend className="f4 fww6 ph0 white titlecenter">Modify event details</legend>
           <input
             className=" margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
             type="text"
@@ -183,7 +184,7 @@ class AddEvents extends React.Component {
           <br></br>
           <br></br>
           <label for="events" className="ev-type hover-cwhite cwhite-input input-event" onChange={this.updateType}>Choose an event type 
-          <select className="tab hover-white-event input-event">
+          <select className="tabmodify hover-white-modify input-event">
             <option value="event0" className="" disabled selected hidden>Event type</option>
             {
             eventTypes.map((eventType)=>{
@@ -194,7 +195,7 @@ class AddEvents extends React.Component {
           </select>
           </label>
           <div>
-            <input type="button" class="grow-add-events myb brad margin-bottom d-block mr-1 ml-auto" value="Add event" onClick={this.addEvent} />
+            <input type="button" class="grow-modify myb brad margin-bottom d-block mr-1 ml-auto" value="Modify event" onClick={this.modifyEvent} />
           </div>
         </div>
       </>
@@ -202,4 +203,4 @@ class AddEvents extends React.Component {
   }
 };
 
-export default AddEvents;
+export default ModifyEventData;

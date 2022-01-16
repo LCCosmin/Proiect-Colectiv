@@ -196,9 +196,6 @@ class SignIn extends React.Component {
               />
               <span id="message" />
             </div>
-            <label className="formatLabelSignIn lineHeight-signin white pointer-signin">
-              <input type="checkbox" /> Remember me
-            </label>
             <div className="lineHeight-signin marginsSignIn centerSignIn">
               <button
                 class="dimensionsButtonSignIn formatInputSignIn borderSignIninput borderSignIn white pointer-signin display-inline-signin mrg-left-button-signin grow-signin"

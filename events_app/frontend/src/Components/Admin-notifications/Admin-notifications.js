@@ -41,12 +41,12 @@ class AdminNotifications extends React.Component {
                                     </div>
                                     <div className="display-admin-table-cell vertical-allign-mid">
                                         <form className="width-admin-100 text-allgn-right">
-                                        <button className="button-admin" type="submit">Accept</button>
+                                        <button className="grow-accept-deny button-admin" type="submit">Accept</button>
                                         </form>
                                     </div>
                                     <div className="display-admin-table-cell vertical-allign-mid">
                                         <form className="width-admin-100 text-allgn-right">
-                                        <button className="button-admin" type="submit">Decline</button>
+                                        <button className="grow-accept-deny button-admin" type="submit">Decline</button>
                                         </form>
                                     </div>
 

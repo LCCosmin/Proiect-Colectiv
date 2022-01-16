@@ -110,3 +110,20 @@
     padding-left: 30px;
     top: 70%;
 }
+
+.grow-going {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .grow-going:hover,
+  .grow-going:focus {
+    transform: scale(1.05);
+  }
+  
+  .grow-going:active {
+    transform: scale(0.9);
+  }
+  

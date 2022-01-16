@@ -47,9 +47,9 @@ class Profile extends Component {
                         <p style={{"fontSize":"24px","marginTop":"20px"}}>BIO</p>
                         <p className ='profile-description'>{user.about}</p>
                         <div className = "profile-icons">
-                          <h3 style={{"display": "none"}} className="icon"> <FaFacebookSquare/> </h3>
-                          <h3 style={{"display": "none"}} className="icon"> <BsInstagram/> </h3>
-                          <button className="profile-button">Connect</button>
+                          <h3 className="icon"> <FaFacebookSquare/> </h3>
+                          <h3 className="icon"> <BsInstagram/> </h3>
+                          <button className="grow-connect profile-button">Connect</button>
                         </div>
                           
                     </div>

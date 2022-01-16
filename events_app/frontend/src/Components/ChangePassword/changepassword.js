@@ -56,7 +56,7 @@ class ChangePassword extends React.Component {
             placeholder="Password Confirmation"
           />
           <div className="mr-top2">
-            <input type="button" className="mybutton2 brad2 d-block2 mr-12 ml-auto2" value="Change"/>
+            <input type="button" className="grow-change mybutton2 brad2 d-block2 mr-12 ml-auto2" value="Change"/>
           </div>
         </div>
       </>

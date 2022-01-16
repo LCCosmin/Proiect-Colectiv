@@ -67,19 +67,19 @@
     top: 70%;
 }
 
-.grow-accept-decline {
+.grow-change {
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
   }
   
-  .grow-accept-decline:hover,
-  .grow-accept-decline:focus {
+  .grow-change:hover,
+  .grow-change:focus {
     transform: scale(1.05);
   }
   
-  .grow-accept-decline:active {
+  .grow-change:active {
     transform: scale(0.9);
   }
   

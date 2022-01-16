@@ -52,10 +52,10 @@ class EventsList extends React.Component {
                   <form className="width-list-ev-90 text-al-r">
                     <button
                       id=""
-                      className="font-sz-24 buton-reset dim-con-button dim-b bord-custom b-c-black dimm point pad-tb white1"
+                      className="grow-going font-sz-24 buton-reset dim-con-button dim-b bord-custom b-c-black dimm point pad-tb white1"
                       type="submit"
                     >
-                      Connect
+                      Going
                     </button>
                   </form>
                 </div>
