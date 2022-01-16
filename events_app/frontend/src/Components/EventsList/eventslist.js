@@ -17,10 +17,20 @@ class EventsList extends React.Component {
     .post("http://127.0.0.1:8000/api/getusersofevent", {id: this.id})
     .then(response =>{
         this.setState({events: response.data.events});
-        console.log(response.data.events);
     }) 
     .catch(err => console.log(err));
   }
+
+  // stopGoing(id){
+  //   axios
+  //   .post("http://127.0.0.1:8000/api/stopgoingtoevent", {'id_event': id, 'id_user': this.id})
+  //   .then(response =>{
+  //      if(response.data.ok == true){
+         
+  //      }
+  //   }) 
+  //   .catch(err => console.log(err));
+  // }
   render() {
     const { events } = this.state;
     return (
@@ -61,15 +71,20 @@ class EventsList extends React.Component {
                   </h2>
                 </div>
                 <div className=" display-table-cell vert-allign-mid btn-r">
-                  <form className="width-list-ev-90 text-al-r">
-                    <button
-                      id=""
-                      className="grow-going font-sz-24 buton-reset dim-con-button dim-b bord-custom b-c-black dimm point pad-tb white1"
-                      type="submit"
-                    >
-                      Going
-                    </button>
-                  </form>
+                  <button
+                    id=""
+                    className="grow-going font-sz-24 buton-reset dim-con-button dim-b bord-custom b-c-black dimm point pad-tb white1"
+                    onClick={() => this.props.navigate("/eventprofile/" + event.id)}
+                  >
+                    Details
+                  </button>
+                  {/* <button
+                    id=""
+                    className="grow-going font-sz-24 buton-reset dim-con-button dim-b bord-custom b-c-black dimm point pad-tb white1"
+                    onClick={this.stopGoing(event.id)}
+                  >
+                    Stop Going
+                  </button> */}
                 </div>
               </div>
             </article>

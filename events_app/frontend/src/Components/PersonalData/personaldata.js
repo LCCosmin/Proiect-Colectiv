@@ -23,6 +23,7 @@ class PersonalData extends React.Component{
       },
     }
     this.id = 0;
+    this.aux = '';
   }
 
   updateFirstName = event => {
@@ -53,16 +54,34 @@ class PersonalData extends React.Component{
     this.state.info.img_name = event.target.files[0];
   }
 
+  fileUploadHandler = (name) =>{
+    const fd = new FormData();
+    this.state.info.img_name = this.aux;
+    fd.append('image', this.state.info.img_name, name + "." +this.state.info.img_name.name.split(".")[1]);
+    axios
+      .post("http://127.0.0.1:8000/api/uploadimage", fd)
+      .then(response =>{
+      })
+      .catch(err => console.log(err));
+  }
+
   updateDetails = () => {
-    // this.aux = this.state.event.img_name;
-    // this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
+    this.aux = this.state.info.img_name;
+    this.state.info.img_name = this.state.info.img_name.name.split(".")[1];
     this.state.info.id_user = this.id;
+    this.state.info.first_name = document.getElementById("firstname").value;
+    this.state.info.last_name = document.getElementById("surname").value;
+    this.state.info.dob = document.getElementById("birthday").value;
+    this.state.info.about = document.getElementById("about").value;
+    this.state.info.facebook = document.getElementById("facebook").value ? document.getElementById("facebook").value : '-';
+    this.state.info.instagram = document.getElementById("instagram").value ? document.getElementById("instagram").value : '-';
     axios
       .post("http://127.0.0.1:8000/api/updatepersonaldata", this.state.info)
       .then(response => {
         if(response.data.updated){
-          // this.fileUploadHandler(response.data.updated);
+          this.fileUploadHandler(response.data.updated);
           window.confirm("Your personal data has been updated!");
+          window.location.reload();
         }
         else{
           window.confirm("Watch your language!");

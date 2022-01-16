@@ -59,7 +59,6 @@ class AddEvents extends React.Component {
   }
 
   fileSelectedHandler = event => {
-    console.log(event.target.files[0]);
     this.state.event.img_name = event.target.files[0];
   }
 
@@ -81,7 +80,6 @@ class AddEvents extends React.Component {
     axios
       .post("http://127.0.0.1:8000/api/addevent", this.state.event)
       .then(response => {
-        //window.confirm(response.data.added);
         if(response.data.added){
           this.fileUploadHandler(response.data.added);
           window.confirm("The events has been sent for approval");

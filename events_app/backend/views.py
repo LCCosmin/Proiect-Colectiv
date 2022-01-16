@@ -128,15 +128,26 @@ def updatepersonaldata(request):
     if request.method == "POST":
         # extension = '.' + request.data['img_name']
         # request.data['img_name'] = str(uuid.uuid4()) + extension
-        serializer = UserInfoSerializer(data=request.data)
-        data = request.data
-        if serializer.is_valid():
-            serializer.save()
-            return Response({'updated':request.data['img_name']}, status=status.HTTP_201_CREATED)
-        else:
-            print(serializer.initial_data)
-            print(serializer.errors)
-            return Response({'updated':False}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            user_info = UserInfo.objects.get(id_user=request.data['id_user'])
+            user_info.first_name = request.data['first_name']
+            user_info.last_name = request.data['last_name']
+            user_info.about = request.data['about']
+            user_info.dob = request.data['dob']
+            user_info.img_name = request.data['img_name']
+            user_info.facebook = request.data['facebook']
+            user_info.instagram = request.data['instagram']
+            user_info.save()
+            return Response({'updated':request.data['img_name']})
+        except UserInfo.DoesNotExist:
+            serializer = UserInfoSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'updated':request.data['img_name']}, status=status.HTTP_201_CREATED)
+            else:
+                print(serializer.initial_data)
+                print(serializer.errors)
+                return Response({'updated':False}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def getpersonaldata(request):
@@ -152,7 +163,6 @@ def getpersonaldata(request):
 def usergoingtoevent(request):
     if request.method == "POST":
         serializer = UserToEventSerializer(data=request.data)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response({'ok':True, 'id': request.data['id_event']}, status=status.HTTP_201_CREATED)
@@ -266,7 +276,6 @@ def getusersofevent(request):
         cursor = connection.cursor()
         cursor.execute("select * from events inner join users2events on events.id = users2events.id_event where id_user =" + data['id'])
         results = cursor.fetchall()
-        print(results)
         events = []
         for r in results:
             e = {}
@@ -284,3 +293,11 @@ def getuserinfo(request):
         user = UserInfo.objects.get(id_user = data['id'])
         serializer = UserInfoSerializer(user)
         return Response(serializer.data)
+
+# @api_view(['POST'])
+# def stopgoingtoevent(request):
+#     data = JSONParser().parse(request)
+#     if request.method == "POST":
+#         print(data)
+#         UserToEvent.objects.filter(id_event=data['id_event'], id_user=data['id_user']).delete()
+#         return Response({'ok': True})
