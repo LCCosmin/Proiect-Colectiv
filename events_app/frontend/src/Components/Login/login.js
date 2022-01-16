@@ -18,8 +18,8 @@ class Login extends React.Component {
 
   checkLogin = () => {
     axios
-      .post("http://127.0.0.1:8000/api/login", this.state.item)
-      .then((response) => {
+    .post("http://34.65.33.172:8000/api/login", this.state.item)
+    .then((response) => {
         switch (response.data.role) {
           case 1:
             this.props.navigate("/");
@@ -52,8 +52,8 @@ class Login extends React.Component {
       this.state.item.password
     ) {
       axios
-        .post("http://34.65.33.172/api/login", this.state.item)
-        .then((response) => {
+      .post("http://34.65.33.172:8000/api/login", this.state.item)
+      .then((response) => {
           switch (response.data.role) {
             case 1:
               this.props.navigate("/");
