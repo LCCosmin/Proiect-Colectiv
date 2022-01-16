@@ -79,16 +79,17 @@
   }
 
   .margin{
-      margin-left:50px;
-      margin-right: -50px;
       align-items:right;
+      display: inline-flex;
   }
 
+  #notification-text{
+    margin:auto;
+  }
   .user-avatar-md {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    margin-right: 50px;
     float: right;
 }
 
