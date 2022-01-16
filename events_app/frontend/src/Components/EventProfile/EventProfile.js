@@ -3,6 +3,8 @@ import "./EventProfile.css";
 import { AiOutlineUser } from "react-icons/ai";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoPricetagOutline } from "react-icons/io5";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { MdDateRange } from "react-icons/md";
 import { MdAccessTime } from "react-icons/md";
 import styles from "./EventProfile.css";
