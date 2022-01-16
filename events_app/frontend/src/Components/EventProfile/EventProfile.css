@@ -139,7 +139,7 @@ body {
   }
 
 .EventProfile-container .RightSide{
-    position: absolute;
+    position: fixed;
     right: 0%;
     width: 50%;
 }
@@ -189,4 +189,5 @@ body {
   .grow-going:active {
     transform: scale(0.9);
   }
+
   

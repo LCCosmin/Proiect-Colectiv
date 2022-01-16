@@ -40,11 +40,12 @@ class EventProfile extends React.Component {
         return (
             <div className="EventProfile-container">
                 <div className="img-container">
-                <img src ={'/images/'+event.img}
-                alt="art gallery" width="100%"
-                height="420"/> 
+                  <img src ={'/images/'+event.img}
+                  alt="art gallery" width="100%"
+                  height="300"/> 
                 </div>
                 <div className="LeftSide leftPadding">
+
                     <div className="EventTitle">
                             {event.name}
                     </div>
@@ -62,44 +63,33 @@ class EventProfile extends React.Component {
                         <p> <IoPricetagOutline/> {event.price} </p>
                     </div>
 
-            <div className="Location">
-              <p>
-                {" "}
-                <IoLocationOutline /> Location{" "}
-              </p>
-            </div>
+                    <div className="Date">
+                      <p> <MdDateRange/> {event.date} </p>
+                    </div>
 
-            <div className="Price">
-              <p>
-                {" "}
-                <IoPricetagOutline /> Price
-              </p>
-            </div>
+                    <div className="Time">
+                      <p> <MdAccessTime/> {event.time} </p>
+                    </div>
+                  </div>
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
+                <div className="RightSide rightPadding">
+
+                  <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
                         <button type="button" className="grow-going anyButton brad marginEventProf"> Going </button> 
-                    </div>
+                  </div>
 
-                    <div style={{float: 'left'}} >
-                        <p className="Description">
-                            {event.description}
-                        </p>
-                    </div>
+                  <div style={{float: 'left'}} >
+                      <p className="Description">
+                          {event.description}
+                      </p>
+                  </div>
                     <br/>
                     {/* <div style ={{float: 'left'}}>
                         <u><a href="" className="Report">Report event</a></u><br></br>
                     </div>  */}
-
-            <div style={{ float: "left" }}>
-              <u>
-                <a href="" className="Report">
-                  Report event
-                </a>
-              </u>
-              <br></br>
-            </div>
+                    
+                </div>   
           </div>
-        </div>
     );
   }
 }
