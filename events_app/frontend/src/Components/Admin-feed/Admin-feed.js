@@ -8,33 +8,8 @@ class AdminFeed extends React.Component {
     constructor() {
         super();
         this.state = {
-            organisers: [{
-                id:1,
-                email:"test 1",
-                password:"description 1",
-            },{
-                id:2,
-                email:"test 1",
-                password:"description 1",
-            },{
-                id:3,
-                email:"test 1",
-                password:"description 1",
-            }],
-            events: [{
-                id:1,
-                email:"test 1",
-                password:"description 1",
-            },{
-                id:2,
-                email:"test 1",
-                password:"description 1",
-            },{
-                id:3,
-                email:"test 1",
-                password:"description 1",
-            }],
-
+            organisers: [],
+            events: [],
             myList: [],
             start: 0,
             handlePath: "events"
@@ -48,7 +23,7 @@ class AdminFeed extends React.Component {
     }
 
     manageButtons(obj, newStatus, entity) {
-        if (entity === "events") {
+        if (entity === "organisers") {
             obj.status = newStatus;
             axios
                 .put("http://127.0.0.1:8000/api/manageButtonsOrganizers", obj)
@@ -87,14 +62,14 @@ class AdminFeed extends React.Component {
                     // copy paste la event-post admin component
                     <div className="containerEventPostAdmin">
                         <img src="https://media.timeout.com/images/103455335/image.jpg" alt="EventPostPhotoAdmin" className="ImgFluidAdmin"></img>
-                        <div className="Event-TitleAdmin"> Event Name </div>
+                        <div className="Event-TitleAdmin"> Event Name: {obj.name} </div>
                         <div className="Text-BoxAdmin">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                            Description = {obj.description}
                         </div>
                         <div className="EventPostButtonsAdmin" >
-                            <button type="button" className="EventPostButtonAdmin EventPostBradAdmin"> Accept </button>
+                            <button type="button" className="EventPostButtonAdmin EventPostBradAdmin" onClick={() => { this.manageButtons(obj, "accepted", "events") }}> Accept </button>
                             <div className="DividerEventPostAdmin" />
-                            <button type="button" className="EventPostButtonAdmin EventPostBradAdmin"> Decline </button>
+                            <button type="button" className="EventPostButtonAdmin EventPostBradAdmin" onClick={() => { this.manageButtons(obj, "denied", "events") }}> Decline </button>
                         </div>
                     </div>
                 )
@@ -114,11 +89,10 @@ class AdminFeed extends React.Component {
                             </div>
                             <div id="email-pass">
                                 <h1 className="f18 fw4 mt0 mb0 black-60 ">Email: {obj.email}</h1>
-                                <h1 className="f18 fw4 mt0 mb0 black-60 ">Password: {obj.password}</h1>
                             </div>
                             <div className=" dtc v-mid btn-right">
-                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => { this.manageButtons(obj, "accepted", "events") }}>Accept</button>
-                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => { this.manageButtons(obj, "denied", "events") }}>Decline</button>
+                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => { this.manageButtons(obj, "accepted", "organisers") }}>Accept</button>
+                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => { this.manageButtons(obj, "denied", "organisers") }}>Decline</button>
                             </div>
                         </div>
                     </article>
