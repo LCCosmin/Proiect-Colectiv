@@ -87,7 +87,7 @@ class EventPostUser extends React.Component {
                         </div>
                     </a>
                     <div className="margin">
-                        <a style={{"padding-top": "30px"}} href="#mylist" onClick={() => this.props.navigate("/eventprofile/")}>My list</a>
+                        <a style={{"padding-top": "30px"}} href="" onClick={() => this.props.navigate("/eventslist/" + this.id)}>My list</a>
                         <a style={{"padding-top": "30px"}} href="#signot">Signout</a>
                     
                         <div style={{"padding-top": "7px"}} className="notification-list-user-img">

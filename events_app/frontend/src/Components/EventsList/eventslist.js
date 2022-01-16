@@ -1,14 +1,26 @@
 import React from "react";
 import "./eventslist.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 class EventsList extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          events: []
-        };
-      }
+  constructor() {
+    super();
+    this.state = {
+      events: []
+    };
+  }
+
+  componentDidMount(){
+    this.id = window.location.href.split('/').at(-1);
+    axios
+    .post("http://127.0.0.1:8000/api/getusersofevent", {id: this.id})
+    .then(response =>{
+        this.setState({events: response.data.events});
+        console.log(response.data.events);
+    }) 
+    .catch(err => console.log(err));
+  }
   render() {
     const { events } = this.state;
     return (
@@ -69,4 +81,8 @@ class EventsList extends React.Component {
   }
 }
 
-export default EventsList;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <EventsList {...props} navigate={navigate} />;
+}
+export default WithNavigate;
