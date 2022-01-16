@@ -146,7 +146,7 @@ class Login extends React.Component {
                 onClick={this.checkLogin}
               >
                 {" "}
-                Log insdfasdfds
+                Log in
               </button>
             </div>
             <div className="line-hight-login marginsDivLogin centerLoginContent">

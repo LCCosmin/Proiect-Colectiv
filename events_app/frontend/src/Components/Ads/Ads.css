@@ -34,3 +34,14 @@
     border: 5px solid #361c31;
     border-width: 5px 0 5px 0;
   }
+
+  .ads-last {
+    border: 5px solid #86497a;
+    border-width: 5px 5px 5px 0;
+  }
+  
+  .ads-last:hover {
+    cursor:pointer;
+    border: 5px solid #361c31;
+    border-width: 5px 0 5px 0;
+  }
