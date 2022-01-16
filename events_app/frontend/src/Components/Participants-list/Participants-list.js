@@ -1,19 +1,12 @@
 import React from "react";
 import "./Participants-list.css";
 import axios from "axios";
-<<<<<<< HEAD
-=======
 import { useNavigate } from "react-router-dom";
->>>>>>> dab0cd1d3517b06daca9014e49187d7aa1392a5b
 
 class ParticipantsList extends React.Component {
   constructor() {
     super();
     this.state = {
-<<<<<<< HEAD
-      participants: []
-    };
-=======
       participants: [],
     };
     this.id = 0;
@@ -27,7 +20,6 @@ class ParticipantsList extends React.Component {
         console.log(response.data);
     }) 
     .catch(err => console.log(err));
->>>>>>> dab0cd1d3517b06daca9014e49187d7aa1392a5b
   }
   render() {
     const { participants } = this.state;
@@ -83,23 +75,15 @@ class ParticipantsList extends React.Component {
               </div>
             </article>
             </div>  
-<<<<<<< HEAD
-          );
-=======
           )
->>>>>>> dab0cd1d3517b06daca9014e49187d7aa1392a5b
         })}
       </main>
     );
   }
 }
 
-<<<<<<< HEAD
-export default ParticipantsList;
-=======
 function WithNavigate(props) {
   let navigate = useNavigate();
   return <ParticipantsList {...props} navigate={navigate} />;
 }
 export default WithNavigate;
->>>>>>> dab0cd1d3517b06daca9014e49187d7aa1392a5b
