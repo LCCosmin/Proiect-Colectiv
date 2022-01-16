@@ -1,24 +1,30 @@
 import React from "react";
 import styles from "./changepassword.css";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 class ChangePassword extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    this.id = window.location.href.split('/').at(-1);
+    
+  }
 
   render(){
     return (
       <>
         <div className="split1 left2">
-          <div className="bgr-transparent1 par2 img-pos2">
-          <div className="prof-image">
-                <img src="https://s3-alpha-sig.figma.com/img/6a03/487f/fe0efa3177b2f82f4cc3b32042ec4b4d?Expires=1638748800&Signature=T9R5TKUyu3Uq29NsCwIorLnaqLIQQ6G3aHQiaLQ62S3vY5ViXWTPCxnfKPL4eK3SOdAD6PfjzSEC-wCakELfSYVtIvC-7cfLjKxWMCoRnWuK6M~c~V6eOKzN6C~rmVl22jLPMNhrl0M~xonrDd4mte8VDY66r3dO1C2idedOscDPZKISEkbuywPcZJHEDww2F0Mc4GyGS0TxvZSx7QUQnWoItXARqEeB58Se2GKSwA3nCkhW7WE-dAOGByzjteO-ErGIUyxXFlThpYDwzo69qUSGwNConxDUoeF8uLH8snD9kIK-L-Asn~wyy2iOX9a-Xerxe65dvzBKCVE2FVOx7A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" />
-              </div>
+          <div className="bgr-transparent1 par2 prof-image2">
+              <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered2">
-            <a href="">Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/personaldata/" + this.id)}>Personal Data</a><br></br>
             <a href="">My List</a><br></br>
             <a href="">Add Event</a>
           </div>
@@ -50,7 +56,7 @@ class ChangePassword extends React.Component {
             placeholder="Password Confirmation"
           />
           <div className="mr-top2">
-            <input type="button" class="mybutton2 brad2 d-block2 mr-12 ml-auto2" value="Change"/>
+            <input type="button" className="mybutton2 brad2 d-block2 mr-12 ml-auto2" value="Change"/>
           </div>
         </div>
       </>
@@ -59,4 +65,8 @@ class ChangePassword extends React.Component {
 };
 
 
-export default ChangePassword;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <ChangePassword {...props} navigate={navigate} />;
+}
+export default WithNavigate;

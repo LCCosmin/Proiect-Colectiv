@@ -146,16 +146,12 @@
     border-radius: 51px;
   }
   
-  .mr-111 {
-    margin-right:900px;
-  }
-  
   .mr-top {
-    margin-top: 100px;
+    margin-top: 3rem;
   }
   
-  .ml-auto1 {
-    margin-left:52.9rem;
+  .ml-btn {
+    margin-left:73%;
   }
   
   .d-block1 {
@@ -202,21 +198,21 @@
     letter-spacing: 0.1em;
   }
 
-  .prof-image3 img {
-    height:150px;
-    width:150px;
-    position:absolute;
-    top:10px;
-    padding-bottom:100px;
-    left:50%;
-    transform: translate(-50%, 0);
-    border:3px solid #fff;
-    border-radius: 50%;
-    border: 5px solid #86497A;
+.prof-image5 img {
+  height:11rem;
+  width:11rem;
+  margin-left:3em;
+  position:absolute;
+  transform: translate(-50%, 0);
+  border:3px solid #fff;
+  border-radius: 50%;
+  border: 5px solid #86497A;
 }
 
-.img-pos3 {
-  top:50px;
-  margin-left:10px;
+
+.par1 {
+  position: absolute;
+  top:15%;
+  left: 30%;
 }
   

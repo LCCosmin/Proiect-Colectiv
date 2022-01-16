@@ -16,6 +16,9 @@ import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Filter from './Components/FilterEvents/filter.js';
+import ParticipantsList from './Components/Participants-list/Participants-list.js';
+import OrganiserData from './Components/OrganiserData/organiserdata.js';
+
 
 class App extends Component {
   constructor() {
@@ -30,23 +33,21 @@ class App extends Component {
       <div>
           <Router>
             <Routes>
-              <Route exact path="/" element={<Home loggedUser={this.state}/>}/>
-              <Route exact path="/signin" element={<SignIn loggedUser={this.state}/>}/>
-              <Route exact path="/login" element={<Login loggedUser={this.state}/>}/>
-              <Route exact path="/addevents" element={<AddEvents loggedUser={this.state}/>}/>
-              <Route exact path="/adminfeed" element={<AdminFeed loggedUser={this.state}/>}/>
-              <Route exact path="/adminnotifications" element={<AdminNotifications loggedUser={this.state}/>}/>
-              <Route exact path="/changepassword" element={<ChangePassword loggedUser={this.state}/>}/>
-              <Route exact path="/eventpostadmin" element={<EventPostAdmin loggedUser={this.state}/>}/>
-              <Route exact path="/eventpostuser" element={<EventPostUser loggedUser={this.state}/>}/>
-              <Route exact path="/eventprofile" element={<EventProfile loggedUser={this.state}/>}/>
-              <Route exact path="/personaldata" element={<PersonalData loggedUser={this.state}/>}/>
-              <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
+              <Route exact path="/" element={<Home />}/>
+              <Route exact path="/signin" element={<SignIn/>}/>
+              <Route exact path="/login" element={<Login/>}/>
+              <Route exact path="/addevents" element={<AddEvents/>}/>
+              <Route exact path="/adminfeed" element={<AdminFeed/>}/>
+              <Route exact path="/adminnotifications" element={<AdminNotifications/>}/>
+              <Route exact path="/changepassword/:id" element={<ChangePassword/>}/>
+              <Route exact path="/eventpostuser/:id" element={<EventPostUser/>}/>
+              <Route exact path="/eventprofile/:id" element={<EventProfile/>}/>
+              <Route exact path="/personaldata/:id" element={<PersonalData/>}/>
+              <Route exact path="/organiserdata/:id" element={<OrganiserData/>}/>
+              <Route exact path="/profile/:id" element={<Profile/>}/>
+              <Route exact path="/participantslist/:id" element={<ParticipantsList/>}/>
             </Routes>
-          </Router>
-          {/* <PersonalData/>  */}
-          {/* <EventProfile/> */}
-          {/* <Filter/> */}
+          </Router> 
       </div>
     )
   }

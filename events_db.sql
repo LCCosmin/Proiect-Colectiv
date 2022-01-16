@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2021 at 10:51 PM
+-- Generation Time: Jan 16, 2022 at 03:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -336,7 +336,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `price`, `id_organizer`, `start_date`, `end_date`, `location`, `description`, `id_type`, `status`, `img_name`) VALUES
-(17, 'test event', 20, 15, 1639833780, 1639837380, 'Cluj-Napoca', 'test event description', 1, 'accepted', 'dea88363-45a6-490d-ac12-0f2ae01db025.jpg');
+(17, 'test event', 20, 15, 1639833780, 1639837380, 'Cluj-Napoca', 'test event description', 1, 'accepted', 'dea88363-45a6-490d-ac12-0f2ae01db025.jpg'),
+(18, 'sdg', 12.3, 15, 1639865340, 1639865580, 'dfhgfdhfg', 'sdgdfg', 1, 'pending', 'cc1ee254-1795-46b6-bb97-1a88f4e15024.png');
 
 -- --------------------------------------------------------
 
@@ -399,7 +400,6 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` text NOT NULL,
   `id_role` int(11) DEFAULT NULL,
-  `id_user_info` int(11) DEFAULT NULL,
   `id_rating` int(11) DEFAULT NULL,
   `notifications` tinyint(4) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL
@@ -409,10 +409,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_user_info`, `id_rating`, `notifications`, `status`) VALUES
-(14, 'org@org.com', 'pbkdf2_sha256$260000$vbCjBJ5qyHJhTiybr1itnW$i0VaaQw48uzQYloNifWC/MYKpU7kXzCt+GcsPxZnFwY=', 2, NULL, NULL, NULL, 'pending'),
-(15, 'user@user.com', 'pbkdf2_sha256$260000$IHxfYi4ulUN71B5YsPZLLw$ierFS/3rmCZvCvYPV3tf6IrOVxC8yYPAMiuSMzldEgc=', 3, NULL, NULL, NULL, 'accepted'),
-(17, 'u@u.com', 'pbkdf2_sha256$260000$hVpVV5q2t8uWdvlIJhyqZO$foKgfrI/SqNqdh+PrR4qjCLJ8TA6uA1BqWNoaFdqU2Y=', 3, NULL, NULL, NULL, 'accepted');
+INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_rating`, `notifications`, `status`) VALUES
+(15, 'user@user.com', 'pbkdf2_sha256$260000$IHxfYi4ulUN71B5YsPZLLw$ierFS/3rmCZvCvYPV3tf6IrOVxC8yYPAMiuSMzldEgc=', 3, NULL, NULL, 'accepted'),
+(19, 'org@org.com', 'pbkdf2_sha256$260000$8JMRcAsABL7UvfqrCeKvE1$IHpkO4o2Xp87uKgdHZqX0EWymQKlkJDveQ9R4WFoMPY=', 2, NULL, NULL, 'pending'),
+(20, 'dzenalex9@gmail.com', 'pbkdf2_sha256$260000$4znILs8fYLroU1ghXBD9S8$ISgDnGnOYkeKyxq6g6LDoXOXPBIky+unpP2AgoTsWno=', 3, NULL, NULL, 'accepted');
 
 -- --------------------------------------------------------
 
@@ -423,10 +423,16 @@ INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_user_info`, `id_r
 CREATE TABLE `users2events` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_event` int(11) NOT NULL,
-  `stars` float NOT NULL,
-  `description` text NOT NULL
+  `id_event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users2events`
+--
+
+INSERT INTO `users2events` (`id`, `id_user`, `id_event`) VALUES
+(8, 20, 17),
+(9, 15, 17);
 
 -- --------------------------------------------------------
 
@@ -453,15 +459,20 @@ CREATE TABLE `users_info` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `dob` date NOT NULL,
-  `about` text NOT NULL
+  `about` text NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `img_name` text NOT NULL,
+  `facebook` text DEFAULT NULL,
+  `instagram` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users_info`
 --
 
-INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`) VALUES
-(1, 'test_name', 'test_lastname', '2021-11-14', 'test_about');
+INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`, `id_user`, `img_name`, `facebook`, `instagram`) VALUES
+(16, 'Alex', 'Dzen', '1999-10-20', 'about', 20, 'no_profile_pic.png', 'https://www.facebook.com/alex.dzen.9', '-'),
+(17, 'abc', 'abc', '1998-12-11', 'acc', 15, 'no_profile_pic.png', '-', '-');
 
 --
 -- Indexes for dumped tables
@@ -578,8 +589,7 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_role` (`id_role`),
-  ADD KEY `id_user_data` (`id_user_info`);
+  ADD KEY `id_role` (`id_role`);
 
 --
 -- Indexes for table `users2events`
@@ -601,7 +611,8 @@ ALTER TABLE `users_chat`
 -- Indexes for table `users_info`
 --
 ALTER TABLE `users_info`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -671,7 +682,7 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `event_types`
@@ -695,19 +706,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users2events`
 --
 ALTER TABLE `users2events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users_info`
 --
 ALTER TABLE `users_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
@@ -764,8 +775,7 @@ ALTER TABLE `favorite_lists`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`id_user_info`) REFERENCES `users_info` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id`);
 
 --
 -- Constraints for table `users2events`
@@ -781,6 +791,12 @@ ALTER TABLE `users_chat`
   ADD CONSTRAINT `users_chat_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `users_chat_ibfk_2` FOREIGN KEY (`id_user2`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `users_chat_ibfk_3` FOREIGN KEY (`id_sender`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `users_info`
+--
+ALTER TABLE `users_info`
+  ADD CONSTRAINT `users_info_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

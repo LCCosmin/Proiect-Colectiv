@@ -10,7 +10,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 
-from profanity_check import predict
 from django.contrib.auth.hashers import check_password, make_password
 
 from .models import *
@@ -21,16 +20,9 @@ import os
 import uuid
 import pathlib
 from datetime import datetime
+from django.db import connection
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
-# Profanity check
-def checkLanguage(data):
-    for key in data:
-        word = data[key]
-        iterable =[str(word)]
-        if predict(iterable):
-            return True
-    return False
 
 
 # Create your views here.
@@ -77,8 +69,6 @@ def manageButtonsEvents(request):
 def signin(request):
     if request.method == 'POST':
         data =  JSONParser().parse(request)
-        if checkLanguage(data):
-            return Response({'exists':False})
         try:
             user = User.objects.get(email = data["email"])
             return Response({'exists':False})
@@ -99,7 +89,11 @@ def login(request):
             user = User.objects.get(email = data["email"])
             if(check_password(data['password'], user.password)):
                 a = str(getattr(user, 'id_role'))
-                return Response({'role': int(a[13]), 'id': getattr(user, 'id')})
+                try:
+                    user_info = UserInfo.objects.get(id_user = getattr(user, 'id'))
+                    return Response({'role': int(a[13]), 'id': getattr(user, 'id'), 'user_info': True})
+                except UserInfo.DoesNotExist:
+                    return Response({'role': int(a[13]), 'id': getattr(user, 'id'), 'user_info': False})
             else:
                 return Response({'role':0, 'id':0})
         except User.DoesNotExist:
@@ -121,9 +115,6 @@ def addevent(request):
         request.data['img_name'] = str(uuid.uuid4()) + extension
         serializer = EventSerializer(data=request.data)
         data = request.data
-        if checkLanguage(data):
-            #print("DA")
-            return Response({'added':False})
         if serializer.is_valid():
             serializer.save()
             return Response({'added':request.data['img_name']}, status=status.HTTP_201_CREATED)
@@ -131,6 +122,51 @@ def addevent(request):
             print(serializer.initial_data)
             print(serializer.errors)
             return Response({'added':False}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def updatepersonaldata(request):
+    if request.method == "POST":
+        # extension = '.' + request.data['img_name']
+        # request.data['img_name'] = str(uuid.uuid4()) + extension
+        serializer = UserInfoSerializer(data=request.data)
+        data = request.data
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'updated':request.data['img_name']}, status=status.HTTP_201_CREATED)
+        else:
+            print(serializer.initial_data)
+            print(serializer.errors)
+            return Response({'updated':False}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def getpersonaldata(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        try:
+            userinfo = UserInfo.objects.get(id_user = data["id_user"])
+            return Response({"exists": True, "first_name":getattr(userinfo, 'first_name'), "last_name": getattr(userinfo, 'last_name'), "dob": getattr(userinfo, 'dob'), "about": getattr(userinfo, 'about'), "img_name": getattr(userinfo, 'img_name'), "facebook": getattr(userinfo, 'facebook'), "instagram": getattr(userinfo, 'instagram')})
+        except UserInfo.DoesNotExist:
+            return Response({"exists":False})
+
+@api_view(['POST'])
+def usergoingtoevent(request):
+    if request.method == "POST":
+        serializer = UserToEventSerializer(data=request.data)
+        print(serializer)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'ok':True, 'id': request.data['id_event']}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({'ok':False}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def usersinterested(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        count = UserToEvent.objects.filter(id_event=data['id']).count()
+        return Response({'no_users': count})
+
+
 
 @api_view(['GET'])
 def getevents(request):
@@ -202,4 +238,31 @@ def geteventtypes(request):
     if request.method == "GET":
         events = EventType.objects.all()
         serializer = EventTypeSerializer(events, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['POST'])
+def getparticipantslist(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        cursor = connection.cursor()
+        cursor.execute("select * from users2events inner join users_info on users_info.id_user = users2events.id_user where id_event = " + data['id'])
+        results = cursor.fetchall()
+        participants = []
+        for r in results:
+            p = {}
+            p['id'] = r[1];
+            p['first_name'] = r[4]
+            p['last_name'] = r[5]
+            p['img_name'] = r[9];
+            p['about'] = r[7];
+            participants.append(p)
+        return Response({'participants': participants})
+
+@api_view(['POST'])
+def getuserinfo(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        user = UserInfo.objects.get(id_user = data['id'])
+        serializer = UserInfoSerializer(user)
         return Response(serializer.data)

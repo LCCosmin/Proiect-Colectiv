@@ -12,20 +12,64 @@
 .containerEventPost .Event-Title {
     font: 1.1em "Avantgarde", sans-serif;
     position: absolute;
-    top: 78px;
-    padding-left: 30px;
+    top: 0.5em;
+    padding-left: 1em;
     color: white;
     font-size: 48px;
 }
 
-.containerEventPost .Text-Box{
-    width: 430px;
-    font: 1.1em "Avantgarde", sans-serif;;
+.containerEventPost .StartDate{
+    width: 50%;
+    font-family: 'Roboto';
     font-size: 14px;
     color: white;
     position: absolute;
-    padding-left: 30px;
-    top: 140px;
+    padding-left: 3.7em;
+    top: 5em;
+}
+
+.containerEventPost .Price{
+    width: 50%;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    padding-left: 3.7em;
+    top: 8em;
+}
+
+.containerEventPost .Location{
+    width: 50%;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    padding-left: 3.7em;
+    top: 9.5em;
+}
+.containerEventPost .Type{
+    width: 50%;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    padding-left: 3.7em;
+    top: 11em;
+}
+
+.containerEventPost .EndDate{
+    width: 50%;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    padding-left: 3.7em;
+    top: 6.5em;
+}
+
+.containerEventPost p {
+    color: white;
+    font-size: 18px;
 }
 
 .containerEventPost .EventPostButton{

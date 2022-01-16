@@ -13,16 +13,24 @@ class EventProfile extends React.Component {
         this.state = {
             event:[]
         }
+        this.id = 0;
     }
 
     componentDidMount(){
-    axios
-      .post("http://127.0.0.1:8000/api/geteventdetails", {id: 17})
-      .then(response =>{
-        this.setState({event: response.data});
-        console.log(this.state);
-      }) 
-      .catch(err => console.log(err));
+        this.id = window.location.href.split('/').at(-1);
+        axios
+        .post("http://127.0.0.1:8000/api/geteventdetails", {id: this.id})
+        .then(response =>{
+            this.setState({event: response.data});
+        }) 
+        .catch(err => console.log(err));
+
+        axios
+        .post("http://127.0.0.1:8000/api/usersinterested", {id: this.id})
+        .then(response =>{
+            document.getElementById('users-interested').innerHTML = response.data.no_users + ' users interested';
+        }) 
+        .catch(err => console.log(err));
     }
 
     render(){
@@ -39,18 +47,18 @@ class EventProfile extends React.Component {
                             {event.name}
                     </div>
 
-            <div>
-              <p className="UsersGoing">
-                {" "}
-                <AiOutlineUser />
-                5225 users interested.
-                <a href="">
-                  {" "}
-                  <u>View</u>
-                </a>
-                <br></br>{" "}
-              </p>
-            </div>
+                    <div>
+                        <p className = "UsersGoing"> <AiOutlineUser/><span id="users-interested"></span>
+                        <u><a style={{'margin-left': '10px'}} href="" onClick={() => this.props.navigate("/participantslist/" + this.id)}>View</a></u><br></br> </p>
+                    </div>
+                
+                    <div className="Location">
+                        <p> <IoLocationOutline/> {event.location} </p>
+                    </div>
+
+                    <div className="Price">
+                        <p> <IoPricetagOutline/> {event.price} </p>
+                    </div>
 
             <div className="Location">
               <p>
@@ -66,42 +74,19 @@ class EventProfile extends React.Component {
               </p>
             </div>
 
-            <div className="Date">
-              <p>
-                {" "}
-                <MdDateRange /> Date
-              </p>
-            </div>
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
+                        <button type="button" className="anyButton brad marginEventProf"> Going </button> 
+                    </div>
 
-            <div className="Time">
-              <p>
-                {" "}
-                <MdAccessTime /> Time
-              </p>
-            </div>
-          </div>
-          <div className="RightSide rightPadding">
-            <div className="buttons ">
-              <button type="button" className="anyButton brad marginEventProf">
-                {" "}
-                Going{" "}
-              </button>
-              <div className="divider" />
-              <button type="button" className="anyButton brad marginEventProf">
-                {" "}
-                Maybe{" "}
-              </button>
-            </div>
-
-            <div style={{ float: "left" }}>
-              <p className="Description">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim.
-              </p>
-            </div>
+                    <div style={{float: 'left'}} >
+                        <p className="Description">
+                            {event.description}
+                        </p>
+                    </div>
+                    <br/>
+                    {/* <div style ={{float: 'left'}}>
+                        <u><a href="" className="Report">Report event</a></u><br></br>
+                    </div>  */}
 
             <div style={{ float: "left" }}>
               <u>
@@ -116,5 +101,9 @@ class EventProfile extends React.Component {
     );
   }
 }
-
-export default EventProfile;
+ 
+function WithNavigate(props) {
+    let navigate = useNavigate();
+    return <EventProfile {...props} navigate={navigate} />;
+  }
+  export default WithNavigate;
