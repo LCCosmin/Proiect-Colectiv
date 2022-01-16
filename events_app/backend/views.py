@@ -20,6 +20,7 @@ import os
 import uuid
 import pathlib
 from datetime import datetime
+from django.db import connection
 pathlib.Path('images').mkdir(parents=True, exist_ok=True) 
 
 
@@ -237,4 +238,31 @@ def geteventtypes(request):
     if request.method == "GET":
         events = EventType.objects.all()
         serializer = EventTypeSerializer(events, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['POST'])
+def getparticipantslist(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        cursor = connection.cursor()
+        cursor.execute("select * from users2events inner join users_info on users_info.id_user = users2events.id_user where id_event = " + data['id'])
+        results = cursor.fetchall()
+        participants = []
+        for r in results:
+            p = {}
+            p['id'] = r[1];
+            p['first_name'] = r[4]
+            p['last_name'] = r[5]
+            p['img_name'] = r[9];
+            p['about'] = r[7];
+            participants.append(p)
+        return Response({'participants': participants})
+
+@api_view(['POST'])
+def getuserinfo(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        user = UserInfo.objects.get(id_user = data['id'])
+        serializer = UserInfoSerializer(user)
         return Response(serializer.data)

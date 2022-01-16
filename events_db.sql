@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 07:35 PM
+-- Generation Time: Jan 16, 2022 at 03:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -411,8 +411,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `id_role`, `id_rating`, `notifications`, `status`) VALUES
 (15, 'user@user.com', 'pbkdf2_sha256$260000$IHxfYi4ulUN71B5YsPZLLw$ierFS/3rmCZvCvYPV3tf6IrOVxC8yYPAMiuSMzldEgc=', 3, NULL, NULL, 'accepted'),
-(17, 'u@u.com', 'pbkdf2_sha256$260000$hVpVV5q2t8uWdvlIJhyqZO$foKgfrI/SqNqdh+PrR4qjCLJ8TA6uA1BqWNoaFdqU2Y=', 3, NULL, NULL, 'accepted'),
-(18, 'org@org.com', 'pbkdf2_sha256$260000$EUL8D6UubvElq1HldNjjb5$bNW3ArovpK5W4rN2eZNYdWfHfm2XsN+Oqy8KyINhmow=', 2, NULL, NULL, 'pending');
+(19, 'org@org.com', 'pbkdf2_sha256$260000$8JMRcAsABL7UvfqrCeKvE1$IHpkO4o2Xp87uKgdHZqX0EWymQKlkJDveQ9R4WFoMPY=', 2, NULL, NULL, 'pending'),
+(20, 'dzenalex9@gmail.com', 'pbkdf2_sha256$260000$4znILs8fYLroU1ghXBD9S8$ISgDnGnOYkeKyxq6g6LDoXOXPBIky+unpP2AgoTsWno=', 3, NULL, NULL, 'accepted');
 
 -- --------------------------------------------------------
 
@@ -425,6 +425,14 @@ CREATE TABLE `users2events` (
   `id_user` int(11) NOT NULL,
   `id_event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users2events`
+--
+
+INSERT INTO `users2events` (`id`, `id_user`, `id_event`) VALUES
+(8, 20, 17),
+(9, 15, 17);
 
 -- --------------------------------------------------------
 
@@ -453,15 +461,18 @@ CREATE TABLE `users_info` (
   `dob` date NOT NULL,
   `about` text NOT NULL,
   `id_user` int(11) NOT NULL,
-  `img_name` text NOT NULL
+  `img_name` text NOT NULL,
+  `facebook` text DEFAULT NULL,
+  `instagram` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users_info`
 --
 
-INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`, `id_user`, `img_name`) VALUES
-(11, 'alex', 'alex', '1999-10-20', 'abcd', 15, 'abc');
+INSERT INTO `users_info` (`id`, `first_name`, `last_name`, `dob`, `about`, `id_user`, `img_name`, `facebook`, `instagram`) VALUES
+(16, 'Alex', 'Dzen', '1999-10-20', 'about', 20, 'no_profile_pic.png', 'https://www.facebook.com/alex.dzen.9', '-'),
+(17, 'abc', 'abc', '1998-12-11', 'acc', 15, 'no_profile_pic.png', '-', '-');
 
 --
 -- Indexes for dumped tables
@@ -695,19 +706,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users2events`
 --
 ALTER TABLE `users2events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users_info`
 --
 ALTER TABLE `users_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables

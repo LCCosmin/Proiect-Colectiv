@@ -12,7 +12,8 @@ class ChangePassword extends React.Component {
     super(props);
   }
   componentDidMount(){
-    console.log(this.props.loggedUser.user.id);
+    this.id = window.location.href.split('/').at(-1);
+    
   }
 
   render(){
@@ -23,7 +24,7 @@ class ChangePassword extends React.Component {
               <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered2">
-            <a href="" onClick={() => this.props.navigate("/personaldata/" + this.state.info.id_user)}>Personal Data</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/personaldata/" + this.id)}>Personal Data</a><br></br>
             <a href="">My List</a><br></br>
             <a href="">Add Event</a>
           </div>

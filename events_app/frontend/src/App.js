@@ -33,18 +33,19 @@ class App extends Component {
       <div>
           <Router>
             <Routes>
-              <Route exact path="/" element={<Home loggedUser={this.state}/>}/>
-              <Route exact path="/signin" element={<SignIn loggedUser={this.state}/>}/>
-              <Route exact path="/login" element={<Login loggedUser={this.state}/>}/>
-              <Route exact path="/addevents" element={<AddEvents loggedUser={this.state}/>}/>
-              <Route exact path="/adminfeed" element={<AdminFeed loggedUser={this.state}/>}/>
-              <Route exact path="/adminnotifications" element={<AdminNotifications loggedUser={this.state}/>}/>
-              <Route exact path="/changepassword/:id" element={<ChangePassword loggedUser={this.state}/>}/>
-              <Route exact path="/eventpostuser/:id" element={<EventPostUser loggedUser={this.state}/>}/>
-              <Route exact path="/eventprofile/:id" element={<EventProfile loggedUser={this.state}/>}/>
-              <Route exact path="/personaldata/:id" element={<PersonalData loggedUser={this.state}/>}/>
-              <Route exact path="/organiserdata/:id" element={<OrganiserData loggedUser={this.state}/>}/>
-              <Route exact path="/profile" element={<Profile loggedUser={this.state}/>}/>
+              <Route exact path="/" element={<Home />}/>
+              <Route exact path="/signin" element={<SignIn/>}/>
+              <Route exact path="/login" element={<Login/>}/>
+              <Route exact path="/addevents" element={<AddEvents/>}/>
+              <Route exact path="/adminfeed" element={<AdminFeed/>}/>
+              <Route exact path="/adminnotifications" element={<AdminNotifications/>}/>
+              <Route exact path="/changepassword/:id" element={<ChangePassword/>}/>
+              <Route exact path="/eventpostuser/:id" element={<EventPostUser/>}/>
+              <Route exact path="/eventprofile/:id" element={<EventProfile/>}/>
+              <Route exact path="/personaldata/:id" element={<PersonalData/>}/>
+              <Route exact path="/organiserdata/:id" element={<OrganiserData/>}/>
+              <Route exact path="/profile/:id" element={<Profile/>}/>
+              <Route exact path="/participantslist/:id" element={<ParticipantsList/>}/>
             </Routes>
           </Router> 
       </div>

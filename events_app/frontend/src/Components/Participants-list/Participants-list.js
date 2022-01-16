@@ -1,13 +1,25 @@
 import React from "react";
 import "./Participants-list.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 class ParticipantsList extends React.Component {
   constructor() {
     super();
     this.state = {
-      participants: []
+      participants: [],
     };
+    this.id = 0;
+  }
+  componentDidMount(){
+    this.id = window.location.href.split('/').at(-1);
+    axios
+    .post("http://127.0.0.1:8000/api/getparticipantslist", {id: this.id})
+    .then(response =>{
+        this.setState({participants: response.data.participants});
+        console.log(response.data);
+    }) 
+    .catch(err => console.log(err));
   }
   render() {
     const { participants } = this.state;
@@ -37,15 +49,16 @@ class ParticipantsList extends React.Component {
                       src={"/images/" + participant.img_name}
                       alt="user image"
                       className="border-custom display-block border-radius-100 img-user-custom"
+                      onClick={() => this.props.navigate("/profile/" + participant.id)}
                     />
                   }
                 </div>
                 <div className="display-t-cell vert-allign-middle padding-lest-1rem">
                   <h1 className="font-size-24 font-weight-600 line-height-name white">
-                    {participant.name}
+                    {participant.first_name + ' ' + participant.last_name}
                   </h1>
                   <h2 className="font-size-18 font-weight-400 mrg-top-0 mrg-bottom-0 white">
-                    {participant.description}
+                    {participant.about}
                   </h2>
                 </div>
                 <div className=" display-t-cell vert-allign-middle btn-right">
@@ -62,11 +75,15 @@ class ParticipantsList extends React.Component {
               </div>
             </article>
             </div>  
-          );
+          )
         })}
       </main>
     );
   }
 }
 
-export default ParticipantsList;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <ParticipantsList {...props} navigate={navigate} />;
+}
+export default WithNavigate;

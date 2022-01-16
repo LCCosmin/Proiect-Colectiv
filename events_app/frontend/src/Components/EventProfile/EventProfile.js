@@ -15,18 +15,20 @@ class EventProfile extends React.Component {
         this.state = {
             event:[]
         }
+        this.id = 0;
     }
 
     componentDidMount(){
+        this.id = window.location.href.split('/').at(-1);
         axios
-        .post("http://127.0.0.1:8000/api/geteventdetails", {id: 17})
+        .post("http://127.0.0.1:8000/api/geteventdetails", {id: this.id})
         .then(response =>{
             this.setState({event: response.data});
         }) 
         .catch(err => console.log(err));
 
         axios
-        .post("http://127.0.0.1:8000/api/usersinterested", {id: 17})
+        .post("http://127.0.0.1:8000/api/usersinterested", {id: this.id})
         .then(response =>{
             document.getElementById('users-interested').innerHTML = response.data.no_users + ' users interested';
         }) 
@@ -49,7 +51,7 @@ class EventProfile extends React.Component {
 
                     <div>
                         <p className = "UsersGoing"> <AiOutlineUser/><span id="users-interested"></span>
-                        <u><a style={{'margin-left': '10px'}} href="" >View</a></u><br></br> </p>
+                        <u><a style={{'margin-left': '10px'}} href="" onClick={() => this.props.navigate("/participantslist/" + this.id)}>View</a></u><br></br> </p>
                     </div>
                 
                     <div className="Location">
