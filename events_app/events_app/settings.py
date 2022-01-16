@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d8%6abq#1-7ep@x88fa8d!fm7$-w4g)4@3^l290y0ep^van)lk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.140.33.201', '127.0.0.1']
 
 
 # Application definition
@@ -82,6 +82,17 @@ TEMPLATES = [
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'events_db',
+#         'HOST': '34.76.212.205',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'PORT': '3306',
+#     }
+# }
 
 DATABASES = {
     'default': {

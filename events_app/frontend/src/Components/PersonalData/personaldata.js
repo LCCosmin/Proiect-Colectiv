@@ -17,9 +17,13 @@ class PersonalData extends React.Component{
         last_name: "",
         dob: "",
         about: "",
-        img_name: "abc",
+        img_name: "no_profile_pic.png",
+        facebook: "-",
+        instagram: "-",
       },
     }
+    this.id = 0;
+    this.aux = '';
   }
 
   updateFirstName = event => {
@@ -39,26 +43,45 @@ class PersonalData extends React.Component{
   }
 
   updateFacebook = event => {
-    this.state.info.about = event.target.value;
+    this.state.info.facebook = event.target.value;
   }
 
   updateInstagram = event => {
-    this.state.info.about = event.target.value;
+    this.state.info.instagram = event.target.value;
   }
 
   fileSelectedHandler = event => {
     this.state.info.img_name = event.target.files[0];
   }
 
+  fileUploadHandler = (name) =>{
+    const fd = new FormData();
+    this.state.info.img_name = this.aux;
+    fd.append('image', this.state.info.img_name, name + "." +this.state.info.img_name.name.split(".")[1]);
+    axios
+      .post("http://127.0.0.1:8000/api/uploadimage", fd)
+      .then(response =>{
+      })
+      .catch(err => console.log(err));
+  }
+
   updateDetails = () => {
-    // this.aux = this.state.event.img_name;
-    // this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
+    this.aux = this.state.info.img_name;
+    this.state.info.img_name = this.state.info.img_name.name.split(".")[1];
+    this.state.info.id_user = this.id;
+    this.state.info.first_name = document.getElementById("firstname").value;
+    this.state.info.last_name = document.getElementById("surname").value;
+    this.state.info.dob = document.getElementById("birthday").value;
+    this.state.info.about = document.getElementById("about").value;
+    this.state.info.facebook = document.getElementById("facebook").value ? document.getElementById("facebook").value : '-';
+    this.state.info.instagram = document.getElementById("instagram").value ? document.getElementById("instagram").value : '-';
     axios
       .post("http://127.0.0.1:8000/api/updatepersonaldata", this.state.info)
       .then(response => {
         if(response.data.updated){
-          // this.fileUploadHandler(response.data.updated);
+          this.fileUploadHandler(response.data.updated);
           window.confirm("Your personal data has been updated!");
+          window.location.reload();
         }
         else{
           window.confirm("Watch your language!");
@@ -68,17 +91,19 @@ class PersonalData extends React.Component{
   }
 
   componentDidMount(){
-    this.state.info.id_user = this.props.loggedUser.user.id;
-    var userInfo = {id_user: this.state.info.id_user};
+    this.id = window.location.href.split('/').at(-1);
     axios
-      .post("http://127.0.0.1:8000/api/getpersonaldata", userInfo)
+      .post("http://127.0.0.1:8000/api/getpersonaldata", {id_user: this.id})
       .then(response => {
        if(response.data.exists == true){
         document.getElementById("firstname").value = response.data.first_name;
         document.getElementById("surname").value = response.data.last_name;
         document.getElementById("birthday").value = response.data.dob;
         document.getElementById("about").value = response.data.about;
-        document.getElementById("about").value = response.data.about;
+        document.getElementById("facebook").value = response.data.facebook != '-' ? response.data.facebook : '';
+        document.getElementById("instagram").value = response.data.instagram != '-'  ? response.data.instagram : '';
+        document.getElementById("user-img").src = "/images/" + response.data.img_name;
+        console.log(response.data);
        }
       })
       .catch(err => console.log(err));
@@ -89,12 +114,12 @@ class PersonalData extends React.Component{
       <>
         <div className="split1 left1">
           <div className="bgr-transparent1 par1 prof-image5">
-            <img src="/images/no_profile_pic.png" />
+            <img id="user-img"/>
           </div>
           <div className="centered1">
-            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.props.loggedUser.user.id)}>Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.id)}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
-            <a href="" onClick={() => this.props.navigate("/eventpostuser/" + this.props.loggedUser.user.id)}>News feed</a>
+            <a href="" onClick={() => this.props.navigate("/eventpostuser/" + this.id)}>News feed</a>
           </div>
         </div>
         <div></div>
@@ -162,7 +187,7 @@ class PersonalData extends React.Component{
             onChange={this.fileSelectedHandler}
           />
           <div className="mr-top">
-            <input type="button" class="mybutton1 brad1 d-block1 ml-btn" value="Update Details" onClick={this.updateDetails}/>
+            <input type="button" class="grow-update mybutton1 brad1 d-block1 ml-btn" value="Update Details" onClick={this.updateDetails}/>
           </div>
         </div>
       </>

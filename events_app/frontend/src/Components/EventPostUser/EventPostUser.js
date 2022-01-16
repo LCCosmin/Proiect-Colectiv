@@ -14,28 +14,51 @@ class EventPostUser extends React.Component {
         super();
         this.state = {
             events:[],
+            types: [],
         }
+        this.id = 0;
+    }
+    timeConverter(timestamp){
+        var a = new Date(timestamp * 1000);
+        var time = a.getDate() + '/' + parseInt(a.getMonth() + 1) + '/' + a.getFullYear() + ' ' +  a.getHours() + ':' + a.getMinutes();
+        return time;
+    }
+
+    getEventType(id_type){
+        const {types} = this.state;
+        let name = 'none';
+        types.map((type)=>{
+            if(type.id == id_type) name = type.name;
+        });
+        return name;
     }
 
     componentDidMount(){
+        this.id = window.location.href.split('/').at(-1);
         axios
         .get("http://127.0.0.1:8000/api/geteventsaccepted")
         .then(response =>{
             this.setState({events: response.data});
+            console.log(typeof(response.data));
+        }) 
+        .catch(err => console.log(err));
+        axios
+        .get("http://127.0.0.1:8000/api/geteventtypes")
+        .then(response =>{
+            this.setState({types: response.data});
+
         }) 
         .catch(err => console.log(err));
     }
 
     goToProfile = () => {
-        this.props.navigate("/personaldata/" + this.props.loggedUser.user.id);
+        this.props.navigate("/personaldata/" + this.id);
     }
 
     userGoingToEvent = () => {
-        // console.log(this.state.loggedUser.user.id);
         let btnGoing = document.getElementsByClassName("going-btn");
         let idEvent = parseInt(btnGoing[0].getAttribute('id'));
-        var userToEvent = { id_user: this.props.loggedUser.user.id, id_event: idEvent};
-        console.log(userToEvent);
+        var userToEvent = { id_user: this.id, id_event: idEvent};
         axios
         .post("http://127.0.0.1:8000/api/usergoingtoevent", userToEvent)
         .then(response =>{
@@ -50,11 +73,10 @@ class EventPostUser extends React.Component {
 
     render(){
         const {events} = this.state;
-        console.log(events);
         return(
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">
-                    <a onClick={() => this.props.navigate("/changepassword/" + this.state.info.id_user)}>
+                    <a onClick={() => this.props.navigate("/changepassword/" + this.id)}>
                     <img src="/images/logo.png" 
                     width="135px" height="100%" className="logo" alt="OmniEvents" />
                     </a>
@@ -65,11 +87,11 @@ class EventPostUser extends React.Component {
                         </div>
                     </a>
                     <div className="margin">
-                        <a href="#mylist" onClick={() => this.props.navigate("/eventprofile/")}>My list</a>
-                        <a href="#signot">Signout</a>
+                        <a style={{"padding-top": "30px"}} href="" onClick={() => this.props.navigate("/eventslist/" + this.id)}>My list</a>
+                        <a style={{"padding-top": "30px"}} href="#signot">Signout</a>
                     
-                        <div className="notification-list-user-img">
-                                <img src="/images/no_profile_pic.png" alt="" className="user-avatar-md rounded-circle" onClick={this.goToProfile}/>
+                        <div style={{"padding-top": "7px"}} className="notification-list-user-img">
+                                <img id="user-profile-img" src="/images/no_profile_pic.png" alt="" className="user-avatar-md rounded-circle"  onClick={this.goToProfile}/>
                         </div>
                     </div>  
                 </div>
@@ -77,26 +99,26 @@ class EventPostUser extends React.Component {
                     events.map((event)=>{
                         return(
                             <article key={event.id} id={event.id} className="display-admin-table width-admin-100 height-admin-auto padding-admin border-admin padding-bottom-admin component-admin" href="#0">
-                                <div className = "containerEventPost">
-                                    <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid" onClick={() => this.props.navigate("/eventprofile/" + event.id)} ></img>
+                                <div  className = "containerEventPost">
+                                    <img src = {'/images/'+event.img_name} alt="EventPostPhoto" className="ImgFluid" style={{"cursor": "pointer"}} onClick={() => this.props.navigate("/eventprofile/" + event.id)}></img>
                                     <div className="Event-Title"> {event.name} </div>
                                     <div className='StartDate'>
-                                        <p> <MdDateRange/> Start date</p>
+                                        <p> <MdDateRange/> Start date: {this.timeConverter(event.start_date)}</p>
                                     </div>
                                     <div className='EndDate'>
-                                        <p> <MdDateRange/> End date</p>
+                                        <p> <MdDateRange/> End date: {this.timeConverter(event.end_date)}</p>
                                     </div>
                                     <div className='Price'>
-                                        <p> <IoPricetagOutline/> Price</p>
+                                        <p> <IoPricetagOutline/> Price: {event.price}</p>
                                     </div>
                                     <div className='Location'>
-                                        <p> <IoLocationOutline/> Location</p>
+                                        <p> <IoLocationOutline/> Location: {event.location}</p>
                                     </div>
                                     <div className='Type'>
-                                        <p> <GiPartyPopper/> Type</p>
+                                        <p> <GiPartyPopper/> {this.getEventType(event.id_type)}</p>
                                     </div>
                                     <div className="EventPostButtons" >
-                                                <button id={event.id} type="button" className="EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
+                                                <button id={event.id} type="button" style={{"z-index": "1", "position":"fixed"}} className="grow-going EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
                                                 <div className="DividerEventPost"/>
                                                 {/* <button type="button" className="EventPostButton EventPostBrad"> Maybe </button>  */}
                                             </div>

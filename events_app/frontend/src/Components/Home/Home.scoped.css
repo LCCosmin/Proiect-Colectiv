@@ -62,3 +62,19 @@
     letter-spacing: 0.1em;
     margin: 50px 0;
   }
+
+  .grow-make-account {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .grow-make-account:hover,
+  .grow-make-account:focus {
+    transform: scale(1.05);
+  }
+  
+  .grow-make-account:active {
+    transform: scale(0.9);
+  }

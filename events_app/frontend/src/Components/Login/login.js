@@ -18,14 +18,13 @@ class Login extends React.Component {
 
   checkLogin = () => {
     axios
-      .post("http://127.0.0.1:8000/api/login", this.state.item)
-      .then((response) => {
+    .post("http://34.65.33.172/api/login", this.state.item)
+    .then((response) => {
         switch (response.data.role) {
           case 1:
             this.props.navigate("/");
             break;
           case 2:
-            this.props.loggedUser.user.id = response.data.id;
             if(!response.data.user_info){
               this.props.navigate("/organiserdata/" + response.data.id);
             }else{
@@ -33,7 +32,6 @@ class Login extends React.Component {
             }
             break;
           case 3:
-            this.props.loggedUser.user.id = response.data.id;
             if(!response.data.user_info){
               this.props.navigate("/personaldata/"+ response.data.id);
             }else{
@@ -54,14 +52,13 @@ class Login extends React.Component {
       this.state.item.password
     ) {
       axios
-        .post("http://127.0.0.1:8000/api/login", this.state.item)
-        .then((response) => {
+      .post("http://34.65.33.172/api/login", this.state.item)
+      .then((response) => {
           switch (response.data.role) {
             case 1:
               this.props.navigate("/");
               break;
             case 2:
-              this.props.loggedUser.user.id = response.data.id;
               if(!response.data.user_info){
                 this.props.navigate("/organiserdata/" + response.data.id);
               }else{
@@ -69,7 +66,6 @@ class Login extends React.Component {
               }
               break;
             case 3:
-              this.props.loggedUser.user.id = response.data.id;
               if(!response.data.user_info){
                 this.props.navigate("/personaldata/"+ response.data.id);
               }else{
@@ -144,21 +140,6 @@ class Login extends React.Component {
                 onKeyPress={this.checkLoginKey}
               />
             </div>
-            <div className="line-hight-login marginsDivLogin centerLoginContent">
-              <label className="fontLabelLogin line-hight-login white pointer">
-                <input type="checkbox" /> Remember me
-              </label>
-              <a
-                href="#0"
-                className="fontLabelLogin link-login dim white db underline"
-                onClick={() => {
-                  this.props.navigate("/changepassword");
-                }}
-              >
-                Forgot your password?
-              </a>
-            </div>
-
             <div className="line-hight-login marginsDivLogin centerLoginContent">
               <button
                 className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login"

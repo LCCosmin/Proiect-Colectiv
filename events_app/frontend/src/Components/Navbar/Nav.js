@@ -19,8 +19,8 @@ class Nav extends React.Component {
                         </div>
                     </a>
                     <div className="margin">
-                        <a href="#mylist">My list</a>
-                        <a href="#signot">Signout</a>
+                        <a id='notification-text' href="#mylist">My list</a>
+                        <a id='notification-text' href="#signot">Signout</a>
                     
                         <div className="notification-list-user-img">
                                 <img src="https://img.icons8.com/color/100/000000/name.png" alt="" className="user-avatar-md rounded-circle"/>

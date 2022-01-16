@@ -22,5 +22,9 @@ urlpatterns = [
 	path('api/getpersonaldata', views.getpersonaldata),
 	path('api/usergoingtoevent', views.usergoingtoevent),
 	path('api/usersinterested', views.usersinterested),
+	path('api/getparticipantslist', views.getparticipantslist),
+	path('api/getuserinfo', views.getuserinfo),
+	path('api/getusersofevent', views.getusersofevent),
+	# path('api/stopgoingtoevent', views.stopgoingtoevent),
 
 ]

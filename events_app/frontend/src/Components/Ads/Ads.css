@@ -1,0 +1,47 @@
+
+.cv {
+    display:flex;
+     justify-content: space-between;
+     margin: 0 0;
+     position: sticky;
+     position:absolute;
+     left: 0;
+     bottom: 0; 
+     width: -webkit-fill-available;
+     border-radius: 0;
+     margin-bottom: 0;
+  }
+  
+  .ads {
+    border: 5px solid #86497a;
+  }
+  
+  .ads:hover {
+    cursor:pointer;
+    border-top: 5px solid #361c31;
+    border-right: 5px solid #86497a;
+    border-left: 5px solid #86497a;
+    border-bottom: 5px solid #361c31;
+  }
+  
+  .ads-wb {
+    border: 5px solid #86497a;
+    border-width: 5px 0 5px 0;
+  }
+  
+  .ads-wb:hover {
+    cursor:pointer;
+    border: 5px solid #361c31;
+    border-width: 5px 0 5px 0;
+  }
+
+  .ads-last {
+    border: 5px solid #86497a;
+    border-width: 5px 5px 5px 0;
+  }
+  
+  .ads-last:hover {
+    cursor:pointer;
+    border: 5px solid #361c31;
+    border-width: 5px 0 5px 0;
+  }

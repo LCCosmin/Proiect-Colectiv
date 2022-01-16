@@ -15,7 +15,7 @@ class AddEvents extends React.Component {
       event: {
         name: "",
         price: "",
-        id_organizer: 15,
+        id_organizer: 19,
         start_date: "",
         end_date: "",
         location: "",
@@ -59,7 +59,6 @@ class AddEvents extends React.Component {
   }
 
   fileSelectedHandler = event => {
-    console.log(event.target.files[0]);
     this.state.event.img_name = event.target.files[0];
   }
 
@@ -76,12 +75,10 @@ class AddEvents extends React.Component {
 
   addEvent = () => {
     this.aux = this.state.event.img_name;
-    //window.confirm(this.state.event.img_name);
     this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
     axios
       .post("http://127.0.0.1:8000/api/addevent", this.state.event)
       .then(response => {
-        //window.confirm(response.data.added);
         if(response.data.added){
           this.fileUploadHandler(response.data.added);
           window.confirm("The events has been sent for approval");
@@ -94,7 +91,6 @@ class AddEvents extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.props);
     axios
     .get("http://127.0.0.1:8000/api/geteventtypes")
     .then(response =>{
@@ -195,7 +191,7 @@ class AddEvents extends React.Component {
           </select>
           </label>
           <div>
-            <input type="button" class="myb brad margin-bottom d-block mr-1 ml-auto" value="Add event" onClick={this.addEvent} />
+            <input type="button" class="grow-add-events myb brad margin-bottom d-block mr-1 ml-auto" value="Add event" onClick={this.addEvent} />
           </div>
         </div>
       </>

@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(36, 40, 48, 1);
+    background-color: rgba(36, 40, 48, 1);   
 }
 
 .EventProfile-container .EventTitle {
@@ -139,7 +139,7 @@ body {
   }
 
 .EventProfile-container .RightSide{
-    position: absolute;
+    position: fixed;
     right: 0%;
     width: 50%;
 }
@@ -173,3 +173,21 @@ body {
 #highlight, #highlight:hover, #highlight:active, #highlight:focus {
     color: white;
 }
+
+.grow-going {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .grow-going:hover,
+  .grow-going:focus {
+    transform: scale(1.05);
+  }
+  
+  .grow-going:active {
+    transform: scale(0.9);
+  }
+
+  
