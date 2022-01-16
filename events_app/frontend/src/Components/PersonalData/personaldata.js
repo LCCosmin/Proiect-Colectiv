@@ -92,7 +92,6 @@ class PersonalData extends React.Component{
 
   componentDidMount(){
     this.id = window.location.href.split('/').at(-1);
-    var userInfo = {id_user: this.state.info.id_user};
     axios
       .post("http://127.0.0.1:8000/api/getpersonaldata", {id_user: this.id})
       .then(response => {
@@ -103,6 +102,8 @@ class PersonalData extends React.Component{
         document.getElementById("about").value = response.data.about;
         document.getElementById("facebook").value = response.data.facebook != '-' ? response.data.facebook : '';
         document.getElementById("instagram").value = response.data.instagram != '-'  ? response.data.instagram : '';
+        document.getElementById("user-img").src = "/images/" + response.data.img_name;
+        console.log(response.data);
        }
       })
       .catch(err => console.log(err));
@@ -113,7 +114,7 @@ class PersonalData extends React.Component{
       <>
         <div className="split1 left1">
           <div className="bgr-transparent1 par1 prof-image5">
-            <img src="/images/no_profile_pic.png" />
+            <img id="user-img"/>
           </div>
           <div className="centered1">
             <a href="" onClick={() => this.props.navigate("/changepassword/" + this.id)}>Change Password</a><br></br>

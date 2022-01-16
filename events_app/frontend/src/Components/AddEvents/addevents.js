@@ -15,7 +15,7 @@ class AddEvents extends React.Component {
       event: {
         name: "",
         price: "",
-        id_organizer: 15,
+        id_organizer: 19,
         start_date: "",
         end_date: "",
         location: "",
@@ -75,7 +75,6 @@ class AddEvents extends React.Component {
 
   addEvent = () => {
     this.aux = this.state.event.img_name;
-    //window.confirm(this.state.event.img_name);
     this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
     axios
       .post("http://127.0.0.1:8000/api/addevent", this.state.event)

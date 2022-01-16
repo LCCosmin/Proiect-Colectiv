@@ -126,8 +126,6 @@ def addevent(request):
 @api_view(['POST'])
 def updatepersonaldata(request):
     if request.method == "POST":
-        # extension = '.' + request.data['img_name']
-        # request.data['img_name'] = str(uuid.uuid4()) + extension
         try:
             user_info = UserInfo.objects.get(id_user=request.data['id_user'])
             user_info.first_name = request.data['first_name']
@@ -137,9 +135,13 @@ def updatepersonaldata(request):
             user_info.img_name = request.data['img_name']
             user_info.facebook = request.data['facebook']
             user_info.instagram = request.data['instagram']
+            extension = '.' + user_info.img_name;
+            user_info.img_name = str(uuid.uuid4()) + extension
             user_info.save()
-            return Response({'updated':request.data['img_name']})
+            return Response({'updated':user_info.img_name})
         except UserInfo.DoesNotExist:
+            extension = '.' + request.data['img_name']
+            request.data['img_name'] = str(uuid.uuid4()) + extension
             serializer = UserInfoSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -224,6 +226,7 @@ def uploadimage(request):
         if request.FILES.get("image", None) is not None:
             #So this would be the logic
             img = request.FILES["image"]
+            print(img)
             img_extension = os.path.splitext(img.name)[1]
             #print(os.path.splitext(img.name)[0])
             # This will generate random folder for saving your image using UUID
