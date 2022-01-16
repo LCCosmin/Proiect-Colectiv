@@ -4,6 +4,16 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 
 export default class Profile extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {connectionisactive : false} 
+        this.handleconnection = this.handleconnection.bind(this)}
+
+    handleconnection(){
+        this.setState({connectionisactive: true})
+        console.log(this.connectionisactive)}
+
     render() {
         return ( 
             <div>
@@ -23,9 +33,11 @@ export default class Profile extends Component {
                           Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                         </p>
                         <div className = "profile-icons">
-                          <h3 className="icon"> <FaFacebookSquare/> </h3>
-                          <h3 className="icon"> <BsInstagram/> </h3>
-                          <button className="profile-button">Connect</button>
+                          <a href="https://tex.stackexchange.com/questions/55210/not-element-of-in-latin-modern" className="icon"><h3 className="icon" id={this.state.connectionisactive == true ? 'pressicons': null}> <FaFacebookSquare/> </h3></a>
+                          <a href="https://tex.stackexchange.com/questions/55210/not-element-of-in-latin-modern" className="icon"><h3 className="icon" id={this.state.connectionisactive == true ? 'pressicons': null}> <BsInstagram/> </h3></a>
+                          <button className="profile-button" id={this.state.connectionisactive == true ? 'pushbutton': null} onClick={this.handleconnection}>Connect</button>
+                          <button className="settings-button">⚙️</button>
+                          <cog/>
                         </div>
                           
                     </div>
