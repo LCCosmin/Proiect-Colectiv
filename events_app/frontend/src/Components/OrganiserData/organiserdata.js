@@ -7,6 +7,18 @@ import { useNavigate } from "react-router-dom";
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 class OrganiserData extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+        events:[],
+        types: [],
+    }
+    this.id = 0;
+  }
+  componentDidMount(){
+    this.id = window.location.href.split('/').at(-1);
+  }
+
   render(){
     return (
       <>
@@ -15,10 +27,10 @@ class OrganiserData extends React.Component{
             <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered10">
-            <a href="">Personal Data</a><br></br>
-            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.state.info.id_user)}>Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/addevents/" + this.id)}>Add event</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.id)}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
-            <a href="">News feed</a>
+            <a href="" onClick={() => this.props.navigate("/eventpostuser/" + this.id)}>News feed</a>
           </div>
         </div>
         <div></div>

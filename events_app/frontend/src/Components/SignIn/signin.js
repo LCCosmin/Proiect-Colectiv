@@ -212,7 +212,7 @@ class SignIn extends React.Component {
               >
                 Already have an account?
                 <a
-                  href="#0"
+                  href=""
                   className="formatLabelSignIn borderSignInLink link-signin dim-signin white underline mrg-left-link-log display-block-signin"
                   onClick={() => {
                     this.props.navigate("/login");

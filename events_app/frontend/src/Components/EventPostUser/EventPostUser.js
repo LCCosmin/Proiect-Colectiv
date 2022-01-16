@@ -76,7 +76,7 @@ class EventPostUser extends React.Component {
         return(
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">
-                    <a onClick={() => this.props.navigate("/changepassword/" + this.id)}>
+                    <a>
                     <img src="/images/logo.png" 
                     width="135px" height="100%" className="logo" alt="OmniEvents" />
                     </a>
@@ -88,7 +88,7 @@ class EventPostUser extends React.Component {
                     </a>
                     <div className="margin">
                         <a style={{"padding-top": "30px"}} href="" onClick={() => this.props.navigate("/eventslist/" + this.id)}>My list</a>
-                        <a style={{"padding-top": "30px"}} href="#signot">Signout</a>
+                        <a style={{"padding-top": "30px"}} href="" onClick={() => this.props.navigate("/")}>Signout</a>
                     
                         <div style={{"padding-top": "7px"}} className="notification-list-user-img">
                                 <img id="user-profile-img" src="/images/no_profile_pic.png" alt="" className="user-avatar-md rounded-circle"  onClick={this.goToProfile}/>

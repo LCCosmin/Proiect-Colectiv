@@ -3,6 +3,8 @@ import "./addevents.css";
 import axios from 'axios'; 
 import {IoLocationOutline} from "react-icons/io5";
 import {IoPricetagOutline} from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
@@ -91,6 +93,7 @@ class AddEvents extends React.Component {
   }
 
   componentDidMount(){
+    this.id = window.location.href.split('/').at(-1);
     axios
     .get("http://127.0.0.1:8000/api/geteventtypes")
     .then(response =>{
@@ -106,13 +109,12 @@ class AddEvents extends React.Component {
       <>
         <div className="split left">
           <div className="bgr-transparent parr proff-image">
-            <img className="imag-sz" src="" />
+            {/* <img className="/" src="/images/no_profile_pic.png" /> */}
           </div>
           <div className="centered">
-            <a href="">Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
-            <a href="">My List</a><br></br>
-            <a href="">Add Event</a>
+            <a href="" onClick={() => this.props.navigate("/organiserdata/" + this.id)}>Personal Data</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.id)}>Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/addevents/" + this.id)}>My List</a><br></br>
           </div>
         </div>
         <div>
@@ -198,5 +200,8 @@ class AddEvents extends React.Component {
     );
   }
 };
-
-export default AddEvents;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <AddEvents {...props} navigate={navigate} />;
+}
+export default WithNavigate;
