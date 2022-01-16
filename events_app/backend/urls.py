@@ -19,6 +19,10 @@ urlpatterns = [
 	path('api/signin', views.signin),
 	path('api/geteventdetails', views.geteventdetails),
 	path('api/updatepersonaldata', views.updatepersonaldata),
+	path('api/getpersonaldata', views.getpersonaldata),
 	path('api/usergoingtoevent', views.usergoingtoevent),
+	path('api/usersinterested', views.usersinterested),
+	path('api/getparticipantslist', views.getparticipantslist),
+	path('api/getuserinfo', views.getuserinfo),
 
 ]

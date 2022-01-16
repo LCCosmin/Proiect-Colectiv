@@ -1,11 +1,20 @@
 import React from "react";
 import styles from "./changepassword.css";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 class ChangePassword extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    this.id = window.location.href.split('/').at(-1);
+    
+  }
 
   render(){
     return (
@@ -15,8 +24,7 @@ class ChangePassword extends React.Component {
               <img src="/images/no_profile_pic.png" />
           </div>
           <div className="centered2">
-            <a href="">Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
+            <a href="" onClick={() => this.props.navigate("/personaldata/" + this.id)}>Personal Data</a><br></br>
             <a href="">My List</a><br></br>
             <a href="">Add Event</a>
           </div>
@@ -48,7 +56,7 @@ class ChangePassword extends React.Component {
             placeholder="Password Confirmation"
           />
           <div className="mr-top2">
-            <input type="button" class="mybutton2 brad2 d-block2 mr-12 ml-auto2" value="Change"/>
+            <input type="button" className="grow-change mybutton2 brad2 d-block2 mr-12 ml-auto2" value="Change"/>
           </div>
         </div>
       </>
@@ -57,4 +65,8 @@ class ChangePassword extends React.Component {
 };
 
 
-export default ChangePassword;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <ChangePassword {...props} navigate={navigate} />;
+}
+export default WithNavigate;

@@ -63,3 +63,18 @@
     margin: auto;
 }
  
+.grow-connect {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .grow-connect:hover,
+  .grow-connect:focus {
+    transform: scale(1.05);
+  }
+  
+  .grow-connect:active {
+    transform: scale(0.9);
+  }

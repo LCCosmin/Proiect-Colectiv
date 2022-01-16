@@ -25,11 +25,13 @@ class Login extends React.Component {
             this.props.navigate("/");
             break;
           case 2:
-            this.props.loggedUser.user.id = response.data.id;
-            this.props.navigate("/addevents");
+            if(!response.data.user_info){
+              this.props.navigate("/organiserdata/" + response.data.id);
+            }else{
+              this.props.navigate("/addevents");
+            }
             break;
           case 3:
-            this.props.loggedUser.user.id = response.data.id;
             if(!response.data.user_info){
               this.props.navigate("/personaldata/"+ response.data.id);
             }else{
@@ -57,10 +59,18 @@ class Login extends React.Component {
               this.props.navigate("/");
               break;
             case 2:
-              this.props.navigate("/addevents");
+              if(!response.data.user_info){
+                this.props.navigate("/organiserdata/" + response.data.id);
+              }else{
+                this.props.navigate("/addevents");
+              }
               break;
             case 3:
-              this.props.navigate("/eventpostuser");
+              if(!response.data.user_info){
+                this.props.navigate("/personaldata/"+ response.data.id);
+              }else{
+                this.props.navigate("/eventpostuser/"+ response.data.id);
+              }
               break;
             default:
               this.showErrorMessage();
@@ -130,21 +140,6 @@ class Login extends React.Component {
                 onKeyPress={this.checkLoginKey}
               />
             </div>
-            <div className="line-hight-login marginsDivLogin centerLoginContent">
-              <label className="fontLabelLogin line-hight-login white pointer">
-                <input type="checkbox" /> Remember me
-              </label>
-              <a
-                href="#0"
-                className="fontLabelLogin link-login dim white db underline"
-                onClick={() => {
-                  this.props.navigate("/changepassword");
-                }}
-              >
-                Forgot your password?
-              </a>
-            </div>
-
             <div className="line-hight-login marginsDivLogin centerLoginContent">
               <button
                 className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login"

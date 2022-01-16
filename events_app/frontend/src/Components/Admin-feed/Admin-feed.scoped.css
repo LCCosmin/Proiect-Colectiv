@@ -297,3 +297,20 @@ html,body{
         padding:10px;
     }
 }
+
+
+.grow-accept-deny {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .grow-accept-deny:hover,
+  .grow-accept-deny:focus {
+    transform: scale(1.05);
+  }
+  
+  .grow-accept-deny:active {
+    transform: scale(0.9);
+  }
