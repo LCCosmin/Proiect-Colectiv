@@ -114,6 +114,11 @@ class App extends Component {
               path="/eventslist/:id"
               element={<EventsList/>}
             />
+             <Route
+              exact
+              path="/organiserdata/:id"
+              element={<OrganiserData/>}
+            />
           </Routes>
         </Router>
         {/* <PersonalData/>  */}
