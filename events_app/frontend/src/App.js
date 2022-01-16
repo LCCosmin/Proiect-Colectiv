@@ -21,6 +21,7 @@ import Filter from './Components/FilterEvents/filter.js';
 import ParticipantsList from './Components/Participants-list/Participants-list.js';
 import OrganiserData from './Components/OrganiserData/organiserdata.js';
 import ModifyEventData from "./Components/ModifyEvent/ModifyEvent.js";
+import EventsList from "./Components/EventsList/eventslist";
 
 
 
@@ -37,71 +38,81 @@ class App extends Component {
       <div>
          <Router>
           <Routes>
-            <Route exact path="/" element={<Home loggedUser={this.state} />} />
+            <Route exact path="/" element={<Home />} />
             <Route
               exact
               path="/signin"
-              element={<SignIn loggedUser={this.state} />}
+              element={<SignIn/>}
             />
             <Route
               exact
               path="/login"
-              element={<Login loggedUser={this.state} />}
+              element={<Login/>}
             />
             <Route
               exact
-              path="/addevents"
-              element={<AddEvents loggedUser={this.state} />}
+              path="/addevents/:id"
+              element={<AddEvents/>}
             />
             <Route
               exact
-              path="/adminfeed"
-              element={<AdminFeed loggedUser={this.state} />}
+              path="/adminfeed/:id"
+              element={<AdminFeed/>}
             />
             <Route
               exact
               path="/adminnotifications"
-              element={<AdminNotifications loggedUser={this.state} />}
+              element={<AdminNotifications/>}
             />
             <Route
               exact
-              path="/changepassword"
-              element={<ChangePassword loggedUser={this.state} />}
+              path="/changepassword/:id"
+              element={<ChangePassword/>}
             />
             <Route
               exact
               path="/eventpostadmin"
-              element={<EventPostAdmin loggedUser={this.state} />}
+              element={<EventPostAdmin/>}
             />
             <Route
               exact
-              path="/eventpostuser"
-              element={<EventPostUser loggedUser={this.state} />}
+              path="/eventpostuser/:id"
+              element={<EventPostUser/>}
             />
             <Route
               exact
-              path="/eventprofile"
-              element={<EventProfile loggedUser={this.state} />}
+              path="/eventprofile/:id"
+              element={<EventProfile/>}
             />
             <Route
               exact
-              path="/personaldata"
-              element={<PersonalData loggedUser={this.state} />}
+              path="/personaldata/:id"
+              element={<PersonalData/>}
             />
             <Route
               exact
-              path="/profile"
-              element={<Profile loggedUser={this.state} />}
+              path="/profile/:id"
+              element={<Profile/>}
             />
             <Route
               exact
-              path="/eventpostorganiser"
-              element={<EventPostOrganiser loggedUser={this.state} />}
+              path="/eventpostorganiser/:id"
+              element={<EventPostOrganiser/>}
             />
-             <Route
+            <Route
               exact
-              path="/modifyevent"
-              element={<ModifyEventData loggedUser={this.state} />}
+              path="/modifyevent/:id"
+              element={<ModifyEventData/>}
+            />
+            <Route
+              exact
+              path="/participantslist/:id"
+              element={<ParticipantsList/>}
+            />
+            <Route
+              exact
+              path="/eventslist/:id"
+              element={<EventsList/>}
             />
           </Routes>
         </Router>

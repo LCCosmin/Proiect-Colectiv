@@ -260,6 +260,24 @@ def getparticipantslist(request):
         return Response({'participants': participants})
 
 @api_view(['POST'])
+def getusersofevent(request):
+    data = JSONParser().parse(request)
+    if request.method == "POST":
+        cursor = connection.cursor()
+        cursor.execute("select * from events inner join users2events on events.id = users2events.id_event where id_user =" + data['id'])
+        results = cursor.fetchall()
+        print(results)
+        events = []
+        for r in results:
+            e = {}
+            e['id'] = r[0];
+            e['name'] = r[1]
+            e['description'] = r[7]
+            e['img_name'] = r[10]
+            events.append(e)
+        return Response({'events': events})
+
+@api_view(['POST'])
 def getuserinfo(request):
     data = JSONParser().parse(request)
     if request.method == "POST":
