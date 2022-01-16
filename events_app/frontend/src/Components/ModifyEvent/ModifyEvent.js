@@ -195,7 +195,7 @@ class ModifyEventData extends React.Component {
           </select>
           </label>
           <div>
-            <input type="button" class="myb brad margin-bottom d-block mr-1 ml-auto" value="Modify event" onClick={this.modifyEvent} />
+            <input type="button" class="grow-modify myb brad margin-bottom d-block mr-1 ml-auto" value="Modify event" onClick={this.modifyEvent} />
           </div>
         </div>
       </>

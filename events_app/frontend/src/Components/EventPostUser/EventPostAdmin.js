@@ -26,9 +26,9 @@ class EventPostAdmin extends React.Component {
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 </div>
                 <div className="EventPostButtonsAdmin" >
-                            <button type="button" className="EventPostButtonAdmin EventPostBradAdmin"> Accept </button> 
+                            <button type="button" className="grow-accept-decline EventPostButtonAdmin EventPostBradAdmin"> Accept </button> 
                             <div className="DividerEventPostAdmin"/>
-                            <button type="button" className="EventPostButtonAdmin EventPostBradAdmin"> Decline </button> 
+                            <button type="button" className="grow-accept-decline EventPostButtonAdmin EventPostBradAdmin"> Decline </button> 
                         </div>
             </div>
         )

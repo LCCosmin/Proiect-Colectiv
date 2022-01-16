@@ -96,7 +96,7 @@ class EventPostUser extends React.Component {
                                         <p> <GiPartyPopper/> Type</p>
                                     </div>
                                     <div className="EventPostButtons" >
-                                                <button id={event.id} type="button" className="EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
+                                                <button id={event.id} type="button" className="grow-going EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
                                                 <div className="DividerEventPost"/>
                                                 {/* <button type="button" className="EventPostButton EventPostBrad"> Maybe </button>  */}
                                             </div>

@@ -216,3 +216,18 @@
   left: 30%;
 }
   
+.grow-update {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.grow-update:hover,
+.grow-update:focus {
+  transform: scale(1.05);
+}
+
+.grow-update:active {
+  transform: scale(0.9);
+}

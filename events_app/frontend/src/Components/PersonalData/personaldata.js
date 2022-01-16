@@ -162,7 +162,7 @@ class PersonalData extends React.Component{
             onChange={this.fileSelectedHandler}
           />
           <div className="mr-top">
-            <input type="button" class="mybutton1 brad1 d-block1 ml-btn" value="Update Details" onClick={this.updateDetails}/>
+            <input type="button" class="grow-update mybutton1 brad1 d-block1 ml-btn" value="Update Details" onClick={this.updateDetails}/>
           </div>
         </div>
       </>

@@ -82,7 +82,7 @@ class EventPostOrganiser extends React.Component {
                                         <p> <GiPartyPopper/> Type</p>
                                     </div>
                                     <div className="EventPostButtons" >
-                                        <button id={event.id} type="button" className="EventPostButton EventPostBrad going-btn" onClick={this.modifyEventData}> Modify </button> 
+                                        <button id={event.id} type="button" className="grow-change EventPostButton EventPostBrad going-btn" onClick={this.modifyEventData}> Modify </button> 
                                     </div>
                                 </div>
                             </article>

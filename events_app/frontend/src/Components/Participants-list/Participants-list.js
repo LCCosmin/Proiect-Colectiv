@@ -52,7 +52,7 @@ class ParticipantsList extends React.Component {
                   <form className="width-list-part-90 text-al-right">
                     <button
                       id=""
-                      className="font-size-24 button-reset dim-connect-button dim-button border-custom b-color-black dim pointer padding-tb white"
+                      className="grow-connect font-size-24 button-reset dim-connect-button dim-button border-custom b-color-black dim pointer padding-tb white"
                       type="submit"
                     >
                       Connect

@@ -72,7 +72,7 @@ class OrganiserData extends React.Component{
             placeholder="Upload Picture"
           />
           <div className="mr10-top">
-            <input type="button" class="mybutton10 brad10 d-block10 ml-btn10" value="Update Details"/>
+            <input type="button" class="grow-modify mybutton10 brad10 d-block10 ml-btn10" value="Update Details"/>
           </div>
         </div>
       </>

@@ -293,3 +293,19 @@
   height:11rem;
   width: 11rem;
 }
+
+.grow-modify {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.grow-modify:hover,
+.grow-modify:focus {
+  transform: scale(1.05);
+}
+
+.grow-modify:active {
+  transform: scale(0.9);
+}

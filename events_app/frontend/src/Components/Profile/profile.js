@@ -25,7 +25,7 @@ export default class Profile extends Component {
                         <div className = "profile-icons">
                           <h3 className="icon"> <FaFacebookSquare/> </h3>
                           <h3 className="icon"> <BsInstagram/> </h3>
-                          <button className="profile-button">Connect</button>
+                          <button className="grow-connect profile-button">Connect</button>
                         </div>
                           
                     </div>

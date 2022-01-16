@@ -31,6 +31,7 @@ class Home extends React.Component {
             memories!
           </p>
           <button
+            className="grow-make-account"
             onClick={() => {
               this.props.navigate("/signin");
             }}

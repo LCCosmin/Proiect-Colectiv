@@ -78,8 +78,8 @@ class AdminFeed extends React.Component {
                                 <h2 className="f18 fw4 mt0 mb0 black-60">End Date: {obj.end_date}</h2>
                             </div>
                             <div className=" dtc v-mid btn-right">
-                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "accepted", "org")}}>Accept</button>
-                                <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "denied", "org")}}>Decline</button>
+                                <button id="bg-white" className="f6 grow-accept-deny button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "accepted", "org")}}>Accept</button>
+                                <button id="bg-white" className="f6 grow-accept-deny button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "denied", "org")}}>Decline</button>
                             </div>
                         </div>
                     </article>
@@ -102,8 +102,8 @@ class AdminFeed extends React.Component {
                                     <h1 className="f18 fw4 mt0 mb0 black-60 ">{obj.password}</h1>
                                 </div>
                                 <div className=" dtc v-mid btn-right">
-                                    <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "accepted", "events")}}>Accept</button>
-                                    <button id="bg-white" className="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "denied", "events")}}>Decline</button>
+                                    <button id="bg-white" className="f6 grow-accept-deny button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "accepted", "events")}}>Accept</button>
+                                    <button id="bg-white" className="f6 grow-accept-deny button-reset bg-white ba b--black-10 dim pointer pv1 black-60" onClick={() => {this.manageButtons(obj, "denied", "events")}}>Decline</button>
                                 </div>
                             </div>
                         </article>

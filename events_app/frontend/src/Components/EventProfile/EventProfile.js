@@ -73,7 +73,7 @@ class EventProfile extends React.Component {
                 <div className="RightSide rightPadding" >
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
-                        <button type="button" className="anyButton brad marginEventProf"> Going </button> 
+                        <button type="button" className="grow-going anyButton brad marginEventProf"> Going </button> 
                     </div>
 
                     <div style={{float: 'left'}} >
