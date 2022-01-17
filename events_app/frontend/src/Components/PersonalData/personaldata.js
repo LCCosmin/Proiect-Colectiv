@@ -24,6 +24,7 @@ class PersonalData extends React.Component{
     }
     this.id = 0;
     this.aux = '';
+    this.exists = false;
   }
 
   updateFirstName = event => {
@@ -103,13 +104,16 @@ class PersonalData extends React.Component{
         document.getElementById("facebook").value = response.data.facebook != '-' ? response.data.facebook : '';
         document.getElementById("instagram").value = response.data.instagram != '-'  ? response.data.instagram : '';
         document.getElementById("user-img").src = "/images/" + response.data.img_name;
-        console.log(response.data);
+        this.exists = true;
+       }else{
+         this.exists = false;
        }
       })
       .catch(err => console.log(err));
   }
 
   render(){
+    console.log(this.exists);
     return (
       <>
         <div className="split1 left1">
@@ -117,9 +121,9 @@ class PersonalData extends React.Component{
             <img id="user-img"/>
           </div>
           <div className="centered1">
-            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.id)}>Change Password</a><br></br>
+            <a href="" onClick={() =>{if(this.exists) this.props.navigate("/changepassword/" + this.id); else console.log(1);}}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
-            <a href="" onClick={() => this.props.navigate("/eventpostuser/" + this.id)}>News feed</a>
+            <a href="" onClick={() => {if(this.exists) this.props.navigate("/eventpostuser/" + this.id); else console.log(1);}}>News feed</a>
           </div>
         </div>
         <div></div>
