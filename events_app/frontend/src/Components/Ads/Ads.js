@@ -6,19 +6,41 @@ class Ads extends React.Component {
   constructor() {
     super();
     this.state = {
-        pathsImages: ["https://cdn-upmostly.pressidium.com/wp-content/uploads/setInterval-react.avif",
-        "https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg",
-        "https://www.kudika.ro/images/image_thumbs/thumbs/c7d4e2340297ac3c24280d83f6da47ef/641x334-00-60.jpg?v=1506602456",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNLxynIJvFN_LIGoUoK61TsE6nBV9HNSV-VA&usqp=CAU",
-        "https://www.ilmubahasainggris.com/wp-content/uploads/2017/03/NGC.jpg.webp",
-        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/matching-replacing-mixing-colors/jcr_content/main-pars/before_and_after/image-after/match-outcome3.png"
-         
-    ]
+      adds:[
+        {"img_name": "emag.png", "path": "https://www.emag.ro/"},
+        {"img_name":"kfc.jpg", "path":"https://www.kfc.ro/"},
+        {"img_name":"marcopolo.png", "path": "https://www.marc-o-polo.com/en-ro"},
+        {"img_name":"officeshoes.jpg", "path": "https://www.officeshoes.ro/"},
+        {"img_name":"footshop.png", "path":"https://www.footshop.ro/ro/"},
+        {"img_name":"spartan.jpg", "path": "https://spartan.ro/"},
+        {"img_name":"sneakerindustry.png", "path": "https://sneakerindustry.ro/ro/"},
+        {"img_name":"ubb.gif", "path": "http://www.cs.ubbcluj.ro/"},
+        {"img_name":"xpertbeauty.jpg", "path": "https://www.xpertbeauty.ro/"},
+        {"img_name":"hm.jpg", "path": "https://www2.hm.com/ro_ro/index.html"},
+        {"img_name":"storia.png", "path": "https://www.storia.ro/"},
+        {"img_name":"f64.jpg", "path": "https://www.f64.ro/"},
+        {"img_name":"bershka.jpg", "path": "https://www.bershka.com/ro/"},
+        {"img_name":"thebodyshop.jpg", "path": "https://thebodyshop.ro/"},
+        {"img_name":"vagabond.png", "path": "https://vagabondstudio.com/"},
+        {"img_name":"gucci.png", "path": "https://www.gucci.com/ro/en_gb/"},
+        {"img_name":"capodopera.jpg", "path": "https://capodopera12.ro/"},
+        {"img_name":"benvenuti.jpg", "path": "https://www.benvenuti.ro/"},
+        {"img_name":"stradivarius.jpg", "path": "https://www.stradivarius.com/ro/"},
+      ],
   }
 }
-  
+  getRandomAdds(){
+    let rand;
+    console.log(rand);
+    var addsArray = [];
+    while(addsArray.length != 8){
+      rand = Math.floor(Math.random() * 19);
+      if(!addsArray.includes(this.state.adds[rand]))
+        addsArray.push(this.state.adds[rand]);
+    }
+    return addsArray;
+  }
   changeData = () => { 
-      console.log("here");
     document.getElementById("id1").src="https://cdn-upmostly.pressidium.com/wp-content/uploads/setInterval-react.avif";
     document.getElementById("id1").onClick = function () { window.open("https://upmostly.com/tutorials/setinterval-in-react-components-using-hooks", "_blank")};
   }
@@ -29,101 +51,29 @@ class Ads extends React.Component {
     }, 1000);
     
   }
-
   render() {
-    
+    var randomAdds = this.getRandomAdds();
+    console.log(randomAdds)
+    console.log(this.state.adds);
     return (
       <div className="cv" height="10%" position="">
-        <img
-          className="ads"
-          id= "ad1"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMGiXobJMr4QjQaofuxJIqLAc4HwUpPMylOQ&usqp=CAU"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-          
-        />
-        <img
-          className="ads-wb"
-          id= "ad2"
-          src="https://www.kudika.ro/images/image_thumbs/thumbs/c7d4e2340297ac3c24280d83f6da47ef/641x334-00-60.jpg?v=1506602456"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
-        <img
-          className="ads"
-          id= "ad3"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNLxynIJvFN_LIGoUoK61TsE6nBV9HNSV-VA&usqp=CAU"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
-        <img
-          className="ads-wb"
-          id= "ad4"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYIX4fdymadei7FiL-19pxFAWPLEJgQlNEww&usqp=CAU"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
-        <img
-          className="ads"
-          id= "ad5"
-          src="https://www.ilmubahasainggris.com/wp-content/uploads/2017/03/NGC.jpg.webp"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
-        
-        <img
-          className="ads-wb"
-          id= "ad7"
-          src="https://1.bp.blogspot.com/-3yhvLuvpycE/XtDk2wNHrTI/AAAAAAAAnR4/6uuTjAluFH07ovTTp0GHJwbxDscEinWbACLcBGAsYHQ/s1600/fundal%2Bdesktop-wallpaper%255B8%255D.jpg"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
-        <img
-          className="ads"
-          id= "ad8"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUxSIhz5mBLDTSTPgX99ASBGBu5DU-uD7YvQ&usqp=CAU"
-          alt="ccvcvcvc"
-          width="12.3%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
-         <img
-          className="ads-last"
-          id= "ad9"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStj5JyVIEKFSgl2D9h2hSexQcEst5IJosZ2Q&usqp=CAU"
-          alt="ccvcvcvc"
-          width="12.05%"
-          height="170px"
-          onClick={() =>
-            window.open("https://github.com/Joeyryanbridges", "_blank")
-          }
-        />
+        {
+        randomAdds.map((add)=>{
+          return(
+            <img
+              className="ads"
+              id= "ad1"
+              src={"/images/" + add.img_name}
+              alt="ccvcvcvc"
+              width="12.3%"
+              height="170px"
+              onClick={() =>
+                window.open(add.path, "_blank")
+              }
+            />
+          )
+      })
+    }
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React from "react";
 import "./login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Ads from "../Ads/Ads";
 
 class Login extends React.Component {
   constructor() {
@@ -22,7 +23,7 @@ class Login extends React.Component {
     .then((response) => {
         switch (response.data.role) {
           case 1:
-            this.props.navigate("/");
+            this.props.navigate("/adminfeed/" + response.data.id);
             break;
           case 2:
             if(!response.data.user_info){
@@ -54,7 +55,6 @@ class Login extends React.Component {
       axios
       .post("http://127.0.0.1:8000/api/login", this.state.item)
       .then((response) => {
-        console.log(response.data.role);
           switch (response.data.role) {
             case 1:
               this.props.navigate("/adminfeed/" + response.data.id);
@@ -146,7 +146,6 @@ class Login extends React.Component {
                 className="dimensions-button-login fontLabelLogin borderLogin button-login grow-login pointer display-login mrg-left-buton-login"
                 onClick={this.checkLogin}
               >
-                {" "}
                 Log in
               </button>
             </div>
@@ -175,6 +174,7 @@ class Login extends React.Component {
           <strong>Error!</strong> The account does not exist. Please check if
           the email and password are correct.
         </div>
+        <Ads></Ads>
       </div>
     );
   }

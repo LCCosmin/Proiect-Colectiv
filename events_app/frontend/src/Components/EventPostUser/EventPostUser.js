@@ -7,6 +7,7 @@ import {IoLocationOutline} from "react-icons/io5";
 import {IoPricetagOutline} from "react-icons/io5";
 import {MdDateRange} from "react-icons/md";
 import {GiPartyPopper} from "react-icons/gi";
+import Ads from "../Ads/Ads";
 
 
 class EventPostUser extends React.Component {
@@ -127,6 +128,7 @@ class EventPostUser extends React.Component {
                         )
                     })
                 }
+                <Ads></Ads>
             </main>
         )
     }

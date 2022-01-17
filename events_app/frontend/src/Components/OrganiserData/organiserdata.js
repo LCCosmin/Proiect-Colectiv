@@ -70,8 +70,8 @@ class OrganiserData extends React.Component{
     this.aux = this.state.info.img_name;
     this.state.info.img_name = this.state.info.img_name.name.split(".")[1];
     this.state.info.id_user = this.id;
-    this.state.info.first_name = document.getElementById("firstname").value;
-    this.state.info.last_name = document.getElementById("surname").value;
+    this.state.info.first_name = document.getElementById("organisername").value;
+    this.state.info.last_name = document.getElementById("organisationname").value;
     this.state.info.dob = document.getElementById("birthday").value;
     this.state.info.about = document.getElementById("about").value;
     this.state.info.facebook = document.getElementById("facebook").value ? document.getElementById("facebook").value : '-';
@@ -96,9 +96,10 @@ class OrganiserData extends React.Component{
     axios
     .post("http://127.0.0.1:8000/api/getpersonaldata", {id_user: this.id})
     .then(response => {
+      console.log(response.data);
      if(response.data.exists == true){
-      document.getElementById("firstname").value = response.data.first_name;
-      document.getElementById("surname").value = response.data.last_name;
+      document.getElementById("organisername").value = response.data.first_name;
+      document.getElementById("organisationname").value = response.data.last_name;
       document.getElementById("birthday").value = response.data.dob;
       document.getElementById("about").value = response.data.about;
       document.getElementById("facebook").value = response.data.facebook != '-' ? response.data.facebook : '';
@@ -106,6 +107,7 @@ class OrganiserData extends React.Component{
       document.getElementById("user-img").src = "/images/" + response.data.img_name;
       this.exists = true;
      }else{
+      document.getElementById("user-img").src = "/images/no_profile_pic.png";
        this.exists = false;
      }
     })
@@ -117,7 +119,7 @@ class OrganiserData extends React.Component{
       <>
         <div className="split10 left10">
           <div className="bgr-transparent10 par10 prof-image10">
-            <img id="user-img" src="/images/no_profile_pic.png" />
+            <img id="user-img"/>
           </div>
           <div className="centered10">
             <a href="" onClick={() => this.props.navigate("/addevents/" + this.id)}>Add event</a><br></br>
@@ -177,7 +179,7 @@ class OrganiserData extends React.Component{
             className="margins10 pad10 fww410 f510 inp-reset10 b110 bgr-transparent10 bc--purple10 hover10-cwhite cwhite10-input width10-85"
             type="text"
             name="Instagram"
-            id="Instagram"
+            id="instagram"
             placeholder="Instagram"
             onChange={this.updateInstagram}
           />
@@ -190,7 +192,7 @@ class OrganiserData extends React.Component{
             onChange={this.fileSelectedHandler}
           />
           <div className="mr10-top">
-            <input type="button" class="grow-modify mybutton10 brad10 d-block10 ml-btn10" value="Update Details"/>
+            <input type="button" class="grow-modify mybutton10 brad10 d-block10 ml-btn10" value="Update Details" onClick={this.updateDetails}/>
           </div>
         </div>
       </>

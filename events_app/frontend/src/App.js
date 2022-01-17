@@ -121,10 +121,6 @@ class App extends Component {
             />
           </Routes>
         </Router>
-        {/* <PersonalData/>  */}
-        {/* <EventProfile/> */}
-        {/* <Filter/> */}
-        <Ads/>
       </div>
     );
   }

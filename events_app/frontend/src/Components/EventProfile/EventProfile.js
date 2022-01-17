@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { MdDateRange } from "react-icons/md";
 import { MdAccessTime } from "react-icons/md";
 import styles from "./EventProfile.css";
+import Ads from "../Ads/Ads";
 
 class EventProfile extends React.Component {
     constructor(){
@@ -89,6 +90,7 @@ class EventProfile extends React.Component {
                     </div>  */}
                     
                 </div>   
+                <Ads></Ads>
           </div>
     );
   }

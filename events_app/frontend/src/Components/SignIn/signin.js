@@ -2,6 +2,7 @@ import React from "react";
 import "./signin.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Ads from "../Ads/Ads";
 
 class SignIn extends React.Component {
   constructor() {
@@ -234,6 +235,7 @@ class SignIn extends React.Component {
           <strong>Error!</strong> The account does not exist. Please check if
           the email and password are correct.
         </div>
+        <Ads/>
       </div>
     );
   }

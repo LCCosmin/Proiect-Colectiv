@@ -3,6 +3,8 @@ import './profile.css'
 import { FaFacebookSquare } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import axios from 'axios'; 
+import Ads from "../Ads/Ads";
+
 
 class Profile extends Component {
     constructor(){
@@ -62,6 +64,7 @@ class Profile extends Component {
                           
                     </div>
                 </div>
+                <Ads></Ads>
             </div>
         )
     }

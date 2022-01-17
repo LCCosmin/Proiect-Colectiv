@@ -2,6 +2,7 @@ import React from "react";
 import "./eventslist.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Ads from "../Ads/Ads";
 
 class EventsList extends React.Component {
   constructor() {
@@ -91,6 +92,7 @@ class EventsList extends React.Component {
             </div>  
           );
         })}
+        <Ads></Ads>
       </main>
     );
   }

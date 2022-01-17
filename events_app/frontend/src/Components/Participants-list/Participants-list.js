@@ -2,6 +2,7 @@ import React from "react";
 import "./Participants-list.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Ads from "../Ads/Ads";
 
 class ParticipantsList extends React.Component {
   constructor() {
@@ -77,6 +78,7 @@ class ParticipantsList extends React.Component {
             </div>  
           )
         })}
+        <Ads></Ads>
       </main>
     );
   }

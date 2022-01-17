@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./personaldata.css";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Ads from "../Ads/Ads";
+
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -141,7 +143,7 @@ class PersonalData extends React.Component{
             <img id="user-img"/>
           </div>
           <div className="centered1">
-            <a href="">My List</a><br></br>
+            <a href="" onClick={() => {if(this.exists) this.props.navigate("/eventslist/" + this.id); else this.showErrorMessage();}}>My List</a><br></br>
             <a href="" onClick={() => {if(this.exists) this.props.navigate("/eventpostuser/" + this.id); else this.showErrorMessage();}}>News feed</a>
           </div>
         </div>
@@ -218,6 +220,7 @@ class PersonalData extends React.Component{
           </span>
           <strong>Error!</strong>You must complete with your personal data first!
         </div>
+        <Ads></Ads>
         </div>
       </>
     );
