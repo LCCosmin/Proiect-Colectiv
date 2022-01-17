@@ -8,6 +8,7 @@ import {IoPricetagOutline} from "react-icons/io5";
 import {MdDateRange} from "react-icons/md";
 import {GiPartyPopper} from "react-icons/gi";
 import Ads from "../Ads/Ads";
+import Filter from "./filter.js"; 
 
 
 class EventPostUser extends React.Component {
@@ -96,6 +97,10 @@ class EventPostUser extends React.Component {
                         </div>
                     </div>  
                 </div>
+
+                 <div className = "filterBar">
+                    <Filter handlesearch={this.handlesearch} state={this.state} />
+                    </div> 
                 {
                     events.map((event)=>{
                         return(
