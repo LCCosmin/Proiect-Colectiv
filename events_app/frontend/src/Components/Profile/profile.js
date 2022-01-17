@@ -55,8 +55,8 @@ class Profile extends Component {
                         <p style={{"fontSize":"24px","marginTop":"20px"}}>BIO</p>
                         <p className ='profile-description'>{user.about}</p>
                         <div className = "profile-icons">
-                          <a href="https://tex.stackexchange.com/questions/55210/not-element-of-in-latin-modern" className="icon"><h3 className="icon" id={this.state.connectionisactive == true ? 'pressicons': null}> <FaFacebookSquare/> </h3></a>
-                          <a href="https://tex.stackexchange.com/questions/55210/not-element-of-in-latin-modern" className="icon"><h3 className="icon" id={this.state.connectionisactive == true ? 'pressicons': null}> <BsInstagram/> </h3></a>
+                          <a href={user.facebook} className="icon"><h3 className="icon" id={this.state.connectionisactive == true ? 'pressicons': null}> <FaFacebookSquare/> </h3></a>
+                          <a href={user.instagram} className="icon"><h3 className="icon" id={this.state.connectionisactive == true ? 'pressicons': null}> <BsInstagram/> </h3></a>
                           <button className="profile-button" id={this.state.connectionisactive == true ? 'pushbutton': null} onClick={this.handleconnection}>Connect</button>
                           <button className="settings-button">⚙️</button>
                           <cog/>

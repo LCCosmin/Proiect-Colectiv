@@ -17,7 +17,7 @@ import EventProfile from "./Components/EventProfile/EventProfile.js";
 import PersonalData from "./Components/PersonalData/personaldata.js";
 import AdminFeed from "./Components/Admin-feed/Admin-feed.js";
 import Ads from "./Components/Ads/Ads.js";
-import Filter from './Components/FilterEvents/filter.js';
+// import Filter from './Components/FilterEvents/filter.js';
 import ParticipantsList from './Components/Participants-list/Participants-list.js';
 import OrganiserData from './Components/OrganiserData/organiserdata.js';
 import ModifyEventData from "./Components/ModifyEvent/ModifyEvent.js";

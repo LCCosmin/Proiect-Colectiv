@@ -29,7 +29,7 @@ class Login extends React.Component {
             if(!response.data.user_info){
               this.props.navigate("/organiserdata/" + response.data.id);
             }else{
-              this.props.navigate("/addevents");
+              this.props.navigate("/addevents/" + response.data.id);
             }
             break;
           case 3:
@@ -167,7 +167,7 @@ class Login extends React.Component {
             </div>
           </fieldset>
         </div>
-        <div className="alert" id="alertlogin">
+        <div className="alert" id="alertlogin" style={{"z-index": "1"}}>
           <span className="closebtnalert" onClick={this.closeErrorMessage}>
             &times;
           </span>

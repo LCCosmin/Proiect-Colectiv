@@ -8,7 +8,7 @@ import {IoPricetagOutline} from "react-icons/io5";
 import {MdDateRange} from "react-icons/md";
 import {GiPartyPopper} from "react-icons/gi";
 import Ads from "../Ads/Ads";
-import Filter from "./filter.js"; 
+// import Filter from "./filter.js"; 
 
 
 class EventPostUser extends React.Component {
@@ -99,7 +99,7 @@ class EventPostUser extends React.Component {
                 </div>
 
                  <div className = "filterBar">
-                    <Filter handlesearch={this.handlesearch} state={this.state} />
+                    {/* <Filter handlesearch={this.handlesearch} state={this.state} /> */}
                     </div> 
                 {
                     events.map((event)=>{
@@ -124,7 +124,7 @@ class EventPostUser extends React.Component {
                                         <p> <GiPartyPopper/> {this.getEventType(event.id_type)}</p>
                                     </div>
                                     <div className="EventPostButtons" >
-                                                <button id={event.id} type="button" style={{"z-index": "1", "position":"fixed"}} className="grow-going EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
+                                                <button id={event.id} type="button" style={{"z-index": "1"}} className="grow-going EventPostButton EventPostBrad going-btn" onClick={this.userGoingToEvent}> Going </button> 
                                                 <div className="DividerEventPost"/>
                                                 {/* <button type="button" className="EventPostButton EventPostBrad"> Maybe </button>  */}
                                             </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./filter.css";
-import Data from "./data.json";
 import { Container, Row, Col, Dropdown, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
