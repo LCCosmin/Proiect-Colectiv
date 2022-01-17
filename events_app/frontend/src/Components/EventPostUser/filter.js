@@ -11,7 +11,7 @@ import {
 } from "react-icons/io5";
 import { BsListTask } from "react-icons/bs";
 import DatePicker from "sassy-datepicker";
-import FilterData from "./data.json";
+// import FilterData from "./data.json";
 
 const locationData = [
 	{ name: "Cluj-Napoca, CJ" },
@@ -60,7 +60,7 @@ class Filter extends React.Component {
 			price: PriceData,
 			type: TypeData,
 			dateVal: "",
-			allData: FilterData,
+			allData: [],
 		});
 	}
 

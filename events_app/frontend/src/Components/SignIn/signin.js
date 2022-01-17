@@ -225,7 +225,7 @@ class SignIn extends React.Component {
             </div>
           </fieldset>
         </div>
-        <div className="alert" id="alertsignin">
+        <div className="alert" id="alertsignin" style={{"z-index": "1"}}>
           <span
             className="closebtnalertsignin"
             onClick={this.closeErrorMessageSignIn}
