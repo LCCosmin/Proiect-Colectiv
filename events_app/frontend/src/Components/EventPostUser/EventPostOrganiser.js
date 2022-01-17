@@ -18,10 +18,21 @@ class EventPostOrganiser extends React.Component {
     }
 
     componentDidMount(){
+        this.id = window.location.href.split('/').at(-1);
         axios
         .get("http://127.0.0.1:8000/api/geteventsaccepted")
         .then(response =>{
-            this.setState({events: response.data});
+
+            this.dict = {
+                eve:[]
+            };
+
+            response.data.forEach(element => {
+                if(element.id_organizer == this.id){
+                    this.dict.eve.push(element);
+                }
+            });
+            this.setState({events: this.dict.eve});
         }) 
         .catch(err => console.log(err));
     }
