@@ -54,9 +54,10 @@ class Login extends React.Component {
       axios
       .post("http://127.0.0.1:8000/api/login", this.state.item)
       .then((response) => {
+        console.log(response.data.role);
           switch (response.data.role) {
             case 1:
-              this.props.navigate("/");
+              this.props.navigate("/adminfeed/" + response.data.id);
               break;
             case 2:
               if(!response.data.user_info){

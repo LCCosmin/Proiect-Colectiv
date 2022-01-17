@@ -111,8 +111,6 @@ def addevent(request):
         date = datetime.strptime(end_date, '%Y-%m-%dT%H:%M')
         timestamp = int(datetime.timestamp(date))
         request.data['end_date'] = timestamp
-        extension = '.' + request.data['img_name']
-        request.data['img_name'] = str(uuid.uuid4()) + extension
         serializer = EventSerializer(data=request.data)
         data = request.data
         if serializer.is_valid():

@@ -17,18 +17,17 @@ class AddEvents extends React.Component {
       event: {
         name: "",
         price: "",
-        id_organizer: 19,
+        id_organizer: 0,
         start_date: "",
         end_date: "",
         location: "",
         description: "",
         id_type: 1,
         status: "pending",
-        img_name: null,
+        img_name: "",
       },
       eventTypes: [],
     }
-    
     this.aux = '';
 }
 
@@ -58,31 +57,26 @@ class AddEvents extends React.Component {
 
   updateType = event => {
     this.state.event.id_type = event.target.value;
-  }
-
-  fileSelectedHandler = event => {
-    this.state.event.img_name = event.target.files[0];
-  }
-
-  fileUploadHandler = (name) =>{
-    const fd = new FormData();
-    this.state.event.img_name = this.aux;
-    fd.append('image', this.state.event.img_name, name + "." +this.state.event.img_name.name.split(".")[1]);
-    axios
-      .post("http://127.0.0.1:8000/api/uploadimage", fd)
-      .then(response =>{
-      })
-      .catch(err => console.log(err));
+    if(event.target.value == 1) this.state.event.img_name = "party.jpg";
+    else if(event.target.value == 2) this.state.event.img_name = "concerts_festivals.jpg";
+    else if(event.target.value == 3) this.state.event.img_name = "conference_PublicSpeaking.jpg";
+    else if(event.target.value == 4) this.state.event.img_name = "fun_activities.jpg";
+    else if(event.target.value == 5) this.state.event.img_name = "job_fair.jpg";
+    else if(event.target.value == 6) this.state.event.img_name = "library.jpg";
+    else if(event.target.value == 7) this.state.event.img_name = "museum.jpg";
+    else if(event.target.value == 9) this.state.event.img_name = "show.jpg";
+    else if(event.target.value == 10) this.state.event.img_name = "sports.jpg";
+    else if(event.target.value == 11) this.state.event.img_name = "tech.jpg";
+    else if(event.target.value == 12) this.state.event.img_name = "workshop.jpg";
   }
 
   addEvent = () => {
     this.aux = this.state.event.img_name;
-    this.state.event.img_name = this.state.event.img_name.name.split(".")[1];
+    this.state.event.id_organizer = this.id;
     axios
       .post("http://127.0.0.1:8000/api/addevent", this.state.event)
       .then(response => {
         if(response.data.added){
-          this.fileUploadHandler(response.data.added);
           window.confirm("The events has been sent for approval");
         }
         else{
@@ -103,7 +97,6 @@ class AddEvents extends React.Component {
   }
 
   render(){
-    console.log(this.state);
     const {eventTypes} = this.state;
     return (
       <>
@@ -113,7 +106,6 @@ class AddEvents extends React.Component {
           </div>
           <div className="centered">
             <a href="" onClick={() => this.props.navigate("/organiserdata/" + this.id)}>Personal Data</a><br></br>
-            <a href="" onClick={() => this.props.navigate("/changepassword/" + this.id)}>Change Password</a><br></br>
             <a href="" onClick={() => this.props.navigate("/addevents/" + this.id)}>My List</a><br></br>
           </div>
         </div>
@@ -170,14 +162,6 @@ class AddEvents extends React.Component {
             id="date"
             placeholder="Date"
             onChange={this.updateEndDate}
-          />
-          <input
-            className="margins pad fww4 f5 inp-reset b1 bgr-transparent bc--purple hover-cwhite cwhite-input width-85"
-            type="file"
-            name="picture"
-            id="picture"
-            placeholder="Upload Picture"
-            onChange={this.fileSelectedHandler}
           />
           <br></br>
           <br></br>

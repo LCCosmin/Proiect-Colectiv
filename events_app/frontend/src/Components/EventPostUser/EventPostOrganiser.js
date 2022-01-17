@@ -51,10 +51,8 @@ class EventPostOrganiser extends React.Component {
         return(
             <main className="width-admin-main center-admin-auto white-admin">
                 <div className="topnav" id="myTopnav">
-                    <a onClick={() => this.props.navigate("/changepassword/" + this.state.info.id_user)}>
                     <img src="/images/logo.png" 
                     width="135px" height="100%" className="logo" alt="OmniEvents" />
-                    </a>
                     <a >
                         <div className="searchContainer">
                             <i className="fa fa-search searchIcon"></i>

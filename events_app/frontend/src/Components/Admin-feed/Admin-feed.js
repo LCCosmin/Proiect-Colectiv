@@ -61,10 +61,10 @@ class AdminFeed extends React.Component {
                 uiItems.push(
                     // copy paste la event-post admin component
                     <div className="containerEventPostAdmin">
-                        <img src="https://media.timeout.com/images/103455335/image.jpg" alt="EventPostPhotoAdmin" className="ImgFluidAdmin"></img>
-                        <div className="Event-TitleAdmin"> Event Name: {obj.name} </div>
+                        <img src={"/images/" + obj.img_name} alt="EventPostPhotoAdmin" className="ImgFluidAdmin"></img>
+                        <div className="Event-TitleAdmin">{obj.name} </div>
                         <div className="Text-BoxAdmin">
-                            Description = {obj.description}
+                            {obj.description}
                         </div>
                         <div className="EventPostButtonsAdmin" >
                             <button type="button" className="EventPostButtonAdmin EventPostBradAdmin" onClick={() => { this.manageButtons(obj, "accepted", "events") }}> Accept </button>
@@ -82,7 +82,7 @@ class AdminFeed extends React.Component {
                         <div className=" display-grid">
                             <div>
                                 { // here it should be added the photo path  
-                                    <img src="https://image.shutterstock.com/image-photo/kiev-ukraine-april-21-2015-260nw-1918637450.jpg"
+                                    <img src={"/images/no_profile_pic.png"}
                                         alt="event image from organizator"
                                         className=" db br-100 img-dim " />
                                 }

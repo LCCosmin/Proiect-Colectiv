@@ -106,14 +106,34 @@ class PersonalData extends React.Component{
         document.getElementById("user-img").src = "/images/" + response.data.img_name;
         this.exists = true;
        }else{
+        document.getElementById("user-img").src = "/images/no_profile_pic.png";
          this.exists = false;
        }
       })
       .catch(err => console.log(err));
   }
 
+  closeErrorMessage = () => {
+    var close = document.getElementsByClassName("closebtnalert");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = document.getElementById("alertpersonaldata");
+        div.style.opacity = "0";
+        setTimeout(function() {
+          div.style.display = "none";
+        }, 600);
+      };
+    }
+  };
+
+  showErrorMessage = () => {
+    var alert = document.getElementById("alertpersonaldata");
+    alert.style.display = "block";
+  };
+
   render(){
-    console.log(this.exists);
     return (
       <>
         <div className="split1 left1">
@@ -121,9 +141,8 @@ class PersonalData extends React.Component{
             <img id="user-img"/>
           </div>
           <div className="centered1">
-            <a href="" onClick={() =>{if(this.exists) this.props.navigate("/changepassword/" + this.id); else console.log(1);}}>Change Password</a><br></br>
             <a href="">My List</a><br></br>
-            <a href="" onClick={() => {if(this.exists) this.props.navigate("/eventpostuser/" + this.id); else console.log(1);}}>News feed</a>
+            <a href="" onClick={() => {if(this.exists) this.props.navigate("/eventpostuser/" + this.id); else this.showErrorMessage();}}>News feed</a>
           </div>
         </div>
         <div></div>
@@ -193,6 +212,12 @@ class PersonalData extends React.Component{
           <div className="mr-top">
             <input type="button" class="grow-update mybutton1 brad1 d-block1 ml-btn" value="Update Details" onClick={this.updateDetails}/>
           </div>
+          <div className="alert" id="alertpersonaldata">
+          <span className="closebtnalert" onClick={this.closeErrorMessage}>
+            &times;
+          </span>
+          <strong>Error!</strong>You must complete with your personal data first!
+        </div>
         </div>
       </>
     );

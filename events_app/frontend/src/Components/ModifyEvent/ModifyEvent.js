@@ -114,7 +114,6 @@ class ModifyEventData extends React.Component {
           </div>
           <div className="centered">
             <a href="">Personal Data</a><br></br>
-            <a href="">Change Password</a><br></br>
             <a href="">My List</a><br></br>
             <a href="">Add Event</a>
           </div>
